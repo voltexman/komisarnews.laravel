@@ -1,0 +1,101 @@
+.select-hidden {
+    display: none;
+    visibility: hidden;
+    padding-right: 10px;
+}
+
+.select {
+    cursor: pointer;
+    /* display: inline-block; */
+    position: relative;
+    font-size: 16px;
+    color: #fff;
+    width: 100%;
+    margin-bottom: 12px;
+    /* height: 40px; */
+}
+
+.select-styled {
+    /* position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; */
+    background-color: #fff;
+    color: #000;
+    padding: 15px 40px 15px 15px;
+    border-radius: var(--bs-border-radius-lg) !important;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    font-weight: 500;
+}
+
+.select-styled:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border: 7px solid transparent;
+    border-color: #fff transparent transparent transparent;
+    position: absolute;
+    top: 24px;
+    right: 20px;
+}
+
+.select-styled:hover {
+    background-color: #91765a;
+    color: #fff;
+}
+
+.select-styled:active,
+.select-styled.active {
+    color: #fff;
+    background-color: #685340;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+.select-styled:active:after,
+.select-styled.active:after {
+    top: 9px;
+    border-color: transparent transparent #fff transparent;
+}
+
+.select-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    z-index: 999;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: #685340;
+    border-bottom-left-radius: var(--bs-border-radius-lg) !important;
+    border-bottom-right-radius: var(--bs-border-radius-lg) !important;
+    box-shadow: 0 1rem 3rem #0000002d !important;
+}
+
+.select-options li {
+    margin: 0;
+    padding: 8px 0;
+    text-indent: 15px;
+    font-weight: 500;
+    border-top: 1px solid #685340;
+    -moz-transition: all 0.15s ease-in;
+    -o-transition: all 0.15s ease-in;
+    -webkit-transition: all 0.15s ease-in;
+    transition: all 0.15s ease-in;
+}
+
+.select-options li:hover,
+.select-options li.is-selected {
+    color: #fff;
+    background: #91765a;
+}
+
+.select-options li[rel="hide"] {
+    display: none;
+}
