@@ -183,6 +183,6 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
-    ])->toArray(),
-
+        'PostHelper' => App\Helpers\PostHelper::class,
+    ])->toArray()
 ];

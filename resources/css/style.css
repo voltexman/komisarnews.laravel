@@ -6,6 +6,8 @@
 * License: https://bootstrapmade.com/license/
 */
 
+/* TODO: вибрати лише загальні стилі, які використовуватимуться на всіх сторінках */
+
 .about-img-1,
 .about-img-2 {
     transform-style: preserve-3d;

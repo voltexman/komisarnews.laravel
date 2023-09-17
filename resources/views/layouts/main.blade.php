@@ -4,9 +4,12 @@
 @section('head')
 
     <head>
+        <meta charset="UTF-8">
         <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
         <link rel="preload" as="style" onload="this.rel='stylesheet'"
             href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, shrink-to-fit=no">
 
         <meta name="google-site-verification" content="P_5zyoITcuRC83ELC_TcPLOmRi_NKcdcH4Sct9jORGg" />
         <!-- Allow web app to be run in full-screen mode - iOS. -->
@@ -15,15 +18,23 @@
         <meta name="mobile-web-app-capable" content="yes">
         <!-- Make the app title different than the page title - iOS. -->
         <meta name="apple-mobile-web-app-title" content="Mobile web app title">
-        <!-- IE configuration for icons and colors is in browserconfig.xml -->
         <!-- Configure the status bar - iOS. -->
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <!-- Disable automatic phone number detection. -->
         <meta name="format-detection" content="telephone=no">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, shrink-to-fit=no">
+        <title>{{ $title }}</title>
 
-        <title></title>
+        <link rel="icon" type="image/png" href="favicon.png">
+
+        {{-- // TODO: Додати favicon для всіх можливих варіантів --}}
+
+        @isset($keywords)
+            <meta name="keywords" content="{{ $keywords }}">
+        @endisset ()
+
+        <meta name="description" content="{{ $description }}">
+        <meta name="robots" content="{{ isset($robots) ? 'index, follow' : 'noindex, nofollow' }}">
 
         @yield('styles')
     </head>
@@ -79,9 +90,14 @@
         </section>
     @else
         <div class="banner-header bg-fixed" data-overlay-dark="5">
+            <img src="{{ asset('img/bg-header.jpg') }}" alt="" title="">
             <div class="caption d-flex justify-content-center flex-column">
-                <h1>other page</h1>
-                <div class="sub-title">Page Sub Title</div>
+                <h1 class="{{ !isset($pageHeaderSubTitle) ? 'mb-0' : null }}">
+                    @yield('pageHeaderTitle')
+                </h1>
+                @if (isset($pageHeaderSubTitle) && $pageHeaderSubTitle)
+                    <div class="sub-title">@yield('pageHeaderSubTitle')</div>
+                @endif
             </div>
         </div>
     @endif
@@ -107,15 +123,16 @@
                 </div>
                 <div class="row">
                     <div class="col-12 col-lg-7 mb-40 position-relative" data-aos="fade-right" data-aos-delay="300">
-                        @include('layouts.sections.map')
+                        @include('layouts.partials.map')
                     </div>
 
                     <div class="col-12 col-lg-5" data-aos="fade-left" data-aos-delay="300">
-                        @include('layouts.sections.order')
+                        @include('layouts.partials.order')
                     </div>
                 </div>
             </div>
         </section>
+
     </main>
 
     <footer class="footer">
@@ -139,8 +156,8 @@
                     </div>
                     <div class="col-12 col-lg-4">
                         <div class="footer-about-social-list d-flex justify-content-center justify-content-lg-end">
-                            <a href="https://www.facebook.com/profile.php?id=100081276925197" aria-label="Ми в Facebook"
-                                target="_blank"><i class="bi bi-facebook fs-5"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=100081276925197"
+                                aria-label="Ми в Facebook" target="_blank"><i class="bi bi-facebook fs-5"></i></a>
                             <a href="https://instagram.com/sale_hair_kyiv?igshid=OGQ5ZDc2ODk2ZA=="
                                 aria-label="Ми в Instagram" target="_blank"><i class="bi bi-instagram fs-5"></i></a>
                         </div>

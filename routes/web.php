@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,9 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/articles', function () {
-    return view('articles');
-});
-Route::get('/contacts', function () {
-    return view('contacts');
-});
+
+Route::get('/articles', [PostController::class, 'list']);
+Route::get('/{slug}', [PostController::class, 'show']);
