@@ -6,6 +6,6 @@ class PostHelper
 {
     public static function even($num): bool
     {
-        return !($num & 1);
+        return ! ($num & 1);
     }
 }

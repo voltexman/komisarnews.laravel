@@ -10,33 +10,36 @@
             href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap">
 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, shrink-to-fit=no">
-
+        
         <meta name="google-site-verification" content="P_5zyoITcuRC83ELC_TcPLOmRi_NKcdcH4Sct9jORGg" />
+
+        {{-- // TODO: Додати favicon для всіх можливих варіантів --}}
+        <link rel="icon" type="image/png" href="favicon.png">
+
         <!-- Allow web app to be run in full-screen mode - iOS. -->
         <meta name="apple-mobile-web-app-capable" content="yes">
         <!-- Allow web app to be run in full-screen mode - Android. -->
         <meta name="mobile-web-app-capable" content="yes">
         <!-- Make the app title different than the page title - iOS. -->
-        <meta name="apple-mobile-web-app-title" content="Mobile web app title">
+        <meta name="apple-mobile-web-app-title" content="KomisarNews">
         <!-- Configure the status bar - iOS. -->
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-status-bar-style" content="brown">
         <!-- Disable automatic phone number detection. -->
         <meta name="format-detection" content="telephone=no">
 
         <title>{{ $title }}</title>
 
-        <link rel="icon" type="image/png" href="favicon.png">
-
-        {{-- // TODO: Додати favicon для всіх можливих варіантів --}}
-
         @isset($keywords)
             <meta name="keywords" content="{{ $keywords }}">
-        @endisset ()
+        @endisset
 
-        <meta name="description" content="{{ $description }}">
-        <meta name="robots" content="{{ isset($robots) ? 'index, follow' : 'noindex, nofollow' }}">
+        @isset($description)
+            <meta name="description" content="{{ $description }}">
+        @endisset
 
-        @yield('styles')
+        <meta name="robots" content="{{ $robots ? 'index, follow' : 'noindex, nofollow' }}">
+
+        {{-- @yield('styles') --}}
     </head>
 @show
 
@@ -56,14 +59,11 @@
             </h1>
 
             <nav id="navbar" class="navbar order-last order-lg-0 mob-nav-toggle">
-                <ul class="rounded-3">
-                    <li><a class="nav-link" href="/articles">Статті</a></li>
-                    <li><a class="nav-link" href="/contact">Контакти</a></li>
-                </ul>
+                {!! Menu::main() !!}
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
 
-            <a href="#sectionMapOrderTitle" class="get-started-btn scrollto">Обрати місто</a>
+            <a href="#scrollToMapAndOrder" class="get-started-btn scrollto">Обрати місто</a>
 
         </div>
     </header>
@@ -81,10 +81,10 @@
 
             </div>
 
-            <!-- arrow down -->
+            {{-- arrow down --}}
             <div class="arrow animate__animated animate__shakeY animate__infinite text-center"
                 style="animation-duration: 5s;">
-                <a href="#scrollToSection" class="scrollto" aria-label="Вверх"> <i class="bi bi-arrow-down"></i> </a>
+                <a href="#scrollToContent" class="scrollto" aria-label="Вверх"> <i class="bi bi-arrow-down"></i> </a>
             </div>
 
         </section>
@@ -92,11 +92,13 @@
         <div class="banner-header bg-fixed" data-overlay-dark="5">
             <img src="{{ asset('img/bg-header.jpg') }}" alt="" title="">
             <div class="caption d-flex justify-content-center flex-column">
-                <h1 class="{{ !isset($pageHeaderSubTitle) ? 'mb-0' : null }}">
-                    @yield('pageHeaderTitle')
+                <h1 class="{{ !isset($headerSubTitle) ? 'mb-0' : 'mb-3' }}">
+                    @yield('headerTitle')
                 </h1>
-                @if (isset($pageHeaderSubTitle) && $pageHeaderSubTitle)
-                    <div class="sub-title">@yield('pageHeaderSubTitle')</div>
+                @hasSection('headerSubTitle')
+                    <div class="sub-title">
+                        @yield('headerSubTitle')
+                    </div>
                 @endif
             </div>
         </div>
@@ -104,10 +106,9 @@
 
     <main id="main">
 
-        @section('content')
-        @show
+        @yield('content')
 
-        <section id="sectionMapOrderTitle" class="section-padding map-order pb-0">
+        <section id="scrollToMapAndOrder" class="section-padding map-order pb-0">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -250,7 +251,7 @@
         <i class="bi bi-arrow-up-short"></i>
     </a>
 
-    @yield('scripts')
+    {{-- @yield('scripts') --}}
 </body>
 
 </html>

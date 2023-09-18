@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.base')
 @vite(['resources/css/pages/articles.css', 'resources/js/pages/articles.js'])
 
 @section('pageHeaderTitle', 'Статті')
@@ -24,7 +24,10 @@
                                     <div class="more">
                                         <a href="" class="link-btn blck" tabindex="0">Детальніше</a>
                                     </div>
-                                    <div class="bi bi-calendar">date</div>
+                                    <div class="bi bi-calendar">
+                                        {{-- {{ \Carbon\Carbon::parse($article->created_at)->locale('uk')->format('F d, Y') }} --}}
+                                        {{-- {{ DateTime ($article->created_at) }} --}}
+                                    </div>
                                 </div>
                             </div>
                         </article>

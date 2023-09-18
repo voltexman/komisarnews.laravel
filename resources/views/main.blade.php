@@ -1,12 +1,13 @@
-@extends('layouts.main')
+@extends('layouts.base')
+@vite(['resources/css/pages/main.css', 'resources/js/pages/main.js'])
 
-@section('styles')
-    @vite(['resources/css/main.css'])
-@endsection
+{{-- @section('styles') --}}
+    {{-- @vite(['resources/css/main.css']) --}}
+{{-- @endsection --}}
 
 @section('content')
 
-    <section id="scrollToSection" class="about section-padding" data-scroll-index="1">
+    <section id="scrollToContent" class="about section-padding" data-scroll-index="1">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 mb-30">
@@ -512,8 +513,8 @@
         </div>
     </section>
 
-@section('scripts')
-    @vite(['resources/js/main.js'])
-@endsection
+{{-- @section('scripts') --}}
+    {{-- @vite(['resources/js/main.js']) --}}
+{{-- @endsection --}}
 
 @endsection
