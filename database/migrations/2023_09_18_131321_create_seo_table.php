@@ -14,11 +14,10 @@ return new class extends Migration
         Schema::create('seo', function (Blueprint $table) {
             $table->id();
             $table->smallInteger('page');
-            $table->string('title');
-            $table->string('keywords');
-            $table->text('descriptions');
+            $table->string('title')->nullable();
+            $table->string('keywords')->nullable();
+            $table->text('descriptions')->nullable();
             $table->boolean('robots');
-            $table->timestamps();
         });
     }
 

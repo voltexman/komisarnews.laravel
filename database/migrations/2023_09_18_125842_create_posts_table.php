@@ -17,10 +17,10 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug');
             $table->smallInteger('category');
-            $table->text('text');
-            $table->string('image');
-            $table->string('keywords');
-            $table->text('description');
+            $table->text('text')->nullable();
+            $table->string('image')->nullable();
+            $table->string('keywords')->nullable();
+            $table->text('description')->nullable();
             $table->smallInteger('status');
             $table->boolean('indexation');
             $table->timestamps();

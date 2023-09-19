@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "236385ae7e5f16cd98ad09f82992417d",
+    "content-hash": "b9fd833e021861641fb35727799f84cb",
     "packages": [
         {
             "name": "brick/math",
@@ -3169,80 +3169,6 @@
                 }
             ],
             "time": "2023-01-25T15:25:43+00:00"
-        },
-        {
-            "name": "spatie/laravel-navigation",
-            "version": "1.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-navigation.git",
-                "reference": "0e846d817e3bc88265863dd172729fb32e814bbf"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-navigation/zipball/0e846d817e3bc88265863dd172729fb32e814bbf",
-                "reference": "0e846d817e3bc88265863dd172729fb32e814bbf",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.0",
-                "spatie/url": "^1.3.5|^2.0"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^5.0|^6.23|^7.0|^8.0",
-                "pestphp/pest-plugin-laravel": "^1.3",
-                "phpunit/phpunit": "^9.5",
-                "spatie/pest-plugin-snapshots": "^1.1",
-                "spatie/phpunit-snapshot-assertions": "^4.2"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Spatie\\Navigation\\NavigationServiceProvider"
-                    ],
-                    "aliases": {
-                        "Navigation": "Spatie\\Navigation\\Facades\\Navigation"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\Navigation\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Sebastian De Deyne",
-                    "email": "sebastian@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Manage menus, breadcrumbs, and other navigational elements in Laravel apps",
-            "homepage": "https://github.com/spatie/laravel-navigation",
-            "keywords": [
-                "Laravel-Navigation",
-                "spatie"
-            ],
-            "support": {
-                "source": "https://github.com/spatie/laravel-navigation/tree/1.2.1"
-            },
-            "funding": [
-                {
-                    "url": "https://spatie.be/open-source/support-us",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/spatie",
-                    "type": "github"
-                }
-            ],
-            "time": "2023-02-10T15:07:41+00:00"
         },
         {
             "name": "spatie/macroable",

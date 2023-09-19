@@ -2110,10 +2110,10 @@ blockquote cite:before {
     padding: 0 0 120px 0;
 }
 
-.section-padding h6 {
+/* .section-padding h6 {
     color: #14100c;
     margin-bottom: 15px;
-}
+} */
 
 .section-head {
     position: relative;

@@ -1,6 +1,7 @@
 import '../app'
 
 import InfiniteScroll from 'infinite-scroll'
+import anime from 'animejs'
 
 const articlesList = document.querySelector('.articles-list')
 

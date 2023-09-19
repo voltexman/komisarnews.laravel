@@ -15,9 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::resource('articles', PostController::class)->names([
+    // 'index' => 'articles.list',
+    // 'show' => 'article.show'
+// ]);
+
 Route::get('/', [MainController::class, 'show'])->name('main.show');
 
 Route::get('/articles', [PostController::class, 'list'])->name('articles.list');
-Route::get('/{slug}', [PostController::class, 'show']);
+Route::get('/{slug}', [PostController::class, 'show'])->name('article.show');
 
 Route::get('/contacts', [ContactController::class, 'show'])->name('contacts.show');

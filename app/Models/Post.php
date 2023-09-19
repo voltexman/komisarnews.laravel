@@ -15,9 +15,7 @@ class Post extends Model
 
     const STATUS_DELETED = 3;
 
-    // TODO: перевести значення констант в числові (0, 1)
-    // А також переназначити нові значення всім постам в БД
-    const CATEGORY_CITIES = 'cities';
+    const CATEGORY_CITIES = 0;
 
-    const CATEGORY_ARTICLES = 'articles';
+    const CATEGORY_ARTICLES = 1;
 }

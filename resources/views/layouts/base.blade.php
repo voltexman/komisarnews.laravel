@@ -10,7 +10,7 @@
             href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap">
 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, shrink-to-fit=no">
-        
+
         <meta name="google-site-verification" content="P_5zyoITcuRC83ELC_TcPLOmRi_NKcdcH4Sct9jORGg" />
 
         {{-- // TODO: Додати favicon для всіх можливих варіантів --}}
@@ -105,8 +105,11 @@
     @endif
 
     <main id="main">
-
-        @yield('content')
+        <section class="section-padding">
+            <div class="container">
+                @yield('content')
+            </div>
+        </section>
 
         <section id="scrollToMapAndOrder" class="section-padding map-order pb-0">
             <div class="container">

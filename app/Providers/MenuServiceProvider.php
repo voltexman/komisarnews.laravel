@@ -3,8 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-// use Spatie\Menu\Laravel\Facades\Menu;
-use Spatie\Menu\Laravel\Menu;
+use Spatie\Menu\Laravel\Facades\Menu;
+
+// use Spatie\Menu\Laravel\Menu;
 
 class MenuServiceProvider extends ServiceProvider
 {

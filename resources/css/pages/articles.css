@@ -1,3 +1,13 @@
 @import '../app.css';
 
 /* TODO: розмістити стилі лише для сторінки articles */
+
+@keyframes sad {
+    0% {
+        stroke-dashoffset: 0
+    }
+
+    to {
+        stroke-dashoffset: 200
+    }
+}
