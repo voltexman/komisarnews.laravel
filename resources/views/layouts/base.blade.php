@@ -105,11 +105,7 @@
     @endif
 
     <main id="main">
-        <section class="section-padding">
-            <div class="container">
-                @yield('content')
-            </div>
-        </section>
+        @yield('content')
 
         <section id="scrollToMapAndOrder" class="section-padding map-order pb-0">
             <div class="container">

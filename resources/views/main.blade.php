@@ -1,4 +1,5 @@
 @extends('layouts.base')
+
 @vite(['resources/css/pages/main.css', 'resources/js/pages/main.js'])
 
 {{-- @section('styles') --}}

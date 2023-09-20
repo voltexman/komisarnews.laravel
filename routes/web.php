@@ -1,8 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PostController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route::resource('articles', PostController::class)->names([
-    // 'index' => 'articles.list',
-    // 'show' => 'article.show'
+// 'index' => 'articles.list',
+// 'show' => 'article.show'
 // ]);
 
 Route::get('/', [MainController::class, 'show'])->name('main.show');

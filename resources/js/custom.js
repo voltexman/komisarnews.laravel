@@ -239,15 +239,15 @@
     });
   }
 
-  window.addEventListener('load', function () {
-    var header = document.getElementById('hero');
-    if (header) {
-      var windowHeight = window.innerHeight;
-      var headerHeight = header.offsetHeight;
-      var addressBarHeight = windowHeight - document.documentElement.clientHeight;
+  // window.addEventListener('load', function () {
+  //   var header = document.getElementById('hero');
+  //   if (header) {
+  //     var windowHeight = window.innerHeight;
+  //     var headerHeight = header.offsetHeight;
+  //     var addressBarHeight = windowHeight - document.documentElement.clientHeight;
 
-      header.style.height = (windowHeight - addressBarHeight) + 'px';
-    }
-  });
+  //     header.style.height = (windowHeight - addressBarHeight) + 'px';
+  //   }
+  // });
 
 })()

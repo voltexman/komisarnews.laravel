@@ -460,11 +460,12 @@ input[type="checkbox"]:focus {
     /* height: 100vh; */
     height: calc(100vh - env(safe-area-inset-top));
     /* height: calc(var(--vh, 1vh) * 100); */
-    background-image: url("/img/bg-header.jpg") top center;
-    background-image: -webkit-image-set(url('img/bg-header.webp') 1x);
+    background-image: url("./../../public/img/bg-header.jpg") top center;
+    background-image: -webkit-image-set(url("/public/img/bg-header.webp") 1x);
     background-position: center;
     background-size: cover;
     position: relative;
+    overflow: hidden;
 }
 
 #hero:before {
