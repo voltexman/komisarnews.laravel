@@ -1,8 +1,6 @@
 import '../app'
 import axios from 'axios';
 
-// TODO: створити запит для відправки форми зворотнього зв'язку
-
 // Отримайте посилання на форму
 const form = document.querySelector('.form1');
 
