@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\ContactController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +23,8 @@ use App\Http\Controllers\ContactController;
 
 Route::get('/', [MainController::class, 'show'])->name('main.show');
 
+Route::get('/contacts', [ContactController::class, 'show'])->name('contacts.show');
+Route::post('/contacts/store', [ContactController::class, 'store'])->name('contacts.store');
+
 Route::get('/articles', [PostController::class, 'list'])->name('articles.list');
 Route::get('/{slug}', [PostController::class, 'show'])->name('article.show');
-
-Route::get('/contacts', [ContactController::class, 'show'])->name('contacts.show');

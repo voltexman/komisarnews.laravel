@@ -1,4 +1,5 @@
 @extends('layouts.base')
+
 @vite(['resources/css/pages/articles.css', 'resources/js/pages/articles.js'])
 
 @section('headerTitle', 'Статті')
