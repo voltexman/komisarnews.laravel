@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendFeedback;
 use App\Models\SEO;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
 class ContactController extends Controller
@@ -47,13 +49,9 @@ class ContactController extends Controller
             ->getReference($this->tablename)
             ->push($postData);
 
-        return $postReference;
-    }
+        $sentMail = Mail::to(env('ADMIN_EMAIL'))
+            ->send(new SendFeedback($postData));
 
-    public function message()
-    {
-        return [
-            'name.required' => 'A title is required',
-        ];
+        return $postReference && $sentMail;
     }
 }

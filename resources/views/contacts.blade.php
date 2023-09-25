@@ -60,7 +60,7 @@
                                         stroke-width=".5" />
                                     <circle cx="9.735" cy="10.277" r="1" fill="#91765a" />
                                     <circle cx="15.735" cy="10.277" r="1" fill="#91765a" />
-                                    <path stroke="#FFF" stroke-linecap="round"
+                                    <path stroke="#91765a" stroke-linecap="round"
                                         d="M15.735 14.147l-.049.04a4.631 4.631 0 01-5.951-.04"
                                         style="animation:happy 3s infinite linear" stroke-dasharray="100" />
                                 </svg>
@@ -95,23 +95,20 @@
                                             <div class="input2_inner">
                                                 <input id="name" type="text" name="name"
                                                     class="form-control input" placeholder="Ваше ім'я">
-                                                @error('name')
-                                                    <div class="alert alert-danger">{{ $message }}</div>
-                                                @enderror
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="input1_wrapper">
-                                            <label>Телефон або e-Mail</label>
+                                            <label for="contact">Телефон або e-Mail</label>
                                             <div class="input2_inner">
-                                                <input type="text" name="contact" class="form-control input"
-                                                    placeholder="Телефон або e-Mail" required>
+                                                <input id="contact" type="text" name="contact"
+                                                    class="form-control input" placeholder="Телефон або e-Mail" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-12 form-group">
-                                        <textarea name="text" id="message" cols="30" rows="4" placeholder="Повідомлення" required></textarea>
+                                        <textarea name="text" cols="30" rows="4" placeholder="Повідомлення" required></textarea>
                                     </div>
                                     <div class="col-md-12 mb-30">
                                         <button type="submit" class="btn-form2-submit">Відправити листа <i
