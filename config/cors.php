@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'paths' => ['*'],
+    'paths' => ['https://komisar-f7bf6.web.app', 'http://localhost:5173'],
 
     // 'paths' => ['api/*', 'sanctum/csrf-cookie'],
 
