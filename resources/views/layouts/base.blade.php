@@ -29,6 +29,8 @@
 
         <title>{{ $title }}</title>
 
+        @yield('styles')
+
         @isset($keywords)
             <meta name="keywords" content="{{ $keywords }}">
         @endisset
@@ -250,7 +252,7 @@
         <i class="bi bi-arrow-up-short"></i>
     </a>
 
-    {{-- @yield('scripts') --}}
+    @yield('scripts')
 </body>
 
 </html>

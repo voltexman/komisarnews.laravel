@@ -1,13 +1,14 @@
 @extends('layouts.base')
 
-@vite(['resources/css/pages/main.css', 'resources/js/pages/main.js'])
+@section('styles')
+    @vite(['resources/css/pages/main.css'])
+@endsection
 
-{{-- @section('styles') --}}
-    {{-- @vite(['resources/css/main.css']) --}}
-{{-- @endsection --}}
+@section('scripts')
+    @vite(['resources/js/pages/main.js'])
+@endsection
 
 @section('content')
-
     <section id="scrollToContent" class="about section-padding" data-scroll-index="1">
         <div class="container">
             <div class="row">
@@ -34,14 +35,22 @@
                 </div>
                 <div class="col col-lg-3" data-aos="fade-down" data-aos-delay="250">
                     <div class="img-card-1">
-                        <img src="{{ asset('img/about2.jpg') }}" width="280" height="360"
-                            class="border border-1 rounded-4 shadow-lg about-img-1" alt="">
+                        <picture>
+                            <source srcset="{{ asset('img/about2.avif') }}" type="image/avif">
+                            <source srcset="{{ asset('img/about2.webp') }}" type="image/webp">
+                            <img src="{{ asset('img/about2.jpg') }}" width="280" height="360"
+                                class="border border-1 rounded-4 shadow-lg about-img-1" alt="">
+                        </picture>
                     </div>
                 </div>
                 <div class="col col-lg-3" data-aos="fade-up" data-aos-delay="250">
                     <div class="img-card-2">
-                        <img src="{{ asset('img/about.jpg') }}" width="280" height="360"
-                            class="border border-1 rounded-4 shadow-lg about-img-2" alt="">
+                        <picture>
+                            <source srcset="{{ asset('img/about.avif') }}" type="image/avif">
+                            <source srcset="{{ asset('img/about.webp') }}" type="image/webp">
+                            <img src="{{ asset('img/about.jpg') }}" width="280" height="360"
+                                class="border border-1 rounded-4 shadow-lg about-img-2" alt="">
+                        </picture>
                     </div>
                 </div>
             </div>
@@ -147,8 +156,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-5 mb-90 animate-box d-none d-lg-block" data-aos="fade-right" data-aos-delay="300">
-                    <img src="{{ asset('img/postman.jpg') }}" width="400" height="420"
-                        class="border border-1 rounded-4 shadow" alt="">
+                    <picture>
+                        <source srcset="{{ asset('img/postman.avif') }}" type="image/avif">
+                        <source srcset="{{ asset('img/postman.webp') }}" type="image/webp">
+                        <img src="{{ asset('img/postman.jpg') }}" width="400" height="420"
+                            class="border border-1 rounded-4 shadow-lg" alt="Відправка Новою поштою">
+                    </picture>
                 </div>
                 <div class="col-12 col-lg-7 valign mb-30 animate-box" data-animate-effect="fadeInRight">
                     <div class="row">
@@ -514,8 +527,7 @@
         </div>
     </section>
 
-{{-- @section('scripts') --}}
+    {{-- @section('scripts') --}}
     {{-- @vite(['resources/js/main.js']) --}}
-{{-- @endsection --}}
-
+    {{-- @endsection --}}
 @endsection
