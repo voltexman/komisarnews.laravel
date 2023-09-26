@@ -245,8 +245,6 @@
         }
     </style>
 
-
-
 </head>
 
 <body class="clean-body u_body"

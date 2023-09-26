@@ -1,6 +1,12 @@
 @extends('layouts.base')
 
-@vite(['resources/css/pages/articles.css', 'resources/js/pages/articles.js'])
+@section('styles')
+    @vite(['resources/css/pages/articles.css'])
+@endsection
+
+@section('scripts')
+    @vite(['resources/js/pages/articles.js'])
+@endsection
 
 @section('headerTitle', 'Статті')
 @section('headerSubTitle', 'Інформативно та пізнавально')

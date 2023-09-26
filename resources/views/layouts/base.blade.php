@@ -27,19 +27,19 @@
         <!-- Disable automatic phone number detection. -->
         <meta name="format-detection" content="telephone=no">
 
-        <title>{{ $title }}</title>
+        <title>{{ $seo['title'] }}</title>
 
         @yield('styles')
 
-        @isset($keywords)
-            <meta name="keywords" content="{{ $keywords }}">
+        @isset($seo['keywords'])
+            <meta name="keywords" content="{{ $seo['keywords'] }}">
         @endisset
 
-        @isset($description)
-            <meta name="description" content="{{ $description }}">
+        @isset($seo['description'])
+            <meta name="description" content="{{ $seo['description'] }}">
         @endisset
 
-        <meta name="robots" content="{{ $robots ? 'index, follow' : 'noindex, nofollow' }}">
+        <meta name="robots" content="{{ $seo['robots'] ? 'index, follow' : 'noindex, nofollow' }}">
 
         {{-- @yield('styles') --}}
     </head>
