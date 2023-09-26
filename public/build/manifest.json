@@ -1,0 +1,54 @@
+{
+  "_custom-d375d5a9.js": {
+    "css": [
+      "assets/custom-f75841c8.css"
+    ],
+    "file": "assets/custom-d375d5a9.js"
+  },
+  "custom.css": {
+    "file": "assets/custom-f75841c8.css",
+    "src": "custom.css"
+  },
+  "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff": {
+    "file": "assets/bootstrap-icons-4d4572ef.woff",
+    "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff"
+  },
+  "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2": {
+    "file": "assets/bootstrap-icons-bacd70af.woff2",
+    "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
+  },
+  "public/img/bg-header.jpg": {
+    "file": "assets/bg-header-b56deb7d.jpg",
+    "src": "public/img/bg-header.jpg"
+  },
+  "public/img/bg-header.webp": {
+    "file": "assets/bg-header-c15a73e0.webp",
+    "src": "public/img/bg-header.webp"
+  },
+  "resources/css/pages/articles.css": {
+    "file": "assets/articles-9a37ad3f.css",
+    "isEntry": true,
+    "src": "resources/css/pages/articles.css"
+  },
+  "resources/css/pages/main.css": {
+    "file": "assets/main-a9304875.css",
+    "isEntry": true,
+    "src": "resources/css/pages/main.css"
+  },
+  "resources/js/pages/articles.js": {
+    "file": "assets/articles-ada75fbe.js",
+    "imports": [
+      "_custom-d375d5a9.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/pages/articles.js"
+  },
+  "resources/js/pages/main.js": {
+    "file": "assets/main-a0986677.js",
+    "imports": [
+      "_custom-d375d5a9.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/pages/main.js"
+  }
+}
