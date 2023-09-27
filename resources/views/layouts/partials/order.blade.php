@@ -13,7 +13,7 @@
                                 <div class="step__content">
                                     <p class="step__number"><i class="bi bi-ui-checks"></i></p>
                                     <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                                        <circle class="checkmark__circle" cx="26" cy="26"
+                                        <circle cx="26" cy="26"
                                             r="25" fill="none" />
                                         <path class="" fill="none"
                                             d="M14.1 27.2l7.1 7.2 16.7-16.8" />
@@ -35,7 +35,7 @@
                                     <p class="step__number"><i class="bi bi-camera-fill"></i>
                                     </p>
                                     <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                                        <circle class="" cx="26" cy="26"
+                                        <circle cx="26" cy="26"
                                             r="25" fill="none" />
                                         <path class="checkmark__check" fill="none"
                                             d="M14.1 27.2l7.1 7.2 16.7-16.8" />
@@ -53,7 +53,7 @@
                                 <div class="step__content">
                                     <p class="step__number"><i class="bi bi-chat-square-text-fill"></i></p>
                                     <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                                        <circle class="" cx="26" cy="26"
+                                        <circle cx="26" cy="26"
                                             r="25" fill="none" />
                                         <path class="checkmark__check" fill="none"
                                             d="M14.1 27.2l7.1 7.2 16.7-16.8" />
@@ -74,7 +74,7 @@
                                     <p class="step__number"><i class="bi bi-file-text-fill"></i>
                                     </p>
                                     <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                                        <circle class="" cx="26" cy="26"
+                                        <circle cx="26" cy="26"
                                             r="25" fill="none" />
                                         <path class="checkmark__check" fill="none"
                                             d="M14.1 27.2l7.1 7.2 16.7-16.8" />
