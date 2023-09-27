@@ -1,4 +1,3 @@
-import '../css/wizard.css'
 
 class Steps {
     constructor(wizard) {

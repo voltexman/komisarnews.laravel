@@ -1,4 +1,3 @@
-import '../css/selectors.css';
 
 var selectElements = document.querySelectorAll('select');
 
