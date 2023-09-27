@@ -23,6 +23,15 @@ anime({
 })
 
 anime({
+    targets: '.arrow',
+    translateY: 20,
+    easing: 'easeInOutQuad',
+    direction: 'alternate',
+    loop: true,
+    duration: 500
+})
+
+anime({
     targets: '.img-card-1',
     translateY: -20,
     easing: 'easeInOutQuad',

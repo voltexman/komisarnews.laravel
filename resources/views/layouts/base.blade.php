@@ -61,13 +61,11 @@
             </h1>
 
             <nav id="navbar" class="navbar order-last order-lg-0 mob-nav-toggle">
-                <div class="container">
-                    {!! Menu::main() !!}
-                    <i class="bi bi-list mobile-nav-toggle"></i>
-                </div>
+                {!! Menu::main() !!}
+                <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
 
-            <a href="#scrollToMapAndOrder" class="get-started-btn scrollto">Обратиs місто</a>
+            <a href="#scrollToMapAndOrder" class="get-started-btn scrollto">Обрати місто</a>
 
         </div>
     </header>
@@ -86,7 +84,7 @@
             </div>
 
             {{-- arrow down --}}
-            <div class="arrow animate__animated animate__shakeY animate__infinite text-center"
+            <div class="arrow text-center"
                 style="animation-duration: 5s;">
                 <a href="#scrollToContent" class="scrollto" aria-label="Вверх"> <i class="bi bi-arrow-down"></i> </a>
             </div>
