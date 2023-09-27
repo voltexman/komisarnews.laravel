@@ -215,9 +215,9 @@ input[type="checkbox"]:focus {
 
 @media (max-width: 992px) {
     .get-started-btn {
-        padding: 8px;
+        /* padding: 18px; */
         font-weight: 600;
-        margin-right: 15px;
+        /* margin-right: 150px; */
     }
 }
 
@@ -1874,6 +1874,39 @@ blockquote cite:before {
 
 
 /* permalink */
+
+.barber-services .item .con .permalink {
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    color: #fff;
+    height: 0;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    display: inline;
+}
+
+.barber-services .item .con .permalink a {
+    color: #91765a;
+    text-align: center;
+}
+
+.barber-services .item .con .permalink i {
+    font-size: 10px;
+    text-align: center;
+}
+
+.barber-services .item .con .permalink a:hover,
+.barber-services .item .con .permalink i:hover {
+    color: #fff;
+}
+
 
 /* ======= Barber Services 2 style  ======= */
 

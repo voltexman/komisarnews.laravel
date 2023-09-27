@@ -62,7 +62,7 @@
 
             <nav id="navbar" class="navbar order-last order-lg-0 mob-nav-toggle">
                 {!! Menu::main() !!}
-                <i class="bi bi-list mobile-nav-toggle"></i>
+                <i class="bi bi-list mobile-nav-toggle ms-3"></i>
             </nav>
 
             <a href="#scrollToMapAndOrder" class="get-started-btn scrollto">Обрати місто</a>
