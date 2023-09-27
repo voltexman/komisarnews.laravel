@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    <section id="scrollToContent" class="about section-padding" data-scroll-index="1">
+    <section id="scrollToContent" class="my-5 bginfo" data-scroll-index="1">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 mb-30">
@@ -57,7 +57,7 @@
         </div>
     </section>
 
-    <section class="services-box section-padding pt-0">
+    <section class="services-box bg- mb-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -98,7 +98,7 @@
                     <div class="item" data-aos="zoom-in" data-aos-delay="100">
                         <img src="{{ asset('img/icons/individual.png') }}" alt="">
                         <div class="cont">
-                            <span class="title">Індивідуальність</span>
+                            <span class="fw-bold text-uppercase">Індивідуальність</span>
                             <p>Окремий та індивідуальний підхід для кожного нашого покупця</p>
                         </div>
                     </div>
@@ -152,7 +152,7 @@
         </div>
     </section>
 
-    <section class="about section-padding bg-darkbrown pb-0 shadow-lg">
+    <section class="about bg-darkbrown py-5 mb-5 shadow-lg">
         <div class="container">
             <div class="row">
                 <div class="col-md-5 mb-90 animate-box d-none d-lg-block" data-aos="fade-right" data-aos-delay="300">
@@ -222,7 +222,7 @@
         </div>
     </section>
 
-    <section class="services-1 section-padding">
+    <section class="services-1 mb-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -319,21 +319,21 @@
                 <div class="col-md-4 d-none d-lg-block">
                     <div class="item rounded-3 shadow-sm" data-aos="zoom-in" data-aos-delay="100">
                         <img src="{{ asset('img/icons/hair-washing.png') }}" alt="">
-                        <h2>Миття волосся</h2>
+                        <h2 class="fs-5 fw-bold text-uppercase">Миття волосся</h2>
                         <p>Попередньо необхідно вимити волосся шампунем, яким Ви зазвичай користуєтесь</p>
                     </div>
                 </div>
                 <div class="col-md-4 d-none d-lg-block">
                     <div class="item rounded-3 shadow-sm" data-aos="zoom-in" data-aos-delay="200">
                         <img src="{{ asset('img/icons/dry.png') }}" alt="">
-                        <h2>Сушка волосся</h2>
+                        <h2 class="fs-5 fw-bold text-uppercase">Сушка волосся</h2>
                         <p>Добре просушити без використання фена, дайте локонам висохнути природним шляхом</p>
                     </div>
                 </div>
                 <div class="col-md-4 d-none d-lg-block">
                     <div class="item rounded-3 shadow-sm" data-aos="zoom-in" data-aos-delay="300">
                         <img src="{{ asset('img/icons/hairdresser.png') }}" alt="">
-                        <h2>Розчісування</h2>
+                        <h2 class="fs-5 fw-bold text-uppercase">Розчісування</h2>
                         <p>Добре розчешіть пасма, щоб позбутися від ковтунів (якщо такі є), а також
                             запобігти
                             подальшому заплутування</p>
@@ -342,7 +342,7 @@
                 <div class="col-md-4 d-none d-lg-block">
                     <div class="item rounded-3 shadow-sm" data-aos="zoom-in" data-aos-delay="400">
                         <img src="{{ asset('img/icons/hair-bunch.png') }}" alt="">
-                        <h2>Поділ волосся</h2>
+                        <h2 class="fs-5 fw-bold text-uppercase">Поділ волосся</h2>
                         <p>Розділіть волосся на кілька пасом, в залежності від густоти, туго перетягніть
                             кожну
                             гумкою, обмотавши її кілька разів</p>
@@ -351,7 +351,7 @@
                 <div class="col-md-4 d-none d-lg-block">
                     <div class="item rounded-3 shadow-sm" data-aos="zoom-in" data-aos-delay="500">
                         <img src="{{ asset('img/icons/hair-cutting.png') }}" alt="">
-                        <h2>Зріз волосся</h2>
+                        <h2 class="fs-5 fw-bold text-uppercase">Зріз волосся</h2>
                         <p>Далі робимо зріз, відступивши кілька сантиметрів трохи вище кріплення та
                             заплітаємо
                             зрізане волосся в косу</p>
@@ -360,7 +360,7 @@
                 <div class="col-md-4 d-none d-lg-block">
                     <div class="item rounded-3 shadow-sm" data-aos="zoom-in" data-aos-delay="600">
                         <img src="{{ asset('img/icons/hair-evaluate.png') }}" alt="">
-                        <h2>Оцінка волосся</h2>
+                        <h2 class="fs-5 fw-bold text-uppercase">Оцінка волосся</h2>
                         <p>Для оцінювання волосся нам необхідно побачити фотографію зрізу біля сантиметра і
                             взнати
                             точну його вагу</p>
@@ -380,7 +380,7 @@
         </div>
     </section>
 
-    <section class="services-1 section-padding pt-0">
+    <section class="services-1 mb-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -425,7 +425,7 @@
         </div>
     </section>
 
-    <section class="barber-pricing pt-0">
+    <section class="barber-pricing mb-5">
         <div class="container">
             <div class="row">
                 <div class="row">

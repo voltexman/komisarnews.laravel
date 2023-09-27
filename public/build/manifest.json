@@ -10,11 +10,11 @@
     "src": "custom.css"
   },
   "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff": {
-    "file": "assets/bootstrap-icons-4d4572ef.woff",
+    "file": "assets/bootstrap-icons-40f14c01.woff",
     "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff"
   },
   "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2": {
-    "file": "assets/bootstrap-icons-bacd70af.woff2",
+    "file": "assets/bootstrap-icons-ae167342.woff2",
     "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
   },
   "public/img/bg-header.jpg": {
@@ -26,12 +26,12 @@
     "src": "public/img/bg-header.webp"
   },
   "resources/css/pages/articles.css": {
-    "file": "assets/articles-9a37ad3f.css",
+    "file": "assets/articles-20568f23.css",
     "isEntry": true,
     "src": "resources/css/pages/articles.css"
   },
   "resources/css/pages/main.css": {
-    "file": "assets/main-a9304875.css",
+    "file": "assets/main-f943d6e3.css",
     "isEntry": true,
     "src": "resources/css/pages/main.css"
   },
