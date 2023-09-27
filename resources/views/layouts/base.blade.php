@@ -53,7 +53,7 @@
         </svg>
     </div>
 
-    <header id="header" class="fixed-top ">
+    <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center justify-content-lg-between">
 
             <h1 class="logo me-auto me-lg-0">
@@ -84,9 +84,10 @@
             </div>
 
             {{-- arrow down --}}
-            <div class="arrow text-center"
-                style="animation-duration: 5s;">
-                <a href="#scrollToContent" class="scrollto" aria-label="Вверх"> <i class="bi bi-arrow-down"></i> </a>
+            <div class="arrow text-center">
+                <a href="#scrollToContent" class="scrollto" aria-label="Вниз">
+                    <i class="bi bi-arrow-down"></i>
+                </a>
             </div>
 
         </section>

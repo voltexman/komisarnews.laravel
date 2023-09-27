@@ -1,6 +1,6 @@
 {
-  "_custom-13d924ce.js": {
-    "file": "assets/custom-13d924ce.js"
+  "_custom-36964074.js": {
+    "file": "assets/custom-36964074.js"
   },
   "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff": {
     "file": "assets/bootstrap-icons-40f14c01.woff",
@@ -10,36 +10,32 @@
     "file": "assets/bootstrap-icons-ae167342.woff2",
     "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
   },
-  "public/img/bg-header.jpg": {
-    "file": "assets/bg-header-b56deb7d.jpg",
-    "src": "public/img/bg-header.jpg"
-  },
   "public/img/bg-header.webp": {
     "file": "assets/bg-header-c15a73e0.webp",
     "src": "public/img/bg-header.webp"
   },
   "resources/css/pages/articles.css": {
-    "file": "assets/articles-5b3c7483.css",
+    "file": "assets/articles-4987e12a.css",
     "isEntry": true,
     "src": "resources/css/pages/articles.css"
   },
   "resources/css/pages/main.css": {
-    "file": "assets/main-51c95e22.css",
+    "file": "assets/main-74a53275.css",
     "isEntry": true,
     "src": "resources/css/pages/main.css"
   },
   "resources/js/pages/articles.js": {
-    "file": "assets/articles-03b1da55.js",
+    "file": "assets/articles-e5f513f8.js",
     "imports": [
-      "_custom-13d924ce.js"
+      "_custom-36964074.js"
     ],
     "isEntry": true,
     "src": "resources/js/pages/articles.js"
   },
   "resources/js/pages/main.js": {
-    "file": "assets/main-c62ad76c.js",
+    "file": "assets/main-bfb5f40f.js",
     "imports": [
-      "_custom-13d924ce.js"
+      "_custom-36964074.js"
     ],
     "isEntry": true,
     "src": "resources/js/pages/main.js"
