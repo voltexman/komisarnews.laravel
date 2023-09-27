@@ -26,12 +26,12 @@
     "src": "public/img/bg-header.webp"
   },
   "resources/css/pages/articles.css": {
-    "file": "assets/articles-20568f23.css",
+    "file": "assets/articles-384c17d8.css",
     "isEntry": true,
     "src": "resources/css/pages/articles.css"
   },
   "resources/css/pages/main.css": {
-    "file": "assets/main-f943d6e3.css",
+    "file": "assets/main-c2acbeb4.css",
     "isEntry": true,
     "src": "resources/css/pages/main.css"
   },
