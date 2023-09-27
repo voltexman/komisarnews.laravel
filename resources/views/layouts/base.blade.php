@@ -67,7 +67,7 @@
                 </div>
             </nav>
 
-            <a href="#scrollToMapAndOrder" class="get-started-btn scrollto">Обрати місто</a>
+            <a href="#scrollToMapAndOrder" class="get-started-btn scrollto">Обратиs місто</a>
 
         </div>
     </header>
