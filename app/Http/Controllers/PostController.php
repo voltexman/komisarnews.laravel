@@ -10,12 +10,8 @@ class PostController extends Controller
 {
     public function list(): View
     {
-        $seo = SEO::where('page', SEO::ARTICLES_PAGE)->first();
-
         return view('article.list', [
-            'title' => $seo->title,
-            'description' => $seo->description,
-            'robots' => $seo->robots,
+            'seo' => SEO::where('page', SEO::ARTICLES_PAGE)->first(),
             'articles' => Post::where(
                 [
                     'status' => Post::STATUS_ACTIVE,

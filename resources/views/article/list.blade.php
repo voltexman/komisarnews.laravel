@@ -12,13 +12,14 @@
 @section('headerSubTitle', 'Інформативно та пізнавально')
 
 @section('content')
-    <div class="section-padding">
+    <section>
         <div class="container">
             @if (count($articles) >= 1)
                 <div class="row">
                     <div class="col-12 articles-list">
                         @foreach ($articles as $article)
-                            <article class="barber-services-2 mb-90 {{ \PostHelper::even($loop->index) ? 'left' : null }}"
+                            {{-- // TODO: перейменувати клас barber-services-2 в article-item --}}
+                            <article class="barber-services-2 {{ \PostHelper::even($loop->index) ? 'left' : null }}"
                                 data-aos="fade-{{ \PostHelper::even($loop->index) ? 'right' : 'left' }}" data-aos-delay="300">
                                 <figure>
                                     <img src="{{ asset('img/bg-header.jpg') }}" width="744" height="466"
@@ -76,5 +77,5 @@
                 </div>
             @endisset
     </div>
-</div>
+</section>
 @endsection

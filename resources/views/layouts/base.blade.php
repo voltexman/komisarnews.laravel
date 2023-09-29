@@ -29,8 +29,6 @@
 
         <title>{{ $seo['title'] }}</title>
 
-        
-
         @yield('styles')
 
         @isset($seo['keywords'])
