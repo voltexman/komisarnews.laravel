@@ -29,6 +29,8 @@
 
         <title>{{ $seo['title'] }}</title>
 
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+
         @yield('styles')
 
         @isset($seo['keywords'])
@@ -41,7 +43,6 @@
 
         <meta name="robots" content="{{ $seo['robots'] ? 'index, follow' : 'noindex, nofollow' }}">
 
-        {{-- @yield('styles') --}}
     </head>
 @show
 
