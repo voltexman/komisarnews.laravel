@@ -402,6 +402,7 @@ blockquote cite:before {
     padding: 15px 0;
 }
 
+/*! purgecss ignore */
 #header.header-scrolled,
 #header.header-inner-pages {
     background: rgba(0, 0, 0, 0.8);

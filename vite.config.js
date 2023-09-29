@@ -17,7 +17,6 @@ export default defineConfig({
         }),
         purge({
             templates: ['blade'],
-            safelist: ['active-progress', '#header.header-scrolled'],
         })
     ],
 });

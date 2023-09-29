@@ -18,17 +18,17 @@
     "src": "public/img/bg-header.webp"
   },
   "resources/css/pages/articles.css": {
-    "file": "assets/articles-3c9bc6a9.css",
+    "file": "assets/articles-1c8eceb2.css",
     "isEntry": true,
     "src": "resources/css/pages/articles.css"
   },
   "resources/css/pages/contacts.css": {
-    "file": "assets/contacts-5b4110c4.css",
+    "file": "assets/contacts-08ac4b7d.css",
     "isEntry": true,
     "src": "resources/css/pages/contacts.css"
   },
   "resources/css/pages/main.css": {
-    "file": "assets/main-ad30f767.css",
+    "file": "assets/main-51e758fb.css",
     "isEntry": true,
     "src": "resources/css/pages/main.css"
   },

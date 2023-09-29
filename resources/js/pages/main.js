@@ -1,7 +1,5 @@
 import '../app'
 
-
-import AOS from 'aos';
 import anime from 'animejs/lib/anime.es.js';
 
 anime({
