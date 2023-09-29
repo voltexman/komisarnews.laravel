@@ -598,6 +598,7 @@ blockquote cite:before {
     }
 }
 
+/* purgecss start ignore */
 .navbar-mobile {
     position: fixed;
     overflow: hidden;
@@ -620,9 +621,7 @@ blockquote cite:before {
     display: flex;
     flex-direction: column;
     position: absolute;
-    /* top: 55px; */
     right: 15px;
-    /* bottom: 15px; */
     left: 15px;
     padding: 10px 0;
     background-color: #fff;
@@ -683,6 +682,8 @@ blockquote cite:before {
 .navbar-mobile .dropdown>.dropdown-active {
     display: block;
 }
+
+/*! purgecss end ignore */
 
 /* ======= Footer style ======= */
 

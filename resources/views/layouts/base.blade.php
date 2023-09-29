@@ -432,6 +432,7 @@
                 border-radius: 5px
             }
         </style>
+
         @yield('styles')
 
         @isset($seo['keywords'])

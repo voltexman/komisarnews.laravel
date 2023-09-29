@@ -294,8 +294,8 @@
                                                                         align="center">
 
                                                                         <img align="center" border="0"
-                                                                            src="images/image-2.png" alt=""
-                                                                            title=""
+                                                                            src="{{ asset('images/image-2.png') }}"
+                                                                            alt="" title=""
                                                                             style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 73.78px;"
                                                                             width="73.78"
                                                                             class="v-src-width v-src-max-width" />
@@ -431,8 +431,8 @@
                                                                         align="right">
 
                                                                         <img align="right" border="0"
-                                                                            src="images/image-3.png" alt=""
-                                                                            title=""
+                                                                            src="{{ asset('images/image-3.png') }}"
+                                                                            alt="" title=""
                                                                             style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 36.86px;"
                                                                             width="36.86"
                                                                             class="v-src-width v-src-max-width" />
@@ -524,8 +524,8 @@
                                                                         align="right">
 
                                                                         <img align="right" border="0"
-                                                                            src="images/image-1.png" alt=""
-                                                                            title=""
+                                                                            src="{{ asset('images/image-1.png') }}"
+                                                                            alt="" title=""
                                                                             style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 36.86px;"
                                                                             width="36.86"
                                                                             class="v-src-width v-src-max-width" />
@@ -616,8 +616,8 @@
                                                                         align="right">
 
                                                                         <img align="right" border="0"
-                                                                            src="images/image-4.png" alt=""
-                                                                            title=""
+                                                                            src="{{ asset('images/image-4.png') }}"
+                                                                            alt="" title=""
                                                                             style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 36.86px;"
                                                                             width="36.86"
                                                                             class="v-src-width v-src-max-width" />
