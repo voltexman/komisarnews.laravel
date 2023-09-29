@@ -9,12 +9,15 @@ export default defineConfig({
                 'resources/css/pages/main.css',
                 'resources/js/pages/main.js',
                 'resources/css/pages/articles.css',
-                'resources/js/pages/articles.js'
+                'resources/js/pages/articles.js',
+                'resources/css/pages/contacts.css',
+                'resources/js/pages/contacts.js'
             ],
             refresh: true,
         }),
         purge({
             templates: ['blade'],
+            safelist: ['active-progress', 'header-scrolled'],
         })
     ],
 });

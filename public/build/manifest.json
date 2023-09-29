@@ -1,6 +1,9 @@
 {
-  "_anime.es-11a667b7.js": {
-    "file": "assets/anime.es-11a667b7.js"
+  "_anime.es-de4e5aa0.js": {
+    "file": "assets/anime.es-de4e5aa0.js"
+  },
+  "_custom-e40525f1.js": {
+    "file": "assets/custom-e40525f1.js"
   },
   "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff": {
     "file": "assets/bootstrap-icons-4d4572ef.woff",
@@ -19,23 +22,38 @@
     "isEntry": true,
     "src": "resources/css/pages/articles.css"
   },
+  "resources/css/pages/contacts.css": {
+    "file": "assets/contacts-5b4110c4.css",
+    "isEntry": true,
+    "src": "resources/css/pages/contacts.css"
+  },
   "resources/css/pages/main.css": {
     "file": "assets/main-ad30f767.css",
     "isEntry": true,
     "src": "resources/css/pages/main.css"
   },
   "resources/js/pages/articles.js": {
-    "file": "assets/articles-84e1483a.js",
+    "file": "assets/articles-8275e9bc.js",
     "imports": [
-      "_anime.es-11a667b7.js"
+      "_custom-e40525f1.js",
+      "_anime.es-de4e5aa0.js"
     ],
     "isEntry": true,
     "src": "resources/js/pages/articles.js"
   },
-  "resources/js/pages/main.js": {
-    "file": "assets/main-ee0f6814.js",
+  "resources/js/pages/contacts.js": {
+    "file": "assets/contacts-5deffece.js",
     "imports": [
-      "_anime.es-11a667b7.js"
+      "_custom-e40525f1.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/pages/contacts.js"
+  },
+  "resources/js/pages/main.js": {
+    "file": "assets/main-92637efb.js",
+    "imports": [
+      "_custom-e40525f1.js",
+      "_anime.es-de4e5aa0.js"
     ],
     "isEntry": true,
     "src": "resources/js/pages/main.js"
