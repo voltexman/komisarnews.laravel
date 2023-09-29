@@ -22,12 +22,8 @@ class ContactController extends Controller
 
     public function show(): View
     {
-        $seo = SEO::where('page', SEO::CONTACTS_PAGE)->first();
-
         return view('contacts', [
-            'title' => $seo->title,
-            'description' => $seo->description,
-            'robots' => $seo->robots,
+            'seo' => SEO::where('page', SEO::CONTACTS_PAGE)->first(),
         ]);
     }
 

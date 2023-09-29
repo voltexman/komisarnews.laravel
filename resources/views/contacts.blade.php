@@ -6,11 +6,11 @@
 @section('headerSubTitle', "Зв'язок з нами")
 
 @section('content')
-    <section class="info-box section-padding">
+    <section class="info-box">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="section-head mb-30">
+                    <div class="mb-5">
                         <p class="m-0">Зв'яжіться з нами, надіславши листа.</p>
                         <p class="m-0">Також, ми завжди на зв'язку в месенджерах Viber та WhatsApp.</p>
                         <p class="m-0">Чекаємо на Ваші коментарі, зауваження чи побажанння.</p>

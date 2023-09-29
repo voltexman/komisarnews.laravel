@@ -1,4 +1,4 @@
-<div class="booking-box wrapper rounded-3 shadow-lg">
+<div class="booking-box my-5 my-lg-0 rounded-3 shadow-lg">
     <form action="" class="form1 clearfix">
         <div id="wizard" class="wizard">
             <div class="wizard__content">

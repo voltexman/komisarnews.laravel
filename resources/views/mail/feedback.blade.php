@@ -336,10 +336,10 @@
                                                             <div class="v-text-align v-font-size"
                                                                 style="font-family: comic sans ms,sans-serif; font-size: 14px; font-weight: 700; line-height: 140%; text-align: left; word-wrap: break-word;">
                                                                 <p style="line-height: 140%;"><span
-                                                                        style="line-height: 19.6px; color: #f5eee7;"><strong>ЗВОРОТНІЙ
-                                                                            ЗВ'ЯЗОК</strong></span></p>
+                                                                        style="line-height: 19.6px; color: #f5eee7;text-transform: uppercase"><strong>{{ $title }}</strong></span>
+                                                                </p>
                                                                 <p style="line-height: 140%;"><span
-                                                                        style="line-height: 19.6px; color: #f5eee7;"><strong>KOMISARNEWS</strong></span>
+                                                                        style="line-height: 19.6px; color: #f5eee7;text-transform: uppercase"><strong>{{ env('APP_NAME') }}</strong></span>
                                                                 </p>
                                                             </div>
 
@@ -374,10 +374,10 @@
                                                             <div class="v-text-align v-font-size"
                                                                 style="font-family: comic sans ms,sans-serif; font-size: 12px; font-weight: 700; line-height: 120%; text-align: right; word-wrap: break-word;">
                                                                 <p style="line-height: 120%;"><span
-                                                                        style="color: #f5eee7; line-height: 14.4px;"><strong>24.09.2023</strong></span>
+                                                                        style="color: #f5eee7; line-height: 14.4px;"><strong>{{ date('d.m.Y') }}</strong></span>
                                                                 </p>
                                                                 <p style="line-height: 120%;"><span
-                                                                        style="color: #f5eee7; line-height: 14.4px;">16:45</span>
+                                                                        style="color: #f5eee7; line-height: 14.4px;">{{ date('H:m') }}</span>
                                                                 </p>
                                                             </div>
 
@@ -472,7 +472,7 @@
 
                                                             <h1 class="v-text-align v-font-size"
                                                                 style="margin: 0px; line-height: 140%; text-align: left; word-wrap: break-word; font-family: comic sans ms,sans-serif; font-size: 16px; font-weight: 400;">
-                                                                Ім'я:</h1>
+                                                                Ім'я: {{ $feedback['name'] }}</h1>
 
                                                         </td>
                                                     </tr>
@@ -565,8 +565,7 @@
 
                                                             <h1 class="v-text-align v-font-size"
                                                                 style="margin: 0px; line-height: 140%; text-align: left; word-wrap: break-word; font-family: comic sans ms,sans-serif; font-size: 16px; font-weight: 400;">
-                                                                Контакт:</h1>
-
+                                                                Контакт: {{ $feedback['contact'] }}</h1>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -658,7 +657,7 @@
 
                                                             <h1 class="v-text-align v-font-size"
                                                                 style="margin: 0px; line-height: 140%; text-align: left; word-wrap: break-word; font-family: comic sans ms,sans-serif; font-size: 16px; font-weight: 400;">
-                                                                Контакт:</h1>
+                                                                Текст повідомлення:</h1>
 
                                                         </td>
                                                     </tr>
@@ -676,8 +675,7 @@
 
                                                             <h1 class="v-text-align v-font-size"
                                                                 style="margin: 0px; line-height: 140%; text-align: left; word-wrap: break-word; font-family: comic sans ms,sans-serif; font-size: 15px; font-weight: 400;">
-                                                                текст повідомлення...</h1>
-
+                                                                {{ $feedback['text'] }}</h1>
                                                         </td>
                                                     </tr>
                                                 </tbody>

@@ -30,8 +30,8 @@ class SendFeedback extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: env('APP_NAME') . " - Зворотній зв'язок",
-            from: new Address(env('ADMIN_EMAIL'))
+            subject: env('APP_NAME')." - Зворотній зв'язок",
+            from: new Address(env('MAIL_FROM_ADDRESS'))
         );
     }
 

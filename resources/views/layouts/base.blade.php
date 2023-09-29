@@ -56,29 +56,32 @@
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center justify-content-lg-between">
 
-            <h1 class="logo me-auto me-lg-0">
-                <a href="/">Kom<span class="animate__animated animate__tada animate__infinite">!</span>sarNews</a>
+            <h1 class="logo me-auto me-lg-0" data-aos="fade-right" data-aos-delay="400">
+                <a href="/">Kom<span class="logo-symbol">
+                        <span class="animate__animated animate__tada animate__infinite">!</span></span>sarNews
+                </a>
             </h1>
 
-            <nav id="navbar" class="navbar order-last order-lg-0 mob-nav-toggle">
+            <nav id="navbar" class="navbar order-last order-lg-0 mob-nav-toggle" data-aos="fade-top"
+                data-aos-delay="900">
                 {!! Menu::main() !!}
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
 
-            <a href="#scrollToMapAndOrder" class="get-started-btn scrollto">Обрати місто</a>
+            <a href="#scrollToMapAndOrder" class="get-started-btn scrollto" data-aos="fade-left"
+                data-aos-delay="400">Обрати місто</a>
 
         </div>
     </header>
 
     @if (Request::is('/'))
         <section id="hero" class="d-flex align-items-center justify-content-center shadow">
-            <div class="container" data-aos="fade-up">
+            <div class="container">
 
-                <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
-                    <div class="col-xl-6 col-lg-8">
-                        <h1>Продаж та покупка<br>волосся у Києві<span>.</span></h1>
-                        <h2>Швидко, Дорого, Надійно</h2>
-                    </div>
+                <div class="justify-content-center">
+                    <h1 data-aos="fade-down" data-aos-delay="150">Продаж та покупка<br>волосся у Києві<span>.</span>
+                    </h1>
+                    <h2 data-aos="fade-up" data-aos-delay="150">Швидко, Дорого, Надійно</h2>
                 </div>
 
             </div>
@@ -92,8 +95,11 @@
 
         </section>
     @else
-        <div class="banner-header bg-fixed" data-overlay-dark="5">
-            <img src="{{ asset('img/bg-header.jpg') }}" alt="" title="">
+        <div class="banner-header">
+            <picture>
+                <img src="{{ asset('img/bg-header.webp') }}" width="auto" height="280" type="image/webp">
+                <img src="{{ asset('img/bg-header.jpg') }}" width="auto" height="280" alt="" title="">
+            </picture>
             <div class="caption d-flex justify-content-center flex-column">
                 <h1 class="{{ !isset($headerSubTitle) ? 'mb-0' : 'mb-3' }}">
                     @yield('headerTitle')
@@ -108,24 +114,25 @@
     @endif
 
     <main id="main">
+
         @yield('content')
 
-        <section id="scrollToMapAndOrder" class="section-padding map-order pb-0">
+        <section id="scrollToMapAndOrder" class="map-order py-5">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="section-head text-center">
-                            <h2 class="section-title white m-0" data-aos="fade-down" data-aos-delay="300">Купівля і
-                                продаж волосся в містах
+                        <div class="text-center">
+                            <h2 class="text-light mb-0" data-aos="fade-down" data-aos-delay="300">
+                                Купівля і продаж волосся в містах
                             </h2>
-                            <h3 class="section-subtitle mt-2" data-aos="fade-down" data-aos-delay="500"
-                                style="color: #ccc">Оберіть ваше мість або зробіть заявку
+                            <h3 class="mt-2" data-aos="fade-down" data-aos-delay="500" style="color: #cfcfcf">Оберіть
+                                ваше мість або зробіть заявку
                             </h3>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-lg-7 mb-40 position-relative" data-aos="fade-right" data-aos-delay="300">
+                    <div class="col-12 col-lg-7" data-aos="fade-right" data-aos-delay="300">
                         @include('layouts.partials.map')
                     </div>
 
