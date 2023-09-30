@@ -1,10 +1,4 @@
 {
-  "_anime.es-de4e5aa0.js": {
-    "file": "assets/anime.es-de4e5aa0.js"
-  },
-  "_custom-e40525f1.js": {
-    "file": "assets/custom-e40525f1.js"
-  },
   "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff": {
     "file": "assets/bootstrap-icons-4d4572ef.woff",
     "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff"
@@ -17,44 +11,23 @@
     "file": "assets/bg-header-c15a73e0.webp",
     "src": "public/img/bg-header.webp"
   },
-  "resources/css/pages/articles.css": {
-    "file": "assets/articles-8b48e2aa.css",
+  "resources/css/app.css": {
+    "file": "assets/app-25ee8287.css",
     "isEntry": true,
-    "src": "resources/css/pages/articles.css"
-  },
-  "resources/css/pages/contacts.css": {
-    "file": "assets/contacts-738a46dd.css",
-    "isEntry": true,
-    "src": "resources/css/pages/contacts.css"
+    "src": "resources/css/app.css"
   },
   "resources/css/pages/main.css": {
-    "file": "assets/main-9fd4c267.css",
+    "file": "assets/main-7dd4d4f3.css",
     "isEntry": true,
     "src": "resources/css/pages/main.css"
   },
-  "resources/js/pages/articles.js": {
-    "file": "assets/articles-8275e9bc.js",
-    "imports": [
-      "_custom-e40525f1.js",
-      "_anime.es-de4e5aa0.js"
-    ],
+  "resources/js/app.js": {
+    "file": "assets/app-67794fca.js",
     "isEntry": true,
-    "src": "resources/js/pages/articles.js"
-  },
-  "resources/js/pages/contacts.js": {
-    "file": "assets/contacts-5deffece.js",
-    "imports": [
-      "_custom-e40525f1.js"
-    ],
-    "isEntry": true,
-    "src": "resources/js/pages/contacts.js"
+    "src": "resources/js/app.js"
   },
   "resources/js/pages/main.js": {
-    "file": "assets/main-92637efb.js",
-    "imports": [
-      "_custom-e40525f1.js",
-      "_anime.es-de4e5aa0.js"
-    ],
+    "file": "assets/main-de52a40d.js",
     "isEntry": true,
     "src": "resources/js/pages/main.js"
   }

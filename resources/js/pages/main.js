@@ -1,4 +1,4 @@
-import '../app'
+// import '../app'
 
 import anime from 'animejs/lib/anime.es.js';
 
