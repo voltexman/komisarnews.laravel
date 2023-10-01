@@ -1,4 +1,14 @@
 {
+  "_custom-9ef60c82.js": {
+    "css": [
+      "assets/custom-886c2f56.css"
+    ],
+    "file": "assets/custom-9ef60c82.js"
+  },
+  "custom.css": {
+    "file": "assets/custom-886c2f56.css",
+    "src": "custom.css"
+  },
   "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff": {
     "file": "assets/bootstrap-icons-4d4572ef.woff",
     "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff"
@@ -11,23 +21,42 @@
     "file": "assets/bg-header-c15a73e0.webp",
     "src": "public/img/bg-header.webp"
   },
-  "resources/css/app.css": {
-    "file": "assets/app-25ee8287.css",
+  "resources/css/pages/articles.css": {
+    "file": "assets/articles-0f346778.css",
     "isEntry": true,
-    "src": "resources/css/app.css"
+    "src": "resources/css/pages/articles.css"
+  },
+  "resources/css/pages/contacts.css": {
+    "file": "assets/contacts-5d411523.css",
+    "isEntry": true,
+    "src": "resources/css/pages/contacts.css"
   },
   "resources/css/pages/main.css": {
-    "file": "assets/main-7dd4d4f3.css",
+    "file": "assets/main-d5dbc5b9.css",
     "isEntry": true,
     "src": "resources/css/pages/main.css"
   },
-  "resources/js/app.js": {
-    "file": "assets/app-67794fca.js",
+  "resources/js/pages/articles.js": {
+    "file": "assets/articles-cbd57a4b.js",
+    "imports": [
+      "_custom-9ef60c82.js"
+    ],
     "isEntry": true,
-    "src": "resources/js/app.js"
+    "src": "resources/js/pages/articles.js"
+  },
+  "resources/js/pages/contacts.js": {
+    "file": "assets/contacts-173a32d4.js",
+    "imports": [
+      "_custom-9ef60c82.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/pages/contacts.js"
   },
   "resources/js/pages/main.js": {
-    "file": "assets/main-de52a40d.js",
+    "file": "assets/main-55d6221c.js",
+    "imports": [
+      "_custom-9ef60c82.js"
+    ],
     "isEntry": true,
     "src": "resources/js/pages/main.js"
   }

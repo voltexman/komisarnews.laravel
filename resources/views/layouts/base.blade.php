@@ -28,8 +28,6 @@
         <meta name="format-detection" content="telephone=no">
 
         <title>{{ $seo['title'] }}</title>
-    
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         @yield('styles')
 
@@ -244,13 +242,17 @@
                         стосовно волосся. Наприклад, структуру волосся, стан зрізу: свіжа рівна стрижка або просто
                         укладене волосся або шиньйон. Вкажіть якомога більше інформації, важливі всі деталі.</p>
                 </div>
-                <div class="modal-footer rules-danger">
-                    <p class=" position-relative">
-                        <i class="bi bi-exclamation-triangle-fill float-end fs-5 text-danger opacity-50"></i>
+                <div class="d-flex bg-danger bg-opacity-10 border-top border-opacity-25 border-danger">
+                    <div class="d-flex align-items-center border-opacity-25 border-end border-danger px-3">
+                        <span class="animate__animated animate__tada animate__infinite">
+                            <i class="bi bi-exclamation-triangle-fill float-end fs-5 text-danger opacity-50"></i>
+                        </span>
+                    </div>
+                    <div class="p-3 lh-1">
                         МИ НЕ НАДАЄМО ВАШІ КОНТАКТНІ ДАНІ ІНШИМ ОСОБАМ ТА НЕ РОЗСИЛАЄМО СПАМ!<br>
                         НЕ НАМАГАЙТЕСЯ ОБДУРИТИ ОЦІНЮВАЧА, ВИКОРИСТОВУЮЧИ ПРИЙОМИ, ЩОБ ПОЛІПШИТИ ЯКІСТЬ ВОЛОССЯ, АБО
                         РОЗТЯГУВАТИ ПАСМО ЩОБ ВІЗУАЛЬНО ЗБІЛЬШИТИ ДОВЖИНУ. НАШ ФАХІВЕЦЬ ОБОВ'ЯЗКОВО РОЗПІЗНАЄ ОБМАН.
-                    </p>
+                    </div>
                 </div>
             </div>
         </div>

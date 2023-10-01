@@ -2,9 +2,9 @@
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 /*! purgecss start ignore */
 @import 'aos/dist/aos.css';
-@import '../css/wizard.css';
-@import '../css/selectors.css';
+/* @import '../css/wizard.css'; */
+/* @import '../css/selectors.css'; */
 /*! purgecss end ignore */
 @import 'animate.css';
-/* @import 'style_old.css'; */
-@import 'style.css';
+@import 'style_old.css';
+@import 'common.css';

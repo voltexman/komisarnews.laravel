@@ -1,9 +1,15 @@
 @extends('layouts.base')
 
-@vite(['resources/css/pages/contacts.css', 'resources/js/pages/contacts.js'])
-
 @section('headerTitle', 'Контакти')
 @section('headerSubTitle', "Зв'язок з нами")
+
+@section('styles')
+    @vite(['resources/css/pages/contacts.css'])
+@endsection
+
+@section('scripts')
+    @vite(['resources/js/pages/contacts.js'])
+@endsection
 
 @section('content')
     <section class="info-box">

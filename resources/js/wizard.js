@@ -1,3 +1,4 @@
+import './dropzone';
 
 class Steps {
     constructor(wizard) {
@@ -184,3 +185,109 @@ let buttonNext = document.querySelector('.next');
 let buttonPrevious = document.querySelector('.previous');
 
 wizard.addControls(buttonPrevious, buttonNext);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// class Wizard {
+//     constructor(wizardElement) {
+//         this.wizard = wizardElement;
+//         this.panels = Array.from(this.wizard.querySelectorAll('.panels .panel'));
+//         this.steps = Array.from(this.wizard.querySelectorAll('.steps .step'));
+//         this.currentStep = 0;
+//         this.stepsQuantity = this.steps.length;
+//         this.nextButton = this.wizard.querySelector('.next');
+//         this.prevButton = this.wizard.querySelector('.previous');
+
+//         this.init();
+//     }
+
+//     init() {
+//         this.updateButtonsStatus();
+//         this.updatePanelsPosition();
+//         this.addEventListeners();
+//     }
+
+//     updateButtonsStatus() {
+//         this.prevButton.disabled = this.currentStep === 0;
+//         this.nextButton.disabled = this.currentStep === this.stepsQuantity - 1;
+
+//         switch (this.currentStep) {
+//             case 0:
+//                 this.nextButton.innerHTML = '<i class="bi bi-chat-square-text-fill me-2"></i>До фото<i class="bi bi-arrow-right-short ms-2"></i>';
+//                 this.prevButton.classList.add('d-none');
+//                 break;
+//             case 1:
+//                 this.nextButton.innerHTML = '<i class="bi bi-chat-square-text-fill me-2"></i>До опису<i class="bi bi-arrow-right-short ms-2"></i>';
+//                 this.prevButton.classList.remove('d-none');
+//                 break;
+//             case 2:
+//                 this.nextButton.innerHTML = '<i class="bi bi-chat-square-text-fill me-2"></i>Підтвердження<i class="bi bi-arrow-right-short ms-2"></i>';
+//                 break;
+//             default:
+//                 this.nextButton.innerHTML = '<i class="bi bi-chat-square-text-fill me-2"></i>Відправити<i class="bi bi-arrow-right-short ms-2"></i>';
+//                 break;
+//         }
+//     }
+
+//     addEventListeners() {
+//         this.nextButton.addEventListener('click', () => this.moveStep(1));
+//         this.prevButton.addEventListener('click', () => this.moveStep(-1));
+//     }
+
+//     moveStep(movement) {
+//         const newStep = this.currentStep + movement;
+//         if (newStep >= 0 && newStep < this.stepsQuantity) {
+//             this.currentStep = newStep;
+//             this.updatePanelsPosition();
+//             this.updateButtonsStatus();
+//             this.animateStepIcons();
+//         }
+//     }
+
+//     updatePanelsPosition() {
+//         this.panels.forEach((panel, index) => {
+//             panel.classList.remove('movingIn', 'movingOutBackward', 'movingOutForward');
+//             if (index === this.currentStep) {
+//                 panel.classList.add('movingIn');
+//             } else if (index < this.currentStep) {
+//                 panel.classList.add('movingOutBackward');
+//             } else {
+//                 panel.classList.add('movingOutForward');
+//             }
+//         });
+//     }
+
+//     animateStepIcons() {
+//         const animateActiveIconClass = ['d-block', 'animate__animated', 'animate__tada', 'animate__infinite'];
+//         const stepIcons = this.wizard.querySelectorAll('.step__number i');
+
+//         stepIcons.forEach((icon, index) => {
+//             icon.classList.remove(...animateActiveIconClass);
+//             if (index === this.currentStep) {
+//                 icon.classList.add(...animateActiveIconClass);
+//             }
+//         });
+//     }
+// }
+
+// const wizardElement = document.getElementById('wizard');
+// const wizard = new Wizard(wizardElement);

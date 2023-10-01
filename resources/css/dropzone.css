@@ -1,0 +1,36 @@
+.dz-preview button {
+    background-color: #91765a;
+    /* border-radius: 0; */
+    color: #fff;
+}
+
+.dz-preview button:first-child {
+    border-bottom-left-radius: var(--bs-border-radius-lg);
+}
+
+.dz-preview button:last-child {
+    border-bottom-right-radius: var(--bs-border-radius-lg);
+}
+
+.dz-preview img {
+    border-top: 1px solid #91765a;
+    border-right: 1px solid #91765a;
+    border-left: 1px solid #91765a;
+    border-top-left-radius: var(--bs-border-radius-lg);
+    border-top-right-radius: var(--bs-border-radius-lg);
+}
+
+.dz-preview {
+    /* border: 1px solid #91765a; */
+    border-radius: var(--bs-border-radius-lg);
+}
+
+.cropper-line,
+.cropper-point {
+    background-color: #91765a !important;
+}
+
+.cropper-view-box {
+    outline: 1px solid #91765a !important;
+    outline-color: rgba(145, 118, 90, .75) !important;
+}

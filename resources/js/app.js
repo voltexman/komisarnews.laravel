@@ -1,4 +1,4 @@
-import '../js/animations';
-import '../js/selectors';
-import '../js/wizard'
-import '../js/custom'
+import './animations';
+import './selectors';
+import './wizard'
+import './custom'
