@@ -17,9 +17,7 @@ return [
 
     // 'paths' => ['https://komisar-f7bf6.web.app', 'http://localhost:5173'],
 
-    // 'paths' => ['api/*', 'sanctum/csrf-cookie'],
-    
-    'paths' => ['*'],
+    'paths' => ['api/*', 'sanctum/csrf-cookie'],
 
     'allowed_methods' => ['*'],
 
