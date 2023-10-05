@@ -1,5 +1,3 @@
-// import { Modal } from "bootstrap"
-
 export const previewTemplate = `<div class="dz-preview dz-file-preview my-3 col-3">
     <div class="dz-details d-grid">
         <img class="img-fluid" data-dz-thumbnail />

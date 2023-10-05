@@ -720,7 +720,9 @@
 
                                                             <h1 class="v-text-align v-font-size"
                                                                 style="margin: 0px; color: #f5eee7; line-height: 140%; text-align: right; word-wrap: break-word; font-family: comic sans ms,sans-serif; font-size: 14px; font-weight: 700;">
-                                                                Всього: 8 | Непрочитаних: 3</h1>
+                                                                Всього: {{ $feedback['allCount'] }} | Непрочитаних:
+                                                                {{ $feedback['newCount'] }}
+                                                            </h1>
 
                                                         </td>
                                                     </tr>

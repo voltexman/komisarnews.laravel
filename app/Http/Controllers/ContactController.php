@@ -3,23 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Mail\SendFeedback;
+use App\Models\Feedback;
 use App\Models\SEO;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
 class ContactController extends Controller
 {
-    protected $database;
-
-    protected $tablename = 'feedbacks';
-
-    public function __construct()
-    {
-        $this->database = app('firebase.database');
-    }
-
     public function show(): View
     {
         return view('contacts', [
@@ -35,19 +26,27 @@ class ContactController extends Controller
             'text' => 'required',
         ]);
 
-        $postData = [
+        $created = Feedback::create([
             'name' => $validated['name'],
             'contact' => $validated['contact'],
             'text' => $validated['text'],
-            'cteated_at' => Carbon::now()->timestamp,
+            'status' => Feedback::STATUS_NEW,
+        ]);
+
+        $mailData = [
+            'name' => $validated['name'],
+            'contact' => $validated['contact'],
+            'text' => $validated['text'],
+            'allCount' => Feedback::all()->count(),
+            'newCount' => Feedback::where([
+                'status' => Feedback::STATUS_NEW,
+            ])
+                ->count(),
         ];
-        $postReference = $this->database
-            ->getReference($this->tablename)
-            ->push($postData);
 
         $sentMail = Mail::to(env('ADMIN_EMAIL'))
-            ->send(new SendFeedback($postData));
+            ->send(new SendFeedback($mailData));
 
-        return $postReference && $sentMail;
+        return true;
     }
 }

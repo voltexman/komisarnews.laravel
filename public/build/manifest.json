@@ -22,17 +22,17 @@
     "src": "public/img/bg-header.webp"
   },
   "resources/css/pages/articles.css": {
-    "file": "assets/articles-0f346778.css",
+    "file": "assets/articles-8331a950.css",
     "isEntry": true,
     "src": "resources/css/pages/articles.css"
   },
   "resources/css/pages/contacts.css": {
-    "file": "assets/contacts-5d411523.css",
+    "file": "assets/contacts-cc75a5f5.css",
     "isEntry": true,
     "src": "resources/css/pages/contacts.css"
   },
   "resources/css/pages/main.css": {
-    "file": "assets/main-d5dbc5b9.css",
+    "file": "assets/main-1b14a37a.css",
     "isEntry": true,
     "src": "resources/css/pages/main.css"
   },
