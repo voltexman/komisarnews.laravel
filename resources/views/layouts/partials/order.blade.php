@@ -98,7 +98,8 @@
                         <div class="row">
                             <div class="col-12">
                                 {{-- <div class="select1_wrapper"> --}}
-                                <select name="goal" class="select order-goal-select">
+                                <label for="goal"></label>
+                                <select name="goal" id="goal" class="select order-goal-select">
                                     <option value="0">Хочу оцінити вартість</option>
                                     <option value="1">Хочу продати волосся</option>
                                 </select>
@@ -147,8 +148,8 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <label>Колір</label>
-                                <select name="color" class="select order-color-select">
+                                <label for="color">Колір</label>
+                                <select name="color" id="color" class="select order-color-select">
                                     <option value="0">Блонд</option>
                                     <option value="1">Світло-русий</option>
                                     <option value="2">Русий</option>
