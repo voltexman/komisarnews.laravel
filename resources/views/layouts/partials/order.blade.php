@@ -98,11 +98,11 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="select1_wrapper">
-                                    <label for="goal" aria-label="Оберіть мету">Оберіть мету</label>
+                                    {{-- <label for="goal" aria-label="Оберіть мету">Оберіть мету</label>
                                     <select name="goal" id="goal" class="select order-goal-select">
                                         <option value="0">Хочу оцінити вартість</option>
                                         <option value="1">Хочу продати волосся</option>
-                                    </select>
+                                    </select> --}}
                                 </div>
                             </div>
                         </div>
@@ -150,7 +150,7 @@
                             <div class="col-md-12">
 
                                 <div class="select-box">
-                                    <div class="select-box__current" tabindex="1">
+                                    <div class="select-box__current">
                                         <div class="select-box__value">
                                             <input class="select-box__input" type="radio" id="0"
                                                 value="1" name="Ben" checked="checked" />
@@ -162,22 +162,11 @@
                                             <p class="select-box__input-text">Cheese</p>
                                         </div>
                                         <div class="select-box__value">
-                                            <input class="select-box__input" type="radio" id="2"
-                                                value="3" name="Ben" checked="checked" />
-                                            <p class="select-box__input-text">Milk</p>
-                                        </div>
-                                        <div class="select-box__value">
-                                            <input class="select-box__input" type="radio" id="3"
-                                                value="4" name="Ben" checked="checked" />
-                                            <p class="select-box__input-text">Honey</p>
-                                        </div>
-                                        <div class="select-box__value">
                                             <input class="select-box__input" type="radio" id="4"
                                                 value="5" name="Ben" checked="checked" />
                                             <p class="select-box__input-text">Toast</p>
-                                        </div><img class="select-box__icon"
-                                            src="http://cdn.onlinewebfonts.com/svg/img_295694.svg" alt="Arrow Icon"
-                                            aria-hidden="true" />
+                                        </div>
+                                        {{-- img src... --}}
                                     </div>
                                     <ul class="select-box__list">
                                         <li>
@@ -187,14 +176,6 @@
                                         <li>
                                             <label class="select-box__option" for="1"
                                                 aria-hidden="aria-hidden">Cheese</label>
-                                        </li>
-                                        <li>
-                                            <label class="select-box__option" for="2"
-                                                aria-hidden="aria-hidden">Milk</label>
-                                        </li>
-                                        <li>
-                                            <label class="select-box__option" for="3"
-                                                aria-hidden="aria-hidden">Honey</label>
                                         </li>
                                         <li>
                                             <label class="select-box__option" for="4"
