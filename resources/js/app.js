@@ -1,4 +1,4 @@
 import './animations';
+import './wizard';
 import './selectors';
-import './wizard'
-import './custom'
+import './custom';

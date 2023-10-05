@@ -1,60 +1,63 @@
-var selectElements = document.querySelectorAll('select');
+import '../css/selectors.css'
 
-selectElements.forEach(function (select) {
-  var numberOfOptions = select.children.length;
 
-  select.classList.add('select-hidden');
 
-  var selectWrapper = document.createElement('div');
-  selectWrapper.classList.add('select');
-  select.parentNode.insertBefore(selectWrapper, select.nextSibling);
+// const selectedAll = document.querySelectorAll(".selector-wrapper");
 
-  var selectStyled = document.createElement('div');
-  selectStyled.classList.add('select-styled');
-  selectStyled.textContent = select.children[0].textContent;
-  selectWrapper.appendChild(selectStyled);
+// selectedAll.forEach((selected) => {
+//   const optionsContainer = selected.previousElementSibling;
 
-  var selectOptions = document.createElement('ul');
-  selectOptions.classList.add('select-options');
-  selectWrapper.appendChild(selectOptions);
+//   const optionsList = optionsContainer.querySelectorAll(".option");
 
-  for (var i = 0; i < numberOfOptions; i++) {
-    var option = select.children[i];
+//   selected.addEventListener("click", () => {
+//     let arrow = selected.parentNode.querySelector(".arrow");
 
-    var listItem = document.createElement('li');
-    listItem.textContent = option.textContent;
-    listItem.setAttribute('rel', option.value);
-    selectOptions.appendChild(listItem);
-  }
+//     if (optionsContainer.classList.contains("active")) {
+//       optionsContainer.classList.remove("active");
 
-  var listItems = selectOptions.children;
+//       arrow.classList.add("rotated");
+//     } else {
+//       let currentActive = document.querySelector(".options-container.active");
 
-  selectStyled.addEventListener('click', function (e) {
-    e.stopPropagation();
-    var activeSelects = document.querySelectorAll('div.select-styled.active');
-    for (var i = 0; i < activeSelects.length; i++) {
-      var activeSelect = activeSelects[i];
-      if (activeSelect !== this) {
-        activeSelect.classList.remove('active');
-        activeSelect.nextElementSibling.style.display = 'none';
-      }
-    }
-    this.classList.toggle('active');
-    this.nextElementSibling.style.display = this.classList.contains('active') ? 'block' : 'none';
-  });
+//       if (currentActive) {
+//         currentActive.classList.remove("active");
+//         let anotherArrow = currentActive.parentNode.querySelector(".arrow");
 
-  for (var i = 0; i < listItems.length; i++) {
-    listItems[i].addEventListener('click', function (e) {
-      e.stopPropagation();
-      selectStyled.textContent = this.textContent;
-      selectStyled.classList.remove('active');
-      select.value = this.getAttribute('rel');
-      selectOptions.style.display = 'none';
-    });
-  }
+//         anotherArrow.classList.add("rotated");
+//       }
 
-  document.addEventListener('click', function () {
-    selectStyled.classList.remove('active');
-    selectOptions.style.display = 'none';
-  });
-});
+//       arrow.classList.remove("rotated");
+//       optionsContainer.classList.add("active");
+//     }
+//   });
+
+//   optionsList.forEach((o) => {
+//     o.addEventListener("click", () => {
+//       selected.querySelector(".selected").innerHTML = o.querySelector(
+//         "label"
+//       ).innerHTML;
+//       optionsContainer.classList.remove("active");
+
+//       let arrow = selected.parentNode.querySelector(".arrow");
+//       arrow.classList.add("rotated");
+//     });
+//   });
+// });
+
+// window.addEventListener("click", function (e) {
+//   if (e.target.closest(".select-box") === null) {
+//     closeDropdown();
+//   }
+// });
+
+// function closeDropdown() {
+//   const selectedAll = document.querySelectorAll(".selector-wrapper");
+
+//   selectedAll.forEach((selected) => {
+//     const optionsContainer = selected.previousElementSibling;
+//     let arrow = selected.parentNode.querySelector(".arrow");
+
+//     optionsContainer.classList.remove("active");
+//     arrow.classList.add("rotated");
+//   });
+// }

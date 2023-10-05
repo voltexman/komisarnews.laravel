@@ -121,7 +121,7 @@ input[type="password"]:focus,
 input[type="email"]:focus,
 input[type="text"]:focus,
 input[type="file"]:focus,
-input[type="radio"]:focus,
+/* input[type="radio"]:focus, */
 input[type="checkbox"]:focus,
 textarea:focus {
     outline: none;
@@ -194,7 +194,7 @@ td {
     padding: 10px;
 }
 
-input[type="radio"],
+/* input[type="radio"], */
 input[type="checkbox"] {
     display: inline;
     padding: 10px;
