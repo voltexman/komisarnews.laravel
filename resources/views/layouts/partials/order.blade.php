@@ -171,15 +171,15 @@
                                     <ul class="select-box__list">
                                         <li>
                                             <label class="select-box__option" for="0"
-                                                aria-hidden="Cream">Cream</label>
+                                                aria-hidden="true">Cream</label>
                                         </li>
                                         <li>
                                             <label class="select-box__option" for="1"
-                                                aria-hidden="Cheese">Cheese</label>
+                                                aria-hidden="true">Cheese</label>
                                         </li>
                                         <li>
                                             <label class="select-box__option" for="4"
-                                                aria-hidden="Toast">Toast</label>
+                                                aria-hidden="true">Toast</label>
                                         </li>
                                     </ul>
                                 </div>
