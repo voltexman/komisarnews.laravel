@@ -1,4 +1,4 @@
-<div class="booking-box wrapper rounded-3 shadow-lg">
+<div class="booking-box wrapper rounded-3 shadow-lg my-5 my-lg-0">
     <form action="{{ route('orders.store') }}" class="form1 clearfix">
         @csrf
         <div id="wizard" class="wizard">
@@ -98,12 +98,11 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="select1_wrapper">
-                                    <label for="goal" aria-label="Оберіть мету">
-                                        <select name="goal" id="goal" class="select order-goal-select">
-                                            <option value="0">Хочу оцінити вартість</option>
-                                            <option value="1">Хочу продати волосся</option>
-                                        </select>
-                                    </label>
+                                    <label for="goal" aria-label="Оберіть мету">Оберіть мету</label>
+                                    <select name="goal" id="goal" class="select order-goal-select">
+                                        <option value="0">Хочу оцінити вартість</option>
+                                        <option value="1">Хочу продати волосся</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -149,16 +148,15 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <label for="color" aria-label="Колір">
-                                    <select name="color" id="color" class="select order-color-select">
-                                        <option value="0">Блонд</option>
-                                        <option value="1">Світло-русий</option>
-                                        <option value="2">Русий</option>
-                                        <option value="3">Світло-коричневий</option>
-                                        <option value="4">Темно-коричневий</option>
-                                        <option value="5">Чорний</option>
-                                    </select>
-                                </label>
+                                <label for="color" aria-label="Колір">Колір</label>
+                                <select name="color" id="color" class="select order-color-select">
+                                    <option value="0">Блонд</option>
+                                    <option value="1">Світло-русий</option>
+                                    <option value="2">Русий</option>
+                                    <option value="3">Світло-коричневий</option>
+                                    <option value="4">Темно-коричневий</option>
+                                    <option value="5">Чорний</option>
+                                </select>
                             </div>
                         </div>
                         <div class="row">

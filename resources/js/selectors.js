@@ -1,4 +1,3 @@
-
 var selectElements = document.querySelectorAll('select');
 
 selectElements.forEach(function (select) {

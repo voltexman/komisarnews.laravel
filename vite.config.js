@@ -17,6 +17,7 @@ export default defineConfig({
         }),
         purge({
             templates: ['blade'],
+            safelist: [/^modal-/],
         })
     ],
 });
