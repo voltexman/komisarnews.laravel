@@ -39,14 +39,14 @@
                     <picture class="image-card-1">
                         <source srcset="{{ asset('img/about2.webp') }}" type="image/webp">
                         <img src="{{ asset('img/about2.jpg') }}" width="280" height="360"
-                            class="border border-1 rounded-4 shadow-lg image-1" alt="Фото салону 1">
+                            class="border border-1 rounded-4 shadow-lg image-1 mt-4" alt="Фото салону 1">
                     </picture>
                 </div>
                 <div class="col col-lg-3" data-aos="fade-up" data-aos-delay="250">
                     <picture class="image-card-2">
                         <source srcset="{{ asset('img/about.webp') }}" type="image/webp">
                         <img src="{{ asset('img/about.jpg') }}" width="280" height="360"
-                            class="border border-1 rounded-4 shadow-lg image-2" alt="Фото салону 2">
+                            class="border border-1 rounded-4 shadow-lg image-2 mt-4" alt="Фото салону 2">
                     </picture>
                 </div>
             </div>
@@ -163,9 +163,8 @@
             <div class="row">
                 <div class="col-md-5 mb-90 animate-box d-none d-lg-block" data-aos="fade-right" data-aos-delay="300">
                     <picture>
-                        <source srcset="{{ asset('img/postman.avif') }}" type="image/avif">
-                        <source srcset="{{ asset('img/postman.webp') }}" type="image/webp">
-                        <img src="{{ asset('img/postman.jpg') }}" width="400" height="420"
+                        <source srcset="{{ asset('img/postman.webp') }}" type="image/webp" loading="lazy">
+                        <img src="{{ asset('img/postman.jpg') }}" width="400" height="420" loading="lazy"
                             class="border border-1 rounded-4 shadow-lg" alt="Відправка Новою поштою">
                     </picture>
                 </div>

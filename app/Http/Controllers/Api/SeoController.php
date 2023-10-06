@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Api\PostResource;
-use App\Models\Post;
+use App\Http\Resources\Api\SeoResource;
+use App\Models\SEO;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class SeoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return PostResource::collection(Post::where('status', '!=', Post::STATUS_DELETED))->get();
+        //
     }
 
     /**
@@ -22,17 +22,15 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $created = Post::create($request->all());
-
-        return new PostResource($created);
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $page)
     {
-        return Post::findOrFail($id);
+        return (new SeoResource(SEO::where(['page' => $page])->first()));
     }
 
     /**
@@ -48,10 +46,6 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        $post = Post::find($id);
-        $post->status = Post::STATUS_DELETED;
-        $post->save();
-
-        return $post;
+        //
     }
 }

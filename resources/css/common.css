@@ -87,13 +87,6 @@ img {
     height: auto;
 }
 
-img {
-    -webkit-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    transition: all 0.5s;
-    color: #f4f4f4;
-}
-
 span,
 a,
 a:hover {
@@ -1656,6 +1649,23 @@ ul.ks-cboxtags li input[type="checkbox"] {
     }
 }
 
+.btn {
+    border: 0;
+    border-radius: 0;
+    background-color: #5F4C3A;
+    color: #f5eee7;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background-color: #14100c;
+}
+
+.btn:active,
+.btn:focus {
+    background-color: #5c4329 !important;
+    color: #fff !important;
+}
 
 .bg-darkbrown {
     background: #14100c;

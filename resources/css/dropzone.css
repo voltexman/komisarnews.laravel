@@ -1,6 +1,6 @@
+/* purgecss start ignore */
 .dz-preview button {
     background-color: #91765a;
-    /* border-radius: 0; */
     color: #fff;
 }
 
@@ -21,7 +21,6 @@
 }
 
 .dz-preview {
-    /* border: 1px solid #91765a; */
     border-radius: var(--bs-border-radius-lg);
 }
 
@@ -34,3 +33,5 @@
     outline: 1px solid #91765a !important;
     outline-color: rgba(145, 118, 90, .75) !important;
 }
+
+/* purgecss end ignore */

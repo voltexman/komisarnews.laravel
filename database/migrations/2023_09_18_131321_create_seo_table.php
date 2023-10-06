@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('seo', function (Blueprint $table) {
             $table->id();
-            $table->smallInteger('page');
+            $table->string('page');
             $table->string('title')->nullable();
             $table->string('keywords')->nullable();
             $table->text('descriptions')->nullable();

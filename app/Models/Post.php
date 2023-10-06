@@ -31,6 +31,8 @@ class Post extends Model
 
     const STATUS_DELETED = 3;
 
+    const STATUS_INDEXATION = 1;
+
     const CATEGORY_CITIES = 0;
 
     const CATEGORY_ARTICLES = 1;
@@ -42,5 +44,22 @@ class Post extends Model
         static::creating(function ($post) {
             $post->slug = Str::slug($post->name, '_');
         });
+    }
+
+    static function getAllPostsCount()
+    {
+        return Post::where('status', '!=', self::STATUS_DELETED)->count();
+    }
+
+    static function getPublicationCount()
+    {
+        return Post::where('status', '=', self::STATUS_ACTIVE)->count();
+    }
+
+    static function getIndexationCount()
+    {
+        return Post::where('indexation', '=', self::STATUS_INDEXATION)
+            ->where('status', '!=', self::STATUS_DELETED)
+            ->count();
     }
 }

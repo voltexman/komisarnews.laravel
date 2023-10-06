@@ -1,4 +1,4 @@
-export const previewTemplate = `<div class="dz-preview dz-file-preview my-3 col-3">
+export const previewTemplate = `<div class="dz-preview dz-file-preview my-3 col-3" data-aos="zoom-in" data-aos-delay="200" data-aos-delay="500">
     <div class="dz-details d-grid">
         <img class="img-fluid" data-dz-thumbnail />
         <div class="dz-control btn-group"></div>
@@ -43,12 +43,10 @@ export function createImageEditModal(file, dataURL) {
                         aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="waiting-place d-flex align-items-center justify-content-center">
-                        <i class="bi bi-arrow-repeat waiting-icon"></i>
-                    </div>
+                    
 
                     <div class="image-container" class="d-none" style="overflow:hidden">
-                        
+                        <img id="img-` + file.upload.uuid + `" src="` + file.dataURL + `">
                     </div>
 
                     <p class="text-center text-muted info mt-3">
@@ -56,7 +54,7 @@ export function createImageEditModal(file, dataURL) {
                         стан
                     </p>
 
-                    <div class="d-flex justify-content-center mt-3">
+                    <div class="image-control d-flex justify-content-center mt-3">
                         <div class="btn-group me-2" role="group">
                             <button type="button" class="btn rotate-left rounded-start">
                                 <i class="bi bi-arrow-counterclockwise"></i>

@@ -164,23 +164,7 @@ input[type="checkbox"]:focus {
     background-color: #91765a;
 }
 
-.btn {
-    border: 0;
-    border-radius: 0;
-    background-color: #5F4C3A;
-    color: #f5eee7;
-    font-weight: 600;
-}
 
-.btn:hover {
-    background-color: #14100c;
-}
-
-.btn:active,
-.btn:focus {
-    background-color: #5c4329 !important;
-    color: #fff !important;
-}
 
 .modal p.info {
     font-size: 14px;

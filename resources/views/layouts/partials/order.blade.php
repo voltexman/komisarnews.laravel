@@ -202,7 +202,7 @@
                     </div>
 
                     <div class="panel d-flex flex-column">
-                        <button id="uploadZone" class="d-flex align-items-start rounded-3 p-3">
+                        <div id="uploadZone" class="d-flex align-items-start rounded-3 p-3 dropzone">
                             <div class="dz-message needscli d-flex w-100">
                                 <div class="w-25 d-flex align-items-center justify-content-center">
                                     <i class="bi bi-camera"></i>
@@ -222,7 +222,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </button>
+                        </div>
 
                         <div id="acceptedImages" class="d-flex mt-auto row"></div>
 

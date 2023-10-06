@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\FeedbackController;
 use App\Http\Controllers\Api\PostController;
+use App\Http\Controllers\Api\SeoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,5 @@ Route::resources([
 ]);
 
 Route::put('/feedbacks/status-change/{id}', [FeedbackController::class, 'statusChange']);
+
+Route::get('/seo/{page}', [SeoController::class, 'show']);

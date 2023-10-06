@@ -17,7 +17,10 @@ export default defineConfig({
         }),
         purge({
             templates: ['blade'],
-            safelist: [/^modal-/, 'movingIn', 'movingOutBackward', 'movingOutFoward'],
+            safelist: [/^modal-/, 'movingIn', 'movingOutBackward',
+                'movingOutFoward', '-completed', 'col-3', 'my-3',
+                'bg-danger', 'rounded-top-0'
+            ],
         })
     ],
 });

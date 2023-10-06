@@ -1,9 +1,9 @@
 {
-  "_custom-2019be40.js": {
+  "_custom-0b7187ad.js": {
     "css": [
       "assets/custom-bbc99d4f.css"
     ],
-    "file": "assets/custom-2019be40.js"
+    "file": "assets/custom-0b7187ad.js"
   },
   "custom.css": {
     "file": "assets/custom-bbc99d4f.css",
@@ -22,40 +22,40 @@
     "src": "public/img/bg-header.webp"
   },
   "resources/css/pages/articles.css": {
-    "file": "assets/articles-bb216a46.css",
+    "file": "assets/articles-15bb68d3.css",
     "isEntry": true,
     "src": "resources/css/pages/articles.css"
   },
   "resources/css/pages/contacts.css": {
-    "file": "assets/contacts-6728746c.css",
+    "file": "assets/contacts-12662b6c.css",
     "isEntry": true,
     "src": "resources/css/pages/contacts.css"
   },
   "resources/css/pages/main.css": {
-    "file": "assets/main-1e9b4d75.css",
+    "file": "assets/main-af7eb879.css",
     "isEntry": true,
     "src": "resources/css/pages/main.css"
   },
   "resources/js/pages/articles.js": {
-    "file": "assets/articles-82b8c637.js",
+    "file": "assets/articles-3c8f73b7.js",
     "imports": [
-      "_custom-2019be40.js"
+      "_custom-0b7187ad.js"
     ],
     "isEntry": true,
     "src": "resources/js/pages/articles.js"
   },
   "resources/js/pages/contacts.js": {
-    "file": "assets/contacts-cc14a114.js",
+    "file": "assets/contacts-22ad9275.js",
     "imports": [
-      "_custom-2019be40.js"
+      "_custom-0b7187ad.js"
     ],
     "isEntry": true,
     "src": "resources/js/pages/contacts.js"
   },
   "resources/js/pages/main.js": {
-    "file": "assets/main-a2ed9239.js",
+    "file": "assets/main-35213387.js",
     "imports": [
-      "_custom-2019be40.js"
+      "_custom-0b7187ad.js"
     ],
     "isEntry": true,
     "src": "resources/js/pages/main.js"

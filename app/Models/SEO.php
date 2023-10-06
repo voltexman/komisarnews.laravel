@@ -9,11 +9,11 @@ class SEO extends Model
 {
     use HasFactory;
 
-    const MAIN_PAGE = 0;
+    const MAIN_PAGE = 'main';
 
-    const ARTICLES_PAGE = 1;
+    const POSTS_PAGE = 'posts';
 
-    const CONTACTS_PAGE = 2;
+    const CONTACTS_PAGE = 'contacts';
 
     protected $table = 'seo';
 }
