@@ -1,5 +1,6 @@
-import '../app'
+import '../app';
 import axios from 'axios';
+import anime from 'animejs';
 
 // Отримайте посилання на форму
 const form = document.querySelector('.form1');
@@ -11,6 +12,7 @@ const responsePanel = document.querySelector('.response-panel');
 const iconWaiting = document.querySelector('.icon-waiting');
 const iconSuccess = document.querySelector('.icon-success');
 const messageAndReplace = document.querySelector('.message-and-replace');
+const messageSuccess = messageAndReplace.querySelector('span');
 
 const repeatButton = document.querySelector('.repeat-button');
 
@@ -29,18 +31,34 @@ form.addEventListener('submit', function (event) {
         // Відправте дані на сервер за допомогою Axios і значення formAction
         axios.post(formAction, formData)
             .then(function (response) {
-                console.log(response)
                 if (response.status === 200) {
                     iconWaiting.classList.replace('d-block', 'd-none');
                     iconSuccess.classList.replace('d-none', 'd-block');
                     messageAndReplace.classList.replace('d-none', 'd-block');
-                    form.reset()
+
+                    anime({
+                        targets: iconSuccess,
+                        delay: 500,
+                        duration: 3000,
+                        scale: [0, 1],
+                        begin: function () {
+                            messageSuccess.classList.replace('d-none', 'd-block');
+                            anime({
+                                targets: messageSuccess,
+                                delay: 800,
+                                duration: 2000,
+                                scale: [0, 1],
+                            });
+                        },
+                    })
+
+                    form.reset();
                 }
             })
             .catch(function (error) {
-                console.log(error)
+                console.log(error);
             });
-    }, 2000)
+    }, 1500)
 
     repeatButton.addEventListener('click', () => {
         form.classList.replace('d-none', 'd-block');
@@ -48,5 +66,7 @@ form.addEventListener('submit', function (event) {
         iconWaiting.classList.replace('d-none', 'd-block');
         iconSuccess.classList.replace('d-block', 'd-none');
         messageAndReplace.classList.replace('d-block', 'd-none');
+        messageSuccess.classList.replace('d-block', 'd-none');
+        repeatButton.classList.replace('d-block', 'd-none');
     })
 });

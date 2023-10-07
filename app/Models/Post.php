@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Support\Str;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Post extends Model
 {
@@ -46,17 +46,17 @@ class Post extends Model
         });
     }
 
-    static function getAllPostsCount()
+    public static function getAllPostsCount()
     {
         return Post::where('status', '!=', self::STATUS_DELETED)->count();
     }
 
-    static function getPublicationCount()
+    public static function getPublicationCount()
     {
         return Post::where('status', '=', self::STATUS_ACTIVE)->count();
     }
 
-    static function getIndexationCount()
+    public static function getIndexationCount()
     {
         return Post::where('indexation', '=', self::STATUS_INDEXATION)
             ->where('status', '!=', self::STATUS_DELETED)

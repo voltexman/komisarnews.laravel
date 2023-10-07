@@ -110,29 +110,25 @@
                         <div class="row">
                             <div class="col-6">
                                 <label>Ваше ім'я</label>
-                                <div class="input2_inner">
-                                    <input name="name" type="text" class="form-control input"
-                                        placeholder="Ваше ім'я" required>
-                                </div>
+                                <input name="name" type="text" class="form-control input" placeholder="Ваше ім'я"
+                                    maxlength="60" required>
                             </div>
                             <div class="col-6">
                                 <label>Місто</label>
-                                <div class="input2_inner">
-                                    <input name="city" type="text" class="form-control input"
-                                        placeholder="Місто" required>
-                                </div>
+                                <input name="city" type="text" class="form-control input" placeholder="Місто"
+                                    maxlength="60" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <label>Електронна пошта</label>
-                                <input name="email" type="text" class="form-control input"
-                                    placeholder="Електронна пошта" required>
+                                <input name="email" type="email" class="form-control input"
+                                    placeholder="Електронна пошта" max="80">
                             </div>
                             <div class="col-md-6">
                                 <label>Номер телефону</label>
-                                <input name="phone" type="text" class="form-control input"
-                                    placeholder="Номер телефону" required>
+                                <input name="phone" type="number" class="form-control input"
+                                    placeholder="Номер телефону" maxlength="20" required>
                             </div>
                         </div>
                         <div class="row">
@@ -186,17 +182,18 @@
                         <div class="row">
                             <div class="col-4">
                                 <label>Вага</label>
-                                <input name="weight" type="text" class="form-control input" placeholder="Вага">
+                                <input name="weight" type="number" class="form-control input" placeholder="Вага"
+                                    maxlength="3">
                             </div>
                             <div class="col-4">
                                 <label>Довжина</label>
-                                <input name="length" type="text" class="form-control input"
-                                    placeholder="Довжина">
+                                <input name="length" type="number" class="form-control input"
+                                    placeholder="Довжина" maxlength="3">
                             </div>
                             <div class="col-4">
                                 <label>Ваш вік</label>
-                                <input name="age" type="text" class="form-control input"
-                                    placeholder="Ваш вік">
+                                <input name="age" type="number" class="form-control input"
+                                    placeholder="Ваш вік" min="0" max="2">
                             </div>
                         </div>
                     </div>
@@ -268,42 +265,42 @@
                     <div class="panel">
                         <header class="panel__header">
                             <h2 class="panel__title">Перевірте данні</h2>
-                            <p class="panel__subheading fw-bold">Хочу оцінити вартість</p>
+                            <p class="panel__subheading fw-bold fs-5">Хочу оцінити вартість</p>
                         </header>
 
                         <div class="panel__content">
                             <div class="d-flex">
-                                <div class="fw-bold w-50">Ім'я:
-                                    <span class="name">safd</span>
+                                <div class="fw-bold w-50 fs-5">Ім'я:
+                                    <span class="name"></span>
                                 </div>
-                                <div class="fw-bold w-50 me-auto">Місто:
+                                <div class="fw-bold w-50 me-auto fs-5">Місто:
                                     <span class="city"></span>
                                 </div>
                             </div>
                             <div class="d-flex">
-                                <div class="fw-bold w-50">E-Mail:
+                                <div class="fw-bold w-50 fs-5">E-Mail:
                                     <span class="email"></span>
                                 </div>
-                                <div class="fw-bold w-50">Телефон:
+                                <div class="fw-bold w-50 fs-5">Телефон:
                                     <span class="phone"></span>
                                 </div>
                             </div>
+                            <div class="d-flex fw-bold me-auto fs-5">Колір:
+                                <span class="color"></span>
+                            </div>
                             <div class="d-flex">
-                                <div class="fw-bold me-auto">Колір:
-                                    <span class="color"></span>
-                                </div>
-                                <div class="fw-bold mx-auto">Вага:
+                                <div class="fw-bold me-auto fs-5">Вага:
                                     <span class="weight"></span>
                                 </div>
-                                <div class="fw-bold mx-auto">Довжина:
+                                <div class="fw-bold mx-auto fs-5">Довжина:
                                     <span class="length"></span>
                                 </div>
-                                <div class="fw-bold ms-auto">Вік:
+                                <div class="fw-bold ms-auto fs-5">Вік:
                                     <span class="age"></span>
                                 </div>
                             </div>
-                            <div class="fw-bold">Опис:
-                                <span class="description">gsadghsadg</span>
+                            <div class="fw-bold fs-5">Опис:
+                                <span class="description"></span>
                             </div>
                         </div>
                     </div>

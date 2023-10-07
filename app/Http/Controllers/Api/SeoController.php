@@ -30,7 +30,7 @@ class SeoController extends Controller
      */
     public function show(string $page)
     {
-        return (new SeoResource(SEO::where(['page' => $page])->first()));
+        return new SeoResource(SEO::where(['page' => $page])->first());
     }
 
     /**

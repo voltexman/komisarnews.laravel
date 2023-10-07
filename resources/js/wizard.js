@@ -105,7 +105,7 @@ class Wizard {
             this.nextControl.innerHTML = '<i class="bi bi-chat-square-text-fill me-2"></i>До опису<i class="bi bi-arrow-right-short ms-2"></i>';
 
         if (this.currentStep === 2)
-            this.nextControl.innerHTML = '<i class="bi bi-chat-square-text-fill me-2"></i>Підтвердження<i class="bi bi-arrow-right-short ms-2"></i>';
+            this.nextControl.innerHTML = '<i class="bi bi-file-text-fill me-2"></i>Підтвердження<i class="bi bi-arrow-right-short ms-2"></i>';
 
         if (this.currentStep === 0)
             this.previousControl.classList.add('d-none');

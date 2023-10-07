@@ -71,7 +71,7 @@
                                         style="animation:happy 3s infinite linear" stroke-dasharray="100" />
                                 </svg>
                                 <div class="message-and-replace w-100 d-none">
-                                    <span class="fw-bold text-uppercase">Успішно надіслано</span>
+                                    <span class="d-none fw-bold text-uppercase">Успішно надіслано</span>
                                     <span class="btn-form2-submit mt-3 repeat-button">Відправити ще
                                         <i class="bi bi-arrow-90deg-left"></i>
                                     </span>
