@@ -11,7 +11,7 @@ class PostController extends Controller
     public function list(): View
     {
         return view('article.list', [
-            'seo' => SEO::where('page', SEO::ARTICLES_PAGE)->first(),
+            'seo' => SEO::where('page', SEO::POSTS_PAGE)->first(),
             'articles' => Post::where(
                 [
                     'status' => Post::STATUS_ACTIVE,

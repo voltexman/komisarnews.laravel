@@ -2,43 +2,38 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\SendOrder;
-use Carbon\Carbon;
+use App\Models\Order;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
-    protected $database;
-
-    protected $tablename = 'orders';
-
-    public function __construct()
-    {
-        $this->database = app('firebase.database');
-    }
-
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|max:255',
-            'contact' => 'required|max:255',
-            'text' => 'required',
+            'goal' => 'string',
+            'name' => 'string|max:60',
+            'city' => 'string|max:60',
+            'email' => 'email|max:80',
+            'phone' => 'numeric',
+            'weight' => 'numeric',
+            'length' => 'numeric',
+            'age' => 'numeric',
+            'color' => 'string|nullable',
+            'cutted' => 'boolean',
+            'painted' => 'boolean',
+            'gray' => 'boolean',
+            'description' => 'string|nullable',
         ]);
 
-        $orderData = [
-            'name' => $validated['name'],
-            'contact' => $validated['contact'],
-            'text' => $validated['text'],
-            'cteated_at' => Carbon::now()->timestamp,
-        ];
-        $postReference = $this->database
-            ->getReference($this->tablename)
-            ->push($orderData);
+        $created = Order::create($validated);
 
-        $sentMail = Mail::to(env('ADMIN_EMAIL'))
-            ->send(new SendOrder($orderData));
+        // $orderData = [
+        //     'name' => $validated['name'],
+        // ];
 
-        return $postReference && $sentMail;
+        // $sentMail = Mail::to(env('ADMIN_EMAIL'))
+        //     ->send(new SendOrder($orderData));
+
+        return $created;
     }
 }

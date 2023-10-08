@@ -1,5 +1,5 @@
 <div class="booking-box wrapper rounded-3 shadow-lg my-5 my-lg-0">
-    <form action="{{ route('orders.store') }}" class="form1 clearfix">
+    <form action="{{ route('orders.store') }}" class="form1 form-wizard clearfix">
         @csrf
         <div id="wizard" class="wizard">
             <div class="wizard__content">
@@ -98,37 +98,63 @@
                     <div class="panel">
                         <div class="row">
                             <div class="col-12">
-                                <div class="select1_wrapper">
-                                    {{-- <label for="goal" aria-label="Оберіть мету">Оберіть мету</label>
+                                {{-- <label for="goal" aria-label="Оберіть мету">Оберіть мету</label>
                                     <select name="goal" id="goal" class="select order-goal-select">
                                         <option value="0">Хочу оцінити вартість</option>
                                         <option value="1">Хочу продати волосся</option>
                                     </select> --}}
+
+                                <div class="select-box mb-3">
+                                    <div class="select-box__current">
+                                        <div class="select-box__value">
+                                            <input class="select-box__input" type="radio" id="goal_0"
+                                                value="Хочу оцінити вартість" name="goal" checked="checked" />
+                                            <p class="select-box__input-text">Хочу оцінити вартість</p>
+                                        </div>
+                                        <div class="select-box__value">
+                                            <input class="select-box__input" type="radio" id="goal_1"
+                                                value="Хочу продати волосся" name="goal" />
+                                            <p class="select-box__input-text">Хочу продати волосся</p>
+                                        </div>
+                                        {{-- img src... --}}
+                                    </div>
+                                    <ul class="select-box__list">
+                                        <li>
+                                            <label class="select-box__option" for="goal_0" aria-hidden="true">
+                                                Хочуоцінити вартість
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label class="select-box__option" for="goal_1" aria-hidden="true">
+                                                Хочу продати волосся
+                                            </label>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-6">
                                 <label>Ваше ім'я</label>
-                                <input name="name" type="text" class="form-control input" placeholder="Ваше ім'я"
-                                    maxlength="60" required>
+                                <input name="name" type="text" class="form-control input"
+                                    placeholder="Ваше ім'я" maxlength="60">
                             </div>
                             <div class="col-6">
                                 <label>Місто</label>
                                 <input name="city" type="text" class="form-control input" placeholder="Місто"
-                                    maxlength="60" required>
+                                    maxlength="60">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <label>Електронна пошта</label>
                                 <input name="email" type="email" class="form-control input"
-                                    placeholder="Електронна пошта" max="80">
+                                    placeholder="Електронна пошта" maxlength="80">
                             </div>
                             <div class="col-md-6">
                                 <label>Номер телефону</label>
                                 <input name="phone" type="number" class="form-control input"
-                                    placeholder="Номер телефону" maxlength="20" required>
+                                    placeholder="Номер телефону" maxlength="20">
                             </div>
                         </div>
                         <div class="row">
@@ -137,33 +163,60 @@
                                 <div class="select-box__current">
                                     <div class="select-box__value">
                                         <input class="select-box__input" type="radio" id="0"
-                                            value="1" name="Ben" checked="checked" />
-                                        <p class="select-box__input-text">Cream</p>
+                                            value="Блонд" name="color" checked="checked" />
+                                        <p class="select-box__input-text">Блонд</p>
                                     </div>
                                     <div class="select-box__value">
                                         <input class="select-box__input" type="radio" id="1"
-                                            value="2" name="Ben" />
-                                        <p class="select-box__input-text">Cheese</p>
+                                            value="Світло-коричневий" name="color" />
+                                        <p class="select-box__input-text">Світло-русий</p>
                                     </div>
                                     <div class="select-box__value">
                                         <input class="select-box__input" type="radio" id="4"
-                                            value="5" name="Ben" />
-                                        <p class="select-box__input-text">Toast</p>
+                                            value="Русий" name="color" />
+                                        <p class="select-box__input-text">Русий</p>
+                                    </div>
+                                    <div class="select-box__value">
+                                        <input class="select-box__input" type="radio" id="4"
+                                            value="Світло-коричневий" name="color" />
+                                        <p class="select-box__input-text">Світло-коричневий</p>
+                                    </div>
+                                    <div class="select-box__value">
+                                        <input class="select-box__input" type="radio" id="4"
+                                            value="Темно-коричневий" name="color" />
+                                        <p class="select-box__input-text">Темно-коричневий</p>
+                                    </div>
+                                    <div class="select-box__value">
+                                        <input class="select-box__input" type="radio" id="4"
+                                            value="Чорний" name="color" />
+                                        <p class="select-box__input-text">Чорний</p>
                                     </div>
                                     {{-- img src... --}}
                                 </div>
                                 <ul class="select-box__list">
                                     <li>
                                         <label class="select-box__option" for="0"
-                                            aria-hidden="true">Cream</label>
+                                            aria-hidden="true">Блонд</label>
                                     </li>
                                     <li>
                                         <label class="select-box__option" for="1"
-                                            aria-hidden="true">Cheese</label>
+                                            aria-hidden="true">Світло-русий</label>
+                                    </li>
+                                    <li>
+                                        <label class="select-box__option" for="2"
+                                            aria-hidden="true">Русий</label>
+                                    </li>
+                                    <li>
+                                        <label class="select-box__option" for="3"
+                                            aria-hidden="true">Світло-коричневий</label>
                                     </li>
                                     <li>
                                         <label class="select-box__option" for="4"
-                                            aria-hidden="true">Toast</label>
+                                            aria-hidden="true">Темно-коричневий</label>
+                                    </li>
+                                    <li>
+                                        <label class="select-box__option" for="5"
+                                            aria-hidden="true">Чорний</label>
                                     </li>
                                 </ul>
                             </div>
@@ -193,7 +246,7 @@
                             <div class="col-4">
                                 <label>Ваш вік</label>
                                 <input name="age" type="number" class="form-control input"
-                                    placeholder="Ваш вік" min="0" max="2">
+                                    placeholder="Ваш вік" maxlength="2">
                             </div>
                         </div>
                     </div>
@@ -262,7 +315,7 @@
                         </div>
                     </div>
 
-                    <div class="panel">
+                    <div class="panel d-flex flex-column">
                         <header class="panel__header">
                             <h2 class="panel__title">Перевірте данні</h2>
                             <p class="panel__subheading fw-bold fs-5">Хочу оцінити вартість</p>
@@ -270,38 +323,45 @@
 
                         <div class="panel__content">
                             <div class="d-flex">
-                                <div class="fw-bold w-50 fs-5">Ім'я:
+                                <div class="fw-bold w-50 fs-6">Ім'я:
                                     <span class="name"></span>
                                 </div>
-                                <div class="fw-bold w-50 me-auto fs-5">Місто:
+                                <div class="fw-bold w-50 me-auto fs-6">Місто:
                                     <span class="city"></span>
                                 </div>
                             </div>
                             <div class="d-flex">
-                                <div class="fw-bold w-50 fs-5">E-Mail:
+                                <div class="fw-bold w-50 fs-6">E-Mail:
                                     <span class="email"></span>
                                 </div>
-                                <div class="fw-bold w-50 fs-5">Телефон:
+                                <div class="fw-bold w-50 fs-6">Телефон:
                                     <span class="phone"></span>
                                 </div>
                             </div>
-                            <div class="d-flex fw-bold me-auto fs-5">Колір:
+                            <div class="d-flex fw-bold me-auto fs-6">Колір:
                                 <span class="color"></span>
                             </div>
                             <div class="d-flex">
-                                <div class="fw-bold me-auto fs-5">Вага:
+                                <div class="fw-bold me-auto fs-6">Вага:
                                     <span class="weight"></span>
                                 </div>
-                                <div class="fw-bold mx-auto fs-5">Довжина:
+                                <div class="fw-bold mx-auto fs-6">Довжина:
                                     <span class="length"></span>
                                 </div>
-                                <div class="fw-bold ms-auto fs-5">Вік:
+                                <div class="fw-bold ms-auto fs-6">Вік:
                                     <span class="age"></span>
                                 </div>
                             </div>
-                            <div class="fw-bold fs-5">Опис:
+                            <div class="fw-bold fs-6">Опис:
                                 <span class="description"></span>
                             </div>
+                        </div>
+                        
+                        <div class="styled-input-single d-flex mt-auto">
+                            <input type="checkbox" name="fieldset-5" id="checkbox-example-one">
+                            <label for="checkbox-example-one">Погоджуюсь з</label>
+                            <span class="fw-bold ms-1 cursor-pointer" data-bs-target="#modalOrder"
+                                data-bs-toggle="modal">правилами</span>
                         </div>
                     </div>
 
@@ -323,8 +383,34 @@
                     </div>
                 </div>
 
-                <div class="congrats-message">
-                    Congratulations, you are now in a world of pain and suffering!
+                <div class="congrats-message rounded-3 align-content-center flex-wrap flex-column d-none">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="200" height="200"
+                        fill="none" class="waiting-image d-block">
+                        <g style="animation:rotate-center 1.5s ease-in-out infinite both;transform-origin:center center"
+                            stroke-width=".5">
+                            <path stroke="#91765a" stroke-linecap="round"
+                                d="M6.883 11.778a5 5 0 018.473-3.597m1.761 4.131a5 5 0 01-8.473 3.597" />
+                            <path fill="#b5a290" stroke="#b5a290"
+                                d="M17.078 10.145l-2.308-.347a.066.066 0 01-.018-.005.026.026 0 01-.007-.005.056.056 0 01-.015-.024.056.056 0 01-.002-.03l.003-.007a.069.069 0 01.012-.015l1.995-1.964a.064.064 0 01.015-.012.028.028 0 01.007-.003.056.056 0 01.029.003c.012.004.02.01.024.015a.03.03 0 01.005.007.069.069 0 01.004.019l.313 2.312a.046.046 0 01-.015.042.045.045 0 01-.043.014zm-10.156 3.8l2.308.348.018.005a.03.03 0 01.007.005c.004.003.01.011.015.024a.056.056 0 01.002.029.027.027 0 01-.003.007.065.065 0 01-.012.015l-1.995 1.965a.072.072 0 01-.015.012.03.03 0 01-.007.003.056.056 0 01-.029-.003.057.057 0 01-.024-.016.028.028 0 01-.005-.006.066.066 0 01-.004-.019l-.313-2.312a.046.046 0 01.002-.023.053.053 0 01.013-.02.052.052 0 01.02-.012.046.046 0 01.022-.002z" />
+                        </g>
+                    </svg>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="200" height="200"
+                        fill="none" class="success-image d-none">
+                        <circle cx="12.735" cy="12" r="7" stroke="#91765a" stroke-width=".5" />
+                        <circle cx="9.735" cy="10.277" r="1" fill="#91765a" />
+                        <circle cx="15.735" cy="10.277" r="1" fill="#91765a" />
+                        <path stroke="#91765a" stroke-linecap="round"
+                            d="M15.735 14.147l-.049.04a4.631 4.631 0 01-5.951-.04"
+                            style="animation:happy 3s infinite linear" stroke-dasharray="100" />
+                    </svg>
+
+                    <div
+                        class="message-and-replace d-flex flex-fill align-content-center flex-wrap justify-content-center">
+                        <span class="fw-bold text-uppercase success-message">Успішно надіслано</span>
+                        {{-- <span class="btn-form2-submit mt-3 repeat-button">Відправити ще
+                            <i class="bi bi-arrow-90deg-left"></i>
+                        </span> --}}
+                    </div>
                 </div>
             </div>
     </form>

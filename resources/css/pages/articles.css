@@ -9,10 +9,6 @@
     position: relative;
 }
 
-.barber-services-2:last-child {
-    margin-bottom: 15px;
-}
-
 .barber-services-2 figure {
     margin: 0;
     position: relative;
@@ -247,4 +243,8 @@ a.link-btn span {
     to {
         stroke-dashoffset: 200
     }
+}
+
+.articles-list img {
+    transition: all .3s;
 }

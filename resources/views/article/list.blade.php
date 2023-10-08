@@ -19,11 +19,11 @@
                     <div class="col-12 articles-list">
                         @foreach ($articles as $article)
                             {{-- // TODO: перейменувати клас barber-services-2 в article-item --}}
-                            <article class="barber-services-2 {{ \PostHelper::even($loop->index) ? 'left' : null }}"
+                            <article class="barber-services-2 mt-5 {{ \PostHelper::even($loop->index) ? 'left' : null }}"
                                 data-aos="fade-{{ \PostHelper::even($loop->index) ? 'right' : 'left' }}" data-aos-delay="300">
                                 <figure>
                                     <img src="{{ asset('img/bg-header.jpg') }}" width="744" height="466"
-                                        class="img-fluid shadow-lg" alt="">
+                                        class="img-fluid shadow-lg" alt="{{ $article->name }}" title="{{ $article->title }}">
                                 </figure>
                                 <div class="caption shadow-md">
                                     <h2>
@@ -35,7 +35,8 @@
                                     <hr class="border-2">
                                     <div class="info-wrapper">
                                         <div class="more">
-                                            <a href="" class="link-btn blck" tabindex="0">Детальніше</a>
+                                            <a href="{{ route('article.show', ['slug' => $article->slug]) }}"
+                                                class="link-btn blck" tabindex="0">Детальніше</a>
                                         </div>
                                         <div class="bi bi-calendar">
                                             {{ \Carbon\Carbon::parse($article->created_at)->format('F d, Y') }}
@@ -46,14 +47,16 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col text-center">
-                        {{ $articles->links() }}
-                        <button type="button" class="btn load-next rounded-3">Завантажити ще
-                            <i class="bi bi-arrow-clockwise"></i>
-                        </button>
+                @if ($articles->hasPages())
+                    <div class="row">
+                        <div class="col text-center">
+                            {{ $articles->links() }}
+                            <button type="button" class="btn load-next rounded-3 mt-5">Завантажити ще
+                                <i class="bi bi-arrow-clockwise"></i>
+                            </button>
+                        </div>
                     </div>
-                </div>
+                @endif
             @else
                 <div class="row">
                     <div class="col text-center my-5">

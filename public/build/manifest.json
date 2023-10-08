@@ -2,11 +2,11 @@
   "_anime.es-de4e5aa0.js": {
     "file": "assets/anime.es-de4e5aa0.js"
   },
-  "_order-20d89cd8.js": {
+  "_order-3662328d.js": {
     "css": [
-      "assets/order-886c2f56.css"
+      "assets/order-43b1525f.css"
     ],
-    "file": "assets/order-20d89cd8.js"
+    "file": "assets/order-3662328d.js"
   },
   "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff": {
     "file": "assets/bootstrap-icons-4d4572ef.woff",
@@ -17,7 +17,7 @@
     "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
   },
   "order.css": {
-    "file": "assets/order-886c2f56.css",
+    "file": "assets/order-43b1525f.css",
     "src": "order.css"
   },
   "public/img/bg-header.webp": {
@@ -40,26 +40,26 @@
     "src": "resources/css/pages/main.css"
   },
   "resources/js/pages/articles.js": {
-    "file": "assets/articles-3cfc3705.js",
+    "file": "assets/articles-3ed9c151.js",
     "imports": [
-      "_order-20d89cd8.js"
+      "_order-3662328d.js"
     ],
     "isEntry": true,
     "src": "resources/js/pages/articles.js"
   },
   "resources/js/pages/contacts.js": {
-    "file": "assets/contacts-9ffc2b54.js",
+    "file": "assets/contacts-b62109fc.js",
     "imports": [
-      "_order-20d89cd8.js",
+      "_order-3662328d.js",
       "_anime.es-de4e5aa0.js"
     ],
     "isEntry": true,
     "src": "resources/js/pages/contacts.js"
   },
   "resources/js/pages/main.js": {
-    "file": "assets/main-fca05861.js",
+    "file": "assets/main-d4762a5c.js",
     "imports": [
-      "_order-20d89cd8.js",
+      "_order-3662328d.js",
       "_anime.es-de4e5aa0.js"
     ],
     "isEntry": true,

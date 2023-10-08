@@ -1085,6 +1085,11 @@ span.title {
         text-align: left;
         padding: 20px 15px 30px 15px;
     }
+
+    .panel__content {
+        max-height: 350px;
+        overflow-y: auto;
+    }
 }
 
 /* booking form */
@@ -1797,6 +1802,11 @@ h3 {
     font-weight: normal;
 }
 
+.panel__content {
+    max-height: 230px;
+    overflow-y: auto;
+}
+
 .wizard__steps {
     position: absolute;
     bottom: 0;
@@ -1811,14 +1821,34 @@ h3 {
 }
 
 .congrats-message {
+    background-color: #f5eee7;
+    width: 100%;
+    height: 100%;
     color: #676767;
     text-align: center;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    opacity: 1;
+    /* z-index: -1; */
+    z-index: 9999;
+}
+
+.wizard svg.waiting-image,
+.wizard svg.success-image {
+    position: absolute;
+    top: calc(50% - 100px);
+    left: calc(50% - 100px);
+}
+
+.message-and-replace {
+    margin-top: 150px !important;
+}
+
+.success-message,
+.repeat-button {
     opacity: 0;
-    z-index: -1;
 }
 
 .wizard.completed .wizard__content {
@@ -1877,14 +1907,12 @@ h3 {
 }
 
 .panel {
-    /* visibility: hidden; */
-    /* height: 360px; */
     position: absolute;
     padding: 10px 20px;
     top: 0;
     left: 0;
     width: 100%;
-    height: 350px;
+    height: 360px;
     overflow: hidden;
     /* height: 350px; */
     /* transition: 0.5s all; */
@@ -1914,7 +1942,7 @@ h3 {
 }
 
 .panel__header {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 .panel__title {
@@ -2091,3 +2119,110 @@ h3 {
 }
 
 /* purgecss end ignore */
+
+div::-webkit-scrollbar {
+    width: 8px;
+    background-color: rgba(0, 0, 0, .05);
+    border-radius: 20px;
+}
+
+/* Встановлюємо стиль тло смуги прокрутки, колір та округлені кути */
+div::-webkit-scrollbar-thumb {
+    background-color: #91765a;
+    border-radius: 5px;
+}
+
+/* Встановлюємо стиль при наведенні мишки на смугу прокрутки */
+div::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.styled-input-single {
+    position: relative;
+    padding: 10px 0 10px 40px;
+    text-align: left;
+}
+
+.styled-input-single label {
+    cursor: pointer;
+    display: block;
+}
+
+.styled-input-single label:before,
+.styled-input-single label:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    border-radius: 50%;
+}
+
+.styled-input-single label:before {
+    left: 0;
+    width: 30px;
+    height: 30px;
+    margin: -15px 0 0;
+    background: #f7f7f7;
+    box-shadow: 0 0 2px #91765a;
+    border: 2px solid #91765a;
+}
+
+.styled-input-single label:after {
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0;
+    opacity: 0;
+    background: #91765a;
+    transform: translate3d(-40px, 0, 0) scale(0.5);
+    transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+}
+
+.styled-input-single input[type=radio],
+.styled-input-single input[type=checkbox] {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+    visibility: hidden;
+}
+
+.styled-input-single input[type=radio]:checked+label:after,
+.styled-input-single input[type=checkbox]:checked+label:after {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+}
+
+.styled-input--square label:before,
+.styled-input--square label:after {
+    border-radius: 0;
+}
+
+.styled-input--rounded label:before {
+    border-radius: 10px;
+}
+
+.styled-input--rounded label:after {
+    border-radius: 6px;
+}
+
+.styled-input--diamond .styled-input-single {
+    padding-left: 45px;
+}
+
+.styled-input--diamond label:before,
+.styled-input--diamond label:after {
+    border-radius: 0;
+}
+
+.styled-input--diamond label:before {
+    transform: rotate(45deg);
+}
+
+.styled-input--diamond input[type=radio]:checked+label:after,
+.styled-input--diamond input[type=checkbox]:checked+label:after {
+    transform: rotate(45deg);
+    opacity: 1;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

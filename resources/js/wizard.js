@@ -1,3 +1,5 @@
+import axios from "axios";
+import anime from "animejs";
 import './dropzone';
 
 class Steps {
@@ -101,11 +103,58 @@ class Wizard {
     }
 
     updateButtonsStatus() {
-        if (this.currentStep === 1)
-            this.nextControl.innerHTML = '<i class="bi bi-chat-square-text-fill me-2"></i>До опису<i class="bi bi-arrow-right-short ms-2"></i>';
+        // Отримуємо посилання на чекбокс і кнопку за їхніми id
+        const checkRules = document.getElementById('checkbox-example-one');
+        const submitButton = document.querySelector('button.next');
 
-        if (this.currentStep === 2)
+        this.previousControl.classList.remove('d-none');
+
+        if (checkRules.checked) {
+            // Якщо відмічений, знімаємо атрибут "disabled" з кнопки
+            submitButton.removeAttribute('disabled');
+            submitButton.classList.remove('disabled');
+        } else {
+            submitButton.setAttribute('disabled', 'true');
+            submitButton.classList.add('disabled');
+        }
+
+        if (this.currentStep < 3) {
+            //  else {
+            // Якщо не відмічений, додаємо атрибут "disabled" до кнопки
+            submitButton.setAttribute('disabled', 'true');
+            submitButton.classList.add('disabled');
+            // }
+            this.nextControl.removeAttribute('disabled');
+            this.nextControl.classList.remove('disabled');
+        } else {
+            // this.nextControl.setAttribute('disabled', 'true');
+            // this.nextControl.classList.add('disabled');
+
+            // Додаємо обробник події "click" до чекбоксу
+            // checkRules.addEventListener('click', function () {
+            //     // Перевіряємо, чи чекбокс відмічений
+            if (checkRules.checked) {
+                // Якщо відмічений, знімаємо атрибут "disabled" з кнопки
+                submitButton.removeAttribute('disabled');
+                submitButton.classList.remove('disabled');
+            } else {
+                // Якщо не відмічений, додаємо атрибут "disabled" до кнопки
+                submitButton.setAttribute('disabled', 'true');
+                submitButton.classList.add('disabled');
+            }
+            // });
+        }
+
+
+
+
+        if (this.currentStep === 1) {
+            this.nextControl.innerHTML = '<i class="bi bi-chat-square-text-fill me-2"></i>До опису<i class="bi bi-arrow-right-short ms-2"></i>';
+        }
+
+        if (this.currentStep === 2) {
             this.nextControl.innerHTML = '<i class="bi bi-file-text-fill me-2"></i>Підтвердження<i class="bi bi-arrow-right-short ms-2"></i>';
+        }
 
         if (this.currentStep === 0)
             this.previousControl.classList.add('d-none');
@@ -146,8 +195,84 @@ class Wizard {
         }
     }
 
-    handleWizardConclusion() {
-        this.wizard.classList.add('completed');
+    handleWizardConclusion(movement) {
+        // this.wizard.classList.add('completed');
+
+        this.nextControl.type = 'submit';
+
+        const orderForm = document.querySelector('.form-wizard');
+
+        orderForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const formAction = orderForm.getAttribute('action');
+
+            const congratsPlace = orderForm.querySelector('.congrats-message');
+            congratsPlace.classList.replace('d-none', 'd-flex');
+
+            const waitingImage = orderForm.querySelector('.waiting-image');
+            const successImage = orderForm.querySelector('.success-image');
+            const successMessage = orderForm.querySelector('.success-message');
+            const repeatButton = orderForm.querySelector('.repeat-button');
+
+            setTimeout(function () {
+                axios.post(formAction, formData)
+                    .then(response => {
+                        if (response) {
+                            console.log(response.data);
+                            waitingImage.classList.replace('d-block', 'd-none');
+                            successImage.classList.replace('d-none', 'd-block');
+
+                            anime({
+                                targets: successImage,
+                                duration: 2000,
+                                delay: 100,
+                                scale: [0, 1],
+                                complete: function () {
+                                    anime({
+                                        targets: successImage,
+                                        duration: 800,
+                                        delay: 100,
+                                        translateY: -50,
+                                        easing: 'easeOutQuad',
+                                        complete: function () {
+                                            anime({
+                                                targets: successMessage,
+                                                duration: 5000,
+                                                delay: 500,
+                                                opacity: 1,
+                                            });
+                                            anime({
+                                                targets: repeatButton,
+                                                duration: 8000,
+                                                delay: 1000,
+                                                opacity: 1,
+                                            });
+                                        }
+                                    });
+                                }
+                            });
+                        } else {
+                            console.error('Form submission failed');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('An error occurred:', error);
+                    });
+            }, 1000);
+
+            // repeatButton.addEventListener('click', function (event) {
+            //     event.target.type = 'button';
+            //     event.target.style.opacity = '0';
+
+            //     congratsPlace.classList.replace('d-flex', 'd-none');
+            //     waitingImage.classList.replace('d-block', 'd-none');
+            //     successImage.classList.replace('d-block', 'd-none');
+            //     successMessage.style.opacity = '0';
+            //     successImage.style.top = 'calc(50% - 100px)';
+            // })
+        });
     };
 
     addControls(previousControl, nextControl) {
@@ -185,109 +310,3 @@ let buttonNext = document.querySelector('.next');
 let buttonPrevious = document.querySelector('.previous');
 
 wizard.addControls(buttonPrevious, buttonNext);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// class Wizard {
-//     constructor(wizardElement) {
-//         this.wizard = wizardElement;
-//         this.panels = Array.from(this.wizard.querySelectorAll('.panels .panel'));
-//         this.steps = Array.from(this.wizard.querySelectorAll('.steps .step'));
-//         this.currentStep = 0;
-//         this.stepsQuantity = this.steps.length;
-//         this.nextButton = this.wizard.querySelector('.next');
-//         this.prevButton = this.wizard.querySelector('.previous');
-
-//         this.init();
-//     }
-
-//     init() {
-//         this.updateButtonsStatus();
-//         this.updatePanelsPosition();
-//         this.addEventListeners();
-//     }
-
-//     updateButtonsStatus() {
-//         this.prevButton.disabled = this.currentStep === 0;
-//         this.nextButton.disabled = this.currentStep === this.stepsQuantity - 1;
-
-//         switch (this.currentStep) {
-//             case 0:
-//                 this.nextButton.innerHTML = '<i class="bi bi-chat-square-text-fill me-2"></i>До фото<i class="bi bi-arrow-right-short ms-2"></i>';
-//                 this.prevButton.classList.add('d-none');
-//                 break;
-//             case 1:
-//                 this.nextButton.innerHTML = '<i class="bi bi-chat-square-text-fill me-2"></i>До опису<i class="bi bi-arrow-right-short ms-2"></i>';
-//                 this.prevButton.classList.remove('d-none');
-//                 break;
-//             case 2:
-//                 this.nextButton.innerHTML = '<i class="bi bi-chat-square-text-fill me-2"></i>Підтвердження<i class="bi bi-arrow-right-short ms-2"></i>';
-//                 break;
-//             default:
-//                 this.nextButton.innerHTML = '<i class="bi bi-chat-square-text-fill me-2"></i>Відправити<i class="bi bi-arrow-right-short ms-2"></i>';
-//                 break;
-//         }
-//     }
-
-//     addEventListeners() {
-//         this.nextButton.addEventListener('click', () => this.moveStep(1));
-//         this.prevButton.addEventListener('click', () => this.moveStep(-1));
-//     }
-
-//     moveStep(movement) {
-//         const newStep = this.currentStep + movement;
-//         if (newStep >= 0 && newStep < this.stepsQuantity) {
-//             this.currentStep = newStep;
-//             this.updatePanelsPosition();
-//             this.updateButtonsStatus();
-//             this.animateStepIcons();
-//         }
-//     }
-
-//     updatePanelsPosition() {
-//         this.panels.forEach((panel, index) => {
-//             panel.classList.remove('movingIn', 'movingOutBackward', 'movingOutForward');
-//             if (index === this.currentStep) {
-//                 panel.classList.add('movingIn');
-//             } else if (index < this.currentStep) {
-//                 panel.classList.add('movingOutBackward');
-//             } else {
-//                 panel.classList.add('movingOutForward');
-//             }
-//         });
-//     }
-
-//     animateStepIcons() {
-//         const animateActiveIconClass = ['d-block', 'animate__animated', 'animate__tada', 'animate__infinite'];
-//         const stepIcons = this.wizard.querySelectorAll('.step__number i');
-
-//         stepIcons.forEach((icon, index) => {
-//             icon.classList.remove(...animateActiveIconClass);
-//             if (index === this.currentStep) {
-//                 icon.classList.add(...animateActiveIconClass);
-//             }
-//         });
-//     }
-// }
-
-// const wizardElement = document.getElementById('wizard');
-// const wizard = new Wizard(wizardElement);

@@ -45,7 +45,7 @@ export function createImageEditModal(file, dataURL) {
                 <div class="modal-body">
                     
 
-                    <div class="image-container" class="d-none" style="overflow:hidden">
+                    <div class="image-container rounded" class="d-none" style="overflow:hidden">
                         <img id="img-` + file.upload.uuid + `" src="` + file.dataURL + `">
                     </div>
 
