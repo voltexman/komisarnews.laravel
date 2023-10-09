@@ -7,14 +7,14 @@ var inputLength = document.querySelector('input[name="length"]');
 var inputAge = document.querySelector('input[name="age"]');
 var textareaDescription = document.querySelector('textarea[name="description"]');
 
-var nameCheck = document.querySelector('span.name');
-var cityCheck = document.querySelector('span.city');
-var emailCheck = document.querySelector('span.email');
-var phoneCheck = document.querySelector('span.phone');
-var weightCheck = document.querySelector('span.weight');
-var lengthCheck = document.querySelector('span.length');
-var ageCheck = document.querySelector('span.age');
-var descriptionCheck = document.querySelector('span.description');
+var nameCheck = document.querySelector('small.name');
+var cityCheck = document.querySelector('small.city');
+var emailCheck = document.querySelector('small.email');
+var phoneCheck = document.querySelector('small.phone');
+var weightCheck = document.querySelector('small.weight');
+var lengthCheck = document.querySelector('small.length');
+var ageCheck = document.querySelector('small.age');
+var descriptionCheck = document.querySelector('small.description');
 
 inputName.addEventListener('input', function () {
     nameCheck.textContent = inputName.value;

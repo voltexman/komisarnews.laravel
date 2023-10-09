@@ -103,63 +103,78 @@ class Wizard {
     }
 
     updateButtonsStatus() {
-        // Отримуємо посилання на чекбокс і кнопку за їхніми id
-        const checkRules = document.getElementById('checkbox-example-one');
-        const submitButton = document.querySelector('button.next');
+        if (this.currentStep === 0) {
+            // Отримуємо посилання на чекбокс і кнопку за їхніми id
 
-        this.previousControl.classList.remove('d-none');
+            this.previousControl.classList.remove('d-none');
 
-        if (checkRules.checked) {
-            // Якщо відмічений, знімаємо атрибут "disabled" з кнопки
-            submitButton.removeAttribute('disabled');
-            submitButton.classList.remove('disabled');
-        } else {
-            submitButton.setAttribute('disabled', 'true');
-            submitButton.classList.add('disabled');
-        }
+            var nameField = this.wizard.querySelector('input[name="name"]');
+            var phoneField = this.wizard.querySelector('input[name="phone"]');
+            var weightField = this.wizard.querySelector('input[name="weight"]');
+            var lengthField = this.wizard.querySelector('input[name="length"]');
+            var ageField = this.wizard.querySelector('input[name="age"]');
 
-        if (this.currentStep < 3) {
-            //  else {
-            // Якщо не відмічений, додаємо атрибут "disabled" до кнопки
-            submitButton.setAttribute('disabled', 'true');
-            submitButton.classList.add('disabled');
-            // }
-            this.nextControl.removeAttribute('disabled');
-            this.nextControl.classList.remove('disabled');
-        } else {
-            // this.nextControl.setAttribute('disabled', 'true');
-            // this.nextControl.classList.add('disabled');
+            // Додаємо обробник події на поля вводу
+            nameField.addEventListener('input', checkFields);
+            phoneField.addEventListener('input', checkFields);
+            weightField.addEventListener('input', checkFields);
+            lengthField.addEventListener('input', checkFields);
+            ageField.addEventListener('input', checkFields);
 
-            // Додаємо обробник події "click" до чекбоксу
-            // checkRules.addEventListener('click', function () {
-            //     // Перевіряємо, чи чекбокс відмічений
-            if (checkRules.checked) {
-                // Якщо відмічений, знімаємо атрибут "disabled" з кнопки
-                submitButton.removeAttribute('disabled');
-                submitButton.classList.remove('disabled');
-            } else {
-                // Якщо не відмічений, додаємо атрибут "disabled" до кнопки
-                submitButton.setAttribute('disabled', 'true');
-                submitButton.classList.add('disabled');
+            // Функція для перевірки полів і зняття атрибуту disabled
+            function checkFields() {
+                const submitButton = document.querySelector('button.next');
+                // Отримуємо значення полів
+                var nameValue = nameField.value.trim();
+                var phoneValue = phoneField.value.trim();
+                var weightValue = weightField.value.trim();
+                var lengthValue = lengthField.value.trim();
+                var ageValue = ageField.value.trim();
+
+                // Перевіряємо, чи всі поля заповнені
+                if (nameValue !== '' && phoneValue !== '' && weightValue !== '' && lengthValue !== '' && ageValue !== '') {
+                    submitButton.removeAttribute('disabled');
+                    submitButton.classList.remove('disabled')
+                } else {
+                    submitButton.setAttribute('disabled', 'disabled');
+                    submitButton.classList.add('disabled')
+                }
             }
-            // });
-        }
 
+            checkFields();
 
-
+            this.previousControl.classList.add('d-none');
+        } else
+            this.previousControl.classList.remove('d-none');
 
         if (this.currentStep === 1) {
+            this.nextControl.removeAttribute('disabled', 'true');
+            this.nextControl.classList.remove('disabled');
+
             this.nextControl.innerHTML = '<i class="bi bi-chat-square-text-fill me-2"></i>До опису<i class="bi bi-arrow-right-short ms-2"></i>';
         }
 
         if (this.currentStep === 2) {
+            this.nextControl.removeAttribute('disabled', 'true');
+            this.nextControl.classList.remove('disabled');
+
             this.nextControl.innerHTML = '<i class="bi bi-file-text-fill me-2"></i>Підтвердження<i class="bi bi-arrow-right-short ms-2"></i>';
         }
 
-        if (this.currentStep === 0)
-            this.previousControl.classList.add('d-none');
-        else
-            this.previousControl.classList.remove('d-none');
+        if (this.currentStep === 3) {
+            let checkRules = document.getElementById('checkbox-example-one');
+
+            // Перевіряємо, чи чекбокс відмічений
+            if (checkRules.checked) {
+                // Якщо відмічений, знімаємо атрибут "disabled" з кнопки
+                this.nextControl.removeAttribute('disabled');
+                this.nextControl.classList.remove('disabled');
+            } else {
+                // Якщо не відмічений, додаємо атрибут "disabled" до кнопки
+                this.nextControl.setAttribute('disabled', 'true');
+                this.nextControl.classList.add('disabled');
+            }
+        }
     }
 
     updtadeCurrentStep(movement) {

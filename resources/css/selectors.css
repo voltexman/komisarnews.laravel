@@ -40,7 +40,7 @@
 }
 
 .select-box__value {
-	display: flex !important;
+	display: flex;
 }
 
 .select-box__input {
@@ -48,11 +48,11 @@
 }
 
 .select-box__input:checked+.select-box__input-text {
-	display: block !important;
+	display: block;
 }
 
 .select-box__input-text {
-	display: none !important;
+	display: none;
 	border-radius: var(--bs-border-radius-lg);
 	width: 100%;
 	margin: 0;
@@ -63,7 +63,7 @@
 }
 
 .select-box__list {
-	position: absolute !important;
+	position: absolute;
 	width: 100%;
 	bottom: 100%;
 	padding: 0;
@@ -84,7 +84,7 @@
 }
 
 .select-box__option {
-	display: block !important;
+	display: block;
 	padding: 15px;
 	background-color: #000;
 }

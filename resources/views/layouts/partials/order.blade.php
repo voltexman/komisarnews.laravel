@@ -135,9 +135,12 @@
                         </div>
                         <div class="row">
                             <div class="col-6">
-                                <label>Ваше ім'я</label>
-                                <input name="name" type="text" class="form-control input"
-                                    placeholder="Ваше ім'я" maxlength="60">
+                                <div class="position-relative">
+                                    <label>Ваше ім'я</label>
+                                    <input name="name" type="text" class="form-control input"
+                                        placeholder="Ваше ім'я" maxlength="60" required>
+                                    <span class="required-input">*</span>
+                                </div>
                             </div>
                             <div class="col-6">
                                 <label>Місто</label>
@@ -152,9 +155,12 @@
                                     placeholder="Електронна пошта" maxlength="80">
                             </div>
                             <div class="col-md-6">
-                                <label>Номер телефону</label>
-                                <input name="phone" type="number" class="form-control input"
-                                    placeholder="Номер телефону" maxlength="20">
+                                <div class="position-relative">
+                                    <label>Номер телефону</label>
+                                    <input name="phone" type="number" class="form-control input"
+                                        placeholder="Номер телефону" maxlength="20" required>
+                                    <span class="required-input">*</span>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -220,33 +226,31 @@
                                     </li>
                                 </ul>
                             </div>
-
-                            {{-- <label for="color" aria-label="Колір">Колір
-                                        <select name="color" id="color" class="select order-color-select">
-                                            <option value="0">Блонд</option>
-                                            <option value="1">Світло-русий</option>
-                                            <option value="2">Русий</option>
-                                            <option value="3">Світло-коричневий</option>
-                                            <option value="4">Темно-коричневий</option>
-                                            <option value="5">Чорний</option>
-                                        </select>
-                                    </label> --}}
                         </div>
                         <div class="row">
                             <div class="col-4">
-                                <label>Вага</label>
-                                <input name="weight" type="number" class="form-control input" placeholder="Вага"
-                                    maxlength="3">
+                                <div class="position-relative">
+                                    <label>Вага</label>
+                                    <input name="weight" type="number" class="form-control input"
+                                        placeholder="Вага" maxlength="3" required>
+                                    <span class="required-input">*</span>
+                                </div>
                             </div>
                             <div class="col-4">
-                                <label>Довжина</label>
-                                <input name="length" type="number" class="form-control input"
-                                    placeholder="Довжина" maxlength="3">
+                                <div class="position-relative">
+                                    <label>Довжина</label>
+                                    <input name="length" type="number" class="form-control input"
+                                        placeholder="Довжина" maxlength="3" required>
+                                    <span class="required-input">*</span>
+                                </div>
                             </div>
                             <div class="col-4">
-                                <label>Ваш вік</label>
-                                <input name="age" type="number" class="form-control input"
-                                    placeholder="Ваш вік" maxlength="2">
+                                <div class="position-relative">
+                                    <label>Ваш вік</label>
+                                    <input name="age" type="number" class="form-control input"
+                                        placeholder="Ваш вік" maxlength="2" required>
+                                    <span class="required-input">*</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -324,39 +328,39 @@
                         <div class="panel__content">
                             <div class="d-flex">
                                 <div class="fw-bold w-50 fs-6">Ім'я:
-                                    <span class="name"></span>
+                                    <small class="name"></small>
                                 </div>
                                 <div class="fw-bold w-50 me-auto fs-6">Місто:
-                                    <span class="city"></span>
+                                    <small class="city"></small>
                                 </div>
                             </div>
                             <div class="d-flex">
                                 <div class="fw-bold w-50 fs-6">E-Mail:
-                                    <span class="email"></span>
+                                    <small class="email"></small>
                                 </div>
                                 <div class="fw-bold w-50 fs-6">Телефон:
-                                    <span class="phone"></span>
+                                    <small class="phone"></small>
                                 </div>
                             </div>
                             <div class="d-flex fw-bold me-auto fs-6">Колір:
-                                <span class="color"></span>
+                                <small class="color"></small>
                             </div>
                             <div class="d-flex">
                                 <div class="fw-bold me-auto fs-6">Вага:
-                                    <span class="weight"></span>
+                                    <small class="weight"></small> гр.
                                 </div>
                                 <div class="fw-bold mx-auto fs-6">Довжина:
-                                    <span class="length"></span>
+                                    <small class="length"></small> см.
                                 </div>
                                 <div class="fw-bold ms-auto fs-6">Вік:
-                                    <span class="age"></span>
+                                    <small class="age"></small> р.
                                 </div>
                             </div>
                             <div class="fw-bold fs-6">Опис:
-                                <span class="description"></span>
+                                <small class="description"></small>
                             </div>
                         </div>
-                        
+
                         <div class="styled-input-single d-flex mt-auto">
                             <input type="checkbox" name="fieldset-5" id="checkbox-example-one">
                             <label for="checkbox-example-one">Погоджуюсь з</label>
@@ -376,7 +380,7 @@
                             aria-label="Детальна інформація" type="button">
                             <i class="bi bi-info-circle"></i>
                         </button>
-                        <button class="button flex-fill next" type="button">
+                        <button class="button flex-fill next disabled" type="button" disabled>
                             <i class="bi bi-camera-fill me-2"></i>До фото
                             <i class="bi bi-arrow-right-short ms-2"></i>
                         </button>
