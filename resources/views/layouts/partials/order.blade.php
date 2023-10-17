@@ -1,5 +1,5 @@
 <div class="booking-box wrapper rounded-3 shadow-lg my-5 my-lg-0">
-    <form action="{{ route('orders.store') }}" class="form1 form-wizard clearfix">
+    <form action="{{ route('orders.store') }}" class="form1 form-wizard clearfix" enctype="multipart/form-data">
         @csrf
         <div id="wizard" class="wizard">
             <div class="wizard__content">
@@ -14,8 +14,7 @@
                                 <div class="step__content">
                                     <p class="step__number"><i class="bi bi-ui-checks"></i></p>
                                     <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                                        <circle class="checkmark__circle" cx="26" cy="26" r="25"
-                                            fill="none" />
+                                        <circle cx="26" cy="26" r="25" fill="none" />
                                         <path class="checkmark__check" fill="none"
                                             d="M14.1 27.2l7.1 7.2 16.7-16.8" />
                                     </svg>
@@ -36,8 +35,7 @@
                                     <p class="step__number"><i class="bi bi-camera-fill"></i>
                                     </p>
                                     <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                                        <circle class="checkmark__circle" cx="26" cy="26" r="25"
-                                            fill="none" />
+                                        <circle cx="26" cy="26" r="25" fill="none" />
                                         <path class="checkmark__check" fill="none"
                                             d="M14.1 27.2l7.1 7.2 16.7-16.8" />
                                     </svg>
@@ -54,8 +52,7 @@
                                 <div class="step__content">
                                     <p class="step__number"><i class="bi bi-chat-square-text-fill"></i></p>
                                     <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                                        <circle class="checkmark__circle" cx="26" cy="26" r="25"
-                                            fill="none" />
+                                        <circle cx="26" cy="26" r="25" fill="none" />
                                         <path class="checkmark__check" fill="none"
                                             d="M14.1 27.2l7.1 7.2 16.7-16.8" />
                                     </svg>
@@ -74,8 +71,7 @@
                                     <p class="step__number"><i class="bi bi-file-text-fill"></i>
                                     </p>
                                     <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                                        <circle class="checkmark__circle" cx="26" cy="26" r="25"
-                                            fill="none" />
+                                        <circle cx="26" cy="26" r="25" fill="none" />
                                         <path class="checkmark__check" fill="none"
                                             d="M14.1 27.2l7.1 7.2 16.7-16.8" />
                                     </svg>
@@ -135,17 +131,17 @@
                         </div>
                         <div class="row">
                             <div class="col-6">
-                                <div class="position-relative">
-                                    <label>Ваше ім'я</label>
-                                    <input name="name" type="text" class="form-control input"
-                                        placeholder="Ваше ім'я" maxlength="60" required>
-                                    <span class="required-input">*</span>
-                                </div>
+                                <label>Ваше ім'я</label>
+                                <input name="name" type="text" class="form-control input"
+                                    placeholder="Ваше ім'я" maxlength="60">
                             </div>
                             <div class="col-6">
-                                <label>Місто</label>
-                                <input name="city" type="text" class="form-control input" placeholder="Місто"
-                                    maxlength="60">
+                                <div class="position-relative">
+                                    <label>Місто</label>
+                                    <input name="city" type="text" class="form-control input"
+                                        placeholder="Місто" maxlength="60" required>
+                                    <span class="required-input">*</span>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -229,12 +225,9 @@
                         </div>
                         <div class="row">
                             <div class="col-4">
-                                <div class="position-relative">
-                                    <label>Вага</label>
-                                    <input name="weight" type="number" class="form-control input"
-                                        placeholder="Вага" maxlength="3" required>
-                                    <span class="required-input">*</span>
-                                </div>
+                                <label>Вага</label>
+                                <input name="weight" type="number" class="form-control input" placeholder="Вага"
+                                    maxlength="3">
                             </div>
                             <div class="col-4">
                                 <div class="position-relative">
@@ -245,18 +238,16 @@
                                 </div>
                             </div>
                             <div class="col-4">
-                                <div class="position-relative">
-                                    <label>Ваш вік</label>
-                                    <input name="age" type="number" class="form-control input"
-                                        placeholder="Ваш вік" maxlength="2" required>
-                                    <span class="required-input">*</span>
-                                </div>
+                                <label>Ваш вік</label>
+                                <input name="age" type="number" class="form-control input"
+                                    placeholder="Ваш вік" maxlength="2">
                             </div>
                         </div>
                     </div>
 
                     <div class="panel d-flex flex-column">
                         <div id="uploadZone" class="d-flex align-items-start rounded-3 p-3 dropzone">
+                            {{-- <input type="file" name="images[]" /> --}}
                             <div class="dz-message needscli d-flex w-100">
                                 <div class="w-25 d-flex align-items-center justify-content-center">
                                     <i class="bi bi-camera"></i>
@@ -295,15 +286,15 @@
                         <div class="d-flex align-items-end mt-auto">
                             <ul class="ks-cboxtags d-flex w-100">
                                 <li class="flex-fill">
-                                    <input name="cutted" type="checkbox" id="checkboxOne">
+                                    <input name="cutted" value="1" type="checkbox" id="checkboxOne">
                                     <label for="checkboxOne">Зрізані</label>
                                 </li>
                                 <li class="flex-fill">
-                                    <input name="painted" type="checkbox" id="checkboxTwo">
+                                    <input name="painted" value="1" type="checkbox" id="checkboxTwo">
                                     <label for="checkboxTwo">Фарбовані</label>
                                 </li>
                                 <li class="flex-fill">
-                                    <input name="gray" type="checkbox" id="checkboxThree">
+                                    <input name="gray" value="1" type="checkbox" id="checkboxThree">
                                     <label for="checkboxThree">З сивиною</label>
                                 </li>
                             </ul>
@@ -322,7 +313,7 @@
                     <div class="panel d-flex flex-column">
                         <header class="panel__header">
                             <h2 class="panel__title">Перевірте данні</h2>
-                            <p class="panel__subheading fw-bold fs-5">Хочу оцінити вартість</p>
+                            <p class="panel__subheading fw-bold">Хочу оцінити вартість</p>
                         </header>
 
                         <div class="panel__content">

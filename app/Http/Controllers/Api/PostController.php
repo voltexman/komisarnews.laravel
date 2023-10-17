@@ -14,7 +14,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        return PostResource::collection(Post::where('status', '!=', Post::STATUS_DELETED))->get();
+        $posts = Post::where('status', '!=', Post::STATUS_DELETED)->get();
+
+        return PostResource::collection($posts);
     }
 
     /**

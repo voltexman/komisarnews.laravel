@@ -14,10 +14,16 @@ let uploadZoneAddTitle = uploadZone.querySelector('div#uploadZone .add-title');
 let uploadZoneAddDescription = uploadZone.querySelector('div#uploadZone .add-description div');
 
 const dropzone = document.querySelector('div#uploadZone');
+// let modal;
 
-const dz = new Dropzone(dropzone, {
+export const dz = new Dropzone(dropzone, {
     previewTemplate: preview.previewTemplate,
     previewsContainer: 'div#acceptedImages',
+    renameFile: function (file) {
+        let newName = new Date().getTime() + '_' + file.name;
+        return newName;
+    },
+    paramName: 'images',
     url: "/file/post",
     maxFiles: 4,
     uploadMultiple: true,
@@ -26,19 +32,24 @@ const dz = new Dropzone(dropzone, {
     init: function () {
 
         this.on("thumbnail", (file, dataURL) => {
+            const filename = file.name;
 
-            preview.createImageEditButtons(file)
-            preview.createImageEditModal(file, dataURL)
-            preview.createImageRemoveModal(file, dataURL)
+            preview.createImageEditButtons(file);
+            preview.createImageEditModal(file, dataURL);
+            preview.createImageRemoveModal(file, dataURL);
 
             const imageEditButton = document.getElementById('imageEditBtn_' + file.upload.uuid);
             const imageRemoveButton = document.getElementById('imageRemoveBtn_' + file.upload.uuid);
 
             imageEditButton.addEventListener('click', function () {
-                const modalElement = document.getElementById('imageEditModal_' + file.upload.uuid)
-                new Modal(modalElement).show()
 
-                modalElement.addEventListener('shown.bs.modal', event => {
+                const editModalElement = document.getElementById('imageEditModal_' + file.upload.uuid);
+                const editModal = new Modal(editModalElement);
+
+                editModal.show();
+
+                editModalElement.addEventListener('shown.bs.modal', event => {
+                    const cropImageBtn = event.target.querySelector('.crop');
 
                     const cropper = new Cropper(document.getElementById('img-' + file.upload.uuid), {
                         aspectRatio: 1,
@@ -61,45 +72,62 @@ const dz = new Dropzone(dropzone, {
                         }
                     });
 
-                    event.target.querySelector('.rotate-left').addEventListener('click', function () {
+                    cropImageBtn.addEventListener('click', function () {
+                        // get cropped image data
+                        var blob = cropper.getCroppedCanvas().toDataURL();
+                        // transform it to Blob object
+                        var croppedFile = preview.dataURItoBlob(blob);
+                        croppedFile.name = filename;
+
+                        var files = dz.getAcceptedFiles();
+                        for (var i = 0; i < files.length; i++) {
+                            var file = files[i];
+                            if (file.name === filename) {
+                                dz.removeFile(file);
+                            }
+                        }
+                        dz.addFile(croppedFile);
+                        editModal.hide();
+                    });
+
+                    editModalElement.querySelector('.rotate-left').addEventListener('click', function () {
                         cropper.rotate('-45')
-                    })
-                    event.target.querySelector('.rotate-right').addEventListener('click', function () {
+                    });
+                    editModalElement.querySelector('.rotate-right').addEventListener('click', function () {
                         cropper.rotate('45')
-                    })
+                    });
 
-                    event.target.querySelector('.zoom-in').addEventListener('click', function () {
+                    editModalElement.querySelector('.zoom-in').addEventListener('click', function () {
                         cropper.zoom('0.1')
-                    })
-                    event.target.querySelector('.zoom-out').addEventListener('click', function () {
+                    });
+                    editModalElement.querySelector('.zoom-out').addEventListener('click', function () {
                         cropper.zoom('-0.1')
-                    })
+                    });
 
-                    event.target.querySelector('.scale-x').addEventListener('click', function () {
+                    editModalElement.querySelector('.scale-x').addEventListener('click', function () {
                         cropper.scaleX('-1') || scaleX('1')
-                    })
-                    event.target.querySelector('.scale-y').addEventListener('click', function () {
+                    });
+                    editModalElement.querySelector('.scale-y').addEventListener('click', function () {
                         cropper.scaleY('-1') || scaleY('1')
-                    })
-                })
-
-            })
+                    });
+                });
+            });
 
             imageRemoveButton.addEventListener('click', function () {
-                const modalElement = document.getElementById('imageRemoveModal_' + file.upload.uuid);
-                const modal = new Modal(modalElement);
+                const deleteModalElement = document.getElementById('imageRemoveModal_' + file.upload.uuid);
+                const deleteModal = new Modal(deleteModalElement);
 
-                modal.show();
+                deleteModal.show();
 
-                modalElement.addEventListener('shown.bs.modal', event => {
+                deleteModalElement.addEventListener('shown.bs.modal', event => {
                     const waitingPlace = event.target.querySelector('.waiting-place');
                     const removeImageBtn = event.target.querySelector('.remove-image-btn');
 
-                    waitingPlace.classList.add('d-none')
+                    waitingPlace.classList.add('d-none');
 
                     removeImageBtn.addEventListener('click', function () {
                         dz.removeFile(file);
-                        modal.hide();
+                        deleteModal.hide();
                     })
                 })
             })

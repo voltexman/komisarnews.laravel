@@ -1,6 +1,7 @@
 import axios from "axios";
 import anime from "animejs";
-import './dropzone';
+import { dz as dropZone } from "./dropzone";
+// import './dropzone';
 
 class Steps {
     constructor(wizard) {
@@ -103,36 +104,33 @@ class Wizard {
     }
 
     updateButtonsStatus() {
+        this.nextControl.setAttribute('disabled', 'true');
+        this.nextControl.classList.add('disabled');
+
         if (this.currentStep === 0) {
             // Отримуємо посилання на чекбокс і кнопку за їхніми id
 
             this.previousControl.classList.remove('d-none');
 
-            var nameField = this.wizard.querySelector('input[name="name"]');
+            var cityField = this.wizard.querySelector('input[name="city"]');
             var phoneField = this.wizard.querySelector('input[name="phone"]');
-            var weightField = this.wizard.querySelector('input[name="weight"]');
             var lengthField = this.wizard.querySelector('input[name="length"]');
-            var ageField = this.wizard.querySelector('input[name="age"]');
 
             // Додаємо обробник події на поля вводу
-            nameField.addEventListener('input', checkFields);
+            cityField.addEventListener('input', checkFields);
             phoneField.addEventListener('input', checkFields);
-            weightField.addEventListener('input', checkFields);
             lengthField.addEventListener('input', checkFields);
-            ageField.addEventListener('input', checkFields);
 
             // Функція для перевірки полів і зняття атрибуту disabled
             function checkFields() {
                 const submitButton = document.querySelector('button.next');
                 // Отримуємо значення полів
-                var nameValue = nameField.value.trim();
+                var cityValue = cityField.value.trim();
                 var phoneValue = phoneField.value.trim();
-                var weightValue = weightField.value.trim();
                 var lengthValue = lengthField.value.trim();
-                var ageValue = ageField.value.trim();
 
                 // Перевіряємо, чи всі поля заповнені
-                if (nameValue !== '' && phoneValue !== '' && weightValue !== '' && lengthValue !== '' && ageValue !== '') {
+                if (cityValue !== '' && phoneValue !== '' && lengthValue !== '') {
                     submitButton.removeAttribute('disabled');
                     submitButton.classList.remove('disabled')
                 } else {
@@ -162,18 +160,35 @@ class Wizard {
         }
 
         if (this.currentStep === 3) {
-            let checkRules = document.getElementById('checkbox-example-one');
 
-            // Перевіряємо, чи чекбокс відмічений
+            let checkRules = document.getElementById('checkbox-example-one');
+            let submitButton = document.querySelector('button.next');
+
+            // Перевіряємо, чи чекбокс відмічений, при переході на 4-ту панель
             if (checkRules.checked) {
                 // Якщо відмічений, знімаємо атрибут "disabled" з кнопки
-                this.nextControl.removeAttribute('disabled');
-                this.nextControl.classList.remove('disabled');
+                submitButton.removeAttribute('disabled');
+                submitButton.classList.remove('disabled');
             } else {
                 // Якщо не відмічений, додаємо атрибут "disabled" до кнопки
-                this.nextControl.setAttribute('disabled', 'true');
-                this.nextControl.classList.add('disabled');
+                submitButton.setAttribute('disabled', 'true');
+                submitButton.classList.add('disabled');
             }
+
+            // Перевіряємо чекбокс при зміні його стану, якщо чекнутий - кнопка розблокована і навпаки
+            checkRules.addEventListener('change', function () {
+
+                // Перевіряємо, чи чекбокс відмічений
+                if (checkRules.checked) {
+                    // Якщо відмічений, знімаємо атрибут "disabled" з кнопки
+                    submitButton.removeAttribute('disabled');
+                    submitButton.classList.remove('disabled');
+                } else {
+                    // Якщо не відмічений, додаємо атрибут "disabled" до кнопки
+                    submitButton.setAttribute('disabled', 'true');
+                    submitButton.classList.add('disabled');
+                }
+            });
         }
     }
 
@@ -211,7 +226,6 @@ class Wizard {
     }
 
     handleWizardConclusion(movement) {
-        // this.wizard.classList.add('completed');
 
         this.nextControl.type = 'submit';
 
@@ -226,6 +240,19 @@ class Wizard {
             const congratsPlace = orderForm.querySelector('.congrats-message');
             congratsPlace.classList.replace('d-none', 'd-flex');
 
+            const files = dropZone.getAcceptedFiles();
+            files.forEach(file => {
+                formData.append('images[]', file)
+            })
+            // formData.append('images', dropZone.getAcceptedFiles());
+            // Отримайте всі обрани файли з dropZone
+            // var acceptedFiles = dropZone.getAcceptedFiles();
+
+            // // Додайте кожен файл до FormData
+            // for (var i = 0; i < acceptedFiles.length; i++) {
+            //     formData.append('images[]', acceptedFiles[i]);
+            // }
+
             const waitingImage = orderForm.querySelector('.waiting-image');
             const successImage = orderForm.querySelector('.success-image');
             const successMessage = orderForm.querySelector('.success-message');
@@ -234,8 +261,8 @@ class Wizard {
             setTimeout(function () {
                 axios.post(formAction, formData)
                     .then(response => {
+                        console.log(response);
                         if (response) {
-                            console.log(response.data);
                             waitingImage.classList.replace('d-block', 'd-none');
                             successImage.classList.replace('d-none', 'd-block');
 
@@ -276,17 +303,6 @@ class Wizard {
                         console.error('An error occurred:', error);
                     });
             }, 1000);
-
-            // repeatButton.addEventListener('click', function (event) {
-            //     event.target.type = 'button';
-            //     event.target.style.opacity = '0';
-
-            //     congratsPlace.classList.replace('d-flex', 'd-none');
-            //     waitingImage.classList.replace('d-block', 'd-none');
-            //     successImage.classList.replace('d-block', 'd-none');
-            //     successMessage.style.opacity = '0';
-            //     successImage.style.top = 'calc(50% - 100px)';
-            // })
         });
     };
 

@@ -25,11 +25,11 @@ class Post extends Model
         'updated_at',
     ];
 
-    const STATUS_ACTIVE = 1;
+    const STATUS_ACTIVE = 0;
 
     const STATUS_INACTIVE = 1;
 
-    const STATUS_DELETED = 3;
+    const STATUS_DELETED = 2;
 
     const STATUS_INDEXATION = 1;
 
@@ -53,12 +53,12 @@ class Post extends Model
 
     public static function getPublicationCount()
     {
-        return Post::where('status', '=', self::STATUS_ACTIVE)->count();
+        return Post::where('status', self::STATUS_ACTIVE)->count();
     }
 
     public static function getIndexationCount()
     {
-        return Post::where('indexation', '=', self::STATUS_INDEXATION)
+        return Post::where('indexation', self::STATUS_INDEXATION)
             ->where('status', '!=', self::STATUS_DELETED)
             ->count();
     }

@@ -48,7 +48,7 @@
                 </div>
                 <div class="col-md-5 offset-md-1">
                     <div class="contact-form bg-darkbrown rounded-3 shadow">
-                        <div class="booking-inner position-relative clearfix">
+                        <div class="booking-inner position-relative clearfix h-100">
                             <div class="response-panel d-none flex-column justify-content-center align-items-center">
                                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="200" height="200"
                                     fill="none" class="icon-waiting d-block">

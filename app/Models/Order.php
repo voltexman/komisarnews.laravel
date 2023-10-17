@@ -9,6 +9,10 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $attributes = [
+        'status' => self::STATUS_NEW,
+    ];
+
     protected $fillable = [
         'goal',
         'name',
@@ -19,6 +23,7 @@ class Order extends Model
         'length',
         'age',
         'color',
+        'images',
         'cutted',
         'painted',
         'gray',
@@ -31,11 +36,4 @@ class Order extends Model
     const STATUS_VIEWED = 1;
 
     const STATUS_WAITING = 2;
-
-    protected function prepareForValidation(): void
-    {
-        $this->merge([
-            'status' => self::STATUS_NEW,
-        ]);
-    }
 }

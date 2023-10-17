@@ -1392,7 +1392,7 @@ ul.ks-cboxtags li label {
 }
 
 ul.ks-cboxtags li label::before {
-    font-size: 12px;
+    font-size: 16px;
     padding-right: 8px;
     content: "\F26B";
     font-family: "bootstrap-icons";
@@ -1408,6 +1408,12 @@ ul.ks-cboxtags li input[type="checkbox"]:checked+label {
     background-color: #91765a;
     color: #fff;
     transition: all .2s;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:not(:checked)+label:hover {
+    background-color: rgba(145, 118, 90, .2) !important;
+    color: #91765a !important;
+    transition: all .2s !important;
 }
 
 ul.ks-cboxtags li input[type="checkbox"] {
@@ -1946,13 +1952,13 @@ h3 {
 }
 
 .panel__title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     line-height: 2rem;
     margin: 0;
 }
 
 .panel__subheading {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     line-height: 1.2rem;
     margin: 0;
 }

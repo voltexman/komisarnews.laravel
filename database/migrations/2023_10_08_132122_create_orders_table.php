@@ -15,13 +15,13 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('goal');
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->string('city');
             $table->string('email')->nullable();
             $table->string('phone');
-            $table->smallInteger('weight');
+            $table->smallInteger('weight')->nullable();
             $table->smallInteger('length');
-            $table->smallInteger('age');
+            $table->smallInteger('age')->nullable();
             $table->string('color');
             $table->string('images')->nullable();
             $table->boolean('cutted')->default(0);

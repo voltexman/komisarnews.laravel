@@ -1,9 +1,9 @@
 {
-  "_order-6c3add70.js": {
+  "_order-f2423420.js": {
     "css": [
       "assets/order-43b1525f.css"
     ],
-    "file": "assets/order-6c3add70.js"
+    "file": "assets/order-f2423420.js"
   },
   "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff": {
     "file": "assets/bootstrap-icons-4d4572ef.woff",
@@ -22,40 +22,40 @@
     "src": "public/img/bg-header.webp"
   },
   "resources/css/pages/articles.css": {
-    "file": "assets/articles-538e027e.css",
+    "file": "assets/articles-977a37d3.css",
     "isEntry": true,
     "src": "resources/css/pages/articles.css"
   },
   "resources/css/pages/contacts.css": {
-    "file": "assets/contacts-cd10de2f.css",
+    "file": "assets/contacts-eed0f5ff.css",
     "isEntry": true,
     "src": "resources/css/pages/contacts.css"
   },
   "resources/css/pages/main.css": {
-    "file": "assets/main-0241cc3b.css",
+    "file": "assets/main-c86dde7a.css",
     "isEntry": true,
     "src": "resources/css/pages/main.css"
   },
   "resources/js/pages/articles.js": {
-    "file": "assets/articles-88199a65.js",
+    "file": "assets/articles-731ffdb3.js",
     "imports": [
-      "_order-6c3add70.js"
+      "_order-f2423420.js"
     ],
     "isEntry": true,
     "src": "resources/js/pages/articles.js"
   },
   "resources/js/pages/contacts.js": {
-    "file": "assets/contacts-5f3d55ba.js",
+    "file": "assets/contacts-e9f85dce.js",
     "imports": [
-      "_order-6c3add70.js"
+      "_order-f2423420.js"
     ],
     "isEntry": true,
     "src": "resources/js/pages/contacts.js"
   },
   "resources/js/pages/main.js": {
-    "file": "assets/main-8a5221ef.js",
+    "file": "assets/main-a84ca3aa.js",
     "imports": [
-      "_order-6c3add70.js"
+      "_order-f2423420.js"
     ],
     "isEntry": true,
     "src": "resources/js/pages/main.js"

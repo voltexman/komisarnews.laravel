@@ -40,4 +40,3 @@ inputAge.addEventListener('input', function () {
 textareaDescription.addEventListener('input', function () {
     descriptionCheck.textContent = textareaDescription.value;
 });
-

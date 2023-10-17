@@ -20,18 +20,18 @@ class SeoResource extends JsonResource
             'keywords' => $this->keywords,
             'descriptions' => $this->descriptions,
             'robots' => $this->robots,
-            'pageInformation' => $this->pageInformation(),
+            'counts' => $this->counts(),
         ];
     }
 
-    private function pageInformation(): ?array
+    private function counts(): ?array
     {
-        $postInformation = [
+        $postCounts = [
             'allPostsCount' => Post::getAllPostsCount(),
             'publicationCount' => Post::getPublicationCount(),
             'indexationCount' => Post::getIndexationCount(),
         ];
 
-        return $this->page === 'posts' ? $postInformation : null;
+        return $this->page === 'posts' ? $postCounts : null;
     }
 }
