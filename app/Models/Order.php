@@ -23,7 +23,7 @@ class Order extends Model
         'length',
         'age',
         'color',
-        'images',
+        'photos',
         'cutted',
         'painted',
         'gray',

@@ -20,7 +20,7 @@ class FeedbackController extends Controller
     /**
      * Change status for a Feedback.
      */
-    public function statusChange($id)
+    public function status($id)
     {
         $feedback = Feedback::find($id);
         $feedback->status = Feedback::STATUS_VIEWED;

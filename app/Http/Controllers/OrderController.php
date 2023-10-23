@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -19,27 +18,28 @@ class OrderController extends Controller
             'length' => 'numeric',
             'age' => 'numeric|nullable',
             'color' => 'string|nullable',
-            // 'images' => 'image',
-            // 'images' => 'mimes:jpg,bmp,png',
+            'photos.*' => 'image|mimes:jpg,bmp,png',
+            'photos_names' => 'json',
             'cutted' => 'boolean',
             'painted' => 'boolean',
             'gray' => 'boolean',
             'description' => 'string|nullable',
         ]);
 
-        $uploadedFiles = $request->file('images');
+        $photosNames = [];
 
-        foreach ($uploadedFiles as $file) {
-            $name = time() . '_' . uniqid() . '.jpg';
+        if ($request->hasFile('photos')) {
+            $uploadedPhotos = $request->file('photos');
 
-            $file->move(public_path('uploads/orders'), $name);
+            foreach ($uploadedPhotos as $file) {
+                $photoName = time().'_'.uniqid().'.jpg';
+                $photosNames[] = $photoName;
+
+                $file->move(public_path('uploads/orders'), $photoName);
+            }
         }
 
-        // Збережіть назви файлів у форматі JSON у базі даних
-        // Order::where('id', $id)->update(['images' => json_encode($imageNames)]);
-
-
-        // $created = Order::create($validated);
+        $photosNames = json_encode($photosNames);
 
         // $orderData = [
         //     'name' => $validated['name'],

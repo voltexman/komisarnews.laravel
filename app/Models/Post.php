@@ -25,9 +25,9 @@ class Post extends Model
         'updated_at',
     ];
 
-    const STATUS_ACTIVE = 0;
+    const STATUS_ACTIVE = 1;
 
-    const STATUS_INACTIVE = 1;
+    const STATUS_INACTIVE = 0;
 
     const STATUS_DELETED = 2;
 

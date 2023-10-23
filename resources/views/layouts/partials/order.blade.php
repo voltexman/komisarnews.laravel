@@ -1,6 +1,6 @@
 <div class="booking-box wrapper rounded-3 shadow-lg my-5 my-lg-0">
     <form action="{{ route('orders.store') }}" class="form1 form-wizard clearfix" enctype="multipart/form-data">
-        @csrf
+        {{-- @csrf --}}
         <div id="wizard" class="wizard">
             <div class="wizard__content">
                 <header class="wizard__header">
@@ -15,8 +15,7 @@
                                     <p class="step__number"><i class="bi bi-ui-checks"></i></p>
                                     <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
                                         <circle cx="26" cy="26" r="25" fill="none" />
-                                        <path class="checkmark__check" fill="none"
-                                            d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                                        <path fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
                                     </svg>
                                     <div class="lines">
                                         <div class="line -start">
@@ -36,8 +35,7 @@
                                     </p>
                                     <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
                                         <circle cx="26" cy="26" r="25" fill="none" />
-                                        <path class="checkmark__check" fill="none"
-                                            d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                                        <path fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
                                     </svg>
                                     <div class="lines">
                                         <div class="line -background">
@@ -53,8 +51,7 @@
                                     <p class="step__number"><i class="bi bi-chat-square-text-fill"></i></p>
                                     <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
                                         <circle cx="26" cy="26" r="25" fill="none" />
-                                        <path class="checkmark__check" fill="none"
-                                            d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                                        <path fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
                                     </svg>
 
                                     <div class="lines">
@@ -72,8 +69,7 @@
                                     </p>
                                     <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
                                         <circle cx="26" cy="26" r="25" fill="none" />
-                                        <path class="checkmark__check" fill="none"
-                                            d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                                        <path fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
                                     </svg>
 
                                     <div class="lines">
@@ -247,7 +243,6 @@
 
                     <div class="panel d-flex flex-column">
                         <div id="uploadZone" class="d-flex align-items-start rounded-3 p-3 dropzone">
-                            {{-- <input type="file" name="images[]" /> --}}
                             <div class="dz-message needscli d-flex w-100">
                                 <div class="w-25 d-flex align-items-center justify-content-center">
                                     <i class="bi bi-camera"></i>

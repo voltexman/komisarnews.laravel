@@ -42,7 +42,11 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        $post->update($request->all());
+
+        return new PostResource($post);
     }
 
     /**
@@ -50,9 +54,9 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        $post = Post::find($id);
-        $post->status = Post::STATUS_DELETED;
-        $post->save();
+        $post = Post::findOrFail($id);
+
+        $post->update(['status' => Post::STATUS_DELETED]);
 
         return $post;
     }

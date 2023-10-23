@@ -26,6 +26,6 @@ Route::resources([
     'feedbacks' => FeedbackController::class,
 ]);
 
-Route::put('/feedbacks/status-change/{id}', [FeedbackController::class, 'statusChange']);
+Route::put('/feedbacks/status/{id}', [FeedbackController::class, 'status']);
 
 Route::get('/seo/{page}', [SeoController::class, 'show']);

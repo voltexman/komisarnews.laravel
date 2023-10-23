@@ -23,7 +23,7 @@ export const dz = new Dropzone(dropzone, {
         let newName = new Date().getTime() + '_' + file.name;
         return newName;
     },
-    paramName: 'images',
+    paramName: 'photos',
     url: "/file/post",
     maxFiles: 4,
     uploadMultiple: true,

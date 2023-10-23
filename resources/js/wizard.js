@@ -242,7 +242,7 @@ class Wizard {
 
             const files = dropZone.getAcceptedFiles();
             files.forEach(file => {
-                formData.append('images[]', file)
+                formData.append('photos[]', file)
             })
             // formData.append('images', dropZone.getAcceptedFiles());
             // Отримайте всі обрани файли з dropZone
