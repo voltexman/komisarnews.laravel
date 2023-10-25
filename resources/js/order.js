@@ -2,8 +2,8 @@ var inputName = document.querySelector('input[name="name"]');
 var inputCity = document.querySelector('input[name="city"]');
 var inputEmail = document.querySelector('input[name="email"]');
 var inputPhone = document.querySelector('input[name="phone"]');
-var inputWeight = document.querySelector('input[name="weight"]');
-var inputLength = document.querySelector('input[name="length"]');
+var inputWeight = document.querySelector('input[name="hair_weight"]');
+var inputLength = document.querySelector('input[name="hair_length"]');
 var inputAge = document.querySelector('input[name="age"]');
 var textareaDescription = document.querySelector('textarea[name="description"]');
 

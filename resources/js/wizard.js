@@ -114,7 +114,7 @@ class Wizard {
 
             var cityField = this.wizard.querySelector('input[name="city"]');
             var phoneField = this.wizard.querySelector('input[name="phone"]');
-            var lengthField = this.wizard.querySelector('input[name="length"]');
+            var lengthField = this.wizard.querySelector('input[name="hair_length"]');
 
             // Додаємо обробник події на поля вводу
             cityField.addEventListener('input', checkFields);
