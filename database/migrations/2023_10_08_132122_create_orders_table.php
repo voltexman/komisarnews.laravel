@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('city');
             $table->string('email')->nullable();
             $table->string('phone');
-            $table->smallInteger('weight')->nullable();
-            $table->smallInteger('length');
+            $table->smallInteger('hair_weight')->nullable();
+            $table->smallInteger('hair_length');
             $table->smallInteger('age')->nullable();
             $table->string('color');
             $table->string('photos_names')->nullable();

@@ -222,13 +222,13 @@
                         <div class="row">
                             <div class="col-4">
                                 <label>Вага</label>
-                                <input name="weight" type="number" class="form-control input" placeholder="Вага"
+                                <input name="hair_weight" type="number" class="form-control input" placeholder="Вага"
                                     maxlength="3">
                             </div>
                             <div class="col-4">
                                 <div class="position-relative">
                                     <label>Довжина</label>
-                                    <input name="length" type="number" class="form-control input"
+                                    <input name="hair_length" type="number" class="form-control input"
                                         placeholder="Довжина" maxlength="3" required>
                                     <span class="required-input">*</span>
                                 </div>
