@@ -23,7 +23,8 @@ class Order extends Model
         'length',
         'age',
         'color',
-        'photos',
+        // 'photos',
+        'photos_names',
         'cutted',
         'painted',
         'gray',
@@ -36,4 +37,6 @@ class Order extends Model
     const STATUS_VIEWED = 1;
 
     const STATUS_WAITING = 2;
+
+    const STATUS_COMPLETED = 3;
 }

@@ -19,8 +19,8 @@ class FeedbackResource extends JsonResource
             'name' => $this->name,
             'contact' => $this->contact,
             'text' => $this->text,
-            'created_at' => $this->created_at,
             'status' => $this->status,
+            'created_at' => $this->created_at,
         ];
     }
 }

@@ -15,16 +15,16 @@ export default defineConfig({
             ],
             refresh: true,
         }),
-        purge({
-            templates: ['blade'],
-            safelist: [/^modal-/, /^cropper-/, /^dz-/, 'movingIn',
-                'movingOutBackward', 'bi-save', 'bi-arrow-counterclockwise',
-                'bi-zoom-in', 'bi-zoom-out', 'bi-arrow-left-right',
-                'bi-arrow-down-up', 'rounded-start', 'rounded-end',
-                'movingOutFoward', '-completed', 'col-3', 'my-3',
-                'shadow-lg', 'shadow', 'rounded', 'd-grid',
-                'bg-danger', 'rounded-top-0', 'btn-group', 'bi-x-lg'
-            ],
-        })
+        // purge({
+        //     templates: ['blade'],
+        //     safelist: [/^modal-/, /^cropper-/, /^dz-/, 'movingIn',
+        //         'movingOutBackward', 'bi-save', 'bi-arrow-counterclockwise',
+        //         'bi-zoom-in', 'bi-zoom-out', 'bi-arrow-left-right',
+        //         'bi-arrow-down-up', 'rounded-start', 'rounded-end',
+        //         'movingOutFoward', '-completed', 'col-3', 'my-3',
+        //         'shadow-lg', 'shadow', 'rounded', 'd-grid',
+        //         'bg-danger', 'rounded-top-0', 'btn-group', 'bi-x-lg'
+        //     ],
+        // })
     ],
 });

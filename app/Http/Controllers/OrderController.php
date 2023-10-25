@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -19,7 +20,7 @@ class OrderController extends Controller
             'age' => 'numeric|nullable',
             'color' => 'string|nullable',
             'photos.*' => 'image|mimes:jpg,bmp,png',
-            'photos_names' => 'json',
+            // 'photos_names' => 'json',
             'cutted' => 'boolean',
             'painted' => 'boolean',
             'gray' => 'boolean',
@@ -32,18 +33,16 @@ class OrderController extends Controller
             $uploadedPhotos = $request->file('photos');
 
             foreach ($uploadedPhotos as $file) {
-                $photoName = time().'_'.uniqid().'.jpg';
+                $photoName = time() . '.' . $file->extension();
                 $photosNames[] = $photoName;
 
                 $file->move(public_path('uploads/orders'), $photoName);
             }
         }
 
-        $photosNames = json_encode($photosNames);
+        $validated['photos_names'] = json_encode($photosNames);
 
-        // $orderData = [
-        //     'name' => $validated['name'],
-        // ];
+        Order::create($validated);
 
         // $sentMail = Mail::to(env('ADMIN_EMAIL'))
         //     ->send(new SendOrder($orderData));

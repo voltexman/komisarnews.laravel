@@ -23,7 +23,7 @@ return new class extends Migration
             $table->smallInteger('length');
             $table->smallInteger('age')->nullable();
             $table->string('color');
-            $table->string('images')->nullable();
+            $table->string('photos_names')->nullable();
             $table->boolean('cutted')->default(0);
             $table->boolean('painted')->default(0);
             $table->boolean('gray')->default(0);
