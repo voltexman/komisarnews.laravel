@@ -14,6 +14,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->integer('number');
             $table->string('goal');
             $table->string('name')->nullable();
             $table->string('city');
@@ -28,7 +29,7 @@ return new class extends Migration
             $table->boolean('painted')->default(0);
             $table->boolean('gray')->default(0);
             $table->text('description')->nullable();
-            $table->smallInteger('status')->default(Order::STATUS_NEW);
+            $table->string('status')->default(Order::STATUS_NEW);
             $table->timestamps();
         });
     }

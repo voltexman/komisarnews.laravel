@@ -14,6 +14,7 @@ class Order extends Model
     ];
 
     protected $fillable = [
+        'number',
         'goal',
         'name',
         'city',
@@ -32,11 +33,20 @@ class Order extends Model
         'status',
     ];
 
-    const STATUS_NEW = 0;
+    const STATUS_NEW = 'new';
 
-    const STATUS_VIEWED = 1;
+    const STATUS_VIEWED = 'viewed';
 
-    const STATUS_WAITING = 2;
+    const STATUS_PROCESSING = 'processing';
 
-    const STATUS_COMPLETED = 3;
+    const STATUS_COMPLETED = 'completed';
+
+    public static function boot()
+    {
+        parent::boot();
+
+        self::creating(function ($order) {
+            $order->number = random_int(10000, 99999);
+        });
+    }
 }

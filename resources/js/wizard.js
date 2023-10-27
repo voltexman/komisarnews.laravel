@@ -256,15 +256,15 @@ class Wizard {
             const waitingImage = orderForm.querySelector('.waiting-image');
             const successImage = orderForm.querySelector('.success-image');
             const successMessage = orderForm.querySelector('.success-message');
-            const repeatButton = orderForm.querySelector('.repeat-button');
+            const orderNumber = orderForm.querySelector('.order-number');
 
             setTimeout(function () {
                 axios.post(formAction, formData)
                     .then(response => {
-                        console.log(response);
-                        if (response) {
+                        if (response.status === 200) {
                             waitingImage.classList.replace('d-block', 'd-none');
                             successImage.classList.replace('d-none', 'd-block');
+                            orderNumber.innerHTML = 'Ваша заявка: №' + response.data;
 
                             anime({
                                 targets: successImage,
@@ -286,7 +286,7 @@ class Wizard {
                                                 opacity: 1,
                                             });
                                             anime({
-                                                targets: repeatButton,
+                                                targets: orderNumber,
                                                 duration: 8000,
                                                 delay: 1000,
                                                 opacity: 1,

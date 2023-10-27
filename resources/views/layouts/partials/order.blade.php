@@ -222,8 +222,8 @@
                         <div class="row">
                             <div class="col-4">
                                 <label>Вага</label>
-                                <input name="hair_weight" type="number" class="form-control input" placeholder="Вага"
-                                    maxlength="3">
+                                <input name="hair_weight" type="number" class="form-control input"
+                                    placeholder="Вага" maxlength="3">
                             </div>
                             <div class="col-4">
                                 <div class="position-relative">
@@ -374,6 +374,7 @@
                 </div>
 
                 <div class="congrats-message rounded-3 align-content-center flex-wrap flex-column d-none">
+
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="200" height="200"
                         fill="none" class="waiting-image d-block">
                         <g style="animation:rotate-center 1.5s ease-in-out infinite both;transform-origin:center center"
@@ -384,6 +385,7 @@
                                 d="M17.078 10.145l-2.308-.347a.066.066 0 01-.018-.005.026.026 0 01-.007-.005.056.056 0 01-.015-.024.056.056 0 01-.002-.03l.003-.007a.069.069 0 01.012-.015l1.995-1.964a.064.064 0 01.015-.012.028.028 0 01.007-.003.056.056 0 01.029.003c.012.004.02.01.024.015a.03.03 0 01.005.007.069.069 0 01.004.019l.313 2.312a.046.046 0 01-.015.042.045.045 0 01-.043.014zm-10.156 3.8l2.308.348.018.005a.03.03 0 01.007.005c.004.003.01.011.015.024a.056.056 0 01.002.029.027.027 0 01-.003.007.065.065 0 01-.012.015l-1.995 1.965a.072.072 0 01-.015.012.03.03 0 01-.007.003.056.056 0 01-.029-.003.057.057 0 01-.024-.016.028.028 0 01-.005-.006.066.066 0 01-.004-.019l-.313-2.312a.046.046 0 01.002-.023.053.053 0 01.013-.02.052.052 0 01.02-.012.046.046 0 01.022-.002z" />
                         </g>
                     </svg>
+
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="200" height="200"
                         fill="none" class="success-image d-none">
                         <circle cx="12.735" cy="12" r="7" stroke="#91765a" stroke-width=".5" />
@@ -395,13 +397,15 @@
                     </svg>
 
                     <div
-                        class="message-and-replace d-flex flex-fill align-content-center flex-wrap justify-content-center">
+                        class="message-and-replace d-flex flex-column flex-fill align-content-center flex-wrap justify-content-center">
                         <span class="fw-bold text-uppercase success-message">Успішно надіслано</span>
+                        <span class="fw-bold text-uppercase order-number"></span>
                         {{-- <span class="btn-form2-submit mt-3 repeat-button">Відправити ще
                             <i class="bi bi-arrow-90deg-left"></i>
                         </span> --}}
                     </div>
                 </div>
             </div>
+        </div>
     </form>
 </div>

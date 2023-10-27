@@ -9,9 +9,15 @@ class Order extends Model
 {
     use HasFactory;
 
-    const STATUS_NEW = 0;
+    protected $fillable = [
+        'status',
+    ];
 
-    const STATUS_VIEWED = 1;
+    const STATUS_NEW = 'new';
 
-    const STATUS_WAITING = 2;
+    const STATUS_VIEWED = 'viewed';
+
+    const STATUS_PROCESSING = 'processing';
+
+    const STATUS_COMPLETED = 'completed';
 }

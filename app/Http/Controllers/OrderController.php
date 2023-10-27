@@ -20,7 +20,7 @@ class OrderController extends Controller
             'age' => 'numeric|nullable',
             'color' => 'string|nullable',
             'photos.*' => 'image|mimes:jpg,bmp,png',
-            // 'photos_names' => 'json',
+            'photos_names' => 'json',
             'cutted' => 'boolean',
             'painted' => 'boolean',
             'gray' => 'boolean',
@@ -33,7 +33,7 @@ class OrderController extends Controller
             $uploadedPhotos = $request->file('photos');
 
             foreach ($uploadedPhotos as $file) {
-                $photoName = time() . '.' . $file->extension();
+                $photoName = date('YmdHi').'_'.uniqid().'.'.$file->extension();
                 $photosNames[] = $photoName;
 
                 $file->move(public_path('uploads/orders'), $photoName);
@@ -42,11 +42,15 @@ class OrderController extends Controller
 
         $validated['photos_names'] = json_encode($photosNames);
 
-        Order::create($validated);
+        $created = Order::create($validated);
+
+        // $orderData = [
+        //     'name' => $validated['name'],
+        // ];
 
         // $sentMail = Mail::to(env('ADMIN_EMAIL'))
         //     ->send(new SendOrder($orderData));
 
-        return true;
+        return $created->number;
     }
 }

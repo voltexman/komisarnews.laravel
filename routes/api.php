@@ -4,7 +4,6 @@ use App\Http\Controllers\Api\FeedbackController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\Api\SeoController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,10 +17,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::apiResource('posts', PostController::class);
@@ -30,9 +25,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
         ->only(['index', 'status']);
 
     Route::apiResource('feedbacks', FeedbackController::class)
-        ->only(['index', 'status']);
+        ->only(['index']);
 
-    // Route::put('/feedbacks/status/{id}', [FeedbackController::class, 'status']);
+    Route::put('/orders/status/{id}', [OrderController::class, 'status']);
 
     Route::get('/seo/{page}', [SeoController::class, 'show']);
 });
