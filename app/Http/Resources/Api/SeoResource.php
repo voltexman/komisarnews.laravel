@@ -18,7 +18,7 @@ class SeoResource extends JsonResource
         return [
             'title' => $this->title,
             'keywords' => $this->keywords,
-            'descriptions' => $this->descriptions,
+            'description' => $this->description,
             'robots' => $this->robots,
             'counts' => $this->counts(),
         ];

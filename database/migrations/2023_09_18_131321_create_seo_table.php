@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('page');
             $table->string('title')->nullable();
             $table->string('keywords')->nullable();
-            $table->text('descriptions')->nullable();
+            $table->text('description')->nullable();
             $table->boolean('robots');
         });
     }

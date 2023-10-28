@@ -27,7 +27,7 @@
         <!-- Disable automatic phone number detection. -->
         <meta name="format-detection" content="telephone=no">
 
-        <title>{{ $seo['title'] }}</title>
+        <title>{{ isset($seo['title']) }}</title>
 
         @yield('styles')
 
