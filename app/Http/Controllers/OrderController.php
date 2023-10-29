@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendOrder;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -48,8 +50,8 @@ class OrderController extends Controller
         //     'name' => $validated['name'],
         // ];
 
-        // $sentMail = Mail::to(env('ADMIN_EMAIL'))
-        //     ->send(new SendOrder($orderData));
+        $sentMail = Mail::to(env('ADMIN_EMAIL'))
+            ->send(new SendOrder($validated));
 
         return $created->number;
     }

@@ -1,9 +1,9 @@
 {
-  "_order-42d3b105.js": {
+  "_order-0b780050.js": {
     "css": [
       "assets/order-43b1525f.css"
     ],
-    "file": "assets/order-42d3b105.js"
+    "file": "assets/order-0b780050.js"
   },
   "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff": {
     "file": "assets/bootstrap-icons-4d4572ef.woff",
@@ -37,25 +37,25 @@
     "src": "resources/css/pages/main.css"
   },
   "resources/js/pages/articles.js": {
-    "file": "assets/articles-dfa7a0ce.js",
+    "file": "assets/articles-23411099.js",
     "imports": [
-      "_order-42d3b105.js"
+      "_order-0b780050.js"
     ],
     "isEntry": true,
     "src": "resources/js/pages/articles.js"
   },
   "resources/js/pages/contacts.js": {
-    "file": "assets/contacts-58433c61.js",
+    "file": "assets/contacts-264eced9.js",
     "imports": [
-      "_order-42d3b105.js"
+      "_order-0b780050.js"
     ],
     "isEntry": true,
     "src": "resources/js/pages/contacts.js"
   },
   "resources/js/pages/main.js": {
-    "file": "assets/main-64604b83.js",
+    "file": "assets/main-a84c3316.js",
     "imports": [
-      "_order-42d3b105.js"
+      "_order-0b780050.js"
     ],
     "isEntry": true,
     "src": "resources/js/pages/main.js"
