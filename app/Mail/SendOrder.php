@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Address;
@@ -30,7 +31,7 @@ class SendOrder extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: env('APP_NAME')." - Зворотній зв'язок",
+            subject: env('APP_NAME') . " - Замовлення",
             from: new Address(env('MAIL_FROM_ADDRESS'))
         );
     }
@@ -45,6 +46,12 @@ class SendOrder extends Mailable
             with: [
                 'title' => 'Замовлення',
                 'order' => $this->order,
+                'newCount' => Order::where([
+                    'status' => Order::STATUS_NEW,
+                ])->count(),
+                'processingCount' => Order::where([
+                    'status' => Order::STATUS_PROCESSING,
+                ])->count(),
             ]
         );
     }
@@ -56,8 +63,16 @@ class SendOrder extends Mailable
      */
     public function attachments(): array
     {
-        return [
-            Attachment::fromPath('uploads/orders'),
-        ];
+        $attachments = [];
+
+        $photoNames = json_decode($this->order['photos_names'], true);
+
+        if ($photoNames !== null) {
+            foreach ($photoNames as $photo) {
+                $attachment[] = Attachment::fromPath(public_path('uploads/orders/' . $photo));
+            }
+        }
+
+        return $attachments;
     }
 }

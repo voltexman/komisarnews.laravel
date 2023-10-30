@@ -2,12 +2,13 @@
 
 namespace App\Mail;
 
+use App\Models\Feedback;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Envelope;
 
 class SendFeedback extends Mailable
 {
@@ -29,7 +30,7 @@ class SendFeedback extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: env('APP_NAME')." - Зворотній зв'язок",
+            subject: env('APP_NAME') . " - Зворотній зв'язок",
             from: new Address(env('MAIL_FROM_ADDRESS'))
         );
     }
@@ -44,6 +45,10 @@ class SendFeedback extends Mailable
             with: [
                 'title' => "Зворотній зв'язок",
                 'feedback' => $this->feedback,
+                'allCount' => Feedback::all()->count(),
+                'newCount' => Feedback::where([
+                    'status' => Feedback::STATUS_NEW,
+                ])->count(),
             ]
         );
     }

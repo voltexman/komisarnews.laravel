@@ -36,12 +36,7 @@ class ContactController extends Controller
         $mailData = [
             'name' => $validated['name'],
             'contact' => $validated['contact'],
-            'text' => $validated['text'],
-            'allCount' => Feedback::all()->count(),
-            'newCount' => Feedback::where([
-                'status' => Feedback::STATUS_NEW,
-            ])
-                ->count(),
+            'text' => $validated['text']
         ];
 
         $sentMail = Mail::to(env('ADMIN_EMAIL'))

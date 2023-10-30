@@ -35,7 +35,7 @@ class OrderController extends Controller
             $uploadedPhotos = $request->file('photos');
 
             foreach ($uploadedPhotos as $file) {
-                $photoName = date('YmdHi').'_'.uniqid().'.'.$file->extension();
+                $photoName = date('YmdHi') . '_' . uniqid() . '.' . $file->extension();
                 $photosNames[] = $photoName;
 
                 $file->move(public_path('uploads/orders'), $photoName);
@@ -46,12 +46,8 @@ class OrderController extends Controller
 
         $created = Order::create($validated);
 
-        // $orderData = [
-        //     'name' => $validated['name'],
-        // ];
-
-        $sentMail = Mail::to(env('ADMIN_EMAIL'))
-            ->send(new SendOrder($validated));
+        Mail::to(env('ADMIN_EMAIL'))
+            ->send(new SendOrder($created));
 
         return $created->number;
     }

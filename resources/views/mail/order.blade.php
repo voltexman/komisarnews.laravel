@@ -167,7 +167,7 @@
                             <path
                                 d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
                         </svg>
-                        28.10.2023
+                        {{ date('d.m.Y') }}
                     </p>
                     <p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor"
@@ -176,7 +176,7 @@
                                 d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
                             <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
                         </svg>
-                        16:10
+                        {{ date('H:m') }}
                     </p>
                 </td>
             </tr>
@@ -268,7 +268,8 @@
                 <td colspan="2" class="content message">{{ $order['description'] }}</td>
             </tr>
             <tr class="footer">
-                <td colspan="2" class="right">Нових: 1 | В опрацюванні: 1</td>
+                <td colspan="2" class="right">Нових: {{ $newCount }} | В опрацюванні:
+                    {{ $processingCount }}</td>
             </tr>
         </tbody>
     </table>

@@ -215,8 +215,8 @@
                 <td colspan="2" class="content message">{{ $feedback['text'] }}</td>
             </tr>
             <tr class="footer">
-                <td colspan="2" class="right">Всього: {{ $feedback['allCount'] }} | Непрочитаних:
-                    {{ $feedback['newCount'] }}</td>
+                <td colspan="2" class="right">Всього: {{ $allCount }} | Непрочитаних:
+                    {{ $newCount }}</td>
             </tr>
         </tbody>
     </table>
