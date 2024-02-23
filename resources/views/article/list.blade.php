@@ -1,84 +1,34 @@
 @extends('layouts.base')
 
-@section('styles')
-    @vite(['resources/css/pages/articles.css'])
-@endsection
+@section('title', 'Статті')
+@section('keywords', 'Статті')
+@section('description', 'Статті')
+@section('robots', 'all')
 
-@section('scripts')
-    @vite(['resources/js/pages/articles.js'])
-@endsection
+@vite(['resources/css/pages/articles.css'])
+@vite(['resources/js/pages/articles.js'])
 
-@section('headerTitle', 'Статті')
-@section('headerSubTitle', 'Інформативно та пізнавально')
+@section('header')
+    @parent
+    <header class="relative h-[280px] w-full overflow-hidden">
+        <picture>
+            <source srcset="{{ asset('images/article-header.webp') }}" type="image/webp">
+            <source srcset="{{ asset('images/article-header.jpg') }}" type="image/jpeg">
+            <img src="{{ asset('images/article-header.jpg') }}" height="280" width="auto" alt={{ env('APP_NAME') }}
+                class="object-cover object-center h-full">
+        </picture>
+        <div
+            class="absolute top-0 left-0 h-full w-full flex flex-col justify-center items-center backdrop-blur-sm backdrop-brightness-75 bg-max-black/50">
+            <h1 class="text-max-light text-xl uppercase">Статті та новини</h1>
+            <span class="text-md text-max-light/80 uppercase font-light">Інформативно, пізнавально</span>
+        </div>
+    </header>
+@endsection
 
 @section('content')
-    <section>
+    <section class="bg-max-light py-14 lg:py-20">
         <div class="container">
-            @if (count($articles) >= 1)
-                <div class="row">
-                    <div class="col-12 articles-list">
-                        @foreach ($articles as $article)
-                            {{-- // TODO: перейменувати клас barber-services-2 в article-item --}}
-                            <article class="barber-services-2 mt-5 {{ \PostHelper::even($loop->index) ? 'left' : null }}"
-                                data-aos="fade-{{ \PostHelper::even($loop->index) ? 'right' : 'left' }}" data-aos-delay="300">
-                                <figure>
-                                    <img src="{{ asset('img/bg-header.jpg') }}" width="744" height="466"
-                                        class="img-fluid shadow-lg" alt="{{ $article->name }}" title="{{ $article->title }}">
-                                </figure>
-                                <div class="caption shadow-md">
-                                    <h2>
-                                        <a href="{{ route('article.show', ['slug' => $article->slug]) }}">
-                                            {{ $article->name }}
-                                        </a>
-                                    </h2>
-                                    <p>{{ \Illuminate\Support\Str::limit(strip_tags($article->text), 150, '...') }}</p>
-                                    <hr class="border-2">
-                                    <div class="info-wrapper">
-                                        <div class="more">
-                                            <a href="{{ route('article.show', ['slug' => $article->slug]) }}"
-                                                class="link-btn blck" tabindex="0">Детальніше</a>
-                                        </div>
-                                        <div class="bi bi-calendar">
-                                            {{ \Carbon\Carbon::parse($article->created_at)->format('F d, Y') }}
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        @endforeach
-                    </div>
-                </div>
-                @if ($articles->hasPages())
-                    <div class="row">
-                        <div class="col text-center">
-                            {{ $articles->links() }}
-                            <button type="button" class="btn load-next rounded-3 mt-5">Завантажити ще
-                                <i class="bi bi-arrow-clockwise"></i>
-                            </button>
-                        </div>
-                    </div>
-                @endif
-            @else
-                <div class="row">
-                    <div class="col text-center my-5">
-                        <span class="mb-3">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="100" height="100"
-                                fill="none">
-                                <circle cx="12" cy="12" r="7" stroke="#91765a" stroke-width="1.5" />
-                                <circle cx="9" cy="10.277" r="1" fill="#91765a" />
-                                <circle cx="15" cy="10.277" r="1" fill="#91765a" />
-                                <path stroke="#91765a" stroke-linecap="round"
-                                    d="M15 15.25l-.049-.04A4.631 4.631 0 009 15.25" stroke-width="1.3"
-                                    style="animation:sad 4s infinite linear" stroke-dasharray="100" />
-                            </svg>
-                        </span>
-                        <div class="fs-6 fw-bold text-uppercase">
-                            <div>Матеріалів поки що немає...</div>
-                            <div>Завітайте трохи пізніше</div>
-                            <div>Ми обов'язково щось напишемо</div>
-                        </div>
-                    </div>
-                </div>
-            @endisset
-    </div>
-</section>
+            <livewire-post-list lazy />
+        </div>
+    </section>
 @endsection

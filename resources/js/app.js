@@ -1,5 +1,6 @@
-import './animations';
-import './wizard';
-// import './selectors';
-import './custom';
-import './order';
+import 'preline'
+import { Alpine } from '../../vendor/livewire/livewire/dist/livewire.esm';
+import intersect from '@alpinejs/intersect'
+
+Alpine.plugin(intersect)
+Alpine.start()

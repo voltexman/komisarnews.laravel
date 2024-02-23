@@ -4,11 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Post extends Model
+class Post extends Model implements HasMedia
 {
     use HasFactory;
+    use InteractsWithMedia;
+    use SoftDeletes;
 
     protected $fillable = [
         'id',
@@ -29,26 +34,47 @@ class Post extends Model
 
     const STATUS_INACTIVE = 0;
 
-    const STATUS_DELETED = 2;
-
     const STATUS_INDEXATION = 1;
 
-    const CATEGORY_CITIES = 0;
+    const CATEGORY_CITIES = 'Міста';
 
-    const CATEGORY_ARTICLES = 1;
+    const CATEGORY_ARTICLES = 'Статті';
 
-    protected static function boot()
+    public function registerMediaConversions(?Media $media = null): void
     {
-        parent::boot();
+        $this->addMediaConversion('admin')
+            ->width(80)
+            ->sharpen(10)
+            ->nonOptimized();
 
-        static::creating(function ($post) {
-            $post->slug = Str::slug($post->name, '_');
-        });
+        $this->addMediaConversion('preview-webp')
+            ->format('webp')
+            ->width(640)
+            ->height(480)
+            ->sharpen(10)
+            ->nonOptimized();
+
+        $this->addMediaConversion('preview-jpg')
+            ->format('jpg')
+            ->width(640)
+            ->height(480)
+            ->sharpen(10)
+            ->nonOptimized();
+
+        $this->addMediaConversion('header-webp')
+            ->format('webp')
+            ->height(280)
+            ->nonOptimized();
+
+        $this->addMediaConversion('header-jpg')
+            ->format('jpg')
+            ->height(280)
+            ->nonOptimized();
     }
 
     public static function getAllPostsCount()
     {
-        return Post::where('status', '!=', self::STATUS_DELETED)->count();
+        return Post::count();
     }
 
     public static function getPublicationCount()
@@ -59,7 +85,6 @@ class Post extends Model
     public static function getIndexationCount()
     {
         return Post::where('indexation', self::STATUS_INDEXATION)
-            ->where('status', '!=', self::STATUS_DELETED)
             ->count();
     }
 }

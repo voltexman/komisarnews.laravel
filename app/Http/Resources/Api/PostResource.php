@@ -16,6 +16,7 @@ class PostResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'image' => $this->getFirstMediaUrl('posts', 'admin'),
             'name' => $this->name,
             'title' => $this->title,
             'slug' => $this->slug,

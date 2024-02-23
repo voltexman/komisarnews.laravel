@@ -12,7 +12,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        $posts = \App\Models\Post::factory(20)->create();
+
+        foreach ($posts as $post) {
+            $imageUrl = 'https://www.loremflickr.com/640/480';
+            $post->addMediaFromUrl($imageUrl)->toMediaCollection('posts');
+        }
+
+        // \App\Models\Order::factory(50)->create();
+        // \App\Models\Feedback::factory(0)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

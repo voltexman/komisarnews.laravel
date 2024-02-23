@@ -16,14 +16,14 @@ return new class extends Migration
             $table->string('name');
             $table->string('title');
             $table->string('slug');
-            $table->smallInteger('category');
+            $table->string('category');
             $table->text('text')->nullable();
-            $table->string('image')->nullable();
             $table->string('keywords')->nullable();
             $table->text('description')->nullable();
-            $table->smallInteger('status');
+            $table->boolean('status');
             $table->boolean('indexation');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

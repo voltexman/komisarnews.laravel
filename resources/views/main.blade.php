@@ -1,530 +1,569 @@
 @extends('layouts.base')
 
-@section('styles')
-    @vite(['resources/css/pages/main.css'])
-@endsection
+@section('title', 'Головна сторінка')
+@section('keywords', 'Головна сторінка')
+@section('description', 'Головна сторінка')
+@section('robots', 'all')
 
-@section('scripts')
-    @vite(['resources/js/pages/main.js'])
+@section('header')
+    @parent
+    <div class="relative h-screen w-full overflow-hidden">
+        <div class="bg-black/60 h-screen w-full absolute"></div>
+        <div
+            class="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 uppercase text-white text-center w-full px-4 lg:px-0">
+            <h1 class="font-thin text-2xl lg:text-4xl lg:leading-[50px]">
+                Продаж та покупка<br>волосся у Києві<span>.</span></h1>
+            <h2 class="font-semibold mt-5">Швидко, Дорого, Надійно</h2>
+        </div>
+        <picture class="z-10">
+            <source srcset="{{ asset('images/bg-header.webp') }}" type="image/webp">
+            <source srcset="{{ asset('images/bg-header.jpg') }}" type="image/jpeg">
+            <img src="{{ asset('images/bg-header.jpg') }}" alt="Alt Text!"
+                class="object-cover object-left h-screen w-full animate-ricochet lg:animate-none">
+        </picture>
+
+        {{-- Кнопка прокрутки вниз --}}
+        <div class="flex absolute bottom-8 left-1/2 -translate-x-1/2 ">
+            <a href="#about" class="flex animate-bounce border w-12 h-12 rounded-full bg-slate-50/10 z-40">
+                <x-lucide-arrow-down class="w-6 h-6 text-slate-100 self-center mx-auto" />
+            </a>
+        </div>
+    </div>
 @endsection
 
 @section('content')
-    <section id="scrollToContent" class="about" data-scroll-index="1">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 mb-30">
-                    <div class="mb-20" data-aos="fade-down" data-aos-delay="250">
-                        <h2 class="section-title text-center text-lg-start m-0">
-                            Шукаєте Кому Вигідно Продати Волосся?
-                        </h2>
-                        <h3 class="text-center text-lg-start mt-2">
-                            НАША КОМПАНІЯ ЗАВЖДИ ГОТОВА КУПИТИ ВОЛОССЯ ДОРОГО!
-                        </h3>
-                    </div>
-                    <p data-aos="fade-right" data-aos-delay="250">Жителі багатьох міст можуть продати волосся
-                        особисто нам в руки! Подаруєте собі настрій, не
-                        бійтеся мінятися і удосконалюватися, продаючи свої коси, ви робите благу справу і заробляєте
-                        додаткові гроші на потрібні покупки.</p>
-                    <p data-aos="fade-right" data-aos-delay="250">Звертайтеся за консультацією прямо зараз за
-                        номером телефону, ми завжди готові відповісти на
-                        будь-які питання і запропонувати вам європейські ціни. Наша компанія завжди готова
-                        запропонувати
-                        найвищу ціну за натуральний слов'янський зріз від 40 см, а також кращий сервіс і
-                        обслуговування.
-                        Ми є професіоналами своєї справи і поважаємо кожного нашого клієнта, тому гарантуємо
-                        максимум
-                        задоволення від співпраці.</p>
-                </div>
-                <div class="col col-lg-3" data-aos="fade-down" data-aos-delay="250">
-                    <picture class="image-card-1">
-                        <source srcset="{{ asset('img/about2.webp') }}" type="image/webp">
-                        <img src="{{ asset('img/about2.jpg') }}" width="280" height="360"
-                            class="border border-1 rounded-4 shadow-lg image-1 mt-4" alt="Фото салону 1">
-                    </picture>
-                </div>
-                <div class="col col-lg-3" data-aos="fade-up" data-aos-delay="250">
-                    <picture class="image-card-2">
-                        <source srcset="{{ asset('img/about.webp') }}" type="image/webp">
-                        <img src="{{ asset('img/about.jpg') }}" width="280" height="360"
-                            class="border border-1 rounded-4 shadow-lg image-2 mt-4" alt="Фото салону 2">
-                    </picture>
-                </div>
+    <x-section class="bg-max-light py-14" id="about">
+        <div class="grid lg:grid-cols-2 gap-x-5">
+            <div>
+                <h2 class="text-2xl drop-shadow-lg text-center lg:text-left font-semibold uppercase">
+                    Шукаєте Кому Вигідно<br class="lg:hidden">Продати Волосся?
+                </h2>
+                <h3 class="font-bold drop-shadow-lg text-center lg:text-left uppercase text-max-soft mb-5">
+                    НАША КОМПАНІЯ ЗАВЖДИ ГОТОВА<br class="lg:hidden">КУПИТИ ВОЛОССЯ ДОРОГО!
+                </h3>
+                <p class="leading-7" data-aos="fade-right" data-aos-delay="250">Жителі багатьох міст можуть продати волосся
+                    особисто нам в руки! Подаруєте собі настрій, не
+                    бійтеся мінятися і удосконалюватися, продаючи свої коси, ви робите благу справу і заробляєте
+                    додаткові гроші на потрібні покупки.</p>
+                <p class="mt-5 leading-7" data-aos="fade-right" data-aos-delay="250">Звертайтеся за консультацією прямо
+                    зараз
+                    за
+                    номером телефону, ми завжди готові відповісти на
+                    будь-які питання і запропонувати вам європейські ціни. Наша компанія завжди готова
+                    запропонувати
+                    найвищу ціну за натуральний слов'янський зріз від 40 см, а також кращий сервіс і
+                    обслуговування.
+                    Ми є професіоналами своєї справи і поважаємо кожного нашого клієнта, тому гарантуємо
+                    максимум
+                    задоволення від співпраці.</p>
             </div>
-        </div>
-    </section>
-
-    <section class="why pt-0">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 class="text-center" data-aos="fade-left" data-aos-delay="300" data-aos-duration="5000">
-                        Чому Варто Звернутися Саме В Нашу Компанію?</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <p data-aos="fade-down" data-aos-delay="300" data-aos-duration="5000">Куплю волосся - в мережі
-                        можна знайти тисячі
-                        оголошень , але далеко не всі продавці працюють
-                        чесно.
-                        Ми є Європейською компанією, яка співпрацює з клієнтами по всьому світу. Наша компанія є
-                        прямим
-                        скупником локонів, тому пропонуємо найвищі ціни. Цінуємо визнання і довіру наших клієнтів,
-                        гарантуємо приємну співпрацю і гідну оплату Вашого товару. Здійснюємо скупку волосся по
-                        Україні і
-                        відбираємо якісні, живі зрізи. Після покупки, всі зрізи проходять обробку і надходять в
-                        подальший
-                        продаж, а також використовуються у виробництві перук.</p>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <h3 class="text-center my-4" data-aos="fade-up" data-aos-delay="300" data-aos-duration="5000">
-                            ЗВЕРТАЮЧИСЬ В НАШУ КОМПАНІЮ З БАЖАННЯМ ПРОДАТИ ВОЛОССЯ, ВИ ГАРАНТОВАНО ОТРИМУЄТЕ</h3>
+            <div class="flex justify-center mt-10 lg:mt-0 px-5 lg:px-0">
+                <div class="animate-jumping-down">
+                    <div data-aos="fade-down" data-aos-delay="250">
+                        <picture>
+                            <source srcset="{{ asset('images/about2.webp') }}" type="image/webp">
+                            <img src="{{ asset('images/about2.jpg') }}" width="280" height="360" alt="Фото салону 1"
+                                class="skew-12 rotate-[-10deg] border-2 rounded-2xl shadow-lg shadow-max-soft/50 hover:transform-none transition-transform duration-500">
+                        </picture>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="d-flex" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="icon me-3">
-                            <img src="{{ asset('img/icons/individual.svg') }}" width="100" height="100"
-                                alt="Індивідуальний підхід">
-                        </div>
-                        <div class="d-flex flex-column">
-                            <div class="title">Індивідуальність</div>
-                            <div class="description">Окремий та індивідуальний підхід для кожного нашого покупця</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="d-flex" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="icon me-3">
-                            <img src="{{ asset('img/icons/money.svg') }}" width="100" height="100"
-                                alt="Вигідні умови співпраці">
-                        </div>
-                        <div class="d-flex flex-column">
-                            <div class="title">Вигоду</div>
-                            <div class="description">Найвигідніші для Вас умови співпраці. Ми зацікавлені в цьому</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="d-flex" data-aos="zoom-in" data-aos-delay="300">
-                        <div class="icon me-3">
-                            <img src="{{ asset('img/icons/handshake.svg') }}" width="100" height="100"
-                                alt="Зручність та виплата">
-                        </div>
-                        <div class="d-flex flex-column">
-                            <div class="title">Зручність</div>
-                            <div class="description">Обговорена грошова виплата в зручний для Вас час та спосіб</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="d-flex" data-aos="zoom-in" data-aos-delay="400">
-                        <div class="icon me-3">
-                            <img src="{{ asset('img/icons/fast-money.svg') }}" width="100" height="100"
-                                alt="Моментальна оплата">
-                        </div>
-                        <div class="d-flex flex-column">
-                            <div class="title">Швидкість</div>
-                            <div class="description">Моментальна оплата після оцінки та відправки Вашой шевелюри</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="d-flex" data-aos="zoom-in" data-aos-delay="500">
-                        <div class="icon me-3">
-                            <img src="{{ asset('img/icons/info.svg') }}" width="100" height="100"
-                                alt="Інформативна оцінка">
-                        </div>
-                        <div class="d-flex flex-column">
-                            <div class="title">Інформативність</div>
-                            <div class="description">Відправляйте по вайберу фото волосся і спеціаліст оголосить ціну</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="d-flex" data-aos="zoom-in" data-aos-delay="600">
-                        <div class="icon me-3">
-                            <img src="{{ asset('img/icons/style.svg') }}" width="100" height="100"
-                                alt="Стильно та модно">
-                        </div>
-                        <div class="d-flex flex-column">
-                            <div class="title">Стиль</div>
-                            <div class="description">Ми запропонуємо Вам стильну та модну стрижку в подарунок</div>
-                        </div>
+                <div class="animate-jumping-up mt-10">
+                    <div data-aos="fade-up" data-aos-delay="250">
+                        <picture>
+                            <source srcset="{{ asset('images/about.webp') }}" type="image/webp">
+                            <img src="{{ asset('images/about.jpg') }}" width="280" height="360" alt="Фото салону 2"
+                                class="rotate-[10deg] border-2 rounded-2xl shadow-lg shadow-max-soft/50 hover:transform-none transition-transform duration-500">
+                        </picture>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </x-section>
 
-    <section class="bg-darkbrown shadow-lg">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-5 mb-90 animate-box d-none d-lg-block" data-aos="fade-right" data-aos-delay="300">
-                    <picture>
-                        <source srcset="{{ asset('img/postman.webp') }}" type="image/webp" loading="lazy">
-                        <img src="{{ asset('img/postman.jpg') }}" width="400" height="420" loading="lazy"
-                            class="border border-1 rounded-4 shadow-lg" alt="Відправка Новою поштою">
-                    </picture>
+    <x-section class="bg-max-light pb-14">
+        <h2 class="text-2xl drop-shadow-lg text-center mb-5 font-semibold uppercase" data-aos="fade-left"
+            data-aos-delay="300" data-aos-duration="5000">
+            Чому Варто Звернутися Саме В Нашу Компанію?</h2>
+        <p data-aos="fade-down" data-aos-delay="300" data-aos-duration="5000">Куплю волосся - в мережі
+            можна знайти тисячі
+            оголошень , але далеко не всі продавці працюють
+            чесно.
+            Ми є Європейською компанією, яка співпрацює з клієнтами по всьому світу. Наша компанія є
+            прямим
+            скупником локонів, тому пропонуємо найвищі ціни. Цінуємо визнання і довіру наших клієнтів,
+            гарантуємо приємну співпрацю і гідну оплату Вашого товару. Здійснюємо скупку волосся по
+            Україні і
+            відбираємо якісні, живі зрізи. Після покупки, всі зрізи проходять обробку і надходять в
+            подальший
+            продаж, а також використовуються у виробництві перук.</p>
+        <h3 class="font-bold text-center drop-shadow-lg uppercase text-max-soft mt-14 mb-8" data-aos="fade-up"
+            data-aos-delay="300" data-aos-duration="5000">
+            ЗВЕРТАЮЧИСЬ В НАШУ КОМПАНІЮ З БАЖАННЯМ ПРОДАТИ ВОЛОССЯ, ВИ ГАРАНТОВАНО ОТРИМУЄТЕ</h3>
+
+        <div class="grid grid-rows-6 lg:grid-rows-2 grid-flow-col gap-8">
+            <div class="flex">
+                <div class="me-3 h-16 w-16">
+                    <img src="{{ asset('images/icons/individual.svg') }}" width="100" height="100"
+                        alt="Індивідуальний підхід">
                 </div>
-                <div class="col-12 col-lg-7">
-                    <h2 class="text-center text-lg-start m-0" data-aos="fade-down" data-aos-delay="300">
-                        Як відправити свій зріз?
-                    </h2>
-                    <h3 class="text-center text-lg-start mt-2" data-aos="fade-down" data-aos-delay="500">
-                        Відправити свій зріз можна за допомогою послуг Нової Пошти
-                    </h3>
-                    <p data-aos="fade-left" data-aos-delay="300">При відправці ви вказуєте встановлену нашим
-                        оцінювачем вартість, а при отриманні ми
-                        оплачуємо дану суму, плюс вартість доставки. гроші ви зможете забрати в своєму
-                        відділенні нової пошти.</p>
-                    <ul class="list-unstyled">
-                        <li class="mb-2" data-aos="fade-left" data-aos-delay="100">
-                            <i class="bi bi-check2-all me-2"></i>
-                            Насамперед ви повинні обумовити деталі з нашим менеджером.
-                        </li>
-                        <li class="mb-2" data-aos="fade-left" data-aos-delay="200">
-                            <i class="bi bi-check2-all me-2"></i>
-                            Кладемо біля волосся сантиметр і робимо фото, після чого зважуємо їх.
-                        </li>
-                        <li class="mb-2" data-aos="fade-left" data-aos-delay="300">
-                            <i class="bi bi-check2-all me-2"></i>
-                            Надсилаємо фотографію на наш Вайбер, а оцінювач встановлює точну вартість зрізу.
-                        </li>
-                        <li class="mb-2" data-aos="fade-left" data-aos-delay="400">
-                            <i class="bi bi-check2-all me-2"></i>
-                            Коли локони надійно упаковані, їх можна відправляти поштою в нашу компанію.
-                        </li>
-                        <li class="mb-2" data-aos="fade-left" data-aos-delay="500">
-                            <i class="bi bi-check2-all me-2"></i>
-                            Відправка волосся проводиться післяплатою, через послуги Нової Пошти.
-                        </li>
-                    </ul>
+                <div class="flex flex-col">
+                    <div class="uppercase font-semibold">Індивідуальність</div>
+                    <div class="description">Окремий та індивідуальний підхід для кожного нашого покупця</div>
+                </div>
+            </div>
+            <div class="flex">
+                <div class="me-3 h-16 w-16">
+                    <img src="{{ asset('images/icons/money.svg') }}" width="100" height="100"
+                        alt="Вигідні умови співпраці">
+                </div>
+                <div class="flex flex-col">
+                    <div class="uppercase font-semibold">Вигоду</div>
+                    <div class="description">Найвигідніші для Вас умови співпраці. Ми зацікавлені в цьому</div>
+                </div>
+            </div>
+            <div class="flex" data-aos="zoom-in" data-aos-delay="300">
+                <div class="me-3 h-16 w-16">
+                    <img src="{{ asset('images/icons/handshake.svg') }}" width="100" height="100"
+                        alt="Зручність та виплата">
+                </div>
+                <div class="flex flex-col">
+                    <div class="uppercase font-semibold">Зручність</div>
+                    <div class="description">Обговорена грошова виплата в зручний для Вас час та спосіб</div>
+                </div>
+            </div>
+            <div class="flex" data-aos="zoom-in" data-aos-delay="400">
+                <div class="me-3 h-16 w-16">
+                    <img src="{{ asset('images/icons/fast-money.svg') }}" width="100" height="100"
+                        alt="Моментальна оплата">
+                </div>
+                <div class="flex flex-col">
+                    <div class="uppercase font-semibold">Швидкість</div>
+                    <div class="description">Моментальна оплата після оцінки та відправки Вашой шевелюри</div>
+                </div>
+            </div>
+            <div class="flex" data-aos="zoom-in" data-aos-delay="500">
+                <div class="me-3 h-16 w-16">
+                    <img src="{{ asset('images/icons/info.svg') }}" width="100" height="100"
+                        alt="Інформативна оцінка">
+                </div>
+                <div class="flex flex-col">
+                    <div class="uppercase font-semibold">Інформативність</div>
+                    <div class="description">Відправляйте по вайберу фото волосся і спеціаліст оголосить ціну</div>
+                </div>
+            </div>
+            <div class="flex" data-aos="zoom-in" data-aos-delay="600">
+                <div class="me-3 h-16 w-16">
+                    <img src="{{ asset('images/icons/style.svg') }}" width="100" height="100"
+                        alt="Стильно та модно">
+                </div>
+                <div class="flex flex-col">
+                    <div class="uppercase font-semibold">Стиль</div>
+                    <div class="description">Ми запропонуємо Вам стильну та модну стрижку в подарунок</div>
                 </div>
             </div>
         </div>
-    </section>
+    </x-section>
 
-    <section class="buying pb-0">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-head text-center">
-                        <h2 class="section-title m-0" data-aos="fade-down" data-aos-delay="300">Скупка волосся</h2>
-                        <h3 class="section-subtitle mt-2" data-aos="fade-down" data-aos-delay="500">ЯК ПРАВИЛЬНО ЗРОБИТИ
-                            ЗРІЗ ЩОБ ВИРУЧИТИ МАКСИМАЛЬНУ ЦІНУ</h3>
-                    </div>
-                </div>
+    <x-section class="bg-max-black py-20">
+        <div class="container flex">
+            <div class="hidden lg:flex justify-center w-1/2" data-aos="fade-right" data-aos-delay="300">
+                <picture>
+                    <source srcset="{{ asset('images/postman.webp') }}" type="image/webp" loading="lazy">
+                    <img src="{{ asset('images/postman.jpg') }}" width="400" height="420" loading="lazy"
+                        class="-skew-x-3 origin-right -rotate-6 -translate-y-4 border-2 rounded-xl shadow-lg shadow-max-dark/40 border-max-soft/60"
+                        alt="Відправка Новою поштою">
+                </picture>
             </div>
-            <div class="row">
-
-                {{-- IF ISMOBILE --}}
-
-                <div class="col-12">
-                    <ul class="accordion-box clearfix d-lg-none">
-                        <li class="accordion block rounded-3 shadow" data-aos="fade-left" data-aos-delay="300">
-                            <div class="acc-btn size-20"><span class="number me-3">1</span>Миття волосся</div>
-                            <div class="acc-content">
-                                <div class="content">
-                                    <div class="text">
-                                        <img src="{{ asset('img/icons/washing.svg') }}" alt="">
-                                        <p class="text-center mt-3">Попередньо необхідно вимити волосся шампунем, яким Ви
-                                            зазвичай користуєтесь</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="accordion block rounded-3 shadow" data-aos="fade-right" data-aos-delay="400">
-                            <div class="acc-btn size-20"><span class="number me-3">2</span>Сушка волосся</div>
-                            <div class="acc-content">
-                                <div class="content">
-                                    <div class="text">
-                                        <img src="{{ asset('img/icons/dry.svg') }}" alt="">
-                                        <p class="text-center mt-3">Добре просушити без використання фена, дайте локонам
-                                            висохнути природним шляхом</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="accordion block rounded-3 shadow" data-aos="fade-left" data-aos-delay="500">
-                            <div class="acc-btn size-20"><span class="number me-3">3</span>Розчісування</div>
-                            <div class="acc-content">
-                                <div class="content">
-                                    <div class="text">
-                                        <img src="{{ asset('img/icons/hairdresser.svg') }}" alt="">
-                                        <p class="text-center mt-3">Добре розчешіть пасма, щоб позбутися від ковтунів (якщо
-                                            такі
-                                            є), а також запобігти подальшому заплутування</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="accordion block rounded-3 shadow" data-aos="fade-right" data-aos-delay="600">
-                            <div class="acc-btn size-20"><span class="number me-3">4</span>Поділ волосся</div>
-                            <div class="acc-content">
-                                <div class="content">
-                                    <div class="text">
-                                        <img src="{{ asset('img/icons/bunch.svg') }}" alt="">
-                                        <p class="text-center mt-3">Розділіть волосся на кілька пасом, в залежності від
-                                            густоти,
-                                            туго перетягніть кожну гумкою, обмотавши її кілька разів</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="accordion block rounded-3 shadow" data-aos="fade-left" data-aos-delay="700">
-                            <div class="acc-btn size-20"><span class="number me-3">5</span>Зріз волосся</div>
-                            <div class="acc-content">
-                                <div class="content">
-                                    <div class="text">
-                                        <img src="{{ asset('img/icons/cutting.svg') }}" alt="">
-                                        <p class="text-center mt-3">Далі робимо зріз, відступивши кілька сантиметрів трохи
-                                            вище
-                                            кріплення та заплітаємо зрізане волосся в косу</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="accordion block rounded-3 shadow" data-aos="fade-right" data-aos-delay="800">
-                            <div class="acc-btn size-20"><span class="number me-3">6</span>Оцінка волосся</div>
-                            <div class="acc-content">
-                                <div class="content">
-                                    <div class="text">
-                                        <img src="{{ asset('img/icons/hair-info.svg') }}" alt="">
-                                        <p class="text-center mt-3">Для оцінювання волосся нам необхідно побачити
-                                            фотографію
-                                            зрізу біля сантиметра і взнати точну його вагу</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                {{-- ELSE IF ISDESKTOP --}}
-
-                <div class="col-md-4 d-none d-lg-block mb-4">
-                    <div class="bg-light px-4 py-5 rounded-3 shadow-sm" data-aos="zoom-in" data-aos-delay="100">
-                        <img src="{{ asset('img/icons/washing.svg') }}" alt="Миття волосся">
-                        <h2 class="fs-5 mt-4 mb-2 fw-bold text-uppercase text-center">Миття волосся</h2>
-                        <div class="description">Попередньо необхідно вимити волосся шампунем, яким Ви зазвичай
-                            користуєтесь</div>
-                    </div>
-                </div>
-                <div class="col-md-4 d-none d-lg-block mb-4">
-                    <div class="bg-light px-4 py-5 rounded-3 shadow-sm" data-aos="zoom-in" data-aos-delay="200">
-                        <img src="{{ asset('img/icons/dry.svg') }}" alt="Сушка волосся">
-                        <h2 class="fs-5 mt-4 mb-2 fw-bold text-uppercase text-center">Сушка волосся</h2>
-                        <div class="description">Просушити волосся без використання фена, дайте локонам висохнути природним
-                            шляхом</div>
-                    </div>
-                </div>
-                <div class="col-md-4 d-none d-lg-block mb-4">
-                    <div class="bg-light px-4 py-5 rounded-3 shadow-sm" data-aos="zoom-in" data-aos-delay="300">
-                        <img src="{{ asset('img/icons/hairdresser.svg') }}" alt="Розчісування волосся">
-                        <h2 class="fs-5 mt-4 mb-2 fw-bold text-uppercase text-center">Розчісування</h2>
-                        <div class="description">Розчесати пасма, щоб позбутися ковтунів (якщо такі є), також,
-                            запобігти подальшому заплутування</div>
-                    </div>
-                </div>
-                <div class="col-md-4 d-none d-lg-block">
-                    <div class="bg-light px-4 py-5 rounded-3 shadow-sm" data-aos="zoom-in" data-aos-delay="400">
-                        <img src="{{ asset('img/icons/bunch.svg') }}" alt="Поділ волосся">
-                        <h2 class="fs-5 mt-4 mb-2 fw-bold text-uppercase text-center">Поділ волосся</h2>
-                        <div class="description">Розділити волосся на кілька пасів, обмотавши кілька разів, туго
-                            перетягнути кожну гумкою</div>
-                    </div>
-                </div>
-                <div class="col-md-4 d-none d-lg-block">
-                    <div class="bg-light px-4 py-5 rounded-3 shadow-sm" data-aos="zoom-in" data-aos-delay="500">
-                        <img src="{{ asset('img/icons/cutting.svg') }}" alt="Зріз волосся">
-                        <h2 class="fs-5 mt-4 mb-2 fw-bold text-uppercase text-center">Зріз волосся</h2>
-                        <div class="description">Зробити зріз, відступивши кілька сантиметрів трохи вище кріплення та
-                            заплітаємо зрізане волосся в косу</div>
-                    </div>
-                </div>
-                <div class="col-md-4 d-none d-lg-block">
-                    <div class="bg-light px-4 py-5 rounded-3 shadow-sm" data-aos="zoom-in" data-aos-delay="600">
-                        <img src="{{ asset('img/icons/hair-info.svg') }}" alt="Оцінка волосся">
-                        <h2 class="fs-5 mt-4 mb-2 fw-bold text-uppercase text-center">Оцінка волосся</h2>
-                        <div class="description">Зважити зріз та сфотографувати біля сантиметра і надіслати дані для
-                            оцінювання</div>
-                    </div>
-                </div>
-
-                {{-- ENDIF --}}
-
-            </div>
-
-            {{-- Warning Info --}}
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="d-flex bg-warning bg-opacity-10 border border-opacity-25 border-warning rounded mt-4"
-                        data-aos="fade-right" data-aos-delay="400">
-                        <div class="d-flex align-items-center border-opacity-25 border-end border-warning px-3">
-                            <span class="animate__animated animate__tada animate__infinite">
-                                <i class="bi-exclamation-triangle fs-3 text-warning"></i>
-                            </span>
-                        </div>
-                        <div class="p-3 center textdark textuppercase lh-1">
-                            Не намагайтесь обдурити оцінювача, використовуючи прийоми, щоб поліпшити
-                            якість волосся, або розтягувати пасмо, щоб візуально збільшити довжину.
-                            Наш фахівець обов'язково розпізнає обман.
-                        </div>
-                    </div>
-                </div>
+            <div class="lg:w-1/2 flex flex-col self-center">
+                <h2 class="text-max-light/80 text-center lg:text-left uppercase font-bold text-xl" data-aos="fade-down"
+                    data-aos-delay="300">
+                    Як відправити свій зріз?
+                </h2>
+                <h3 class="text-max-soft text-center lg:text-left uppercase font-bold text-sm mt-1" data-aos="fade-down"
+                    data-aos-delay="500">
+                    Відправити свій зріз можна за<br class="lg:hidden">допомогою послуг Нової Пошти
+                </h3>
+                <p class="text-max-light font-semibold my-8" data-aos="fade-left" data-aos-delay="300">При відправці ви
+                    вказуєте встановлену
+                    нашим
+                    оцінювачем вартість, а при отриманні ми
+                    оплачуємо дану суму, плюс вартість доставки. гроші ви зможете забрати в своєму
+                    відділенні нової пошти.</p>
+                <ul class="list-unstyled text-max-light">
+                    <li class="flex text-sm font-semibold mb-2" data-aos="fade-left" data-aos-delay="100">
+                        <x-lucide-check-check class="h-5 w-5 me-2" />
+                        Насамперед ви повинні обумовити деталі з нашим менеджером.
+                    </li>
+                    <li class="flex text-sm font-semibold mb-2" data-aos="fade-left" data-aos-delay="200">
+                        <x-lucide-check-check class="h-5 w-5 me-2" />
+                        Кладемо біля волосся сантиметр і робимо фото, після чого зважуємо їх.
+                    </li>
+                    <li class="flex text-sm font-semibold mb-2" data-aos="fade-left" data-aos-delay="300">
+                        <x-lucide-check-check class="h-5 w-5 me-2" />
+                        Надсилаємо фотографію на наш Вайбер, а оцінювач встановлює точну вартість зрізу.
+                    </li>
+                    <li class="flex text-sm font-semibold mb-2" data-aos="fade-left" data-aos-delay="400">
+                        <x-lucide-check-check class="h-5 w-5 me-2" />
+                        Коли локони надійно упаковані, їх можна відправляти поштою в нашу компанію.
+                    </li>
+                    <li class="flex text-sm font-semibold mb-2" data-aos="fade-left" data-aos-delay="500">
+                        <x-lucide-check-check class="h-5 w-5 me-2" />
+                        Відправка волосся проводиться післяплатою, через послуги Нової Пошти.
+                    </li>
+                </ul>
             </div>
         </div>
-    </section>
+    </x-section>
 
-    <section class="pb-0">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-head text-center">
-                        <h2 class="section-title m-0" data-aos="fade-down" data-aos-delay="300">ПРОДАТИ ВОЛОССЯ АБО ВСЕ Ж
-                            ЗБЕРЕГТИ ДОВЖИНУ?</h2>
-                        <h3 class="section-subtitle mt-2" data-aos="fade-down" data-aos-delay="500">МІНЯЙТЕСЯ І
-                            ЗАРОБЛЯЙТЕ НА НОВОМУ ОБРАЗІ ГРОШІ</h3>
-                    </div>
-                </div>
+    <x-section class="bg-max-light py-14">
+
+        <x-slot:title>Скупка волосся</x-slot>
+        <x-slot:caption class="text-max-soft">
+            ЯК ПРАВИЛЬНО ЗРОБИТИ ЗРІЗ<br class="lg:hidden">ЩОБ ВИРУЧИТИ МАКСИМАЛЬНУ ЦІНУ
+        </x-slot>
+
+        {{-- ELSE IF ISDESKTOP --}}
+        <div class="grid-rows-2 grid-flow-col gap-8 hidden lg:grid">
+            <div
+                class="bg-white rounded-lg shadow-md py-10 px-5 flex flex-col items-center hover:shadow-xl transition-shadow">
+                <img src="{{ asset('images/icons/washing.svg') }}" class="h-20 w-20" alt="Миття волосся">
+                <h2 class="font-bold uppercase text-center mt-8 mb-2">Миття волосся</h2>
+                <div class="description">Попередньо необхідно вимити волосся шампунем, яким Ви зазвичай
+                    користуєтесь</div>
             </div>
-            <div class="row" data-aos="fade-up" data-aos-delay="300">
-                <p>Якщо ви досі не вирішили, то завжди можете звернутися до нас з питаннями, що цікавлять. Ми готові
-                    дати детальну інформацію про продажі покупку, провести повну консультацію, щоб кожен клієнт міг
-                    зробити для себе остаточні висновки. Наші контактні менеджери завжди на зв'язку з клієнтами, що
-                    робить наш сервіс кращим в. Гарна густа шевелюра – це справжнє багатство будь-якої жінки.
-                    Стильна зачіска завжди прикрашає образ, робить його більш ніжним, акуратним, жіночним і
-                    природним. Але така краса, забирає багато часу, сил і терпіння. Тривалі укладання, дорогий
-                    догляд, все це вимагає не тільки грошових, але і вкладень, а в сучасному світі, де кожна хвилина
-                    на рахунку, іноді просто немає можливості займатися тривалої укладанням. Якщо ви зважилися щось
-                    змінити, змінити образ, надати йому родзинку і відчути небувалу легкість, то пропонуємо вам
-                    продати волосся. Якщо ви думаєте про продаж волосся але ніяк не зважитеся, то уявіть, скільки
-                    вільного часу у вас з'явиться. Ви зможете присвятити цінні години улюбленій справі, приділити
-                    увагу близьким, а не витрачати час на укладання. Свіжий образ надихне вас на нові справи,
-                    подарує впевненість, а компліменти на вашу адресу будуть сипатися звідусіль. Змінюючи себе, свій
-                    образ і стиль, ви можете заробити хороші гроші в свій сімейний бюджет! Ще ніколи зміна образу не
-                    була такою прибутковою. Пам'ятайте, що ваші локони можуть принести радість іншим людям, які в
-                    силу різних причин не мають можливості відростити красиву довжину. Вся продукція надходить в
-                    салони, для процедур нарощування, а також на виробництво перук, накладних кіс і шиньйонів. Що
-                    потрібно знати, перш ніж зважитися на продаж волосся Купівля волосся нашою компанією
-                    здійснюється тільки після їх оцінки. Вартість формується індивідуально в кожному випадку. Що б
-                    озвучити точну ціну нам необхідно побачити фотографію зрізу біля сантиметра і знати точну вагу.
-                    Ми гарантуємо чесну оцінку, без заниження ціни. Купуємо жіночі, чоловічі та дитячі коси від 40
-                    сантиметрів, в будь-яких відтінках. Найвищу ціну готові запропонувати за шовковисті, м'які
-                    зрізи, без сивини, що не піддавалися фарбуванню, а також хімічній завивці. Натуральні
-                    слов'янські волосся-це дуже цінний товар, який не може коштувати мало. Ми готові запропонувати
-                    дійсно високі ціни, так як цінуємо Вашу працю, витрачений на догляд за такою шевелюрою. Щоб
-                    збільшити вартість, можна попередньо підготувати волосся. Пропийте курс вітамін, використовуйте
-                    натуральні масла, пийте більше рідини, стежте за кінчиками, постійно оновлюючи їх і
-                    позбавляючись від посічених кінців. Нас цікавлять живі, здорові, блискучі пасма.</p>
+            <div
+                class="bg-white rounded-lg shadow-md py-10 px-5 flex flex-col items-center hover:shadow-xl transition-shadow">
+                <img src="{{ asset('images/icons/bunch.svg') }}" class="h-20 w-20" alt="Поділ волосся">
+                <h2 class="font-bold uppercase text-center mt-8 mb-2">Поділ волосся</h2>
+                <div class="description">Розділити волосся на кілька пасів, обмотавши кілька разів, туго
+                    перетягнути кожну гумкою</div>
+            </div>
+            <div
+                class="bg-white rounded-lg shadow-md py-10 px-5 flex flex-col items-center hover:shadow-xl transition-shadow">
+                <img src="{{ asset('images/icons/dry.svg') }}" class="h-20 w-20" alt="Сушка волосся">
+                <h2 class="font-bold uppercase text-center mt-8 mb-2">Сушка волосся</h2>
+                <div class="description">Просушити волосся без використання фена, дайте локонам висохнути природним
+                    шляхом</div>
+            </div>
+            <div
+                class="bg-white rounded-lg shadow-md py-10 px-5 flex flex-col items-center hover:shadow-xl transition-shadow">
+                <img src="{{ asset('images/icons/cutting.svg') }}" class="h-20 w-20" alt="Зріз волосся">
+                <h2 class="font-bold uppercase text-center mt-8 mb-2">Зріз волосся</h2>
+                <div class="description">Зробити зріз, відступивши кілька сантиметрів трохи вище кріплення та
+                    заплітаємо зрізане волосся в косу</div>
+            </div>
+            <div
+                class="bg-white rounded-lg shadow-md py-10 px-5 flex flex-col items-center hover:shadow-xl transition-shadow">
+                <img src="{{ asset('images/icons/hairdresser.svg') }}" class="h-20 w-20" alt="Розчісування волосся">
+                <h2 class="font-bold uppercase text-center mt-8 mb-2">Розчісування</h2>
+                <div class="description">Розчесати пасма, щоб позбутися ковтунів (якщо такі є), також,
+                    запобігти подальшому заплутування</div>
+            </div>
+            <div
+                class="bg-white rounded-lg shadow-md py-10 px-5 flex flex-col items-center hover:shadow-xl transition-shadow">
+                <img src="{{ asset('images/icons/hair-info.svg') }}" class="h-20 w-20" alt="Оцінка волосся">
+                <h2 class="font-bold uppercase text-center mt-8 mb-2">Оцінка волосся</h2>
+                <div class="description">Зважити зріз та сфотографувати біля сантиметра і надіслати дані для
+                    оцінювання</div>
             </div>
         </div>
-    </section>
 
-    <section class="pricing">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-head text-center">
-                        <h2 class="section-title m-0" data-aos="fade-down" data-aos-delay="300">Покупка волосся</h2>
-                        <h3 class="section-subtitle mt-2" data-aos="fade-down" data-aos-delay="500">Які чинники
-                            впливають на вартість</h3>
+        {{-- IF ISMOBILE --}}
+        <div class="hs-accordion-group lg:hidden bg-max-dark/20 rounded-lg shadow-lg shadow-max-dark/30 mt-8">
+            <div class="hs-accordion active hs-accordion-active:bg-max-soft/10 rounded-t-lg" id="hs-basic-heading-1">
+                <button
+                    class="hs-accordion-toggle uppercase p-3 inline-flex items-center gap-x-3 text-sm w-full font-semibold text-start rounded-lg"
+                    aria-controls="hs-basic-collapse-1">
+                    <div
+                        class="h-8 w-8 flex bg-max-soft/20 hs-accordion-active:bg-max-soft/30 rounded-full border-2 border-max-dark/20 hs-accordion-active:border-max-dark/30 justify-center">
+                        <span class="self-center text-sm font-bold text-max-soft">1</span>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="menu-list">
-                        <div class="item" data-aos="fade-right" data-aos-delay="0">
-                            <div class="flex">
-                                <div class="title">Довжина зрізу</div>
-                                <div class="dots"></div>
-                                <div class="price"><span>~20%</span></div>
-                            </div>
-                            <p><i>Ми купуємо зрізи від 40 сантиметрів. Якщо ваші локони коротші, то рекомендуємо
-                                    ненадовго відкласти продаж, кожен сантиметр здатний сильно відбитися на
-                                    вартості.</i></p>
-                        </div>
-                    </div>
-                    <div class="menu-list">
-                        <div class="item" data-aos="fade-right" data-aos-delay="200">
-                            <div class="flex">
-                                <div class="title">Структура локонів</div>
-                                <div class="dots"></div>
-                                <div class="price"><span>~20%</span></div>
-                            </div>
-                            <p><i>Вища вартість пропонується за якісні, здорові та рівномірні локони. М'які і
-                                    природньо гладкі на дотик пасма, завжди мають значно вищу ціну.</i></p>
-                        </div>
-                    </div>
-                    <div class="menu-list">
-                        <div class="item" data-aos="fade-right" data-aos-delay="400">
-                            <div class="flex">
-                                <div class="title">Стан пучка</div>
-                                <div class="dots"></div>
-                                <div class="price"><span>~20%</span></div>
-                            </div>
-                            <p><i>Зріз має бути зроблений за правилами та закріплений зверху гумкою і не мати
-                                    колунів. Краще продавати свіжозрізані коси, їх ціна вища. Пролежані
-                                    прядки втрачають свій природний блиск та натуральні масла, які містяться в них.</i>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="menu-list">
-                        <div class="item" data-aos="fade-left" data-aos-delay="0">
-                            <div class="flex">
-                                <div class="title">Хімічний вплив</div>
-                                <div class="dots"></div>
-                                <div class="price"><span>~20%</span></div>
-                            </div>
-                            <p><i>Ми не приймаємо пошкодженні, ламкі та сухі локони, або локони з неоднорідною
-                                    структурою. А також волосся із завивкою, забруднене або оброблене будь якими
-                                    хімічними речовинами</i></p>
-                        </div>
-                    </div>
-                    <div class="menu-list">
-                        <div class="item" data-aos="fade-left" data-aos-delay="200">
-                            <div class="flex">
-                                <div class="title">Колір волосся</div>
-                                <div class="dots"></div>
-                                <div class="price"><span>~20%</span></div>
-                            </div>
-                            <p><i>Пофарбовані пасма будуть коштувати набагато дешевше натуральних. Скупка волосся
-                                    здійснюється будь-якому кольорі, але більш висока ціна встановлюється на світлі
-                                    натуральні тони.</i></p>
-                        </div>
-                    </div>
-                    <div class="menu-list">
-                        <div class="item" data-aos="fade-left" data-aos-delay="400">
-                            <div class="flex">
-                                <div class="title">Наявність сивини</div>
-                                <div class="dots"></div>
-                                <div class="price"><span>~20%</span></div>
-                            </div>
-                            <p><i>Зрізи з сивиною теж підлягають купівлі, але багато залежить від доглянутості волосся
-                                    та як довго росло з сивиною. Забарвлене і сиве волосся приймається від 50
-                                    сантиметрів</i></p>
-                        </div>
+                    Миття волосся
+                    <x-lucide-chevron-up class="h-5 w-5 ms-auto hs-accordion-active:block hidden" />
+                    <x-lucide-chevron-down class="h-5 w-5 ms-auto hs-accordion-active:hidden block" />
+                </button>
+                <div id="hs-basic-collapse-1"
+                    class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300"
+                    aria-labelledby="hs-basic-heading-1">
+                    <div class="pb-6 pt-3 ps-14 px-12 flex flex-col items-center">
+                        <img src="{{ asset('images/icons/washing.svg') }}" class="h-24 w-24" alt="Миття волосся">
+                        <p class="text-max-soft font-semibold mt-5">Попередньо необхідно вимити волосся шампунем, яким
+                            Ви зазвичай користуєтесь</p>
                     </div>
                 </div>
             </div>
-            {{-- Warning Info --}}
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="d-flex bg-dark bg-opacity-10 border border-opacity-10 border-dark rounded mt-2"
-                        data-aos="fade-right" data-aos-delay="600">
-                        <div class="d-flex align-items-center border-opacity-10 border-end border-dark px-3">
-                            <i class="bi-info-circle fs-3 text-muted"></i>
-                        </div>
-                        <div class="p-3 lh-1">
-                            Відсоткове відношення впливу на ціну є відносним та орієнтовним.
-                            В деяких випадках відсотки можуть змінюватись та інші фактори можуть переважати.
-                        </div>
+
+            <div class="hs-accordion hs-accordion-active:bg-max-soft/10" id="hs-basic-heading-2">
+                <button
+                    class="hs-accordion-toggle uppercase font-semibold p-3 inline-flex items-center gap-x-3 text-sm w-full text-start rounded-lg"
+                    aria-controls="hs-basic-collapse-2">
+                    <div class="h-8 w-8 flex bg-max-soft/20 rounded-full border-2 border-max-dark/20 justify-center">
+                        <span class="self-center text-sm font-bold text-max-soft">2</span>
+                    </div>
+                    Сушка волосся
+                    <x-lucide-chevron-up class="h-5 w-5 ms-auto hs-accordion-active:block hidden" />
+                    <x-lucide-chevron-down class="h-5 w-5 ms-auto hs-accordion-active:hidden block" />
+                </button>
+                <div id="hs-basic-collapse-2"
+                    class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+                    aria-labelledby="hs-basic-heading-2">
+                    <div class="pb-6 pt-3 ps-14 px-12 flex flex-col items-center">
+                        <img src="{{ asset('images/icons/dry.svg') }}" class="h-24 w-24" alt="Сушка волосся">
+                        <p class="text-max-soft font-semibold mt-5">Просушити волосся без використання фена, дайте
+                            локонам
+                            висохнути природним шляхом</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hs-accordion hs-accordion-active:bg-max-soft/10" id="hs-basic-heading-3">
+                <button
+                    class="hs-accordion-toggle uppercase font-semibold p-3 inline-flex items-center gap-x-3 text-sm w-full text-start rounded-lg"
+                    aria-controls="hs-basic-collapse-3">
+                    <div class="h-8 w-8 flex bg-max-soft/20 rounded-full border-2 border-max-dark/20 justify-center">
+                        <span class="self-center text-sm font-bold text-max-soft">3</span>
+                    </div>
+                    Розчісування
+                    <x-lucide-chevron-up class="h-5 w-5 ms-auto hs-accordion-active:block hidden" />
+                    <x-lucide-chevron-down class="h-5 w-5 ms-auto hs-accordion-active:hidden block" />
+                </button>
+                <div id="hs-basic-collapse-3"
+                    class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+                    aria-labelledby="hs-basic-heading-3">
+                    <div class="pb-6 pt-3 ps-14 px-12 flex flex-col items-center">
+                        <img src="{{ asset('images/icons/hairdresser.svg') }}" class="h-24 w-24"
+                            alt="Розчісування волосся">
+                        <p class="text-max-soft font-semibold mt-5">
+                            Розчесати пасма, щоб позбутися ковтунів (якщо такі є), також, запобігти подальшому
+                            заплутування</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hs-accordion hs-accordion-active:bg-max-soft/10" id="hs-basic-heading-4">
+                <button
+                    class="hs-accordion-toggle uppercase font-semibold p-3 inline-flex items-center gap-x-3 text-sm w-full text-start rounded-lg"
+                    aria-controls="hs-basic-collapse-4">
+                    <div class="h-8 w-8 flex bg-max-soft/20 rounded-full border-2 border-max-dark/20 justify-center">
+                        <span class="self-center text-sm font-bold text-max-soft">4</span>
+                    </div>
+                    Поділ волосся
+                    <x-lucide-chevron-up class="h-5 w-5 ms-auto hs-accordion-active:block hidden" />
+                    <x-lucide-chevron-down class="h-5 w-5 ms-auto hs-accordion-active:hidden block" />
+                </button>
+                <div id="hs-basic-collapse-4"
+                    class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+                    aria-labelledby="hs-basic-heading-4">
+                    <div class="pb-6 pt-3 ps-14 px-12 flex flex-col items-center">
+                        <img src="{{ asset('images/icons/bunch.svg') }}" class="h-24 w-24" alt="Поділ волосся">
+                        <p class="text-max-soft font-semibold mt-5">
+                            Розділити волосся на кілька пасів, обмотавши кілька разів, туго перетягнути кожну гумкою
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hs-accordion hs-accordion-active:bg-max-soft/10" id="hs-basic-heading-5">
+                <button
+                    class="hs-accordion-toggle uppercase font-semibold p-3 inline-flex items-center gap-x-3 text-sm w-full text-start rounded-lg"
+                    aria-controls="hs-basic-collapse-5">
+                    <div class="h-8 w-8 flex bg-max-soft/20 rounded-full border-2 border-max-dark/20 justify-center">
+                        <span class="self-center text-sm font-bold text-max-soft">5</span>
+                    </div>
+                    Зріз волосся
+                    <x-lucide-chevron-up class="h-5 w-5 ms-auto hs-accordion-active:block hidden" />
+                    <x-lucide-chevron-down class="h-5 w-5 ms-auto hs-accordion-active:hidden block" />
+                </button>
+                <div id="hs-basic-collapse-5"
+                    class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+                    aria-labelledby="hs-basic-heading-5">
+                    <div class="pb-6 pt-3 ps-14 px-12 flex flex-col items-center">
+                        <img src="{{ asset('images/icons/cutting.svg') }}" class="h-24 w-24" alt="Зріз волосся">
+                        <p class="text-max-soft font-semibold mt-5">Зробити зріз, відступивши кілька сантиметрів трохи
+                            вище
+                            кріплення та заплітаємо зрізане волосся в косу</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hs-accordion hs-accordion-active:bg-max-soft/10 hs-accordion-active:rounded-b-lg"
+                id="hs-basic-heading-6">
+                <button
+                    class="hs-accordion-toggle uppercase font-semibold p-3 inline-flex items-center gap-x-3 text-sm w-full text-start rounded-lg"
+                    aria-controls="hs-basic-collapse-6">
+                    <div class="h-8 w-8 flex bg-max-soft/20 rounded-full border-2 border-max-dark/20 justify-center">
+                        <span class="self-center text-sm font-bold text-max-soft">6</span>
+                    </div>
+                    Оцінка волосся
+                    <x-lucide-chevron-up class="h-5 w-5 ms-auto hs-accordion-active:block hidden" />
+                    <x-lucide-chevron-down class="h-5 w-5 ms-auto hs-accordion-active:hidden block" />
+                </button>
+                <div id="hs-basic-collapse-6"
+                    class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+                    aria-labelledby="hs-basic-heading-6">
+                    <div class="pb-6 pt-3 ps-14 px-12 flex flex-col items-center">
+                        <img src="{{ asset('images/icons/hair-info.svg') }}" class="h-24 w-24" alt="Оцінка волосся">
+                        <p class="text-max-soft font-semibold mt-5">Зважити зріз та сфотографувати біля сантиметра і
+                            надіслати дані для оцінювання</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+
+        {{-- Warning Info --}}
+        <div class="flex bg-max-soft/10 border-max-soft/10 border rounded-lg mt-8 lg:w-1/2 p-3" data-aos="fade-right"
+            data-aos-delay="400">
+            <div class="flex me-3">
+                <x-lucide-alert-triangle class="h-8 w-8 text-max-dark/70 animate-pulse self-center" />
+            </div>
+            <div class="leading-3 text-max-dark/60 font-semibold text-xs">
+                Не намагайтесь обдурити оцінювача, використовуючи прийоми, щоб поліпшити
+                якість волосся, або розтягувати пасмо, щоб візуально збільшити довжину.
+                Наш фахівець обов'язково розпізнає обман.
+            </div>
+        </div>
+    </x-section>
+
+    <x-section class="bg-max-light pb-14">
+
+        <x-slot:title>ПРОДАТИ ВОЛОССЯ АБО<br class="lg:hidden"> ВСЕ Ж ЗБЕРЕГТИ ДОВЖИНУ?</x-slot>
+        <x-slot:caption class="text-max-soft">
+            МІНЯЙТЕСЯ І ЗАРОБЛЯЙТЕ<br class="lg:hidden"> НА НОВОМУ ОБРАЗІГРОШІ
+        </x-slot>
+
+        <p data-aos="fade-up" data-aos-delay="300">Якщо ви досі не вирішили, то завжди можете звернутися до нас з
+            питаннями, що цікавлять. Ми готові
+            дати детальну інформацію про продажі покупку, провести повну консультацію, щоб кожен клієнт міг
+            зробити для себе остаточні висновки. Наші контактні менеджери завжди на зв'язку з клієнтами, що
+            робить наш сервіс кращим в. Гарна густа шевелюра – це справжнє багатство будь-якої жінки.
+            Стильна зачіска завжди прикрашає образ, робить його більш ніжним, акуратним, жіночним і
+            природним. Але така краса, забирає багато часу, сил і терпіння. Тривалі укладання, дорогий
+            догляд, все це вимагає не тільки грошових, але і вкладень, а в сучасному світі, де кожна хвилина
+            на рахунку, іноді просто немає можливості займатися тривалої укладанням. Якщо ви зважилися щось
+            змінити, змінити образ, надати йому родзинку і відчути небувалу легкість, то пропонуємо вам
+            продати волосся. Якщо ви думаєте про продаж волосся але ніяк не зважитеся, то уявіть, скільки
+            вільного часу у вас з'явиться. Ви зможете присвятити цінні години улюбленій справі, приділити
+            увагу близьким, а не витрачати час на укладання. Свіжий образ надихне вас на нові справи,
+            подарує впевненість, а компліменти на вашу адресу будуть сипатися звідусіль. Змінюючи себе, свій
+            образ і стиль, ви можете заробити хороші гроші в свій сімейний бюджет! Ще ніколи зміна образу не
+            була такою прибутковою. Пам'ятайте, що ваші локони можуть принести радість іншим людям, які в
+            силу різних причин не мають можливості відростити красиву довжину. Вся продукція надходить в
+            салони, для процедур нарощування, а також на виробництво перук, накладних кіс і шиньйонів. Що
+            потрібно знати, перш ніж зважитися на продаж волосся Купівля волосся нашою компанією
+            здійснюється тільки після їх оцінки. Вартість формується індивідуально в кожному випадку. Що б
+            озвучити точну ціну нам необхідно побачити фотографію зрізу біля сантиметра і знати точну вагу.
+            Ми гарантуємо чесну оцінку, без заниження ціни. Купуємо жіночі, чоловічі та дитячі коси від 40
+            сантиметрів, в будь-яких відтінках. Найвищу ціну готові запропонувати за шовковисті, м'які
+            зрізи, без сивини, що не піддавалися фарбуванню, а також хімічній завивці. Натуральні
+            слов'янські волосся-це дуже цінний товар, який не може коштувати мало. Ми готові запропонувати
+            дійсно високі ціни, так як цінуємо Вашу працю, витрачений на догляд за такою шевелюрою. Щоб
+            збільшити вартість, можна попередньо підготувати волосся. Пропийте курс вітамін, використовуйте
+            натуральні масла, пийте більше рідини, стежте за кінчиками, постійно оновлюючи їх і
+            позбавляючись від посічених кінців. Нас цікавлять живі, здорові, блискучі пасма.</p>
+    </x-section>
+
+    <x-section class="bg-max-black py-14">
+
+        <x-slot:title class="text-gray-300">Покупка волосся</x-slot>
+        <x-slot:caption class="text-max-soft">Які чинники впливають на вартість</x-slot>
+
+        <div class="grid lg:grid-cols-2 gap-y-8 lg:gap-x-8">
+            <div data-aos="fade-right" data-aos-delay="0">
+                <div class="flex">
+                    <div class="text-lg flex-none text-max-soft me-3">Довжина зрізу</div>
+                    <div class="mx-auto w-full relative">
+                        <span class="border-b-2 absolute top-[50%] left-0 border-max-dark/60 border-dotted w-full"></span>
+                    </div>
+                    <div class="border-2 flex-none border-max-dark rounded-full h-11 w-11 flex justify-center ms-3">
+                        <span class="text-xs text-max-dark font-bold self-center">~20%</span>
+                    </div>
+                </div>
+                <p class="text-gray-200/90 italic">Ми купуємо зрізи від 40 сантиметрів. Якщо ваші локони коротші, то
+                    рекомендуємо ненадовго відкласти продаж, кожен сантиметр здатний сильно відбитися на
+                    вартості.</p>
+            </div>
+            <div data-aos="fade-right" data-aos-delay="200">
+                <div class="flex">
+                    <div class="text-lg flex-none text-max-soft me-3">Структура локонів</div>
+                    <div class="mx-auto w-full relative">
+                        <span class="border-b-2 absolute top-[50%] left-0 border-max-dark/60 border-dotted w-full"></span>
+                    </div>
+                    <div class="border-2 flex-none border-max-dark rounded-full h-11 w-11 flex justify-center ms-3">
+                        <span class="text-xs text-max-dark font-bold self-center">~20%</span>
+                    </div>
+                </div>
+                <p class="text-gray-200/90 italic">Вища вартість пропонується за якісні, здорові та рівномірні локони.
+                    М'які і природньо гладкі на дотик пасма, завжди мають значно вищу ціну.</p>
+            </div>
+            <div data-aos="fade-right" data-aos-delay="400">
+                <div class="flex">
+                    <div class="text-lg flex-none text-max-soft me-3">Стан пучка</div>
+                    <div class="mx-auto w-full relative">
+                        <span class="border-b-2 absolute top-[50%] left-0 border-max-dark/60 border-dotted w-full"></span>
+                    </div>
+                    <div class="border-2 flex-none border-max-dark rounded-full h-11 w-11 flex justify-center ms-3">
+                        <span class="text-xs text-max-dark font-bold self-center">~20%</span>
+                    </div>
+                </div>
+                <p class="text-gray-200/90 italic">Зріз має бути зроблений за правилами та закріплений зверху гумкою і
+                    не мати колунів. Краще продавати свіжозрізані коси, їх ціна вища. Пролежані
+                    прядки втрачають свій природний блиск та натуральні масла, які містяться в них.
+                </p>
+            </div>
+            <div data-aos="fade-left" data-aos-delay="0">
+                <div class="flex">
+                    <div class="text-lg flex-none text-max-soft me-3">Хімічний вплив</div>
+                    <div class="mx-auto w-full relative">
+                        <span class="border-b-2 absolute top-[50%] left-0 border-max-dark/60 border-dotted w-full"></span>
+                    </div>
+                    <div class="border-2 flex-none border-max-dark rounded-full h-11 w-11 flex justify-center ms-3">
+                        <span class="text-xs text-max-dark font-bold self-center">~20%</span>
+                    </div>
+                </div>
+                <p class="text-gray-200/90 italic">Ми не приймаємо пошкодженні, ламкі та сухі локони, або локони з
+                    неоднорідною структурою. А також волосся із завивкою, забруднене або оброблене будь якими
+                    хімічними речовинами.</p>
+            </div>
+            <div data-aos="fade-left" data-aos-delay="200">
+                <div class="flex">
+                    <div class="text-lg flex-none text-max-soft me-3">Колір волосся</div>
+                    <div class="mx-auto w-full relative">
+                        <span class="border-b-2 absolute top-[50%] left-0 border-max-dark/60 border-dotted w-full"></span>
+                    </div>
+                    <div class="border-2 flex-none border-max-dark rounded-full h-11 w-11 flex justify-center ms-3">
+                        <span class="text-xs text-max-dark font-bold self-center">~20%</span>
+                    </div>
+                </div>
+                <p class="text-gray-200/90 italic">Пофарбовані пасма будуть коштувати набагато дешевше натуральних.
+                    Скупка волосся здійснюється будь-якому кольорі, але більш висока ціна встановлюється на світлі
+                    натуральні тони.</p>
+            </div>
+            <div data-aos="fade-left" data-aos-delay="400">
+                <div class="flex">
+                    <div class="text-lg flex-none text-max-soft me-3">Наявність сивини</div>
+                    <div class="mx-auto w-full relative">
+                        <span class="border-b-2 absolute top-[50%] left-0 border-max-dark/60 border-dotted w-full"></span>
+                    </div>
+                    <div class="border-2 flex-none border-max-dark rounded-full h-11 w-11 flex justify-center ms-3">
+                        <span class="text-xs text-max-dark font-bold self-center">~20%</span>
+                    </div>
+                </div>
+                <p class="text-gray-200/90 italic">Зрізи з сивиною теж підлягають купівлі, але багато залежить від
+                    доглянутості волосся та як довго росло з сивиною. Забарвлене і сиве волосся приймається від 50
+                    сантиметрів.</p>
+            </div>
+        </div>
+
+        {{-- Warning Info --}}
+        <div class="flex bg-max-soft/20 border-max-soft/10 border rounded-lg mt-10 lg:w-1/2 p-3" data-aos="fade-right"
+            data-aos-delay="400">
+            <div class="flex me-3">
+                <x-lucide-info class="h-8 w-8 text-max-dark/70 animate-pulse self-center" />
+            </div>
+            <div class="leading-3 text-max-soft/50 font-semibold text-xs">
+                Відсоткове відношення впливу на ціну є відносним та орієнтовним. В деяких випадках відсотки можуть
+                змінюватись та інші фактори можуть переважати.
+            </div>
+        </div>
+    </x-section>
 @endsection

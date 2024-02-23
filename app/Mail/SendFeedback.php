@@ -7,8 +7,8 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
-use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Queue\SerializesModels;
 
 class SendFeedback extends Mailable
 {
@@ -30,7 +30,7 @@ class SendFeedback extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: env('APP_NAME') . " - Зворотній зв'язок",
+            subject: env('APP_NAME')." - Зворотній зв'язок",
             from: new Address(env('MAIL_FROM_ADDRESS'))
         );
     }

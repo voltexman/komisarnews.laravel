@@ -18,7 +18,7 @@ class Feedback extends Model
         'status',
     ];
 
-    const STATUS_NEW = 0;
+    const STATUS_NEW = 1;
 
-    const STATUS_VIEWED = 1;
+    const STATUS_VIEWED = 2;
 }

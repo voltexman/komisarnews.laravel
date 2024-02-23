@@ -35,7 +35,7 @@ class OrderController extends Controller
             $uploadedPhotos = $request->file('photos');
 
             foreach ($uploadedPhotos as $file) {
-                $photoName = date('YmdHi') . '_' . uniqid() . '.' . $file->extension();
+                $photoName = date('YmdHi').'_'.uniqid().'.'.$file->extension();
                 $photosNames[] = $photoName;
 
                 $file->move(public_path('uploads/orders'), $photoName);

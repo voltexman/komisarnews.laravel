@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\SendFeedback;
 use App\Models\Feedback;
-use App\Models\SEO;
+use App\Models\Meta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
@@ -14,16 +14,16 @@ class ContactController extends Controller
     public function show(): View
     {
         return view('contacts', [
-            'seo' => SEO::where('page', SEO::CONTACTS_PAGE)->first(),
+            'seo' => Meta::where('page', Meta::CONTACTS_PAGE)->first(),
         ]);
     }
 
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|max:255',
-            'contact' => 'required|max:255',
-            'text' => 'required',
+            'name' => 'string|required|max:255',
+            'contact' => 'string|required|max:255',
+            'text' => 'string|required',
         ]);
 
         $created = Feedback::create([
@@ -36,7 +36,7 @@ class ContactController extends Controller
         $mailData = [
             'name' => $validated['name'],
             'contact' => $validated['contact'],
-            'text' => $validated['text']
+            'text' => $validated['text'],
         ];
 
         $sentMail = Mail::to(env('ADMIN_EMAIL'))

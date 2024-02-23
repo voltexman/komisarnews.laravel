@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Meta;
 use App\Models\Post;
-use App\Models\SEO;
 use Illuminate\View\View;
 
 class PostController extends Controller
@@ -11,8 +11,8 @@ class PostController extends Controller
     public function list(): View
     {
         return view('article.list', [
-            'seo' => SEO::where('page', SEO::POSTS_PAGE)->first(),
-            'articles' => Post::where(
+            'meta' => Meta::where('page', Meta::POSTS_PAGE)->first(),
+            'posts' => Post::where(
                 [
                     'status' => Post::STATUS_ACTIVE,
                     'category' => Post::CATEGORY_ARTICLES,
@@ -25,7 +25,7 @@ class PostController extends Controller
 
     public function show(string $slug): View
     {
-        $article = Post::firstWhere(
+        $post = Post::firstWhere(
             [
                 'status' => Post::STATUS_ACTIVE,
                 'slug' => $slug,
@@ -33,10 +33,7 @@ class PostController extends Controller
         );
 
         return view('article.show', [
-            'title' => $article->title,
-            'description' => $article->description,
-            'robots' => $article->indexation,
-            'article' => $article,
+            'post' => $post,
         ]);
     }
 }

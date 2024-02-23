@@ -20,14 +20,11 @@ return new class extends Migration
             $table->string('city');
             $table->string('email')->nullable();
             $table->string('phone');
-            $table->smallInteger('hair_weight')->nullable();
-            $table->smallInteger('hair_length');
-            $table->smallInteger('age')->nullable();
+            $table->integer('hair_weight')->nullable();
+            $table->integer('hair_length');
+            $table->integer('age')->nullable();
             $table->string('color');
-            $table->string('photos_names')->nullable();
-            $table->boolean('cutted')->default(0);
-            $table->boolean('painted')->default(0);
-            $table->boolean('gray')->default(0);
+            $table->json('hair_options');
             $table->text('description')->nullable();
             $table->string('status')->default(Order::STATUS_NEW);
             $table->timestamps();

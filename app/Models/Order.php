@@ -24,22 +24,9 @@ class Order extends Model
         'hair_length',
         'age',
         'color',
-        // 'photos',
-        'photos_names',
-        'cutted',
-        'painted',
-        'gray',
         'description',
         'status',
     ];
-
-    const STATUS_NEW = 'new';
-
-    const STATUS_VIEWED = 'viewed';
-
-    const STATUS_PROCESSING = 'processing';
-
-    const STATUS_COMPLETED = 'completed';
 
     public static function boot()
     {
@@ -49,4 +36,16 @@ class Order extends Model
             $order->number = random_int(10000, 99999);
         });
     }
+
+    const GOAL_EVALUATE = 'Хочу оцінити вартість';
+
+    const GOAL_SELL = 'Хочу продати волосся';
+
+    const STATUS_NEW = 'Нове';
+
+    const STATUS_VIEWED = 'Переглянуто';
+
+    const STATUS_PROCESSING = 'Оброблюється';
+
+    const STATUS_COMPLETED = 'Завершене';
 }

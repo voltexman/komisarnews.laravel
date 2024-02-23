@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\StorePostRequest;
 use App\Http\Resources\Api\PostResource;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -14,19 +15,26 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::where('status', '!=', Post::STATUS_DELETED)->get();
-
-        return PostResource::collection($posts);
+        return PostResource::collection(
+            Post::orderBy('created_at', 'desc')
+                ->get()
+        );
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
-        $created = Post::create($request->all());
+        $post = Post::create($request->validated());
 
-        return new PostResource($created);
+        if ($request->hasFile('image')) {
+            $post
+                ->addMediaFromRequest('image')
+                ->toMediaCollection('posts');
+        }
+
+        return new PostResource($post);
     }
 
     /**
@@ -34,7 +42,7 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        return Post::findOrFail($id);
+        return new PostResource(Post::findOrFail($id));
     }
 
     /**
@@ -54,10 +62,6 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        $post = Post::findOrFail($id);
-
-        $post->update(['status' => Post::STATUS_DELETED]);
-
-        return $post;
+        return Post::find($id)->delete();
     }
 }

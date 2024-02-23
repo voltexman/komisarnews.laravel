@@ -31,7 +31,7 @@ class SendOrder extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: env('APP_NAME') . " - Замовлення",
+            subject: env('APP_NAME').' - Замовлення',
             from: new Address(env('MAIL_FROM_ADDRESS'))
         );
     }
@@ -69,7 +69,7 @@ class SendOrder extends Mailable
 
         if ($photoNames !== null) {
             foreach ($photoNames as $photo) {
-                $attachment[] = Attachment::fromPath(public_path('uploads/orders/' . $photo));
+                $attachment[] = Attachment::fromPath(public_path('uploads/orders/'.$photo));
             }
         }
 
