@@ -1,6 +1,6 @@
 import 'preline'
 import { Alpine } from '../../vendor/livewire/livewire/dist/livewire.esm';
-import intersect from '@alpinejs/intersect'
+// import intersect from '@alpinejs/intersect'
 
-Alpine.plugin(intersect)
+// Alpine.plugin(intersect)
 Alpine.start()

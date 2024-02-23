@@ -656,7 +656,7 @@
                     <x-lucide-chevron-left class="h-4 w-4 me-1" />
                     Назад
                 </button>
-                <button type="button"
+                <button type="button" aria-label="Детальна інформація"
                     class="py-2 px-3 inline-flex items-center me-auto gap-x-1 text-sm font-medium rounded-lg bg-max-soft text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                     data-hs-overlay="#hs-modal-upgrade-to-pro">
                     <x-lucide-info class="h-5 w-5 text-max-light" />

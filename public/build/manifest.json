@@ -1,45 +1,12 @@
 {
-  "_module.esm-DR0Evne-.js": {
-    "file": "assets/module.esm-DR0Evne-.js"
-  },
   "resources/css/app.css": {
-    "file": "assets/app-BfGSeSn-.css",
-    "src": "resources/css/pages/contacts.css",
-    "isEntry": true
-  },
-  "resources/css/pages/contacts.css": {
-    "file": "assets/app-BfGSeSn-.css",
-    "src": "resources/css/pages/contacts.css",
-    "isEntry": true
-  },
-  "resources/css/pages/main.css": {
-    "file": "assets/app-BfGSeSn-.css",
-    "src": "resources/css/pages/contacts.css",
+    "file": "assets/app-DbLgMXq2.css",
+    "src": "resources/css/app.css",
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-DTw-yLIt.js",
+    "file": "assets/app-BmAHoDsd.js",
     "src": "resources/js/app.js",
-    "isEntry": true,
-    "imports": [
-      "_module.esm-DR0Evne-.js"
-    ]
-  },
-  "resources/js/pages/contacts.js": {
-    "file": "assets/contacts-BRw3aRl7.js",
-    "src": "resources/js/pages/contacts.js",
-    "isEntry": true,
-    "imports": [
-      "resources/js/pages/main.js",
-      "_module.esm-DR0Evne-.js"
-    ]
-  },
-  "resources/js/pages/main.js": {
-    "file": "assets/main-DTw-yLIt.js",
-    "src": "resources/js/pages/main.js",
-    "isEntry": true,
-    "imports": [
-      "_module.esm-DR0Evne-.js"
-    ]
+    "isEntry": true
   }
 }
