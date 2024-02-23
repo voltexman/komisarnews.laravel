@@ -83,7 +83,7 @@
                     </a>
                     <div class="sm:hidden flex">
                         <div class="flex items-center gap-x-2 sm:ms-auto">
-                            <a href="#mapup"
+                            <a href="#map"
                                 class="bg-max-dark rounded-lg me-4 text-white uppercase px-2 font-normal text-xs inline-flex h-9 items-center">
                                 <x-lucide-map-pin class="h-4 w-4 me-1" />
                                 Міста
