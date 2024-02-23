@@ -5,9 +5,6 @@
 @section('description', 'Контакти')
 @section('robots', 'all')
 
-@vite(['resources/css/pages/contacts.css'])
-@vite(['resources/js/pages/contacts.js'])
-
 @section('header')
     @parent
     <header class="relative h-[280px] w-full overflow-hidden">
