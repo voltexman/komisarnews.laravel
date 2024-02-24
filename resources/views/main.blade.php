@@ -15,12 +15,8 @@
                 Продаж та покупка<br>волосся у Києві<span>.</span></h1>
             <h2 class="font-semibold mt-5">Швидко, Дорого, Надійно</h2>
         </div>
-        <picture class="z-10">
-            <source srcset="{{ asset('images/bg-header.webp') }}" type="image/webp">
-            <source srcset="{{ asset('images/bg-header.jpg') }}" type="image/jpeg">
-            <img src="{{ asset('images/bg-header.jpg') }}" alt="Alt Text!"
-                class="object-cover object-left h-screen w-full animate-ricochet lg:animate-none">
-        </picture>
+        <img src="{{ asset('images/bg-header.webp') }}" data-sizes="auto" alt="komisarnes"
+            class="object-cover object-left h-screen w-full animate-ricochet lg:animate-none">
 
         {{-- Кнопка прокрутки вниз --}}
         <div class="flex absolute bottom-8 left-1/2 -translate-x-1/2 ">
@@ -42,11 +38,11 @@
                 <h3 class="font-bold drop-shadow-lg text-center lg:text-left uppercase text-max-soft mb-5">
                     НАША КОМПАНІЯ ЗАВЖДИ ГОТОВА<br class="lg:hidden">КУПИТИ ВОЛОССЯ ДОРОГО!
                 </h3>
-                <p class="leading-7" data-aos="fade-right" data-aos-delay="250">Жителі багатьох міст можуть продати волосся
+                <p class="leading-7">Жителі багатьох міст можуть продати волосся
                     особисто нам в руки! Подаруєте собі настрій, не
                     бійтеся мінятися і удосконалюватися, продаючи свої коси, ви робите благу справу і заробляєте
                     додаткові гроші на потрібні покупки.</p>
-                <p class="mt-5 leading-7" data-aos="fade-right" data-aos-delay="250">Звертайтеся за консультацією прямо
+                <p class="mt-5 leading-7">Звертайтеся за консультацією прямо
                     зараз
                     за
                     номером телефону, ми завжди готові відповісти на
@@ -60,45 +56,28 @@
             </div>
             <div class="flex justify-center mt-10 lg:mt-0 px-5 lg:px-0">
                 <div class="animate-jumping-down">
-                    <div data-aos="fade-down" data-aos-delay="250">
-                        <picture>
-                            <source srcset="{{ asset('images/about2.webp') }}" type="image/webp">
-                            <img src="{{ asset('images/about2.jpg') }}" width="280" height="360" alt="Фото салону 1"
-                                class="skew-12 rotate-[-10deg] border-2 rounded-2xl shadow-lg shadow-max-soft/50 hover:transform-none transition-transform duration-500">
-                        </picture>
-                    </div>
+                    <img data-src="{{ asset('images/about2.webp') }}" alt="Фото салону 1"
+                        class="lazyload skew-12 rotate-[-10deg] border-2 rounded-2xl shadow-lg shadow-max-soft/50 hover:transform-none transition-transform duration-500">
                 </div>
                 <div class="animate-jumping-up mt-10">
-                    <div data-aos="fade-up" data-aos-delay="250">
-                        <picture>
-                            <source srcset="{{ asset('images/about.webp') }}" type="image/webp">
-                            <img src="{{ asset('images/about.jpg') }}" width="280" height="360" alt="Фото салону 2"
-                                class="rotate-[10deg] border-2 rounded-2xl shadow-lg shadow-max-soft/50 hover:transform-none transition-transform duration-500">
-                        </picture>
-                    </div>
+                    <img data-src="{{ asset('images/about.webp') }}" alt="Фото салону 2"
+                        class="lazyload rotate-[10deg] border-2 rounded-2xl shadow-lg shadow-max-soft/50 hover:transform-none transition-transform duration-500">
                 </div>
             </div>
         </div>
     </x-section>
 
     <x-section class="bg-max-light pb-14">
-        <h2 class="text-2xl drop-shadow-lg text-center mb-5 font-semibold uppercase" data-aos="fade-left"
-            data-aos-delay="300" data-aos-duration="5000">
+        <h2 class="text-2xl drop-shadow-lg text-center mb-5 font-semibold uppercase">
             Чому Варто Звернутися Саме В Нашу Компанію?</h2>
-        <p data-aos="fade-down" data-aos-delay="300" data-aos-duration="5000">Куплю волосся - в мережі
-            можна знайти тисячі
-            оголошень , але далеко не всі продавці працюють
-            чесно.
-            Ми є Європейською компанією, яка співпрацює з клієнтами по всьому світу. Наша компанія є
-            прямим
+        <p>Куплю волосся - в мережі можна знайти тисячі
+            оголошень , але далеко не всі продавці працюють чесно.
+            Ми є Європейською компанією, яка співпрацює з клієнтами по всьому світу. Наша компанія є прямим
             скупником локонів, тому пропонуємо найвищі ціни. Цінуємо визнання і довіру наших клієнтів,
-            гарантуємо приємну співпрацю і гідну оплату Вашого товару. Здійснюємо скупку волосся по
-            Україні і
-            відбираємо якісні, живі зрізи. Після покупки, всі зрізи проходять обробку і надходять в
-            подальший
+            гарантуємо приємну співпрацю і гідну оплату Вашого товару. Здійснюємо скупку волосся по Україні і
+            відбираємо якісні, живі зрізи. Після покупки, всі зрізи проходять обробку і надходять в подальший
             продаж, а також використовуються у виробництві перук.</p>
-        <h3 class="font-bold text-center drop-shadow-lg uppercase text-max-soft mt-14 mb-8" data-aos="fade-up"
-            data-aos-delay="300" data-aos-duration="5000">
+        <h3 class="font-bold text-center drop-shadow-lg uppercase text-max-soft mt-14 mb-8">
             ЗВЕРТАЮЧИСЬ В НАШУ КОМПАНІЮ З БАЖАННЯМ ПРОДАТИ ВОЛОССЯ, ВИ ГАРАНТОВАНО ОТРИМУЄТЕ</h3>
 
         <div class="grid grid-rows-6 lg:grid-rows-2 grid-flow-col gap-8">
@@ -122,7 +101,7 @@
                     <div class="description">Найвигідніші для Вас умови співпраці. Ми зацікавлені в цьому</div>
                 </div>
             </div>
-            <div class="flex" data-aos="zoom-in" data-aos-delay="300">
+            <div class="flex">
                 <div class="me-3 h-16 w-16">
                     <img src="{{ asset('images/icons/handshake.svg') }}" width="100" height="100"
                         alt="Зручність та виплата">
@@ -132,7 +111,7 @@
                     <div class="description">Обговорена грошова виплата в зручний для Вас час та спосіб</div>
                 </div>
             </div>
-            <div class="flex" data-aos="zoom-in" data-aos-delay="400">
+            <div class="flex">
                 <div class="me-3 h-16 w-16">
                     <img src="{{ asset('images/icons/fast-money.svg') }}" width="100" height="100"
                         alt="Моментальна оплата">
@@ -142,20 +121,18 @@
                     <div class="description">Моментальна оплата після оцінки та відправки Вашой шевелюри</div>
                 </div>
             </div>
-            <div class="flex" data-aos="zoom-in" data-aos-delay="500">
+            <div class="flex">
                 <div class="me-3 h-16 w-16">
-                    <img src="{{ asset('images/icons/info.svg') }}" width="100" height="100"
-                        alt="Інформативна оцінка">
+                    <img src="{{ asset('images/icons/info.svg') }}" width="100" height="100" alt="Інформативна оцінка">
                 </div>
                 <div class="flex flex-col">
                     <div class="uppercase font-semibold">Інформативність</div>
                     <div class="description">Відправляйте по вайберу фото волосся і спеціаліст оголосить ціну</div>
                 </div>
             </div>
-            <div class="flex" data-aos="zoom-in" data-aos-delay="600">
+            <div class="flex">
                 <div class="me-3 h-16 w-16">
-                    <img src="{{ asset('images/icons/style.svg') }}" width="100" height="100"
-                        alt="Стильно та модно">
+                    <img src="{{ asset('images/icons/style.svg') }}" width="100" height="100" alt="Стильно та модно">
                 </div>
                 <div class="flex flex-col">
                     <div class="uppercase font-semibold">Стиль</div>
@@ -167,47 +144,38 @@
 
     <x-section class="bg-max-black py-20">
         <div class="container flex">
-            <div class="hidden lg:flex justify-center w-1/2" data-aos="fade-right" data-aos-delay="300">
-                <picture>
-                    <source srcset="{{ asset('images/postman.webp') }}" type="image/webp" loading="lazy">
-                    <img src="{{ asset('images/postman.jpg') }}" width="400" height="420" loading="lazy"
-                        class="-skew-x-3 origin-right -rotate-6 -translate-y-4 border-2 rounded-xl shadow-lg shadow-max-dark/40 border-max-soft/60"
-                        alt="Відправка Новою поштою">
-                </picture>
+            <div class="hidden lg:flex justify-center w-1/2">
+                <img data-src="{{ asset('images/postman.jpg') }}" alt="Відправка Новою поштою"
+                    class="lazyload -skew-x-3 origin-right -rotate-6 -translate-y-4 border-2 rounded-xl shadow-lg shadow-max-dark/40 border-max-soft/60">
             </div>
             <div class="lg:w-1/2 flex flex-col self-center">
-                <h2 class="text-max-light/80 text-center lg:text-left uppercase font-bold text-xl" data-aos="fade-down"
-                    data-aos-delay="300">
+                <h2 class="text-max-light/80 text-center lg:text-left uppercase font-bold text-xl">
                     Як відправити свій зріз?
                 </h2>
-                <h3 class="text-max-soft text-center lg:text-left uppercase font-bold text-sm mt-1" data-aos="fade-down"
-                    data-aos-delay="500">
+                <h3 class="text-max-soft text-center lg:text-left uppercase font-bold text-sm mt-1">
                     Відправити свій зріз можна за<br class="lg:hidden">допомогою послуг Нової Пошти
                 </h3>
-                <p class="text-max-light font-semibold my-8" data-aos="fade-left" data-aos-delay="300">При відправці ви
-                    вказуєте встановлену
-                    нашим
-                    оцінювачем вартість, а при отриманні ми
-                    оплачуємо дану суму, плюс вартість доставки. гроші ви зможете забрати в своєму
-                    відділенні нової пошти.</p>
+                <p class="text-max-light font-semibold my-8">При відправці ви вказуєте встановлену
+                    нашим оцінювачем вартість, а при отриманні ми оплачуємо дану суму, плюс вартість
+                    доставки. гроші ви зможете забрати в своєму відділенні нової пошти.</p>
                 <ul class="list-unstyled text-max-light">
-                    <li class="flex text-sm font-semibold mb-2" data-aos="fade-left" data-aos-delay="100">
+                    <li class="flex text-sm font-semibold mb-2">
                         <x-lucide-check-check class="h-5 w-5 me-2" />
                         Насамперед ви повинні обумовити деталі з нашим менеджером.
                     </li>
-                    <li class="flex text-sm font-semibold mb-2" data-aos="fade-left" data-aos-delay="200">
+                    <li class="flex text-sm font-semibold mb-2">
                         <x-lucide-check-check class="h-5 w-5 me-2" />
                         Кладемо біля волосся сантиметр і робимо фото, після чого зважуємо їх.
                     </li>
-                    <li class="flex text-sm font-semibold mb-2" data-aos="fade-left" data-aos-delay="300">
+                    <li class="flex text-sm font-semibold mb-2">
                         <x-lucide-check-check class="h-5 w-5 me-2" />
                         Надсилаємо фотографію на наш Вайбер, а оцінювач встановлює точну вартість зрізу.
                     </li>
-                    <li class="flex text-sm font-semibold mb-2" data-aos="fade-left" data-aos-delay="400">
+                    <li class="flex text-sm font-semibold mb-2">
                         <x-lucide-check-check class="h-5 w-5 me-2" />
                         Коли локони надійно упаковані, їх можна відправляти поштою в нашу компанію.
                     </li>
-                    <li class="flex text-sm font-semibold mb-2" data-aos="fade-left" data-aos-delay="500">
+                    <li class="flex text-sm font-semibold mb-2">
                         <x-lucide-check-check class="h-5 w-5 me-2" />
                         Відправка волосся проводиться післяплатою, через послуги Нової Пошти.
                     </li>
@@ -412,8 +380,7 @@
         </div>
 
         {{-- Warning Info --}}
-        <div class="flex bg-max-soft/10 border-max-soft/10 border rounded-lg mt-8 lg:w-1/2 p-3" data-aos="fade-right"
-            data-aos-delay="400">
+        <div class="flex bg-max-soft/10 border-max-soft/10 border rounded-lg mt-8 lg:w-1/2 p-3">
             <div class="flex me-3">
                 <x-lucide-alert-triangle class="h-8 w-8 text-max-dark/70 animate-pulse self-center" />
             </div>
@@ -432,8 +399,7 @@
             МІНЯЙТЕСЯ І ЗАРОБЛЯЙТЕ<br class="lg:hidden"> НА НОВОМУ ОБРАЗІГРОШІ
         </x-slot>
 
-        <p data-aos="fade-up" data-aos-delay="300">Якщо ви досі не вирішили, то завжди можете звернутися до нас з
-            питаннями, що цікавлять. Ми готові
+        <p>Якщо ви досі не вирішили, то завжди можете звернутися до нас з питаннями, що цікавлять. Ми готові
             дати детальну інформацію про продажі покупку, провести повну консультацію, щоб кожен клієнт міг
             зробити для себе остаточні висновки. Наші контактні менеджери завжди на зв'язку з клієнтами, що
             робить наш сервіс кращим в. Гарна густа шевелюра – це справжнє багатство будь-якої жінки.
@@ -460,7 +426,7 @@
             дійсно високі ціни, так як цінуємо Вашу працю, витрачений на догляд за такою шевелюрою. Щоб
             збільшити вартість, можна попередньо підготувати волосся. Пропийте курс вітамін, використовуйте
             натуральні масла, пийте більше рідини, стежте за кінчиками, постійно оновлюючи їх і
-            позбавляючись від посічених кінців. Нас цікавлять живі, здорові, блискучі пасма.</p>
+            позбавляючись від посічених кінців. Нас цікавлять живі, здорові, блискучі пасма.</paos=>
     </x-section>
 
     <x-section class="bg-max-black py-14">
@@ -469,7 +435,7 @@
         <x-slot:caption class="text-max-soft">Які чинники впливають на вартість</x-slot>
 
         <div class="grid lg:grid-cols-2 gap-y-8 lg:gap-x-8">
-            <div data-aos="fade-right" data-aos-delay="0">
+            <div>
                 <div class="flex">
                     <div class="text-lg flex-none text-max-soft me-3">Довжина зрізу</div>
                     <div class="mx-auto w-full relative">
@@ -483,7 +449,7 @@
                     рекомендуємо ненадовго відкласти продаж, кожен сантиметр здатний сильно відбитися на
                     вартості.</p>
             </div>
-            <div data-aos="fade-right" data-aos-delay="200">
+            <div>
                 <div class="flex">
                     <div class="text-lg flex-none text-max-soft me-3">Структура локонів</div>
                     <div class="mx-auto w-full relative">
@@ -496,7 +462,7 @@
                 <p class="text-gray-200/90 italic">Вища вартість пропонується за якісні, здорові та рівномірні локони.
                     М'які і природньо гладкі на дотик пасма, завжди мають значно вищу ціну.</p>
             </div>
-            <div data-aos="fade-right" data-aos-delay="400">
+            <div>
                 <div class="flex">
                     <div class="text-lg flex-none text-max-soft me-3">Стан пучка</div>
                     <div class="mx-auto w-full relative">
@@ -511,7 +477,7 @@
                     прядки втрачають свій природний блиск та натуральні масла, які містяться в них.
                 </p>
             </div>
-            <div data-aos="fade-left" data-aos-delay="0">
+            <div>
                 <div class="flex">
                     <div class="text-lg flex-none text-max-soft me-3">Хімічний вплив</div>
                     <div class="mx-auto w-full relative">
@@ -525,7 +491,7 @@
                     неоднорідною структурою. А також волосся із завивкою, забруднене або оброблене будь якими
                     хімічними речовинами.</p>
             </div>
-            <div data-aos="fade-left" data-aos-delay="200">
+            <div>
                 <div class="flex">
                     <div class="text-lg flex-none text-max-soft me-3">Колір волосся</div>
                     <div class="mx-auto w-full relative">
@@ -539,7 +505,7 @@
                     Скупка волосся здійснюється будь-якому кольорі, але більш висока ціна встановлюється на світлі
                     натуральні тони.</p>
             </div>
-            <div data-aos="fade-left" data-aos-delay="400">
+            <div>
                 <div class="flex">
                     <div class="text-lg flex-none text-max-soft me-3">Наявність сивини</div>
                     <div class="mx-auto w-full relative">
@@ -556,8 +522,7 @@
         </div>
 
         {{-- Warning Info --}}
-        <div class="flex bg-max-soft/20 border-max-soft/10 border rounded-lg mt-10 lg:w-1/2 p-3" data-aos="fade-right"
-            data-aos-delay="400">
+        <div class="flex bg-max-soft/20 border-max-soft/10 border rounded-lg mt-10 lg:w-1/2 p-3">
             <div class="flex me-3">
                 <x-lucide-info class="h-8 w-8 text-max-dark/70 animate-pulse self-center" />
             </div>

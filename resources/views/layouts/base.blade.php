@@ -72,9 +72,14 @@
     </div>
 
     @section('header')
-        <div x-data="{ background: false }" :class="background && 'bg-black/90 shadow-2xl'"
-            @scroll.window="background = (window.pageYOffset >= 150) ? true: false"
+        <div x-data="{ background: false }" :class="background && 'bg-black/90 shadow-2xl'" x-init="background = setNavBackground()"
+            @scroll.window="background = setNavBackground()"
             class="fixed flex flex-wrap h-16 sm:justify-start sm:flex-nowrap z-50 w-full text-sm py-3 sm:py-0 transition-all duration-500 navbar">
+            <script>
+                function setNavBackground() {
+                    return window.pageYOffset >= 150 ? true : false
+                }
+            </script>
             <nav class="relative justify-between max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:px-6 lg:px-8"
                 aria-label="Global">
                 <div class="flex items-center justify-between">
