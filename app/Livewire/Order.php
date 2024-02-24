@@ -14,7 +14,7 @@ class Order extends Component
 
     public function save()
     {
-        // $this->validate();
+        // $this->order->validate();
         // $this->order->store();
 
         // if ($this->photos) {
@@ -22,9 +22,9 @@ class Order extends Component
         //     dd($this->all());
         // }
 
-        // dd($this->all());
+        dd($this->order->all());
 
-        session()->flash('number', '32405');
+        // session()->flash('number', '32405');
     }
 
     public function render()

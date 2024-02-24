@@ -48,8 +48,7 @@
                 <div class="absolute top-0 left-0 h-full w-full">
                     <div class="flex flex-col h-full justify-center items-stretch text-max-soft" role="status">
                         <div class="self-center text-center">
-                            <x-lucide-smile
-                                class="h-20 w-20 text-max-soft animate-scale duration-1000 delay-1000 mx-auto" />
+                            <x-lucide-smile class="h-20 w-20 text-max-soft mx-auto" />
                             <p class="leading-5 text-center mt-3">Лист успішно надісланий.<br>Дякуємо Вам!
                             </p>
                             <button type="button" wire:click='$refresh'

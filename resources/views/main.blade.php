@@ -56,11 +56,11 @@
             </div>
             <div class="flex justify-center mt-10 lg:mt-0 px-5 lg:px-0">
                 <div class="animate-jumping-down">
-                    <img data-src="{{ asset('images/about2.webp') }}" alt="Фото салону 1"
+                    <img data-src="{{ asset('images/about2.webp') }}" width="280" height="360" alt="Фото салону 1"
                         class="lazyload skew-12 rotate-[-10deg] border-2 rounded-2xl shadow-lg shadow-max-soft/50 hover:transform-none transition-transform duration-500">
                 </div>
                 <div class="animate-jumping-up mt-10">
-                    <img data-src="{{ asset('images/about.webp') }}" alt="Фото салону 2"
+                    <img data-src="{{ asset('images/about.webp') }}" width="280" height="360" alt="Фото салону 2"
                         class="lazyload rotate-[10deg] border-2 rounded-2xl shadow-lg shadow-max-soft/50 hover:transform-none transition-transform duration-500">
                 </div>
             </div>

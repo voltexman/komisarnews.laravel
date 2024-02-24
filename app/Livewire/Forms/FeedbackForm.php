@@ -13,7 +13,7 @@ class FeedbackForm extends Form
 
     public $text = '';
 
-    public function rules(): array
+    public function rules()
     {
         return [
             'name' => 'string|required|max:40',
@@ -22,7 +22,7 @@ class FeedbackForm extends Form
         ];
     }
 
-    public function messages(): array
+    public function messages()
     {
         return [
             'name.required' => 'Вкажіть ім`я',

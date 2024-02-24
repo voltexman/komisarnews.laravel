@@ -13,7 +13,7 @@ class Feedback extends Component
 
     public function save()
     {
-        $this->validate();
+        $this->feedback->validate();
 
         $this->feedback->store();
 

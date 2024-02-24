@@ -37,6 +37,7 @@
 
     <meta name="robots" content="@yield('robots')">
 
+    {{-- @livewireStyles --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
@@ -235,6 +236,8 @@
         </div>
     </div>
     <!-- End Modal -->
+
+    {{-- @livewireScriptConfig --}}
 
 </body>
 
