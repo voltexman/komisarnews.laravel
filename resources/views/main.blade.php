@@ -186,7 +186,7 @@
 
     <x-section class="bg-max-light py-14">
 
-        <x-slot:title>Скупка волосся</x-slot>
+        <x-slot:title>Купівля волосся</x-slot>
         <x-slot:caption class="text-max-dark">
             ЯК ПРАВИЛЬНО ЗРОБИТИ ЗРІЗ<br class="lg:hidden">ЩОБ ВИРУЧИТИ МАКСИМАЛЬНУ ЦІНУ
         </x-slot>
@@ -402,7 +402,7 @@
 
         <x-slot:title>ПРОДАТИ ВОЛОССЯ АБО<br class="lg:hidden"> ВСЕ Ж ЗБЕРЕГТИ ДОВЖИНУ?</x-slot>
         <x-slot:caption class="text-max-dark">
-            МІНЯЙТЕСЯ І ЗАРОБЛЯЙТЕ<br class="lg:hidden"> НА НОВОМУ ОБРАЗІГРОШІ
+            МІНЯЙТЕСЯ І ЗАРОБЛЯЙТЕ<br class="lg:hidden"> НА НОВОМУ ОБРАЗІ ГРОШІ
         </x-slot>
 
         <p>Якщо ви досі не вирішили, то завжди можете звернутися до нас з питаннями, що цікавлять. Ми готові

@@ -34,14 +34,14 @@ class OrderForm extends Form
 
     public function store()
     {
-        if ($this->photos) {
+        // if ($this->photos) {
 
-            session()->flash('number', 'sdgdg');
+        //     foreach ($this->photos as $photo) {
+        //         $validated['photos'] = $photo->store(path: 'photos');
+        //     }
+        // }
 
-            foreach ($this->photos as $photo) {
-                $validated['photos'] = $photo->store(path: 'photos');
-            }
-        }
+        $this->validate();
 
         $created = Order::create($this->all());
 

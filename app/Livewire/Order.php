@@ -14,23 +14,12 @@ class Order extends Component
 
     public function save()
     {
-        // $this->order->validate();
-        // $this->order->store();
-
-        // if ($this->photos) {
-        //     session()->flash('number', '32405');
-        //     dd($this->all());
-        // }
-
         dd($this->order->all());
-
-        // session()->flash('number', '32405');
+        $this->order->store();
     }
 
     public function render()
     {
-        // session()->flash('number', '32405');
-
         return view('livewire.order');
     }
 }
