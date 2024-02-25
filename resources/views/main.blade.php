@@ -39,20 +39,13 @@
                     НАША КОМПАНІЯ ЗАВЖДИ ГОТОВА<br class="lg:hidden">КУПИТИ ВОЛОССЯ ДОРОГО!
                 </h3>
                 <p class="leading-7">Жителі багатьох міст можуть продати волосся
-                    особисто нам в руки! Подаруєте собі настрій, не
-                    бійтеся мінятися і удосконалюватися, продаючи свої коси, ви робите благу справу і заробляєте
-                    додаткові гроші на потрібні покупки.</p>
-                <p class="mt-5 leading-7">Звертайтеся за консультацією прямо
-                    зараз
-                    за
-                    номером телефону, ми завжди готові відповісти на
-                    будь-які питання і запропонувати вам європейські ціни. Наша компанія завжди готова
-                    запропонувати
-                    найвищу ціну за натуральний слов'янський зріз від 40 см, а також кращий сервіс і
-                    обслуговування.
-                    Ми є професіоналами своєї справи і поважаємо кожного нашого клієнта, тому гарантуємо
-                    максимум
-                    задоволення від співпраці.</p>
+                    особисто нам в руки! Подаруєте собі настрій, не бійтеся мінятися і удосконалюватися,
+                    продаючи свої коси, ви робите благу справу і заробляєте додаткові гроші на потрібні покупки.</p>
+                <p class="mt-5 leading-7">Звертайтеся за консультацією прямо зараз за номером телефону,
+                    ми завжди готові відповісти на будь-які питання і запропонувати вам європейські ціни. Наша компанія
+                    завжди готова запропонувати найвищу ціну за натуральний слов'янський зріз від 40 см, а також кращий
+                    сервіс і обслуговування. Ми є професіоналами своєї справи і поважаємо кожного нашого клієнта, тому
+                    гарантуємо максимум задоволення від співпраці.</p>
             </div>
             <div class="flex justify-center mt-10 lg:mt-0 px-5 lg:px-0">
                 <div class="animate-jumping-down">
@@ -265,12 +258,12 @@
                 </div>
             </div>
 
-            <div class="hs-accordion hs-accordion-active:bg-max-soft/10" id="hs-basic-heading-2">
+            <div class="hs-accordion hs-accordion-active:bg-max-dark/10" id="hs-basic-heading-2">
                 <button
                     class="hs-accordion-toggle uppercase font-semibold p-3 inline-flex items-center gap-x-3 text-sm w-full text-start rounded-lg"
                     aria-controls="hs-basic-collapse-2">
                     <div class="h-8 w-8 flex bg-max-soft/20 rounded-full border-2 border-max-dark/20 justify-center">
-                        <span class="self-center text-sm font-bold text-max-soft">2</span>
+                        <span class="self-center text-sm font-bold text-max-dark">2</span>
                     </div>
                     Сушка волосся
                     <x-lucide-chevron-up class="h-5 w-5 ms-auto hs-accordion-active:block hidden" />
@@ -282,18 +275,18 @@
                     <div class="pb-6 pt-3 ps-14 px-12 flex flex-col items-center">
                         <img data-src="{{ asset('images/icons/dry.svg') }}" class="lazyload h-24 w-24"
                             alt="Сушка волосся">
-                        <p class="text-max-soft font-semibold mt-5">Просушити волосся без використання фена, дайте
+                        <p class="text-max-dark font-semibold mt-5">Просушити волосся без використання фена, дайте
                             локонам висохнути природним шляхом</p>
                     </div>
                 </div>
             </div>
 
-            <div class="hs-accordion hs-accordion-active:bg-max-soft/10" id="hs-basic-heading-3">
+            <div class="hs-accordion hs-accordion-active:bg-max-dark/10" id="hs-basic-heading-3">
                 <button
                     class="hs-accordion-toggle uppercase font-semibold p-3 inline-flex items-center gap-x-3 text-sm w-full text-start rounded-lg"
                     aria-controls="hs-basic-collapse-3">
                     <div class="h-8 w-8 flex bg-max-soft/20 rounded-full border-2 border-max-dark/20 justify-center">
-                        <span class="self-center text-sm font-bold text-max-soft">3</span>
+                        <span class="self-center text-sm font-bold text-max-dark">3</span>
                     </div>
                     Розчісування
                     <x-lucide-chevron-up class="h-5 w-5 ms-auto hs-accordion-active:block hidden" />
@@ -305,19 +298,19 @@
                     <div class="pb-6 pt-3 ps-14 px-12 flex flex-col items-center">
                         <img data-src="{{ asset('images/icons/hairdresser.svg') }}" class="lazyload h-24 w-24"
                             alt="Розчісування волосся">
-                        <p class="text-max-soft font-semibold mt-5">
+                        <p class="text-max-dark font-semibold mt-5">
                             Розчесати пасма, щоб позбутися ковтунів (якщо такі є), також, запобігти подальшому
                             заплутування</p>
                     </div>
                 </div>
             </div>
 
-            <div class="hs-accordion hs-accordion-active:bg-max-soft/10" id="hs-basic-heading-4">
+            <div class="hs-accordion hs-accordion-active:bg-max-dark/10" id="hs-basic-heading-4">
                 <button
                     class="hs-accordion-toggle uppercase font-semibold p-3 inline-flex items-center gap-x-3 text-sm w-full text-start rounded-lg"
                     aria-controls="hs-basic-collapse-4">
                     <div class="h-8 w-8 flex bg-max-soft/20 rounded-full border-2 border-max-dark/20 justify-center">
-                        <span class="self-center text-sm font-bold text-max-soft">4</span>
+                        <span class="self-center text-sm font-bold text-max-dark">4</span>
                     </div>
                     Поділ волосся
                     <x-lucide-chevron-up class="h-5 w-5 ms-auto hs-accordion-active:block hidden" />
@@ -329,19 +322,19 @@
                     <div class="pb-6 pt-3 ps-14 px-12 flex flex-col items-center">
                         <img data-src="{{ asset('images/icons/bunch.svg') }}" class="lazyload h-24 w-24"
                             alt="Поділ волосся">
-                        <p class="text-max-soft font-semibold mt-5">
+                        <p class="text-max-dark font-semibold mt-5">
                             Розділити волосся на кілька пасів, обмотавши кілька разів, туго перетягнути кожну гумкою
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div class="hs-accordion hs-accordion-active:bg-max-soft/10" id="hs-basic-heading-5">
+            <div class="hs-accordion hs-accordion-active:bg-max-dark/10" id="hs-basic-heading-5">
                 <button
                     class="hs-accordion-toggle uppercase font-semibold p-3 inline-flex items-center gap-x-3 text-sm w-full text-start rounded-lg"
                     aria-controls="hs-basic-collapse-5">
                     <div class="h-8 w-8 flex bg-max-soft/20 rounded-full border-2 border-max-dark/20 justify-center">
-                        <span class="self-center text-sm font-bold text-max-soft">5</span>
+                        <span class="self-center text-sm font-bold text-max-dark">5</span>
                     </div>
                     Зріз волосся
                     <x-lucide-chevron-up class="h-5 w-5 ms-auto hs-accordion-active:block hidden" />
@@ -353,20 +346,20 @@
                     <div class="pb-6 pt-3 ps-14 px-12 flex flex-col items-center">
                         <img data-src="{{ asset('images/icons/cutting.svg') }}" class="lazyload h-24 w-24"
                             alt="Зріз волосся">
-                        <p class="text-max-soft font-semibold mt-5">Зробити зріз, відступивши кілька сантиметрів трохи
+                        <p class="text-max-dark font-semibold mt-5">Зробити зріз, відступивши кілька сантиметрів трохи
                             вище
                             кріплення та заплітаємо зрізане волосся в косу</p>
                     </div>
                 </div>
             </div>
 
-            <div class="hs-accordion hs-accordion-active:bg-max-soft/10 hs-accordion-active:rounded-b-lg"
+            <div class="hs-accordion hs-accordion-active:bg-max-dark/10 hs-accordion-active:rounded-b-lg"
                 id="hs-basic-heading-6">
                 <button
                     class="hs-accordion-toggle uppercase font-semibold p-3 inline-flex items-center gap-x-3 text-sm w-full text-start rounded-lg"
                     aria-controls="hs-basic-collapse-6">
                     <div class="h-8 w-8 flex bg-max-soft/20 rounded-full border-2 border-max-dark/20 justify-center">
-                        <span class="self-center text-sm font-bold text-max-soft">6</span>
+                        <span class="self-center text-sm font-bold text-max-dark">6</span>
                     </div>
                     Оцінка волосся
                     <x-lucide-chevron-up class="h-5 w-5 ms-auto hs-accordion-active:block hidden" />
@@ -378,7 +371,7 @@
                     <div class="pb-6 pt-3 ps-14 px-12 flex flex-col items-center">
                         <img data-src="{{ asset('images/icons/hair-info.svg') }}" class="lazyload h-24 w-24"
                             alt="Оцінка волосся">
-                        <p class="text-max-soft font-semibold mt-5">Зважити зріз та сфотографувати біля сантиметра і
+                        <p class="text-max-dark font-semibold mt-5">Зважити зріз та сфотографувати біля сантиметра і
                             надіслати дані для оцінювання</p>
                     </div>
                 </div>
