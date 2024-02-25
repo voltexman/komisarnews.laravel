@@ -15,8 +15,8 @@
                 Продаж та покупка<br>волосся у Києві<span>.</span></h1>
             <h2 class="font-semibold mt-5">Швидко, Дорого, Надійно</h2>
         </div>
-        <img src="{{ asset('images/bg-header.webp') }}" data-sizes="auto" alt="komisarnes"
-            class="object-cover object-left h-screen w-full animate-ricochet lg:animate-none">
+        <img data-src="{{ asset('images/bg-header.webp') }}" data-sizes="auto" alt="komisarnes"
+            class="lazyload object-cover object-left h-screen w-full animate-ricochet lg:animate-none">
 
         {{-- Кнопка прокрутки вниз --}}
         <div class="flex absolute bottom-8 left-1/2 -translate-x-1/2 ">
