@@ -10,8 +10,9 @@ export default {
       colors: {
         'max': {
           black: '#14100c',
-          dark: '#685340',
+          dark: '#5C4B38',
           light: '#f5eee7',
+          text: '#B19A81',
           soft: '#91765a',
         }
       },

@@ -35,7 +35,7 @@
                 <h2 class="text-2xl drop-shadow-lg text-center lg:text-left font-semibold uppercase">
                     Шукаєте Кому Вигідно<br class="lg:hidden">Продати Волосся?
                 </h2>
-                <h3 class="font-bold drop-shadow-lg text-center lg:text-left uppercase text-max-soft mb-5">
+                <h3 class="font-bold drop-shadow-lg text-center lg:text-left uppercase text-max-dark mb-5">
                     НАША КОМПАНІЯ ЗАВЖДИ ГОТОВА<br class="lg:hidden">КУПИТИ ВОЛОССЯ ДОРОГО!
                 </h3>
                 <p class="leading-7">Жителі багатьох міст можуть продати волосся
@@ -77,7 +77,7 @@
             гарантуємо приємну співпрацю і гідну оплату Вашого товару. Здійснюємо скупку волосся по Україні і
             відбираємо якісні, живі зрізи. Після покупки, всі зрізи проходять обробку і надходять в подальший
             продаж, а також використовуються у виробництві перук.</p>
-        <h3 class="font-bold text-center drop-shadow-lg uppercase text-max-soft mt-14 mb-8">
+        <h3 class="font-bold text-center drop-shadow-lg uppercase text-max-dark mt-14 mb-8">
             ЗВЕРТАЮЧИСЬ В НАШУ КОМПАНІЮ З БАЖАННЯМ ПРОДАТИ ВОЛОССЯ, ВИ ГАРАНТОВАНО ОТРИМУЄТЕ</h3>
 
         <div class="grid grid-rows-6 lg:grid-rows-2 grid-flow-col gap-8">
@@ -187,7 +187,7 @@
     <x-section class="bg-max-light py-14">
 
         <x-slot:title>Скупка волосся</x-slot>
-        <x-slot:caption class="text-max-soft">
+        <x-slot:caption class="text-max-dark">
             ЯК ПРАВИЛЬНО ЗРОБИТИ ЗРІЗ<br class="lg:hidden">ЩОБ ВИРУЧИТИ МАКСИМАЛЬНУ ЦІНУ
         </x-slot>
 
@@ -401,7 +401,7 @@
     <x-section class="bg-max-light pb-14">
 
         <x-slot:title>ПРОДАТИ ВОЛОССЯ АБО<br class="lg:hidden"> ВСЕ Ж ЗБЕРЕГТИ ДОВЖИНУ?</x-slot>
-        <x-slot:caption class="text-max-soft">
+        <x-slot:caption class="text-max-dark">
             МІНЯЙТЕСЯ І ЗАРОБЛЯЙТЕ<br class="lg:hidden"> НА НОВОМУ ОБРАЗІГРОШІ
         </x-slot>
 
@@ -438,17 +438,17 @@
     <x-section class="bg-max-black py-14">
 
         <x-slot:title class="text-gray-300">Покупка волосся</x-slot>
-        <x-slot:caption class="text-max-soft">Які чинники впливають на вартість</x-slot>
+        <x-slot:caption class="text-max-text">Які чинники впливають на вартість</x-slot>
 
         <div class="grid lg:grid-cols-2 gap-y-8 lg:gap-x-8">
             <div>
                 <div class="flex">
-                    <div class="text-lg flex-none text-max-soft me-3">Довжина зрізу</div>
+                    <div class="text-lg flex-none text-max-text me-3">Довжина зрізу</div>
                     <div class="mx-auto w-full relative">
-                        <span class="border-b-2 absolute top-[50%] left-0 border-max-dark/60 border-dotted w-full"></span>
+                        <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
                     </div>
-                    <div class="border-2 flex-none border-max-dark rounded-full h-11 w-11 flex justify-center ms-3">
-                        <span class="text-xs text-max-dark font-bold self-center">~20%</span>
+                    <div class="border-2 flex-none border-max-soft rounded-full h-11 w-11 flex justify-center ms-3">
+                        <span class="text-xs text-max-soft font-bold self-center">~20%</span>
                     </div>
                 </div>
                 <p class="text-gray-200/90 italic">Ми купуємо зрізи від 40 сантиметрів. Якщо ваші локони коротші, то
@@ -457,12 +457,12 @@
             </div>
             <div>
                 <div class="flex">
-                    <div class="text-lg flex-none text-max-soft me-3">Структура локонів</div>
+                    <div class="text-lg flex-none text-max-text me-3">Структура локонів</div>
                     <div class="mx-auto w-full relative">
-                        <span class="border-b-2 absolute top-[50%] left-0 border-max-dark/60 border-dotted w-full"></span>
+                        <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
                     </div>
-                    <div class="border-2 flex-none border-max-dark rounded-full h-11 w-11 flex justify-center ms-3">
-                        <span class="text-xs text-max-dark font-bold self-center">~20%</span>
+                    <div class="border-2 flex-none border-max-soft rounded-full h-11 w-11 flex justify-center ms-3">
+                        <span class="text-xs text-max-soft font-bold self-center">~20%</span>
                     </div>
                 </div>
                 <p class="text-gray-200/90 italic">Вища вартість пропонується за якісні, здорові та рівномірні локони.
@@ -470,12 +470,12 @@
             </div>
             <div>
                 <div class="flex">
-                    <div class="text-lg flex-none text-max-soft me-3">Стан пучка</div>
+                    <div class="text-lg flex-none text-max-text me-3">Стан пучка</div>
                     <div class="mx-auto w-full relative">
-                        <span class="border-b-2 absolute top-[50%] left-0 border-max-dark/60 border-dotted w-full"></span>
+                        <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
                     </div>
-                    <div class="border-2 flex-none border-max-dark rounded-full h-11 w-11 flex justify-center ms-3">
-                        <span class="text-xs text-max-dark font-bold self-center">~20%</span>
+                    <div class="border-2 flex-none border-max-soft rounded-full h-11 w-11 flex justify-center ms-3">
+                        <span class="text-xs text-max-soft font-bold self-center">~20%</span>
                     </div>
                 </div>
                 <p class="text-gray-200/90 italic">Зріз має бути зроблений за правилами та закріплений зверху гумкою і
@@ -485,12 +485,12 @@
             </div>
             <div>
                 <div class="flex">
-                    <div class="text-lg flex-none text-max-soft me-3">Хімічний вплив</div>
+                    <div class="text-lg flex-none text-max-text me-3">Хімічний вплив</div>
                     <div class="mx-auto w-full relative">
-                        <span class="border-b-2 absolute top-[50%] left-0 border-max-dark/60 border-dotted w-full"></span>
+                        <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
                     </div>
-                    <div class="border-2 flex-none border-max-dark rounded-full h-11 w-11 flex justify-center ms-3">
-                        <span class="text-xs text-max-dark font-bold self-center">~20%</span>
+                    <div class="border-2 flex-none border-max-soft rounded-full h-11 w-11 flex justify-center ms-3">
+                        <span class="text-xs text-max-soft font-bold self-center">~20%</span>
                     </div>
                 </div>
                 <p class="text-gray-200/90 italic">Ми не приймаємо пошкодженні, ламкі та сухі локони, або локони з
@@ -499,12 +499,12 @@
             </div>
             <div>
                 <div class="flex">
-                    <div class="text-lg flex-none text-max-soft me-3">Колір волосся</div>
+                    <div class="text-lg flex-none text-max-text me-3">Колір волосся</div>
                     <div class="mx-auto w-full relative">
-                        <span class="border-b-2 absolute top-[50%] left-0 border-max-dark/60 border-dotted w-full"></span>
+                        <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
                     </div>
-                    <div class="border-2 flex-none border-max-dark rounded-full h-11 w-11 flex justify-center ms-3">
-                        <span class="text-xs text-max-dark font-bold self-center">~20%</span>
+                    <div class="border-2 flex-none border-max-soft rounded-full h-11 w-11 flex justify-center ms-3">
+                        <span class="text-xs text-max-soft font-bold self-center">~20%</span>
                     </div>
                 </div>
                 <p class="text-gray-200/90 italic">Пофарбовані пасма будуть коштувати набагато дешевше натуральних.
@@ -513,12 +513,12 @@
             </div>
             <div>
                 <div class="flex">
-                    <div class="text-lg flex-none text-max-soft me-3">Наявність сивини</div>
+                    <div class="text-lg flex-none text-max-text me-3">Наявність сивини</div>
                     <div class="mx-auto w-full relative">
-                        <span class="border-b-2 absolute top-[50%] left-0 border-max-dark/60 border-dotted w-full"></span>
+                        <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
                     </div>
-                    <div class="border-2 flex-none border-max-dark rounded-full h-11 w-11 flex justify-center ms-3">
-                        <span class="text-xs text-max-dark font-bold self-center">~20%</span>
+                    <div class="border-2 flex-none border-max-soft rounded-full h-11 w-11 flex justify-center ms-3">
+                        <span class="text-xs text-max-soft font-bold self-center">~20%</span>
                     </div>
                 </div>
                 <p class="text-gray-200/90 italic">Зрізи з сивиною теж підлягають купівлі, але багато залежить від
@@ -530,9 +530,9 @@
         {{-- Warning Info --}}
         <div class="flex bg-max-soft/20 border-max-soft/10 border rounded-lg mt-10 lg:w-1/2 p-3">
             <div class="flex me-3">
-                <x-lucide-info class="h-8 w-8 text-max-dark/70 animate-pulse self-center" />
+                <x-lucide-info class="h-8 w-8 text-max-text/50 animate-pulse self-center" />
             </div>
-            <div class="leading-3 text-max-soft/50 font-semibold text-xs">
+            <div class="leading-3 text-max-text/50 font-semibold text-xs">
                 Відсоткове відношення впливу на ціну є відносним та орієнтовним. В деяких випадках відсотки можуть
                 змінюватись та інші фактори можуть переважати.
             </div>
