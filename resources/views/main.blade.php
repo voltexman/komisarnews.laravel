@@ -240,14 +240,14 @@
         </div>
 
         {{-- IF ISMOBILE --}}
-        <div class="hs-accordion-group lg:hidden bg-max-dark/20 rounded-lg shadow-lg shadow-max-dark/30 mt-8">
-            <div class="hs-accordion active hs-accordion-active:bg-max-soft/10 rounded-t-lg" id="hs-basic-heading-1">
+        <div class="hs-accordion-group lg:hidden bg-max-dark/30 rounded-lg shadow-lg shadow-max-dark/20 mt-8">
+            <div class="hs-accordion active hs-accordion-active:bg-max-dark/10 rounded-t-lg" id="hs-basic-heading-1">
                 <button
-                    class="hs-accordion-toggle uppercase p-3 inline-flex items-center gap-x-3 text-sm w-full font-semibold text-start rounded-lg"
+                    class="hs-accordion-toggle uppercase p-3 inline-flex items-center text-max-dark gap-x-3 text-sm w-full font-semibold text-start rounded-lg"
                     aria-controls="hs-basic-collapse-1">
                     <div
                         class="h-8 w-8 flex bg-max-soft/20 hs-accordion-active:bg-max-soft/30 rounded-full border-2 border-max-dark/20 hs-accordion-active:border-max-dark/30 justify-center">
-                        <span class="self-center text-sm font-bold text-max-soft">1</span>
+                        <span class="self-center text-sm font-bold text-max-dark">1</span>
                     </div>
                     Миття волосся
                     <x-lucide-chevron-up class="h-5 w-5 ms-auto hs-accordion-active:block hidden" />
@@ -259,7 +259,7 @@
                     <div class="pb-6 pt-3 ps-14 px-12 flex flex-col items-center">
                         <img data-src="{{ asset('images/icons/washing.svg') }}" class="lazyload h-24 w-24"
                             alt="Миття волосся">
-                        <p class="text-max-soft font-semibold mt-5">Попередньо необхідно вимити волосся шампунем, яким
+                        <p class="text-max-dark font-semibold mt-5">Попередньо необхідно вимити волосся шампунем, яким
                             Ви зазвичай користуєтесь</p>
                     </div>
                 </div>

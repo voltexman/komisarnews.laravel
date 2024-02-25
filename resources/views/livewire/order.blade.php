@@ -337,27 +337,27 @@
                     <div class="grid grid-cols-2 gap-5 mt-4">
                         <div class="flex flex-col text-sm">
                             <span class="font-bold">Ваше ім'я:</span>
-                            <span class="font-normal" x-text="name ? name : 'не вказано'"></span>
+                            <span class="font-normal line-clamp-1" x-text="name ? name : 'не вказано'"></span>
                         </div>
 
                         <div class="flex flex-col text-sm">
                             <span class="font-bold" :class="!city ? 'text-red-500' : 'text-gray-600'">
                                 Місто:
                             </span>
-                            <span class="font-normal" :class="!city ? 'text-red-500' : 'text-gray-600'"
+                            <span class="font-normal line-clamp-1" :class="!city ? 'text-red-500' : 'text-gray-600'"
                                 x-text="city ? city : 'не вказано'"></span>
                         </div>
 
                         <div class="flex flex-col text-sm">
                             <span class="font-bold">Електронна пошта:</span>
-                            <span class="font-normal" x-text="email ? email : 'не вказано'"></span>
+                            <span class="font-normal line-clamp-1" x-text="email ? email : 'не вказано'"></span>
                         </div>
 
                         <div class="flex flex-col text-sm">
                             <span class="font-bold" :class="!phone ? 'text-red-500' : 'text-gray-600'">
                                 Номер телефону:
                             </span>
-                            <span class="font-normal" :class="!phone ? 'text-red-500' : 'text-gray-600'"
+                            <span class="font-normal line-clamp-1" :class="!phone ? 'text-red-500' : 'text-gray-600'"
                                 x-text="phone ? phone : 'не вказано'"></span>
                         </div>
                     </div>
@@ -407,15 +407,15 @@
                                     Додатковий опис
                                 </span>
                                 <div class="h-full mb-10">
-                                    {{-- <p x-text="description"
+                                    <p x-text="description"
                                         class="text-gray-600 [&::-webkit-scrollbar]:w-2
-                                    [&::-webkit-scrollbar-track]:rounded-full
-                                    [&::-webkit-scrollbar-track]:bg-gray-100
-                                    [&::-webkit-scrollbar-thumb]:rounded-full
-                                    [&::-webkit-scrollbar-thumb]:bg-gray-300
-                                    dark:[&::-webkit-scrollbar-track]:bg-max-soft/20
-                                    dark:[&::-webkit-scrollbar-thumb]:bg-max-soft">
-                                    </p> --}}
+                                        [&::-webkit-scrollbar-track]:rounded-full
+                                        [&::-webkit-scrollbar-track]:bg-gray-100
+                                        [&::-webkit-scrollbar-thumb]:rounded-full
+                                        [&::-webkit-scrollbar-thumb]:bg-gray-300
+                                        dark:[&::-webkit-scrollbar-track]:bg-max-soft/20
+                                        dark:[&::-webkit-scrollbar-thumb]:bg-max-soft">
+                                    </p>
                                 </div>
                                 <x-lucide-minimize x-on:click="descriptionFull=!descriptionFull"
                                     class="h-5 w-5 absolute right-5 bottom-5 cursor-pointer" />
