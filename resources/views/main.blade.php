@@ -383,7 +383,7 @@
             <div class="flex me-3">
                 <x-lucide-alert-triangle class="h-8 w-8 text-max-dark/70 animate-pulse self-center" />
             </div>
-            <div class="leading-3 text-max-dark/60 font-semibold text-xs">
+            <div class="leading-3 text-max-soft/95 font-semibold text-xs">
                 Не намагайтесь обдурити оцінювача, використовуючи прийоми, щоб поліпшити
                 якість волосся, або розтягувати пасмо, щоб візуально збільшити довжину.
                 Наш фахівець обов'язково розпізнає обман.
@@ -525,7 +525,7 @@
             <div class="flex me-3">
                 <x-lucide-info class="h-8 w-8 text-max-text/50 animate-pulse self-center" />
             </div>
-            <div class="leading-3 text-max-text/50 font-semibold text-xs">
+            <div class="leading-3 text-max-text/80 font-semibold text-xs">
                 Відсоткове відношення впливу на ціну є відносним та орієнтовним. В деяких випадках відсотки можуть
                 змінюватись та інші фактори можуть переважати.
             </div>

@@ -216,7 +216,7 @@
                                 <div class="bg-max-soft/5 border border-max-soft/30 rounded-lg" data-hs-input-number>
                                     <div class="w-full flex justify-between items-center gap-x-1">
                                         <div class="grow py-2 px-3">
-                                            <span class="block text-xs text-gray-500">
+                                            <span class="block text-xs text-gray-700">
                                                 Вага
                                             </span>
                                             <input class="w-full p-0 bg-transparent border-0 text-gray-800 focus:ring-0"
@@ -243,7 +243,7 @@
                                 <div class="bg-max-soft/5 border border-max-soft/30 rounded-lg" data-hs-input-number>
                                     <div class="w-full flex justify-between items-center gap-x-1">
                                         <div class="grow py-2 px-3 relative">
-                                            <span class="block text-xs text-gray-500">
+                                            <span class="block text-xs text-gray-700">
                                                 Довжина
                                             </span>
                                             <span class="absolute top-0 right-1 text-red-500 text-lg">*</span>
@@ -272,7 +272,7 @@
                                 <div class="bg-max-soft/5 border border-max-soft/30 rounded-lg" data-hs-input-number>
                                     <div class="w-full flex justify-between items-center gap-x-1">
                                         <div class="grow py-2 px-3">
-                                            <span class="block text-xs text-gray-500">
+                                            <span class="block text-xs text-gray-700">
                                                 Вік
                                             </span>
                                             <input

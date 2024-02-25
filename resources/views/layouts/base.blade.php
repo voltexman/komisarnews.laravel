@@ -135,7 +135,7 @@
                 <h2 class="text-2xl drop-shadow-lg text-center font-semibold text-max-light uppercase">
                     Купівля і продаж<br class="lg:hidden"> волосся в містах
                 </h2>
-                <h3 class="font-bold drop-shadow-lg text-center uppercase mb-5 text-[#cfcfcf]">
+                <h3 class="font-normal drop-shadow-lg text-center uppercase mb-5 text-white">
                     Оберіть ваше мість <br class="lg:hidden"> або зробіть заявку
                 </h3>
                 <div class="flex flex-col lg:flex-row">
