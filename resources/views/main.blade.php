@@ -152,7 +152,7 @@
                 <h2 class="text-max-light/80 text-center lg:text-left uppercase font-bold text-xl">
                     Як відправити свій зріз?
                 </h2>
-                <h3 class="text-max-soft text-center lg:text-left uppercase font-bold text-sm mt-1">
+                <h3 class="text-max-text text-center lg:text-left uppercase font-bold text-sm mt-1">
                     Відправити свій зріз можна за<br class="lg:hidden">допомогою послуг Нової Пошти
                 </h3>
                 <p class="text-max-light font-semibold my-8">При відправці ви вказуєте встановлену
@@ -202,7 +202,7 @@
             </div>
             <div
                 class="bg-white rounded-lg shadow-md py-10 px-5 flex flex-col items-center hover:shadow-xl transition-shadow">
-                <img data-src="{{ asset('images/icons/bunch.svg') }}" class="lazyloadh-20 w-20" alt="Поділ волосся">
+                <img data-src="{{ asset('images/icons/bunch.svg') }}" class="lazyload h-20 w-20" alt="Поділ волосся">
                 <h2 class="font-bold uppercase text-center mt-8 mb-2">Поділ волосся</h2>
                 <div class="description">Розділити волосся на кілька пасів, обмотавши кілька разів, туго
                     перетягнути кожну гумкою</div>
