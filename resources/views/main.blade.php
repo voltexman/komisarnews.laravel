@@ -448,7 +448,7 @@
                         <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
                     </div>
                     <div class="border-2 flex-none border-max-soft rounded-full h-11 w-11 flex justify-center ms-3">
-                        <span class="text-xs text-max-soft font-bold self-center">~20%</span>
+                        <span class="text-xs text-max-text font-bold self-center">~20%</span>
                     </div>
                 </div>
                 <p class="text-gray-200/90 italic">Ми купуємо зрізи від 40 сантиметрів. Якщо ваші локони коротші, то
@@ -462,7 +462,7 @@
                         <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
                     </div>
                     <div class="border-2 flex-none border-max-soft rounded-full h-11 w-11 flex justify-center ms-3">
-                        <span class="text-xs text-max-soft font-bold self-center">~20%</span>
+                        <span class="text-xs text-max-text font-bold self-center">~20%</span>
                     </div>
                 </div>
                 <p class="text-gray-200/90 italic">Вища вартість пропонується за якісні, здорові та рівномірні локони.
@@ -475,7 +475,7 @@
                         <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
                     </div>
                     <div class="border-2 flex-none border-max-soft rounded-full h-11 w-11 flex justify-center ms-3">
-                        <span class="text-xs text-max-soft font-bold self-center">~20%</span>
+                        <span class="text-xs text-max-text font-bold self-center">~20%</span>
                     </div>
                 </div>
                 <p class="text-gray-200/90 italic">Зріз має бути зроблений за правилами та закріплений зверху гумкою і
@@ -490,7 +490,7 @@
                         <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
                     </div>
                     <div class="border-2 flex-none border-max-soft rounded-full h-11 w-11 flex justify-center ms-3">
-                        <span class="text-xs text-max-soft font-bold self-center">~20%</span>
+                        <span class="text-xs text-max-text font-bold self-center">~20%</span>
                     </div>
                 </div>
                 <p class="text-gray-200/90 italic">Ми не приймаємо пошкодженні, ламкі та сухі локони, або локони з
@@ -504,7 +504,7 @@
                         <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
                     </div>
                     <div class="border-2 flex-none border-max-soft rounded-full h-11 w-11 flex justify-center ms-3">
-                        <span class="text-xs text-max-soft font-bold self-center">~20%</span>
+                        <span class="text-xs text-max-text font-bold self-center">~20%</span>
                     </div>
                 </div>
                 <p class="text-gray-200/90 italic">Пофарбовані пасма будуть коштувати набагато дешевше натуральних.
@@ -518,7 +518,7 @@
                         <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
                     </div>
                     <div class="border-2 flex-none border-max-soft rounded-full h-11 w-11 flex justify-center ms-3">
-                        <span class="text-xs text-max-soft font-bold self-center">~20%</span>
+                        <span class="text-xs text-max-text font-bold self-center">~20%</span>
                     </div>
                 </div>
                 <p class="text-gray-200/90 italic">Зрізи з сивиною теж підлягають купівлі, але багато залежить від
