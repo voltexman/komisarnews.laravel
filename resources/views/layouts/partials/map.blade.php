@@ -2,11 +2,11 @@
     <div class="absolute -bottom-3 lg:bottom-0 left-0">
         <div class="flex">
             <small class="h-4 w-4 -pt-1 bg-max-light border border-max-dark rounded"></small>
-            <small class="text-xs text-white ms-1">Регіони в яких скуповуємо</small>
+            <small class="text-xs text-white font-normal ms-1">Регіони в яких скуповуємо</small>
         </div>
         <div class="text-xs text-max-light flex mt-0.5">
             <small class="h-4 w-4 --1 bg-[#b5a290] border border-max-dark rounded"></small>
-            <small class="text-xs text-white ms-1">Тимчасово не співпрацюємо</small>
+            <small class="text-xs text-white font-normal ms-1">Тимчасово не співпрацюємо</small>
         </div>
     </div>
 

@@ -309,15 +309,16 @@
                     }'
                     style="display: none;">
                     <!-- Floating Textarea -->
-                    <div class="mb-4 flex flex-row bg-max-soft/5 p-2 rounded-lg border border-max-soft/10">
-                        <div class="border-e pe-2 flex">
+                    <div
+                        class="mb-4 flex flex-row bg-max-soft/10 rounded-lg border border-max-soft/10 overflow-hidden">
+                        <div class="border-e pe-2 bg-max-soft/20 border-max-soft/10 flex py-2 px-3">
                             <x-lucide-info class="h-4 w-4 self-center" />
                         </div>
-                        <span class="text-sm leading-4 text-gray-600">
+                        <span class="text-sm leading-4 text-gray-600 py-2 px-4">
                             Можете вказати будь-яку додаткову важливу інформацію для майстра.
                         </span>
                     </div>
-                    <x-textarea label="Додатковий опис" rows="11"
+                    <x-textarea label="Додатковий опис" rows="12"
                         class="bg-max-soft/20 border border-max-soft/20" x-model="description"
                         wire:model='order.description' maxlength="1000" />
                     <!-- End Floating Textarea -->
@@ -447,12 +448,12 @@
                     Назад
                 </button>
                 <button type="button" aria-label="Детальна інформація"
-                    class="py-2 px-3 inline-flex items-center me-auto gap-x-1 text-sm font-medium rounded-lg bg-max-soft text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                    class="py-2 px-3 inline-flex items-center me-auto gap-x-1 text-sm font-medium rounded-lg bg-max-dark text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                     data-hs-overlay="#hs-modal-upgrade-to-pro">
                     <x-lucide-info class="h-5 w-5 text-max-light" />
                 </button>
                 <button type="button"
-                    class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-semibold rounded-lg border border-transparent bg-max-soft text-max-light hover:bg-max-dark disabled:opacity-50 disabled:pointer-events-none"
+                    class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-semibold rounded-lg border border-transparent bg-max-dark text-max-light hover:bg-max-dark disabled:opacity-50 disabled:pointer-events-none"
                     data-hs-stepper-next-btn>
                     Далі
                     <x-lucide-chevron-right class="h-4 w-4 ms-1" />

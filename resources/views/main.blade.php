@@ -379,7 +379,7 @@
         </div>
 
         {{-- Warning Info --}}
-        <div class="flex bg-max-soft/10 border-max-soft/10 border rounded-lg mt-8 lg:w-1/2 p-3">
+        <div class="flex bg-max-soft/5 border-max-soft/10 border rounded-lg mt-8 lg:w-1/2 p-3">
             <div class="flex me-3">
                 <x-lucide-alert-triangle class="h-8 w-8 text-max-dark/70 animate-pulse self-center" />
             </div>
@@ -521,7 +521,7 @@
         </div>
 
         {{-- Warning Info --}}
-        <div class="flex bg-max-soft/20 border-max-soft/10 border rounded-lg mt-10 lg:w-1/2 p-3">
+        <div class="flex bg-max-soft/15 border-max-soft/10 border rounded-lg mt-10 lg:w-1/2 p-3">
             <div class="flex me-3">
                 <x-lucide-info class="h-8 w-8 text-max-text/50 animate-pulse self-center" />
             </div>

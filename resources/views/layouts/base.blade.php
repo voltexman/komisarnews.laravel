@@ -157,7 +157,8 @@
             <div class="flex flex-col lg:flex-row lg:justify-between">
                 <div class="lg:w-1/3 text-max-light/60 font-semibold">
                     <p class="flex flex-row justify-center lg:justify-start">
-                        <x-lucide-map-pin class="h-4 w-4 me-1 mt-0.5" />Україна,Київ
+                        <x-lucide-map-pin class="h-4 w-4 me-1 mt-0.5" />
+                        Україна, Київ
                     </p>
                     <p class="flex flex-row justify-center lg:justify-start">
                         <x-lucide-user class="h-4 w-4 me-1 mt-0.5" />
@@ -166,8 +167,9 @@
                 </div>
                 <div class="lg:w-1/3 text-center mt-5 lg:mt-0">
                     <p class="text-2xl font-extrabold text-max-soft">+380 (73) 785-77-77</p>
-                    <span
-                        class="font-semibold text-max-light/60 border-b pb-1 border-max-soft">123komisar@gmail.com</span>
+                    <span class="font-semibold text-max-light/60 border-b pb-1 border-max-soft">
+                        123komisar@gmail.com
+                    </span>
                 </div>
                 <div class="lg:w-1/3 flex gap-3 justify-end self-center text-max-soft mt-10 lg:mt-0">
                     <a href="https://www.facebook.com/profile.php?id=100081276925197" aria-label="Ми в Facebook"
@@ -177,8 +179,9 @@
                 </div>
             </div>
         </div>
-        <div class="text-center text-xs text-max-light/50 py-5 border-t border-max-light/[.07]">{{ date('Y') }} ©
-            KomisarNews. Всі права застережено.</div>
+        <div class="text-center text-xs text-max-light/50 py-5 border-t border-max-light/[.07]">
+            {{ date('Y') }} © KomisarNews. Всі права застережено.
+        </div>
     </footer>
 
     <!-- Modal -->
