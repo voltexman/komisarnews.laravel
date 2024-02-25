@@ -64,7 +64,7 @@
         </div>
     </div>
 
-    <div x-data="{ loading: true }" @load.window="loading=false" x-show="loading" x-transition.opacity.duration.750ms
+    <div x-data="{ loading: true }" @load.window="loading=false" x-show="loading" x-transition.opacity.duration.500ms
         class="fixed w-full h-screen top-0 left-0 bg-black z-[100] flex justify-center">
         <div class="animate-spin inline-block w-20 h-20 border-[6px] border-current border-t-transparent text-max-soft rounded-full self-center"
             role="status" aria-label="loading">
