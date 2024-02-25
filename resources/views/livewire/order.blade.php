@@ -140,14 +140,14 @@
                                     <option value="Хочу оцінити вартість" selected
                                         data-hs-select-option='{
                                             "description": "Майстер оцінить та повідомить вартість.",
-                                            "icon": "<img class=\"inline-block w-6 h-6 rounded-full\" src=\"/images/icons/order-money.svg\" alt=\"\" />"
+                                            "icon": "<img class=\"lazyload inline-block w-6 h-6 rounded-full\" data-src=\"/images/icons/order-money.svg\" alt=\"\" />"
                                         }'>
                                         Хочу оцінити вартість</option>
 
                                     <option value="Хочу продати волосся"
                                         data-hs-select-option='{
                                             "description": "Надішліть волосся та отримайте гроші.",
-                                            "icon": "<img class=\"inline-block w-6 h-6 rounded-full\" src=\"/images/icons/order.svg\" alt=\"\" />"
+                                            "icon": "<img class=\"lazyload inline-block w-6 h-6 rounded-full\" data-src=\"/images/icons/order.svg\" alt=\"\" />"
                                         }'>
                                         Хочу продати волосся</option>
                                 </select>
