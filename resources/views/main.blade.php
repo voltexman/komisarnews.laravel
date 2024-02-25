@@ -195,42 +195,42 @@
         <div class="grid-rows-2 grid-flow-col gap-8 hidden lg:grid">
             <div
                 class="bg-white rounded-lg shadow-md py-10 px-5 flex flex-col items-center hover:shadow-xl transition-shadow">
-                <img src="{{ asset('images/icons/washing.svg') }}" class="lazyload h-20 w-20" alt="Миття волосся">
+                <img data-src="{{ asset('images/icons/washing.svg') }}" class="lazyload h-20 w-20" alt="Миття волосся">
                 <h2 class="font-bold uppercase text-center mt-8 mb-2">Миття волосся</h2>
                 <div class="description">Попередньо необхідно вимити волосся шампунем, яким Ви зазвичай
                     користуєтесь</div>
             </div>
             <div
                 class="bg-white rounded-lg shadow-md py-10 px-5 flex flex-col items-center hover:shadow-xl transition-shadow">
-                <img src="{{ asset('images/icons/bunch.svg') }}" class="lazyloadh-20 w-20" alt="Поділ волосся">
+                <img data-src="{{ asset('images/icons/bunch.svg') }}" class="lazyloadh-20 w-20" alt="Поділ волосся">
                 <h2 class="font-bold uppercase text-center mt-8 mb-2">Поділ волосся</h2>
                 <div class="description">Розділити волосся на кілька пасів, обмотавши кілька разів, туго
                     перетягнути кожну гумкою</div>
             </div>
             <div
                 class="bg-white rounded-lg shadow-md py-10 px-5 flex flex-col items-center hover:shadow-xl transition-shadow">
-                <img src="{{ asset('images/icons/dry.svg') }}" class="lazyload h-20 w-20" alt="Сушка волосся">
+                <img data-src="{{ asset('images/icons/dry.svg') }}" class="lazyload h-20 w-20" alt="Сушка волосся">
                 <h2 class="font-bold uppercase text-center mt-8 mb-2">Сушка волосся</h2>
                 <div class="description">Просушити волосся без використання фена, дайте локонам висохнути природним
                     шляхом</div>
             </div>
             <div
                 class="bg-white rounded-lg shadow-md py-10 px-5 flex flex-col items-center hover:shadow-xl transition-shadow">
-                <img src="{{ asset('images/icons/cutting.svg') }}" class="lazyload h-20 w-20" alt="Зріз волосся">
+                <img data-src="{{ asset('images/icons/cutting.svg') }}" class="lazyload h-20 w-20" alt="Зріз волосся">
                 <h2 class="font-bold uppercase text-center mt-8 mb-2">Зріз волосся</h2>
                 <div class="description">Зробити зріз, відступивши кілька сантиметрів трохи вище кріплення та
                     заплітаємо зрізане волосся в косу</div>
             </div>
             <div
                 class="bg-white rounded-lg shadow-md py-10 px-5 flex flex-col items-center hover:shadow-xl transition-shadow">
-                <img src="{{ asset('images/icons/hairdresser.svg') }}" class="lazyload h-20 w-20" alt="Розчісування волосся">
+                <img data-src="{{ asset('images/icons/hairdresser.svg') }}" class="lazyload h-20 w-20" alt="Розчісування волосся">
                 <h2 class="font-bold uppercase text-center mt-8 mb-2">Розчісування</h2>
                 <div class="description">Розчесати пасма, щоб позбутися ковтунів (якщо такі є), також,
                     запобігти подальшому заплутування</div>
             </div>
             <div
                 class="bg-white rounded-lg shadow-md py-10 px-5 flex flex-col items-center hover:shadow-xl transition-shadow">
-                <img src="{{ asset('images/icons/hair-info.svg') }}" class="lazyload h-20 w-20" alt="Оцінка волосся">
+                <img data-src="{{ asset('images/icons/hair-info.svg') }}" class="lazyload h-20 w-20" alt="Оцінка волосся">
                 <h2 class="font-bold uppercase text-center mt-8 mb-2">Оцінка волосся</h2>
                 <div class="description">Зважити зріз та сфотографувати біля сантиметра і надіслати дані для
                     оцінювання</div>
