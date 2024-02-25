@@ -1,4 +1,4 @@
-@props(['label', 'required', 'maxlength'])
+@props(['label', 'required'])
 
 <div x-data="{ count: 0, active: false }" class="relative">
     <input
@@ -15,10 +15,10 @@
         <span class="absolute top-0 right-1 text-red-500 text-lg">*</span>
     </template>
 
-    <template x-if="'{{ $maxlength }}' && active">
-        <span x-bind:class="count !== {{ $maxlength }} ? 'bg-max-soft' : 'bg-red-500'"
+    <template x-if="'{{ $attributes['maxlength'] }}' && active">
+        <span x-bind:class="count !== {{ $attributes['maxlength'] }} ? 'bg-max-soft' : 'bg-red-500'"
             class="absolute -bottom-2 right-2 text-xs rounded px-1 text-max-light">
-            <span x-text="count"></span>/<span x-text="{{ $maxlength }}"></span>
+            <span x-text="count"></span>/<span x-text="{{ $attributes['maxlength'] }}"></span>
         </span>
     </template>
 </div>
