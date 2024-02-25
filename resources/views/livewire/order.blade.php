@@ -225,12 +225,12 @@
                                         </div>
                                         <div
                                             class="flex flex-col -gap-y-px divide-y divide-max-soft/30 border-s border-max-soft/30">
-                                            <button type="button" role="none"
+                                            <button type="button" role="button" aria-label="Weight minus"
                                                 class="w-7 h-7 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-se-lg bg-max-soft/50 text-max-dark hover:bg-max-soft/80 transition disabled:opacity-50 disabled:pointer-events-none"
                                                 data-hs-input-number-decrement>
                                                 <x-lucide-minus class="h-3 w-3" />
                                             </button>
-                                            <button type="button" role="none"
+                                            <button type="button" role="button" aria-label="Weight plus"
                                                 class="w-7 h-7 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-lg bg-max-soft/50 text-max-dark hover:bg-max-soft/80 transition disabled:opacity-50 disabled:pointer-events-none"
                                                 data-hs-input-number-increment>
                                                 <x-lucide-plus class="h-3 w-3" />
@@ -254,12 +254,12 @@
                                         </div>
                                         <div
                                             class="flex flex-col -gap-y-px divide-y divide-max-soft/30 border-s border-max-soft/30">
-                                            <button type="button" role="none"
+                                            <button type="button" role="button" aria-label="Length minus"
                                                 class="w-7 h-7 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-se-lg bg-max-soft/50 text-max-dark hover:bg-max-soft/80 transition disabled:opacity-50 disabled:pointer-events-none"
                                                 data-hs-input-number-decrement>
                                                 <x-lucide-minus class="h-3 w-3" />
                                             </button>
-                                            <button type="button" role="none"
+                                            <button type="button" role="button" aria-label="Length plus"
                                                 class="w-7 h-7 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-lg bg-max-soft/50 text-max-dark hover:bg-max-soft/80 transition disabled:opacity-50 disabled:pointer-events-none"
                                                 data-hs-input-number-increment>
                                                 <x-lucide-plus class="h-3 w-3" />
@@ -282,12 +282,12 @@
                                         </div>
                                         <div
                                             class="flex flex-col -gap-y-px divide-y divide-max-soft/30 border-s border-max-soft/30">
-                                            <button type="button" role="none"
+                                            <button type="button" role="button" aria-label="Age minus"
                                                 class="w-7 h-7 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-se-lg bg-max-soft/50 text-max-dark hover:bg-max-soft/80 transition disabled:opacity-50 disabled:pointer-events-none"
                                                 data-hs-input-number-decrement>
                                                 <x-lucide-minus class="h-3 w-3" />
                                             </button>
-                                            <button type="button" role="none"
+                                            <button type="button" role="button" aria-label="Age plus"
                                                 class="w-7 h-7 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-lg bg-max-soft/50 text-max-dark hover:bg-max-soft/80 transition disabled:opacity-50 disabled:pointer-events-none"
                                                 data-hs-input-number-increment>
                                                 <x-lucide-plus class="h-3 w-3" />
