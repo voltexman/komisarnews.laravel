@@ -220,8 +220,8 @@
                                                 Вага
                                             </span>
                                             <input class="w-full p-0 bg-transparent border-0 text-gray-800 focus:ring-0"
-                                                type="text" label="Вага" x-model="hair_weight"
-                                                wire:model='order.hair_weight' data-hs-input-number-input>
+                                                type="text" x-model="hair_weight" wire:model='order.hair_weight'
+                                                aria-label="Вага" data-hs-input-number-input>
                                         </div>
                                         <div
                                             class="flex flex-col -gap-y-px divide-y divide-max-soft/30 border-s border-max-soft/30">
@@ -249,8 +249,8 @@
                                             <span class="absolute top-0 right-1 text-red-500 text-lg">*</span>
                                             <input
                                                 class="w-full p-0 bg-transparent border-0 text-gray-800 focus:ring-0"
-                                                type="text" label="Довжина" x-model="hair_length"
-                                                wire:model='order.hair_length' data-hs-input-number-input>
+                                                type="text" x-model="hair_length" wire:model='order.hair_length'
+                                                aria-label="Довжина" data-hs-input-number-input>
                                         </div>
                                         <div
                                             class="flex flex-col -gap-y-px divide-y divide-max-soft/30 border-s border-max-soft/30">
@@ -277,8 +277,8 @@
                                             </span>
                                             <input
                                                 class="w-full p-0 bg-transparent border-0 text-gray-800 focus:ring-0"
-                                                type="text" label="вік" x-model="age" wire:model='order.age'
-                                                data-hs-input-number-input>
+                                                type="text" x-model="age" wire:model='order.age'
+                                                aria-label="Вік" data-hs-input-number-input>
                                         </div>
                                         <div
                                             class="flex flex-col -gap-y-px divide-y divide-max-soft/30 border-s border-max-soft/30">
