@@ -42,13 +42,19 @@
 
 </head>
 
-<body>
+<body x-data="scroll()">
 
-    <div class="fixed z-50 bottom-4 right-4 size-12" x-data="{ scrolled: false, scrollPos: 0 }" x-show="scrolled"
-        x-transition.duration.500ms
-        @scroll.window="scrolled = (window.pageYOffset >= 400) ? true : false;scrollPos = (window.pageYOffset / (document.body.scrollHeight - window.innerHeight)) * 100"
-        x-init="scrolled = (window.pageYOffset >= 400) ? true : false;
-        scrollPos = (window.pageYOffset / (document.body.scrollHeight - window.innerHeight)) * 100">
+    <div @load.window="loading=false" x-show="loading" x-transition.opacity.duration.500ms
+        class="fixed w-screen h-screen top-0 left-0 bg-black z-[90] flex justify-center">
+        <div class="animate-spin inline-block w-20 h-20 border-[6px] border-current border-t-transparent text-max-soft rounded-full self-center"
+            role="status" aria-label="loading">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    <div x-show="scrolled" x-init="getScrolled();
+    getPosition()" class="fixed z-50 bottom-4 right-4 size-12"
+        @scroll.window="getScrolled(); getPosition()" x-transition.duration.500ms>
         <svg class="size-full" width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
             <!-- Background Circle -->
             <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-max-soft"
@@ -56,7 +62,7 @@
             <!-- Progress Circle inside a group with rotation -->
             <g class="origin-center -rotate-90 transform">
                 <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-gray-300"
-                    stroke-width="1.7" stroke-dasharray="100" :stroke-dashoffset="-scrollPos"></circle>
+                    stroke-width="1.7" stroke-dasharray="100" :stroke-dashoffset="position"></circle>
             </g>
         </svg>
         <div class="absolute top-1/2 start-1/2 transform -translate-y-1/2 -translate-x-1/2">
@@ -64,66 +70,8 @@
         </div>
     </div>
 
-    <div x-data="{ loading: true }" @load.window="loading=false" x-show="loading" x-transition.opacity.duration.500ms
-        class="fixed w-full h-screen top-0 left-0 bg-black z-[100] flex justify-center">
-        <div class="animate-spin inline-block w-20 h-20 border-[6px] border-current border-t-transparent text-max-soft rounded-full self-center"
-            role="status" aria-label="loading">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
-
     @section('header')
-        <div x-data="{ background: false }" :class="background && 'bg-black/90 shadow-2xl'" x-init="background = setNavBackground()"
-            @scroll.window="background = setNavBackground()"
-            class="fixed flex flex-wrap h-16 sm:justify-start sm:flex-nowrap z-50 w-full text-sm py-3 sm:py-0 transition-all duration-500 navbar">
-            <script>
-                function setNavBackground() {
-                    return window.pageYOffset >= 150 ? true : false
-                }
-            </script>
-            <nav class="relative justify-between max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:px-6 lg:px-8"
-                aria-label="Global">
-                <div class="flex items-center justify-between">
-                    <a href="/" class="text-white uppercase text-lg font-normal">
-                        Kom<span class="bg-max-dark text-white rounded px-2">!</span>sarnews
-                    </a>
-                    <div class="sm:hidden flex">
-                        <div class="flex items-center gap-x-2 sm:ms-auto">
-                            <a href="#map"
-                                class="bg-max-dark rounded-lg me-4 text-white uppercase px-2 font-normal text-xs inline-flex h-9 items-center">
-                                <x-lucide-map-pin class="h-4 w-4 me-1" />
-                                Міста
-                            </a>
-                        </div>
 
-                        <button type="button" class="text-white hover:text-gray-600" data-hs-overlay="#docs-sidebar"
-                            aria-controls="docs-sidebar" aria-label="Toggle navigation">
-                            <span class="sr-only">Toggle Navigation</span>
-                            <x-lucide-menu class="h-5 w-5" />
-                        </button>
-
-                        <div id="docs-sidebar"
-                            class="hs-overlay hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform hidden fixed top-0 start-0 bottom-0 z-50 w-64 bg-max-black border-2 border-e border-black pt-7 pb-10 overflow-y-auto lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300">
-                            <div class="px-6">
-                                <a class="flex-none text-xl text-gray-300 font-normal uppercase" href="#"
-                                    aria-label="Logo">
-                                    KomisarNews
-                                </a>
-                            </div>
-                            <nav class="hs-accordion-group p-5 w-full flex flex-col flex-wrap"
-                                data-hs-accordion-always-open>
-                                <x-menu />
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-                <a href="#map"
-                    class="bg-max-dark rounded-lg hidden lg:flex text-white uppercase px-2 font-normal text-xs h-10 items-center">
-                    <x-lucide-map-pin class="h-4 w-4 me-1" />
-                    Обрати місто
-                </a>
-            </nav>
-        </div>
     @show
 
     <main>
@@ -136,7 +84,7 @@
                     Купівля і продаж<br class="lg:hidden"> волосся в містах
                 </h2>
                 <h3 class="font-normal drop-shadow-lg text-center uppercase mb-5 text-white">
-                    Оберіть ваше мість <br class="lg:hidden"> або зробіть заявку
+                    Оберіть ваше місто <br class="lg:hidden"> або зробіть заявку
                 </h3>
                 <div class="flex flex-col lg:flex-row">
                     <div class="w-full lg:w-3/4 lg:me-10 self-center">
@@ -241,6 +189,26 @@
     <!-- End Modal -->
 
     {{-- @livewireScriptConfig --}}
+
+    <script>
+        function scroll() {
+            return {
+                scrolled: false,
+                position: 0,
+                loading: true,
+                getScrolled() {
+                    this.scrolled = (window.pageYOffset >= 400) ? true : false
+                },
+                getPosition() {
+                    var scrollPosition = window.pageYOffset;
+                    var windowHeight = window.innerHeight;
+                    var documentHeight = document.body.clientHeight;
+
+                    this.position = -(scrollPosition / (documentHeight - windowHeight)) * 100;
+                }
+            }
+        }
+    </script>
 
 </body>
 

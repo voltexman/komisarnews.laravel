@@ -1,4 +1,4 @@
-<ul class="space-y-1.5 mt-4">
+<ul class="lg:flex space-y-1.5 mt-4 lg:mt-0 lg:space-y-0 mx-auto">
 
     @if (!Request::is('/'))
         <li class="hover:text-max-soft transition">

@@ -400,9 +400,9 @@
                         <span class="font-normal line-clamp-1"
                             x-text="description ? description : 'не вказано'"></span>
                         <div x-show="descriptionFull" x-transition.duration.500ms
-                            class="absolute top-0 start-0 w-full h-full z-50 bg-max-light rounded-lg"></div>
+                            class="absolute top-0 start-0 w-full h-full z-20 bg-max-light rounded-lg"></div>
                         <div x-show="descriptionFull" x-transition.duration.500ms
-                            class="absolute top-0 left-0 h-full w-full p-5 z-50">
+                            class="absolute top-0 left-0 h-full w-full p-5 z-20">
                             <div class="flex flex-col h-full">
                                 <span class="uppercase text-center font-semibold mb-5 text-gray-700">
                                     Додатковий опис
