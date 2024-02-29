@@ -8,7 +8,7 @@ use Livewire\Form;
 
 class OrderForm extends Form
 {
-    public $goal = '';
+    public $goal = 'Хочу оцінити вартість';
 
     public $name = '';
 

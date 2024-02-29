@@ -12,10 +12,15 @@ class Order extends Component
 
     public OrderForm $order;
 
+    public function select($value): void
+    {
+        $this->order->goal = $value;
+    }
+
     public function save()
     {
-        // dd($this->order->all());
-        session()->flash('number', '25457');
+        dd($this->order->all());
+        // session()->flash('number', '25457');
         $this->order->store();
     }
 

@@ -20,7 +20,7 @@
 
         {{-- Кнопка прокрутки вниз --}}
         <div class="flex absolute bottom-8 left-1/2 -translate-x-1/2 ">
-            <a href="#about" aria-label="Перейти до опису"
+            <a href="#about" rel="nofollow" aria-label="Перейти до опису"
                 class="flex animate-bounce border w-12 h-12 rounded-full bg-slate-50/10 z-40">
                 <x-lucide-arrow-down class="w-6 h-6 text-slate-100 self-center mx-auto" />
             </a>

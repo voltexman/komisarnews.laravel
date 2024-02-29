@@ -3,7 +3,7 @@ export default {
   content: [
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
-    'node_modules/preline/dist/*.js',
+    // 'node_modules/preline/dist/*.js',
   ],
   theme: {
     extend: {
@@ -50,7 +50,7 @@ export default {
     },
   },
   plugins: [
-    require('preline/plugin'),
+    // require('preline/plugin'),
   ],
 }
 

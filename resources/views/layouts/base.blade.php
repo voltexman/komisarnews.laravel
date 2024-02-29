@@ -66,7 +66,7 @@
             </g>
         </svg>
         <div class="absolute top-1/2 start-1/2 transform -translate-y-1/2 -translate-x-1/2">
-            <a href="#"><x-lucide-arrow-up class="h-4 w-4 text-max-soft" /></a>
+            <a href="#" rel="nofollow"><x-lucide-arrow-up class="h-4 w-4 text-max-soft" /></a>
         </div>
     </div>
 
