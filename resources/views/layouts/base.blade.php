@@ -71,8 +71,9 @@
     </div> --}}
 
     @section('header')
-        <div x-data="navbar" x-init="scrolled" x-bind:class="(isScrolled || isOpen) && 'bg-max-black/90 shadow-lg'"
-            @scroll.window="scrolled" class="z-50 fixed w-screen h-16 duration-300">
+        <div x-data="navbar" x-init="scrolled"
+            x-bind:class="(isScrolled || isOpen) && 'bg-max-black/90 shadow-lg'" @scroll.window="scrolled"
+            class="z-50 fixed w-screen h-16 duration-300">
             <div class="container flex justify-between h-full self-center">
 
                 <div class="flex items-center">
@@ -85,7 +86,7 @@
                     <x-menu />
                 </div>
 
-                <button @click="toggle" type="button" class="lg:hidden ms-3 outline-none order-2">
+                <button @click="toggle" type="button" class="lg:hidden ms-3 outline-none order-2" aria-label="Навігація">
                     <x-lucide-menu class="h-6 w-6 text-white" x-show="!isOpen" />
                     <x-lucide-x class="h-6 w-6 text-white" x-show="isOpen" />
                 </button>

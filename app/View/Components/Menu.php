@@ -21,6 +21,24 @@ class Menu extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.menu');
+        $items = [
+            [
+                'label' => 'Головна',
+                'url' => route('main'),
+                'icon' => 'home',
+            ],
+            [
+                'label' => 'Статті',
+                'url' => route('articles.list'),
+                'icon' => 'newspaper',
+            ],
+            [
+                'label' => 'Контакти',
+                'url' => route('contacts.show'),
+                'icon' => 'contacts',
+            ],
+        ];
+
+        return view('components.menu', ['items' => $items]);
     }
 }

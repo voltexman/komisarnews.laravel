@@ -2,7 +2,7 @@
 
 <div x-data="{ count: 0, active: false }" class="relative">
     <input
-        {{ $attributes->class('peer p-4 block w-full rounded-lg text-sm placeholder:text-transparent focus:border-max-soft focus:ring-max-soft disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2') }}
+        {{ $attributes->class('peer p-4 block w-full rounded-lg text-sm placeholder:text-transparent focus:border-max-soft focus:ring-max-soft disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2 outline-none') }}
         id="hs-floating-input-{{ Str::slug($label) }}" placeholder="{{ $label }}" x-ref="textInput"
         x-on:input="count = $refs.textInput.value.length" x-on:focus="active = true" x-on:blur="active = false">
 

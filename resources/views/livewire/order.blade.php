@@ -2,7 +2,6 @@
 <div x-data="stepper" class="relative bg-max-light h-[575px] p-5 rounded-lg shadow-lg">
 
     <form wire:submit="save" x-data="{
-        options: ['Хочу оцінити вартість', 'Хочу продати волосся'],
         goal: 'Хочу оцінити вартість',
         name: '',
         city: '',
@@ -99,76 +98,62 @@
                 <div x-show="isActive(1)">
                     <!-- Floating Input -->
                     <div class="flex flex-col gap-y-5 w-full">
-                        {{-- <select x-model="goal" wire:model='order.goal' x-on:change="goal = $event.target.value">
-                                <template x-for="option in options" :key="option">
-                                    <option :value="option" x-text="option" :selected="option === goal"></option>
-                                </template>
-                            </select> --}}
+                        {{-- Ціль заявки --}}
+                        <div x-data="{ open: false }" @keydown.escape.prevent.stop="open = false"
+                            @click.outside="open = false" class="relative">
+
+                            <input type="hidden" wire:model='order.goal' />
+
+                            {{-- Button --}}
+                            <button type="button" @click="open = !open"
+                                class="relative py-3 px-4 pe-9 flex items-center text-nowrap w-full cursor-pointer bg-max-soft/20 border border-max-soft/20 rounded-lg text-start text-sm before:absolute before:inset-0 before:z-[1] outline-none">
+                                <span x-text="$wire.order.goal"></span>
+                                <div class="absolute top-1/2 end-3 -translate-y-1/2">
+                                    <x-lucide-chevrons-up-down class="flex-shrink-0 w-3.5 h-3.5 text-max-soft" />
+                                </div>
+                            </button>
+
+                            {{-- Panel --}}
+                            <div x-show="open" x-transition
+                                class="absolute mt-2 left-0 bg-white border border-max-soft/30 rounded-lg z-10 w-full p-3 space-y-2 shadow-lg">
+                                <div
+                                    class="flex flex-row border border-max-soft/20 rounded-lg px-3 py-2 bg-max-soft/5 leading-4 hover:bg-max-soft/20 duration-300 cursor-pointer">
+                                    <div class="self-center me-3">
+                                        <x-lucide-help-circle class="h-5 w-5" />
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <span class="text-max-dark">Хочу оцінити вартість</span>
+                                        <span class="text-max-dark/70 text-sm">Лише дізнатись ціну у майстра</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex flex-row border border-max-soft/20 rounded-lg px-3 py-2 bg-max-soft/5 leading-4 hover:bg-max-soft/20 duration-300 cursor-pointer">
+                                    <div class="self-center me-3">
+                                        <x-lucide-help-circle class="h-5 w-5" />
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <span class="text-max-dark">Хочу продати волосся</span>
+                                        <span class="text-max-dark/70 text-sm">Відправити волосся та отримати гроші</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <x-input type="text" label="Ваше ім'я" maxlength="40" x-model="name" wire:model='order.name'
+                            class="bg-max-soft/20 border border-max-soft/20" />
+
+                        <x-input type="text" label="Місто" maxlength="30" x-model="city" wire:model='order.city'
+                            required class="bg-max-soft/20 border border-max-soft/20" />
+
+                        <x-input type="text" label="Електронна пошта" maxlength="40" x-model="email"
+                            wire:model='order.email' class="bg-max-soft/20 border border-max-soft/20" />
+
+                        <x-input type="text" label="Номер телефону" maxlength="15" x-model="phone"
+                            wire:model='order.phone' required class="bg-max-soft/20 border border-max-soft/20" />
+
                         <!-- Select -->
                         <div class="relative">
-                            <select id="select" wire:model='order.goal' x-model="goal"
-                                data-hs-select='{
-                                        "placeholder": "Select option...",
-                                        "toggleTag": "<button type=\"button\"><span class=\"me-2\" data-icon></span><span class=\"text-gray-800\" data-title></span></button>",
-                                        "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 px-4 pe-9 flex items-center text-nowrap w-full cursor-pointer bg-max-soft/20 border border-max-soft/20 rounded-lg text-start text-sm focus:border-blue-500 focus:ring-blue-500 before:absolute before:inset-0 before:z-[1]",
-                                        "dropdownClasses": "mt-2 z-50 w-full max-h-[300px] p-1 space-y-0.5 bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto",
-                                        "optionClasses": "py-2 px-4 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100",
-                                        "optionTemplate": "<div><div class=\"flex items-center\"><div class=\"me-2\" data-icon></div><div class=\"font-semibold text-gray-800\" data-title></div></div><div class=\"mt-1.5 text-sm text-gray-500\" data-description></div></div>"
-                                    }'
-                                class="hidden">
-                                {{-- <option value="">Choose</option> --}}
-                                <template x-for="option in options" :key="option">
-                                    <option value="Хочу оцінити вартість"
-                                        data-hs-select-option='{
-                                            "description": "Майстер оцінить та повідомить вартість.",
-                                            "icon": "<img class=\"lazyload inline-block w-6 h-6 rounded-full\" data-src=\"/images/icons/order-money.svg\" alt=\"\" />"
-                                        }'>
-                                        Хочу оцінити вартість</option>
-
-                                    <option value="Хочу продати волосся"
-                                        data-hs-select-option='{
-                                            "description": "Надішліть волосся та отримайте гроші.",
-                                            "icon": "<img class=\"lazyload inline-block w-6 h-6 rounded-full\" data-src=\"/images/icons/order.svg\" alt=\"\" />"
-                                        }'>
-                                        Хочу продати волосся</option>
-                                </template>
-                            </select>
-
-                            <div class="absolute top-1/2 end-3 -translate-y-1/2">
-                                <x-lucide-chevrons-up-down class="flex-shrink-0 w-3.5 h-3.5 text-max-soft" />
-                            </div>
-                        </div>
-                        <!-- End Select -->
-
-                        <div class="flex flex-row w-full gap-4">
-
-                            <div class="relative w-1/2">
-                                <x-input type="text" label="Ваше ім'я" maxlength="40" x-model="name"
-                                    wire:model='order.name' class="bg-max-soft/20 border border-max-soft/20" />
-                            </div>
-
-                            <div class="relative w-1/2">
-                                <x-input type="text" label="Місто" maxlength="30" x-model="city"
-                                    wire:model='order.city' required class="bg-max-soft/20 border border-max-soft/20" />
-                            </div>
-
-                        </div>
-                        <div class="flex flex-row w-full gap-4">
-
-                            <div class="relative w-1/2">
-                                <x-input type="text" label="Електронна пошта" maxlength="40" x-model="email"
-                                    wire:model='order.email' class="bg-max-soft/20 border border-max-soft/20" />
-                            </div>
-
-                            <div class="relative w-1/2">
-                                <x-input type="text" label="Номер телефону" maxlength="15" x-model="phone"
-                                    wire:model='order.phone' required
-                                    class="bg-max-soft/20 border border-max-soft/20" />
-                            </div>
-                        </div>
-                        <!-- Select -->
-                        <div class="relative">
-                            <select x-model="color" wire:model='order.color'
+                            {{-- <select x-model="color" wire:model='order.color'
                                 data-hs-select='{
                                         "placeholder": "Вкажіть колір",
                                         "toggleTag": "<button type=\"button\"></button>",
@@ -189,31 +174,21 @@
 
                             <div class="absolute top-1/2 end-3 -translate-y-1/2">
                                 <x-lucide-chevrons-up-down class="flex-shrink-0 w-3.5 h-3.5 text-max-soft" />
-                            </div>
+                            </div> --}}
                         </div>
                         <!-- End Select -->
-                        <div class="flex justify-between gap-x-4">
+                        {{-- <div class="flex justify-between gap-x-4">
                             <!-- Input Number -->
                             <div class="bg-max-soft/5 border border-max-soft/30 rounded-lg">
                                 <div class="w-full flex justify-between items-center gap-x-1">
                                     <div class="grow py-2 px-3">
                                         <span class="block text-xs text-gray-700">
-                                            Вага
+                                            Вага (гр)
                                         </span>
-                                        <input class="w-full p-0 bg-transparent border-0 text-gray-800 focus:ring-0"
+                                        <input
+                                            class="w-full p-0 bg-transparent border-0 text-gray-800 focus:ring-0 outline-none"
                                             type="text" x-model="hair_weight" wire:model='order.hair_weight'
-                                            aria-label="Вага">
-                                    </div>
-                                    <div
-                                        class="flex flex-col -gap-y-px divide-y divide-max-soft/30 border-s border-max-soft/30">
-                                        <button type="button" role="button" aria-label="Weight minus"
-                                            class="w-7 h-7 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-se-lg bg-max-soft/50 text-max-dark hover:bg-max-soft/80 transition disabled:opacity-50 disabled:pointer-events-none">
-                                            <x-lucide-minus class="h-3 w-3" />
-                                        </button>
-                                        <button type="button" role="button" aria-label="Weight plus"
-                                            class="w-7 h-7 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-lg bg-max-soft/50 text-max-dark hover:bg-max-soft/80 transition disabled:opacity-50 disabled:pointer-events-none">
-                                            <x-lucide-plus class="h-3 w-3" />
-                                        </button>
+                                            placeholder="0" aria-label="Вага">
                                     </div>
                                 </div>
                             </div>
@@ -223,23 +198,13 @@
                                 <div class="w-full flex justify-between items-center gap-x-1">
                                     <div class="grow py-2 px-3 relative">
                                         <span class="block text-xs text-gray-700">
-                                            Довжина
+                                            Довжина (мм)
                                         </span>
                                         <span class="absolute top-0 right-1 text-red-500 text-lg">*</span>
-                                        <input class="w-full p-0 bg-transparent border-0 text-gray-800 focus:ring-0"
+                                        <input
+                                            class="w-full p-0 bg-transparent border-0 text-gray-800 focus:ring-0 outline-none"
                                             type="text" x-model="hair_length" wire:model='order.hair_length'
-                                            aria-label="Довжина">
-                                    </div>
-                                    <div
-                                        class="flex flex-col -gap-y-px divide-y divide-max-soft/30 border-s border-max-soft/30">
-                                        <button type="button" role="button" aria-label="Length minus"
-                                            class="w-7 h-7 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-se-lg bg-max-soft/50 text-max-dark hover:bg-max-soft/80 transition disabled:opacity-50 disabled:pointer-events-none">
-                                            <x-lucide-minus class="h-3 w-3" />
-                                        </button>
-                                        <button type="button" role="button" aria-label="Length plus"
-                                            class="w-7 h-7 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-lg bg-max-soft/50 text-max-dark hover:bg-max-soft/80 transition disabled:opacity-50 disabled:pointer-events-none">
-                                            <x-lucide-plus class="h-3 w-3" />
-                                        </button>
+                                            placeholder="0" aria-label="Довжина">
                                     </div>
                                 </div>
                             </div>
@@ -251,24 +216,15 @@
                                         <span class="block text-xs text-gray-700">
                                             Вік
                                         </span>
-                                        <input class="w-full p-0 bg-transparent border-0 text-gray-800 focus:ring-0"
-                                            type="text" x-model="age" wire:model='order.age' aria-label="Вік">
-                                    </div>
-                                    <div
-                                        class="flex flex-col -gap-y-px divide-y divide-max-soft/30 border-s border-max-soft/30">
-                                        <button type="button" role="button" aria-label="Age minus"
-                                            class="w-7 h-7 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-se-lg bg-max-soft/50 text-max-dark hover:bg-max-soft/80 transition disabled:opacity-50 disabled:pointer-events-none">
-                                            <x-lucide-minus class="h-3 w-3" />
-                                        </button>
-                                        <button type="button" role="button" aria-label="Age plus"
-                                            class="w-7 h-7 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-lg bg-max-soft/50 text-max-dark hover:bg-max-soft/80 transition disabled:opacity-50 disabled:pointer-events-none">
-                                            <x-lucide-plus class="h-3 w-3" />
-                                        </button>
+                                        <input
+                                            class="w-full p-0 bg-transparent border-0 text-gray-800 focus:ring-0 outline-none"
+                                            type="text" x-model="age" wire:model='order.age' placeholder="25"
+                                            aria-label="Вік">
                                     </div>
                                 </div>
                             </div>
                             <!-- End Input Number -->
-                        </div>
+                        </div> --}}
                     </div>
                     <!-- End Floating Input -->
                 </div>
@@ -276,8 +232,7 @@
 
                 <!-- Description Content -->
                 <div x-show="isActive(2)">
-                    <div
-                        class="mb-4 flex flex-row bg-max-soft/10 rounded-lg border border-max-soft/10 overflow-hidden">
+                    <div class="mb-4 flex flex-row bg-max-soft/10 rounded-lg border border-max-soft/10 overflow-hidden">
                         <div class="border-e pe-2 bg-max-soft/20 border-max-soft/10 flex py-2 px-3">
                             <x-lucide-info class="h-4 w-4 self-center" />
                         </div>
@@ -285,9 +240,8 @@
                             Можете вказати будь-яку додаткову інформацію, яку вважаєте важливою, для майстра.
                         </span>
                     </div>
-                    <x-textarea label="Додатковий опис" rows="12"
-                        class="bg-max-soft/20 border border-max-soft/20" x-model="description"
-                        wire:model='order.description' maxlength="1000" />
+                    <x-textarea label="Додатковий опис" rows="12" class="bg-max-soft/20 border border-max-soft/20"
+                        x-model="description" wire:model='order.description' maxlength="1000" />
                 </div>
                 <!-- End Description Content -->
 
