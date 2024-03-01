@@ -42,7 +42,7 @@
 
 </head>
 
-<body x-data="scroll()">
+<body x-data="{ loading: true }">
 
     <div @load.window="loading=false" x-show="loading" x-transition.opacity.duration.500ms
         class="fixed w-screen h-screen top-0 left-0 bg-black z-[90] flex justify-center">
@@ -52,7 +52,7 @@
         </div>
     </div>
 
-    <div x-show="scrolled" x-init="getScrolled();
+    {{-- <div x-show="scrolled" x-init="getScrolled();
     getPosition()" class="fixed z-50 bottom-4 right-4 size-12"
         @scroll.window="getScrolled(); getPosition()" x-transition.duration.500ms>
         <svg class="size-full" width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
@@ -68,10 +68,51 @@
         <div class="absolute top-1/2 start-1/2 transform -translate-y-1/2 -translate-x-1/2">
             <a href="#" rel="nofollow"><x-lucide-arrow-up class="h-4 w-4 text-max-soft" /></a>
         </div>
-    </div>
+    </div> --}}
 
     @section('header')
+        <div x-data="navbar" x-init="scrolled" x-bind:class="(isScrolled || isOpen) && 'bg-max-black/90 shadow-lg'"
+            @scroll.window="scrolled" class="z-50 fixed w-screen h-16 duration-300">
+            <div class="container flex justify-between h-full self-center">
 
+                <div class="flex items-center">
+                    <a href="/" class="text-white uppercase text-lg font-normal">
+                        Kom<span class="bg-max-dark text-white rounded px-2">!</span>sarnews
+                    </a>
+                </div>
+
+                <div class="hidden lg:flex">
+                    <x-menu />
+                </div>
+
+                <button @click="toggle" type="button" class="lg:hidden ms-3 outline-none order-2">
+                    <x-lucide-menu class="h-6 w-6 text-white" x-show="!isOpen" />
+                    <x-lucide-x class="h-6 w-6 text-white" x-show="isOpen" />
+                </button>
+
+                <!-- mobile navbar -->
+                <div class="lg:hidden" x-cloak>
+                    <div x-show="isOpen" class="absolute top-16 left-0 w-screen p-4 bg-max-black/90 rounded-b-lg shadow-xl"
+                        x-transition.transform @click.away="isOpen = false">
+                        <x-menu />
+                    </div>
+                </div>
+                <!-- end mobile navbar -->
+
+                <div class="flex items-center ms-auto lg:ms-0 order-1">
+                    <a href="#map"
+                        class="bg-max-dark hidden lg:inline-flex rounded-lg text-white uppercase px-2 font-normal text-xs h-9 items-center">
+                        <x-lucide-map-pin class="h-4 w-4 me-1" />
+                        Обрати місто
+                    </a>
+                    <a href="#map"
+                        class="bg-max-dark lg:hidden rounded-lg text-white uppercase px-2 font-normal text-xs inline-flex h-9 items-center">
+                        <x-lucide-map-pin class="h-4 w-4 me-1" />
+                        Міста
+                    </a>
+                </div>
+            </div>
+        </div>
     @show
 
     <main>
@@ -190,26 +231,36 @@
 
     {{-- @livewireScriptConfig --}}
 
-    <script>
-        function scroll() {
-            return {
-                scrolled: false,
-                position: 0,
-                loading: true,
-                getScrolled() {
-                    this.scrolled = (window.pageYOffset >= 400) ? true : false
-                },
-                getPosition() {
-                    var scrollPosition = window.pageYOffset;
-                    var windowHeight = window.innerHeight;
-                    var documentHeight = document.body.clientHeight;
+</body>
 
-                    this.position = -(scrollPosition / (documentHeight - windowHeight)) * 100;
-                }
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('navbar', () => ({
+            isOpen: false,
+            isScrolled: false,
+            toggle() {
+                this.isOpen = !this.isOpen;
+            },
+            scrolled() {
+                this.isScrolled = window.pageYOffset >= 200 ? true : false;
+            }
+        }));
+    });
+
+    Alpine.data('scroll', () => {
+        return {
+            scrolled: false,
+            position: 0,
+            loading: true,
+            getPosition() {
+                var scrollPosition = window.pageYOffset;
+                var windowHeight = window.innerHeight;
+                var documentHeight = document.body.clientHeight;
+
+                this.position = -(scrollPosition / (documentHeight - windowHeight)) * 100;
             }
         }
-    </script>
-
-</body>
+    });
+</script>
 
 </html>

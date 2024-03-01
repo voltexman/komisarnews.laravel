@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+    [x-cloak] {
+        display: none !important;
+    }
+
     body {
         color: #5D5751;
         font-weight: 600;
