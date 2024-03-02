@@ -45,7 +45,7 @@
 <body x-data="{ loading: true }">
 
     <div @load.window="loading=false" x-show="loading" x-transition.opacity.duration.500ms
-        class="fixed w-screen h-screen top-0 left-0 bg-black z-[90] flex justify-center">
+        class="fixed w-screen h-screen top-0 left-0 bg-black z-[100] flex justify-center">
         <div class="animate-spin inline-block w-20 h-20 border-[6px] border-current border-t-transparent text-max-soft rounded-full self-center"
             role="status" aria-label="loading">
             <span class="sr-only">Loading...</span>
@@ -72,8 +72,8 @@
 
     @section('header')
         <div x-data="navbar" x-init="scrolled"
-            x-bind:class="(isScrolled || isOpen) && 'bg-max-black/90 shadow-lg'" @scroll.window="scrolled"
-            class="z-50 fixed w-screen h-16 duration-300">
+            x-bind:class="(isScrolled || isOpen) && 'bg-max-black/90 backdrop-blur-sm shadow-lg shadow-max-black/40'"
+            @scroll.window="scrolled" class="z-50 fixed w-screen h-16 duration-300">
             <div class="container flex justify-between h-full self-center">
 
                 <div class="flex items-center">

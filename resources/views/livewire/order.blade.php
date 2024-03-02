@@ -1,19 +1,11 @@
 <!-- Stepper -->
-<div x-data="stepper" class="relative bg-max-light h-[575px] p-5 rounded-lg shadow-lg">
+<div x-data="stepper" class="relative bg-max-light h-[575px] p-5 rounded-lg shadow-lg shadow-max-black/25">
 
     <form wire:submit="save" x-data="{
         goal: 'Хочу оцінити вартість',
-        name: '',
-        city: '',
-        email: '',
-        phone: '',
-        hair_weight: '',
-        hair_length: '',
-        age: '',
-        color: '',
-        description: '',
-        descriptionFull: false
-    }">
+        showDescription: false,
+        showModal: false
+    }" @keydown.escape="showModal = false">
 
         <div class="text-lg text-center text-max-soft uppercase font-semibold mb-5">Оцінка та продаж волосся</div>
 
@@ -106,7 +98,8 @@
 
                             {{-- Button --}}
                             <button type="button" @click="open = !open"
-                                class="relative py-3 px-4 pe-9 flex items-center text-nowrap w-full cursor-pointer bg-max-soft/20 border border-max-soft/20 rounded-lg text-start text-sm before:absolute before:inset-0 before:z-[1] outline-none">
+                                x-bind:class="open && 'rounded-b-none border-b0 bg-white border-b-white'"
+                                class="relative py-3 px-4 pe-9 flex items-center text-nowrap w-full duration-300 cursor-pointer bg-max-soft/20 border border-max-soft/30 rounded-lg text-start text-sm before:absolute before:inset-0 before:z-[1] outline-none">
                                 <span x-text="$wire.order.goal"></span>
                                 <div class="absolute top-1/2 end-3 -translate-y-1/2">
                                     <x-lucide-chevrons-up-down class="flex-shrink-0 w-3.5 h-3.5 text-max-soft" />
@@ -114,8 +107,8 @@
                             </button>
 
                             {{-- Panel --}}
-                            <div x-show="open" x-transition
-                                class="absolute mt-2 left-0 bg-white border border-max-soft/30 rounded-lg z-10 w-full p-3 space-y-2 shadow-lg">
+                            <div x-show="open" x-transition.opacity.300ms
+                                class="absolute -mt-0.5 left-0 bg-white border border-t-0 border-max-soft/30 rounded-b-lg z-10 w-full p-3 space-y-2 shadow-lg">
                                 <div
                                     class="flex flex-row border border-max-soft/20 rounded-lg px-3 py-2 bg-max-soft/5 leading-4 hover:bg-max-soft/20 duration-300 cursor-pointer">
                                     <div class="self-center me-3">
@@ -133,13 +126,14 @@
                                     </div>
                                     <div class="flex flex-col">
                                         <span class="text-max-dark">Хочу продати волосся</span>
-                                        <span class="text-max-dark/70 text-sm">Відправити волосся та отримати гроші</span>
+                                        <span class="text-max-dark/70 text-sm">Відправити волосся та отримати
+                                            гроші</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <x-input type="text" label="Ваше ім'я" maxlength="40" x-model="name" wire:model='order.name'
+                        <x-input type="text" label="Ваше ім'я" icon="user" maxlength="40" x-model="name" wire:model='order.name'
                             class="bg-max-soft/20 border border-max-soft/20" />
 
                         <x-input type="text" label="Місто" maxlength="30" x-model="city" wire:model='order.city'
@@ -258,28 +252,33 @@
                     <div class="grid grid-cols-2 gap-5 mt-4">
                         <div class="flex flex-col text-sm">
                             <span class="font-bold">Ваше ім'я:</span>
-                            <span class="font-normal line-clamp-1" x-text="name ? name : 'не вказано'"></span>
+                            <span class="font-normal line-clamp-1"
+                                x-text="$wire.order.name ? $wire.order.name : 'не вказано'"></span>
                         </div>
 
                         <div class="flex flex-col text-sm">
-                            <span class="font-bold" :class="!city ? 'text-red-500' : 'text-gray-600'">
+                            <span class="font-bold"
+                                x-bind:class="!$wire.order.city ? 'text-red-500' : 'text-gray-600'">
                                 Місто:
                             </span>
-                            <span class="font-normal line-clamp-1" :class="!city ? 'text-red-500' : 'text-gray-600'"
-                                x-text="city ? city : 'не вказано'"></span>
+                            <span class="font-normal line-clamp-1"
+                                x-bind:class="!$wire.order.city ? 'text-red-500' : 'text-gray-600'"
+                                x-text="$wire.order.city ? $wire.order.city : 'не вказано'"></span>
                         </div>
 
                         <div class="flex flex-col text-sm">
                             <span class="font-bold">Електронна пошта:</span>
-                            <span class="font-normal line-clamp-1" x-text="email ? email : 'не вказано'"></span>
+                            <span class="font-normal line-clamp-1"
+                                x-text="$wire.order.email ? $wire.order.email : 'не вказано'"></span>
                         </div>
 
                         <div class="flex flex-col text-sm">
                             <span class="font-bold" :class="!phone ? 'text-red-500' : 'text-gray-600'">
                                 Номер телефону:
                             </span>
-                            <span class="font-normal line-clamp-1" :class="!phone ? 'text-red-500' : 'text-gray-600'"
-                                x-text="phone ? phone : 'не вказано'"></span>
+                            <span class="font-normal line-clamp-1"
+                                x-bind:class="!$wire.order.phone ? 'text-red-500' : 'text-gray-600'"
+                                x-text="$wire.order.phone ? $wire.order.phone : 'не вказано'"></span>
                         </div>
                     </div>
 
@@ -287,48 +286,52 @@
                         <div class="flex flex-col text-sm">
                             <span class="font-bold">Вага:</span>
                             <span class="font-normal"
-                                x-text="hair_weight ? hair_weight + 'гр.' : 'не вказано'"></span>
+                                x-text="$wire.order.hair_weight ? $wire.order.hair_weight + 'гр.' : 'не вказано'"></span>
                         </div>
 
                         <div class="flex flex-col text-sm">
-                            <span class="font-bold" :class="!hair_length ? 'text-red-500' : 'text-gray-600'">
+                            <span class="font-bold"
+                                x-bind:class="!$wire.order.hair_length ? 'text-red-500' : 'text-gray-600'">
                                 Довжина:
                             </span>
-                            <span class="font-normal" :class="!hair_length ? 'text-red-500' : 'text-gray-600'"
-                                x-text="hair_length ? hair_length + 'мм.' : 'не вказано'"></span>
+                            <span class="font-normal"
+                                x-bind:class="!$wire.order.hair_length ? 'text-red-500' : 'text-gray-600'"
+                                x-text="$wire.order.hair_length ? $wire.order.hair_length + 'мм.' : 'не вказано'"></span>
                         </div>
 
                         <div class="flex flex-col text-sm">
                             <span class="font-bold">Вік:</span>
-                            <span class="font-normal" x-text="age ? age + 'р.' : 'не вказано'"></span>
+                            <span class="font-normal"
+                                x-text="$wire.order.age ? $wire.order.age + 'р.' : 'не вказано'"></span>
                         </div>
                     </div>
 
                     <div class="mt-4">
                         <div class="flex flex-col text-sm">
                             <span class="font-bold">Колір:</span>
-                            <span class="font-normal" x-text="color"></span>
+                            <span class="font-normal" x-text="$wire.order.color"></span>
                         </div>
                     </div>
 
                     <div class="flex flex-col text-sm mt-4">
                         <div class="flex justify-between">
                             <span class="font-bold">Додатковий опис:</span>
-                            <x-lucide-maximize x-show="description" x-on:click="descriptionFull=!descriptionFull"
+                            <x-lucide-maximize x-show="$wire.order.description"
+                                x-on:click="showDescription=!showDescription"
                                 class="h-4 w-4 cursor-pointer animate-scale" />
                         </div>
                         <span class="font-normal line-clamp-1"
-                            x-text="description ? description : 'не вказано'"></span>
-                        <div x-show="descriptionFull" x-transition.duration.500ms
+                            x-text="$wire.order.description ? $wire.order.description : 'не вказано'"></span>
+                        <div x-show="showDescription" x-transition.duration.500ms
                             class="absolute top-0 start-0 w-full h-full z-20 bg-max-light rounded-lg"></div>
-                        <div x-show="descriptionFull" x-transition.duration.500ms
+                        <div x-show="showDescription" x-transition.duration.500ms
                             class="absolute top-0 left-0 h-full w-full p-5 z-20">
                             <div class="flex flex-col h-full">
                                 <span class="uppercase text-center font-semibold mb-5 text-gray-700">
                                     Додатковий опис
                                 </span>
                                 <div class="h-full mb-10">
-                                    <p x-text="description"
+                                    <p x-text="$wire.order.description"
                                         class="text-gray-600 [&::-webkit-scrollbar]:w-2
                                         [&::-webkit-scrollbar-track]:rounded-full
                                         [&::-webkit-scrollbar-track]:bg-gray-100
@@ -338,7 +341,7 @@
                                         dark:[&::-webkit-scrollbar-thumb]:bg-max-soft">
                                     </p>
                                 </div>
-                                <x-lucide-minimize x-on:click="descriptionFull=!descriptionFull"
+                                <x-lucide-minimize x-on:click="showDescription=!showDescription"
                                     class="h-5 w-5 absolute right-5 bottom-5 cursor-pointer" />
                             </div>
                         </div>
@@ -362,21 +365,23 @@
             <!-- Button Group -->
             <div class="flex justify-between gap-x-2">
                 <button x-show="current > 1" type="button" @click="previous"
-                    class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
+                    class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg duration-300 bg-max-dark text-max-light shadow-sm hover:bg-max-soft disabled:opacity-50 disabled:pointer-events-none">
                     <x-lucide-chevron-left class="h-4 w-4 me-1" />
                     Назад
                 </button>
-                <button type="button" aria-label="Детальна інформація" @click="$wire.$set('order.goal', 'sdgsdgs')"
-                    class="py-2 px-3 inline-flex items-center me-auto gap-x-1 text-sm font-medium rounded-lg bg-max-dark text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
+
+                <button type="button" @click="showModal = true" aria-label="Правила заявки"
+                    class="py-2 px-3 inline-flex items-center me-auto gap-x-1 text-sm font-medium duration-300 rounded-lg bg-max-dark shadow-sm hover:bg-max-soft disabled:opacity-50 disabled:pointer-events-none">
                     <x-lucide-info class="h-5 w-5 text-max-light" />
                 </button>
+
                 <button x-show="current !== total" type="button" @click="next"
-                    class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-semibold rounded-lg border border-transparent bg-max-dark text-max-light hover:bg-max-dark disabled:opacity-50 disabled:pointer-events-none">
+                    class="py-2 px-3 inline-flex items-center gap-x-1 ms-auto text-sm font-semibold rounded-lg duration-300 bg-max-dark text-max-light hover:bg-max-soft disabled:opacity-50 disabled:pointer-events-none">
                     Далі
                     <x-lucide-chevron-right class="h-4 w-4 ms-1" />
                 </button>
                 <button x-show="current === total" type="submit"
-                    class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-semibold rounded-lg border border-transparent bg-max-soft text-max-light hover:bg-max-dark disabled:opacity-50 disabled:pointer-events-none"
+                    class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-semibold rounded-lg duration-300 bg-max-soft text-max-light hover:bg-max-dark disabled:opacity-50 disabled:pointer-events-none"
                     :disabled="!city || !phone || !hair_length">
                     Відправити
                     <x-lucide-send class="h-4 w-4 ms-1" />
@@ -385,6 +390,62 @@
             <!-- End Button Group -->
         </div>
         <!-- End Stepper Content -->
+
+        {{-- Модальне вікно правил --}}
+        <template x-teleport="body">
+            <div class="fixed inset-0 z-[90] flex items-center justify-center overflow-auto bg-black bg-opacity-50 backdrop-blur-sm"
+                x-show="showModal">
+                <div x-show="showModal"
+                    class="absolute w-full lg:max-w-xl max-h-[80%] lg:h-[500px] flex flex-col flex-shrink shadow-lg shadow-max-light/15 bg-white rounded-lg top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 overflow-hidden transition ease-out duration-300"
+                    x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
+                    x-transition:leave="transition ease-in duration-300"
+                    x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90"
+                    @click.away="showModal = false">
+
+                    <span @click="showModal = false" class="absolute top-2 right-2 cursor-pointer">
+                        <x-lucide-x class="h-5 w-5" />
+                    </span>
+
+                    {{-- Header --}}
+                    <div class="bg-max-soft/15 p-4">
+                        <div class="font-semibold uppercase text-max-dark drop-shadow-lg shadow-max-dark">
+                            <x-lucide-file-check class="h-7 w-7 inline-flex" />
+                            Правила
+                        </div>
+                    </div>
+
+                    {{-- Modal Body --}}
+                    <div class="h-full p-4 overflow-hidden">
+                        <div
+                            class="max-h-full leading-5 text-sm overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-max-soft/20 dark:[&::-webkit-scrollbar-thumb]:bg-max-soft">
+                            <x-lucide-file-text class="h-14 w-14 float-start me-2" />
+                            <p>Заповніть всі необхіні поля та надішліть нам замовлення. Бажано вказати
+                                колір, вагу і довжину Вашого волосся. Електронна пошта та номер телефону нам
+                                необхідний для зворотнього зв`язку з Вами та для того щоб повідомити Вас про
+                                купівлю волосся і його вартість.</p>
+                            <p>Спочатку Ви отримаєте сповіщення про те, що наш фахівець ознайомлюється з
+                                замовленням, після чого Вам надійде другий лист з інформацією про вартість
+                                та іншими деталями. Зазвичай це займає не більше декількох годин після
+                                відправлення замовлення.
+                            </p>
+                            <p>В полі "Ваше повідомлення" Ви можете вказати будь-яку іншу, на Вашу думку,
+                                важливу інформацію стосовно волосся. Наприклад, структуру волосся, стан
+                                зрізу: свіжа рівна стрижка або просто укладене волосся або шиньйон. Вкажіть
+                                якомога більше інформації, важливі всі деталі.</p>
+                        </div>
+                    </div>
+                    <div class="bg-red-500/70 p-2 mt-auto">
+                        <p class="text-white text-xs font-normal leading-4">
+                            МИ НЕ НАДАЄМО ВАШІ КОНТАКТНІ ДАНІ ІНШИМ ОСОБАМ ТА НЕ РОЗСИЛАЄМО СПАМ!
+                            НЕ НАМАГАЙТЕСЯ ОБДУРИТИ ОЦІНЮВАЧА, ВИКОРИСТОВУЮЧИ ПРИЙОМИ, ЩОБ ПОЛІПШИТИ
+                            ЯКІСТЬ ВОЛОССЯ, АБО РОЗТЯГУВАТИ ПАСМО ЩОБ ВІЗУАЛЬНО ЗБІЛЬШИТИ ДОВЖИНУ. НАШ
+                            ФАХІВЕЦЬ ОБОВ'ЯЗКОВО РОЗПІЗНАЄ ОБМАН.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </template>
 
         {{-- Loading... --}}
         <div wire:loading wire:target="save" class="absolute top-0 start-0 w-full h-full bg-white/80 rounded-lg">

@@ -10,6 +10,11 @@
     body {
         color: #5D5751;
         font-weight: 600;
+        outline: none!important;
+    }
+
+    p {
+        margin-bottom: 8px;
     }
 
     #KyivCity {

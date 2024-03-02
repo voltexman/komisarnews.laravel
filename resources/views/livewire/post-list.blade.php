@@ -18,7 +18,7 @@
                     class="lg:absolute rounded-b-lg lg:rounded-lg bg-white p-4 lg:right-0 lg:bottom-0 duration-500 flex flex-col">
 
                     {{-- Заголовок статті --}}
-                    <div :class="maximize ? 'mb-5' : ''">
+                    <div :class="maximize && 'mb-5'">
                         <h2 class="uppercase line-clamp-1 text-max-black">
                             <a href="{{ route('article.show', ['slug' => $post->slug]) }}"
                                 class="hover:text-max-soft transition">
@@ -28,7 +28,7 @@
                     </div>
 
                     {{-- Scrollbar розгорнутого тексту --}}
-                    <div :class="maximize ? '' : ''"
+                    <div
                         class="mb-auto max-h-full overflow-y-auto
                             [&::-webkit-scrollbar]:w-2
                             [&::-webkit-scrollbar-track]:rounded-full
@@ -37,7 +37,7 @@
                             [&::-webkit-scrollbar-thumb]:bg-gray-300
                             dark:[&::-webkit-scrollbar-track]:bg-max-soft/20
                             dark:[&::-webkit-scrollbar-thumb]:bg-max-soft">
-                        <p :class="!maximize ? 'line-clamp-4' : ''">
+                        <p :class="!maximize && 'line-clamp-4'">
                             {{ strip_tags($post->text) }}</p>
                     </div>
 

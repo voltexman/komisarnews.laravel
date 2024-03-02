@@ -27,9 +27,9 @@
         <div class="container">
             <div class="flex flex-col lg:flex-row">
                 <div class="lg:w-2/3">
-                    <p>Зв'яжіться з нами, надіславши листа.</p>
-                    <p>Також, ми завжди на зв'язку в месенджерах Viber та WhatsApp.</p>
-                    <p>Чекаємо на Ваші коментарі, зауваження чи побажанння.</p>
+                    <p class="m-0">Зв'яжіться з нами, надіславши листа.</p>
+                    <p class="m-0">Також, ми завжди на зв'язку в месенджерах Viber та WhatsApp.</p>
+                    <p class="m-0">Чекаємо на Ваші коментарі, зауваження чи побажанння.</p>
 
                     <div class="flex mt-10 mb-5">
                         <div class="border rounded-full border-max-soft/80 p-4">
