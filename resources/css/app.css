@@ -7,10 +7,14 @@
         display: none !important;
     }
 
+    * {
+        outline: none !important;
+    }
+
     body {
         color: #5D5751;
         font-weight: 600;
-        outline: none!important;
+        outline: none !important;
     }
 
     p {

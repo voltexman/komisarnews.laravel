@@ -40,11 +40,12 @@
     {{-- @livewireStyles --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+    {{--    <script src="https://unpkg.com/lucide@latest"></script> --}}
 </head>
 
 <body x-data="{ loading: true }">
 
-    <div @load.window="loading=false" x-show="loading" x-transition.opacity.duration.500ms
+    <div x-show="loading" @load.window="loading=false" x-transition.opacity.duration.500ms
         class="fixed w-screen h-screen top-0 left-0 bg-black z-[100] flex justify-center">
         <div class="animate-spin inline-block w-20 h-20 border-[6px] border-current border-t-transparent text-max-soft rounded-full self-center"
             role="status" aria-label="loading">
@@ -52,33 +53,33 @@
         </div>
     </div>
 
-    {{-- <div x-show="scrolled" x-init="getScrolled();
-    getPosition()" class="fixed z-50 bottom-4 right-4 size-12"
-        @scroll.window="getScrolled(); getPosition()" x-transition.duration.500ms>
-        <svg class="size-full" width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-            <!-- Background Circle -->
-            <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-max-soft"
-                stroke-width="1.7"></circle>
-            <!-- Progress Circle inside a group with rotation -->
-            <g class="origin-center -rotate-90 transform">
-                <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-gray-300"
-                    stroke-width="1.7" stroke-dasharray="100" :stroke-dashoffset="position"></circle>
-            </g>
-        </svg>
-        <div class="absolute top-1/2 start-1/2 transform -translate-y-1/2 -translate-x-1/2">
-            <a href="#" rel="nofollow"><x-lucide-arrow-up class="h-4 w-4 text-max-soft" /></a>
-        </div>
-    </div> --}}
+    {{-- <div x-show="scrolled" x-init="getScrolled(); --}}
+    {{-- getPosition()" class="fixed z-50 bottom-4 right-4 size-12" --}}
+    {{--    @scroll.window="getScrolled(); getPosition()" x-transition.duration.500ms> --}}
+    {{--    <svg class="size-full" width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"> --}}
+    {{--        <!-- Background Circle --> --}}
+    {{--        <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-max-soft" --}}
+    {{--            stroke-width="1.7"></circle> --}}
+    {{--        <!-- Progress Circle inside a group with rotation --> --}}
+    {{--        <g class="origin-center transform -rotate-90"> --}}
+    {{--            <circle cx="18" cy="18" r="16" fill="none" class="text-gray-300 stroke-current" --}}
+    {{--                stroke-width="1.7" stroke-dasharray="100" :stroke-dashoffset="position"></circle> --}}
+    {{--        </g> --}}
+    {{--    </svg> --}}
+    {{--    <div class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 start-1/2"> --}}
+    {{--        <a href="#" rel="nofollow"><x-lucide-arrow-up class="w-4 h-4 text-max-soft" /></a> --}}
+    {{--    </div> --}}
+    {{-- </div> --}}
 
     @section('header')
         <div x-data="navbar" x-init="scrolled"
             x-bind:class="(isScrolled || isOpen) && 'bg-max-black/90 backdrop-blur-sm shadow-lg shadow-max-black/40'"
-            @scroll.window="scrolled" class="z-50 fixed w-screen h-16 duration-300">
-            <div class="container flex justify-between h-full self-center">
+            @scroll.window="scrolled" class="fixed z-50 w-screen h-16 duration-300">
+            <div class="container flex self-center justify-between h-full">
 
                 <div class="flex items-center">
-                    <a href="/" class="text-white uppercase text-lg font-normal">
-                        Kom<span class="bg-max-dark text-white rounded px-2">!</span>sarnews
+                    <a href="/" class="text-lg font-normal text-white uppercase">
+                        Kom<span class="px-2 text-white rounded bg-max-dark">!</span>sarnews
                     </a>
                 </div>
 
@@ -86,29 +87,29 @@
                     <x-menu />
                 </div>
 
-                <button @click="toggle" type="button" class="lg:hidden ms-3 outline-none order-2" aria-label="Навігація">
-                    <x-lucide-menu class="h-6 w-6 text-white" x-show="!isOpen" />
-                    <x-lucide-x class="h-6 w-6 text-white" x-show="isOpen" />
+                <button @click="toggle" type="button" class="order-2 outline-none lg:hidden ms-3" aria-label="Навігація">
+                    <x-heroicon-o-bars-3 class="w-6 h-6 text-white" x-show="!isOpen" />
+                    <x-heroicon-o-x-mark class="w-6 h-6 text-white" x-show="isOpen" />
                 </button>
 
                 <!-- mobile navbar -->
                 <div class="lg:hidden" x-cloak>
-                    <div x-show="isOpen" class="absolute top-16 left-0 w-screen p-4 bg-max-black/90 rounded-b-lg shadow-xl"
+                    <div x-show="isOpen" class="absolute left-0 w-screen p-4 rounded-b-lg shadow-xl top-16 bg-max-black/90"
                         x-transition.transform @click.away="isOpen = false">
                         <x-menu />
                     </div>
                 </div>
                 <!-- end mobile navbar -->
 
-                <div class="flex items-center ms-auto lg:ms-0 order-1">
+                <div class="flex items-center order-1 ms-auto lg:ms-0">
                     <a href="#map"
-                        class="bg-max-dark hidden lg:inline-flex rounded-lg text-white uppercase px-2 font-normal text-xs h-9 items-center">
-                        <x-lucide-map-pin class="h-4 w-4 me-1" />
+                        class="items-center hidden px-2 text-xs font-normal text-white uppercase rounded-lg bg-max-dark lg:inline-flex h-9">
+                        <x-heroicon-o-map-pin class="w-4 h-4 me-1" />
                         Обрати місто
                     </a>
                     <a href="#map"
-                        class="bg-max-dark lg:hidden rounded-lg text-white uppercase px-2 font-normal text-xs inline-flex h-9 items-center">
-                        <x-lucide-map-pin class="h-4 w-4 me-1" />
+                        class="inline-flex items-center px-2 text-xs font-normal text-white uppercase rounded-lg bg-max-dark lg:hidden h-9">
+                        <x-heroicon-o-map-pin class="w-4 h-4 me-1" />
                         Міста
                     </a>
                 </div>
@@ -120,16 +121,16 @@
 
         @yield('content')
 
-        <section class="bg-max-soft py-10" id="map">
+        <section class="py-10 bg-max-soft" id="map">
             <div class="container">
-                <h2 class="text-2xl drop-shadow-lg text-center font-semibold text-max-light uppercase">
+                <h2 class="text-2xl font-semibold text-center uppercase drop-shadow-lg text-max-light">
                     Купівля і продаж<br class="lg:hidden"> волосся в містах
                 </h2>
-                <h3 class="font-normal drop-shadow-lg text-center uppercase mb-5 text-white">
+                <h3 class="mb-5 font-normal text-center text-white uppercase drop-shadow-lg">
                     Оберіть ваше місто <br class="lg:hidden"> або зробіть заявку
                 </h3>
                 <div class="flex flex-col lg:flex-row">
-                    <div class="w-full lg:w-3/4 lg:me-10 self-center">
+                    <div class="self-center w-full lg:w-3/4 lg:me-10">
                         @include('layouts.partials.map')
                     </div>
 
@@ -145,27 +146,31 @@
     <footer class="bg-max-black">
         <div class="container py-20">
             <div class="flex flex-col lg:flex-row lg:justify-between">
-                <div class="lg:w-1/3 text-max-light/60 font-semibold">
+                <div class="font-semibold lg:w-1/3 text-max-light/60">
                     <p class="flex flex-row justify-center lg:justify-start">
-                        <x-lucide-map-pin class="h-4 w-4 me-1 mt-0.5" />
+                        <x-heroicon-m-map-pin class="h-4 w-4 me-1 mt-0.5" />
                         Україна, Київ
                     </p>
                     <p class="flex flex-row justify-center lg:justify-start">
-                        <x-lucide-user class="h-4 w-4 me-1 mt-0.5" />
+                        <x-heroicon-m-user class="h-4 w-4 me-1 mt-0.5" />
                         Максим Комісар
                     </p>
                 </div>
-                <div class="lg:w-1/3 text-center mt-5 lg:mt-0">
+                <div class="mt-5 text-center lg:w-1/3 lg:mt-0">
                     <p class="text-2xl font-extrabold text-max-soft">+380 (73) 785-77-77</p>
-                    <span class="font-semibold text-max-light/60 border-b pb-1 border-max-soft">
+                    <span class="pb-1 font-semibold border-b text-max-light/60 border-max-soft">
                         123komisar@gmail.com
                     </span>
                 </div>
-                <div class="lg:w-1/3 flex gap-3 justify-end self-center text-max-soft mt-10 lg:mt-0">
+                <div class="flex self-center justify-end gap-3 mt-10 lg:w-1/3 text-max-soft lg:mt-0">
                     <a href="https://www.facebook.com/profile.php?id=100081276925197" aria-label="Ми в Facebook"
-                        target="_blank"><x-lucide-facebook class="h-6 w-6" /></a>
+                        target="_blank">
+                        <i data-lucide="facebook" class="w-6 h-6"></i>
+                    </a>
                     <a href="https://instagram.com/sale_hair_kyiv?igshid=OGQ5ZDc2ODk2ZA==" aria-label="Ми в Instagram"
-                        target="_blank"><x-lucide-instagram class="h-6 w-6" /></a>
+                        target="_blank">
+                        <i data-lucide="instagram" class="w-6 h-6"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -178,13 +183,13 @@
     <div id="hs-modal-upgrade-to-pro"
         class="hs-overlay hidden w-full h-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto">
         <div
-            class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto">
-            <div class="bg-white border border-gray-200 rounded-xl shadow-sm pointer-events-auto overflow-hidden">
+            class="m-3 mt-0 transition-all ease-out opacity-0 hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 sm:max-w-lg sm:w-full sm:mx-auto">
+            <div class="overflow-hidden bg-white border border-gray-200 shadow-sm pointer-events-auto rounded-xl">
                 <div class="p-4 sm:p-7">
-                    <div class="text-center relative">
+                    <div class="relative text-center">
                         <div class="text-lg font-semibold text-gray-700">Умови погодження</div>
                         <button type="button"
-                            class="flex absolute top-0 right-0 justify-center items-center w-7 h-7 text-sm font-semibold rounded-lg border border-transparent text-gray-800"
+                            class="absolute top-0 right-0 flex items-center justify-center text-sm font-semibold text-gray-800 border border-transparent rounded-lg w-7 h-7"
                             data-hs-overlay="#hs-bg-gray-on-hover-cards">
                             <span class="sr-only">Close</span>
                             <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24"
@@ -197,29 +202,25 @@
                     </div>
 
                     <p class="mt-5 divide-y divide-gray-200">
-                        Заповніть всі необхіні поля та надішліть нам
-                        замовлення.
+                        Заповніть всі необхіні поля та надішліть нам замовлення.
 
                         Бажано вказати колір, вагу і довжину Вашого волосся.
 
                         Електронна пошта та номер телефону нам необхідний для зворотнього зв`язку з Вами та для того
-                        щоб
-                        повідомити Вас про купівлю волосся і його вартість. Спочатку Ви отримаєте сповіщення про те,
-                        що
-                        наш фахівець ознайомлюється з замовленням, після чого Вам надійде другий лист з інформацією
-                        про
-                        вартість та іншими деталями.
-                        Зазвичай це займає не більше декількох годин після відправлення замовлення.
+                        щоб -повідомити Вас про купівлю волосся і його вартість. Спочатку Ви отримаєте сповіщення про
+                        те,
+                        що наш фахівець ознайомлюється з замовленням, після чого Вам надійде другий лист з інформацією
+                        про вартість та іншими деталями. Зазвичай це займає не більше декількох годин після відправлення
+                        замовлення.
 
                         В полі "Ваше повідомлення" Ви можете вказати будь-яку іншу, на Вашу думку, важливу
-                        інформацію
-                        стосовно волосся. Наприклад, структуру волосся, стан зрізу: свіжа рівна стрижка або просто
-                        укладене волосся або шиньйон. Вкажіть якомога більше інформації, важливі всі деталі.
+                        інформацію стосовно волосся. Наприклад, структуру волосся, стан зрізу: свіжа рівна стрижка або
+                        просто укладене волосся або шиньйон. Вкажіть якомога більше інформації, важливі всі деталі.
                     </p>
                 </div>
 
                 <!-- Footer -->
-                <div class="text-xs leading-4 bg-red-100 p-3">
+                <div class="p-3 text-xs leading-4 bg-red-100">
                     <b>МИ НЕ НАДАЄМО ВАШІ КОНТАКТНІ ДАНІ ІНШИМ ОСОБАМ ТА НЕ РОЗСИЛАЄМО СПАМ!</b>
                     НЕ НАМАГАЙТЕСЯ ОБДУРИТИ ОЦІНЮВАЧА, ВИКОРИСТОВУЮЧИ ПРИЙОМИ, ЩОБ ПОЛІПШИТИ ЯКІСТЬ ВОЛОССЯ, АБО
                     РОЗТЯГУВАТИ ПАСМО ЩОБ ВІЗУАЛЬНО ЗБІЛЬШИТИ ДОВЖИНУ. НАШ ФАХІВЕЦЬ ОБОВ'ЯЗКОВО РОЗПІЗНАЄ ОБМАН.
@@ -232,36 +233,37 @@
 
     {{-- @livewireScriptConfig --}}
 
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('navbar', () => ({
+                isOpen: false,
+                isScrolled: false,
+                toggle() {
+                    this.isOpen = !this.isOpen;
+                },
+                scrolled() {
+                    this.isScrolled = window.pageYOffset >= 200 ? true : false;
+                }
+            }));
+        });
+
+        // Alpine.data('scroll', () => {
+        //     return {
+        //         scrolled: false,
+        //         position: 0,
+        //         loading: true,
+        //         getPosition() {
+        //             var scrollPosition = window.pageYOffset;
+        //             var windowHeight = window.innerHeight;
+        //             var documentHeight = document.body.clientHeight;
+        //
+        //             this.position = -(scrollPosition / (documentHeight - windowHeight)) * 100;
+        //         }
+        //     }
+        // });
+    </script>
+    @stack('bladeicons')
+
 </body>
-
-<script>
-    document.addEventListener('alpine:init', () => {
-        Alpine.data('navbar', () => ({
-            isOpen: false,
-            isScrolled: false,
-            toggle() {
-                this.isOpen = !this.isOpen;
-            },
-            scrolled() {
-                this.isScrolled = window.pageYOffset >= 200 ? true : false;
-            }
-        }));
-    });
-
-    Alpine.data('scroll', () => {
-        return {
-            scrolled: false,
-            position: 0,
-            loading: true,
-            getPosition() {
-                var scrollPosition = window.pageYOffset;
-                var windowHeight = window.innerHeight;
-                var documentHeight = document.body.clientHeight;
-
-                this.position = -(scrollPosition / (documentHeight - windowHeight)) * 100;
-            }
-        }
-    });
-</script>
 
 </html>

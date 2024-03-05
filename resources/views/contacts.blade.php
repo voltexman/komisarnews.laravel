@@ -15,9 +15,9 @@
                 class="object-cover object-center h-full">
         </picture>
         <div
-            class="absolute top-0 left-0 h-full w-full flex flex-col justify-center items-center backdrop-blur-sm backdrop-brightness-75 bg-max-black/40">
-            <h1 class="text-max-light text-xl uppercase">Контакти</h1>
-            <span class="text-md text-max-light/80 uppercase font-light">Зв`язок з нами</span>
+            class="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full backdrop-blur-sm backdrop-brightness-75 bg-max-black/40">
+            <h1 class="text-xl uppercase text-max-light">Контакти</h1>
+            <span class="font-light uppercase text-md text-max-light/80">Зв`язок з нами</span>
         </div>
     </header>
 @endsection
@@ -32,8 +32,8 @@
                     <p class="m-0">Чекаємо на Ваші коментарі, зауваження чи побажанння.</p>
 
                     <div class="flex mt-10 mb-5">
-                        <div class="border rounded-full border-max-soft/80 p-4">
-                            <x-lucide-map-pin class="h-6 w-6 text-max-soft" />
+                        <div class="p-4 border rounded-full border-max-soft/80">
+                            <i data-lucide="map-pin" class="w-6 h-6 text-max-soft"></i>
                         </div>
                         <div class="flex flex-col ms-4">
                             <span class="font-bold">Адреса</span>
@@ -41,8 +41,8 @@
                         </div>
                     </div>
                     <div class="flex mb-5">
-                        <div class="border rounded-full border-max-soft/80 p-4">
-                            <x-lucide-phone class="h-6 w-6 text-max-soft" />
+                        <div class="p-4 border rounded-full border-max-soft/80">
+                            <i data-lucide="phone" class="w-6 h-6 text-max-soft"></i>
                         </div>
                         <div class="flex flex-col ms-4">
                             <span class="font-bold">Телефон</span>
@@ -50,8 +50,8 @@
                         </div>
                     </div>
                     <div class="flex mb-5">
-                        <div class="border rounded-full border-max-soft/80 p-4">
-                            <x-lucide-mail class="h-6 w-6 text-max-soft" />
+                        <div class="p-4 border rounded-full border-max-soft/80">
+                            <i data-lucide="mail" class="w-6 h-6 text-max-soft"></i>
                         </div>
                         <div class="flex flex-col ms-4">
                             <span class="font-bold">e-Mail</span>
@@ -59,8 +59,8 @@
                         </div>
                     </div>
                     <div class="flex">
-                        <div class="border rounded-full border-max-soft/80 p-4">
-                            <x-lucide-user class="h-6 w-6 text-max-soft" />
+                        <div class="p-4 border rounded-full border-max-soft/80">
+                            <i data-lucide="user" class="w-6 h-6 text-max-soft"></i>
                         </div>
                         <div class="flex flex-col ms-4">
                             <span class="font-bold">Контактна особа</span>
@@ -69,7 +69,7 @@
                     </div>
                 </div>
 
-                <div class="lg:w-1/3 mt-10 lg:mt-0">
+                <div class="mt-10 lg:w-1/3 lg:mt-0">
                     @livewire('feedback')
                 </div>
             </div>

@@ -7,22 +7,22 @@
 
 @section('header')
     @parent
-    <div class="relative h-screen w-full overflow-hidden">
-        <div class="bg-black/60 h-screen w-full absolute"></div>
+    <div class="relative w-full h-screen overflow-hidden">
+        <div class="absolute w-full h-screen bg-black/60"></div>
         <div
             class="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 uppercase text-white text-center w-full px-4 lg:px-0">
             <h1 class="font-thin text-2xl lg:text-4xl lg:leading-[50px]">
                 Продаж та покупка<br>волосся у Києві<span>.</span></h1>
-            <h2 class="font-semibold mt-5">Швидко, Дорого, Надійно</h2>
+            <h2 class="mt-5 font-semibold">Швидко, Дорого, Надійно</h2>
         </div>
         <img data-src="{{ asset('images/bg-header.webp') }}" data-sizes="auto" alt="komisarnes"
-            class="lazyload object-cover object-left h-screen w-full animate-ricochet lg:animate-none">
+            class="object-cover object-left w-full h-screen lazyload animate-ricochet lg:animate-none">
 
         {{-- Кнопка прокрутки вниз --}}
-        <div class="flex absolute bottom-8 left-1/2 -translate-x-1/2 ">
+        <div class="absolute flex -translate-x-1/2 bottom-8 left-1/2 ">
             <a href="#about" rel="nofollow" aria-label="Перейти до опису"
-                class="flex animate-bounce border w-12 h-12 rounded-full bg-slate-50/10 z-40">
-                <x-lucide-arrow-down class="w-6 h-6 text-slate-100 self-center mx-auto" />
+                class="z-40 flex w-12 h-12 border rounded-full animate-bounce bg-slate-50/10">
+                <x-heroicon-o-arrow-down class="self-center w-6 h-6 mx-auto text-slate-100" />
             </a>
         </div>
     </div>
@@ -32,10 +32,10 @@
     <x-section class="bg-max-light py-14" id="about">
         <div class="grid lg:grid-cols-2 gap-x-5">
             <div>
-                <h2 class="text-2xl drop-shadow-lg text-center lg:text-left font-semibold uppercase">
+                <h2 class="text-2xl font-semibold text-center uppercase drop-shadow-lg lg:text-left">
                     Шукаєте Кому Вигідно<br class="lg:hidden">Продати Волосся?
                 </h2>
-                <h3 class="font-bold drop-shadow-lg text-center lg:text-left uppercase text-max-dark mb-5">
+                <h3 class="mb-5 font-bold text-center uppercase drop-shadow-lg lg:text-left text-max-dark">
                     НАША КОМПАНІЯ ЗАВЖДИ ГОТОВА<br class="lg:hidden">КУПИТИ ВОЛОССЯ ДОРОГО!
                 </h3>
                 <p class="leading-7">Жителі багатьох міст можуть продати волосся
@@ -47,12 +47,12 @@
                     сервіс і обслуговування. Ми є професіоналами своєї справи і поважаємо кожного нашого клієнта, тому
                     гарантуємо максимум задоволення від співпраці.</p>
             </div>
-            <div class="flex justify-center mt-10 lg:mt-0 px-5 lg:px-0">
+            <div class="flex justify-center px-5 mt-10 lg:mt-0 lg:px-0">
                 <div class="animate-jumping-down">
                     <img data-src="{{ asset('images/about2.webp') }}" width="280" height="360" alt="Фото салону 1"
                         class="lazyload skew-12 rotate-[-10deg] border-2 rounded-2xl shadow-lg shadow-max-soft/50 hover:transform-none transition-transform duration-500">
                 </div>
-                <div class="animate-jumping-up mt-10">
+                <div class="mt-10 animate-jumping-up">
                     <img data-src="{{ asset('images/about.webp') }}" width="280" height="360" alt="Фото салону 2"
                         class="lazyload rotate-[10deg] border-2 rounded-2xl shadow-lg shadow-max-soft/50 hover:transform-none transition-transform duration-500">
                 </div>
@@ -61,7 +61,7 @@
     </x-section>
 
     <x-section class="bg-max-light pb-14">
-        <h2 class="text-2xl drop-shadow-lg text-center mb-5 font-semibold uppercase">
+        <h2 class="mb-5 text-2xl font-semibold text-center uppercase drop-shadow-lg">
             Чому Варто Звернутися Саме В Нашу Компанію?</h2>
         <p>Куплю волосся - в мережі можна знайти тисячі
             оголошень , але далеко не всі продавці працюють чесно.
@@ -70,106 +70,106 @@
             гарантуємо приємну співпрацю і гідну оплату Вашого товару. Здійснюємо скупку волосся по Україні і
             відбираємо якісні, живі зрізи. Після покупки, всі зрізи проходять обробку і надходять в подальший
             продаж, а також використовуються у виробництві перук.</p>
-        <h3 class="font-bold text-center drop-shadow-lg uppercase text-max-dark mt-14 mb-8">
+        <h3 class="mb-8 font-bold text-center uppercase drop-shadow-lg text-max-dark mt-14">
             ЗВЕРТАЮЧИСЬ В НАШУ КОМПАНІЮ З БАЖАННЯМ ПРОДАТИ ВОЛОССЯ, ВИ ГАРАНТОВАНО ОТРИМУЄТЕ</h3>
 
-        <div class="grid grid-rows-6 lg:grid-rows-2 grid-flow-col gap-8">
+        <div class="grid grid-flow-col grid-rows-6 gap-8 lg:grid-rows-2">
             <div class="flex">
-                <div class="me-3 h-16 w-16">
+                <div class="w-16 h-16 me-3">
                     <img src="{{ asset('images/icons/individual.svg') }}" width="100" height="100"
                         alt="Індивідуальний підхід">
                 </div>
                 <div class="flex flex-col">
-                    <div class="uppercase font-semibold">Індивідуальність</div>
+                    <div class="font-semibold uppercase">Індивідуальність</div>
                     <div class="description">Окремий та індивідуальний підхід для кожного нашого покупця</div>
                 </div>
             </div>
             <div class="flex">
-                <div class="me-3 h-16 w-16">
+                <div class="w-16 h-16 me-3">
                     <img src="{{ asset('images/icons/money.svg') }}" width="100" height="100"
                         alt="Вигідні умови співпраці">
                 </div>
                 <div class="flex flex-col">
-                    <div class="uppercase font-semibold">Вигоду</div>
+                    <div class="font-semibold uppercase">Вигоду</div>
                     <div class="description">Найвигідніші для Вас умови співпраці. Ми зацікавлені в цьому</div>
                 </div>
             </div>
             <div class="flex">
-                <div class="me-3 h-16 w-16">
+                <div class="w-16 h-16 me-3">
                     <img src="{{ asset('images/icons/handshake.svg') }}" width="100" height="100"
                         alt="Зручність та виплата">
                 </div>
                 <div class="flex flex-col">
-                    <div class="uppercase font-semibold">Зручність</div>
+                    <div class="font-semibold uppercase">Зручність</div>
                     <div class="description">Обговорена грошова виплата в зручний для Вас час та спосіб</div>
                 </div>
             </div>
             <div class="flex">
-                <div class="me-3 h-16 w-16">
+                <div class="w-16 h-16 me-3">
                     <img src="{{ asset('images/icons/fast-money.svg') }}" width="100" height="100"
                         alt="Моментальна оплата">
                 </div>
                 <div class="flex flex-col">
-                    <div class="uppercase font-semibold">Швидкість</div>
+                    <div class="font-semibold uppercase">Швидкість</div>
                     <div class="description">Моментальна оплата після оцінки та відправки Вашой шевелюри</div>
                 </div>
             </div>
             <div class="flex">
-                <div class="me-3 h-16 w-16">
+                <div class="w-16 h-16 me-3">
                     <img src="{{ asset('images/icons/info.svg') }}" width="100" height="100" alt="Інформативна оцінка">
                 </div>
                 <div class="flex flex-col">
-                    <div class="uppercase font-semibold">Інформативність</div>
+                    <div class="font-semibold uppercase">Інформативність</div>
                     <div class="description">Відправляйте по вайберу фото волосся і спеціаліст оголосить ціну</div>
                 </div>
             </div>
             <div class="flex">
-                <div class="me-3 h-16 w-16">
+                <div class="w-16 h-16 me-3">
                     <img src="{{ asset('images/icons/style.svg') }}" width="100" height="100" alt="Стильно та модно">
                 </div>
                 <div class="flex flex-col">
-                    <div class="uppercase font-semibold">Стиль</div>
+                    <div class="font-semibold uppercase">Стиль</div>
                     <div class="description">Ми запропонуємо Вам стильну та модну стрижку в подарунок</div>
                 </div>
             </div>
         </div>
     </x-section>
 
-    <x-section class="bg-max-black py-20">
+    <x-section class="py-20 bg-max-black">
         <div class="container flex">
-            <div class="hidden lg:flex justify-center w-1/2">
+            <div class="justify-center hidden w-1/2 lg:flex">
                 <img data-src="{{ asset('images/postman.jpg') }}" alt="Відправка Новою поштою"
-                    class="lazyload -skew-x-3 origin-right -rotate-6 -translate-y-4 border-2 rounded-xl shadow-lg shadow-max-dark/40 border-max-soft/60">
+                    class="origin-right -translate-y-4 -skew-x-3 border-2 shadow-lg lazyload -rotate-6 rounded-xl shadow-max-dark/40 border-max-soft/60">
             </div>
-            <div class="lg:w-1/2 flex flex-col self-center">
-                <h2 class="text-max-light/80 text-center lg:text-left uppercase font-bold text-xl">
+            <div class="flex flex-col self-center lg:w-1/2">
+                <h2 class="text-xl font-bold text-center uppercase text-max-light/80 lg:text-left">
                     Як відправити свій зріз?
                 </h2>
-                <h3 class="text-max-text text-center lg:text-left uppercase font-bold text-sm mt-1">
+                <h3 class="mt-1 text-sm font-bold text-center uppercase text-max-text lg:text-left">
                     Відправити свій зріз можна за<br class="lg:hidden">допомогою послуг Нової Пошти
                 </h3>
-                <p class="text-max-light font-semibold my-8">При відправці ви вказуєте встановлену
+                <p class="my-8 font-semibold text-max-light">При відправці ви вказуєте встановлену
                     нашим оцінювачем вартість, а при отриманні ми оплачуємо дану суму, плюс вартість
                     доставки. гроші ви зможете забрати в своєму відділенні нової пошти.</p>
                 <ul class="list-unstyled text-max-light">
-                    <li class="flex text-sm font-semibold mb-2">
-                        <x-lucide-check-check class="h-5 w-5 me-2" />
+                    <li class="flex mb-2 text-sm font-semibold">
+                        <x-heroicon-s-check class="w-5 h-5 me-2" />
                         Насамперед ви повинні обумовити деталі з нашим менеджером.
                     </li>
-                    <li class="flex text-sm font-semibold mb-2">
-                        <x-lucide-check-check class="h-5 w-5 me-2" />
+                    <li class="flex mb-2 text-sm font-semibold">
+                        <x-heroicon-s-check class="w-5 h-5 me-2" />
                         Кладемо біля волосся сантиметр і робимо фото, після чого зважуємо їх.
                     </li>
-                    <li class="flex text-sm font-semibold mb-2">
-                        <x-lucide-check-check class="h-5 w-5 me-2" />
+                    <li class="flex mb-2 text-sm font-semibold">
+                        <x-heroicon-s-check class="w-5 h-5 me-2" />
                         Надсилаємо фотографію на наш Вайбер, а оцінювач встановлює точну вартість зрізу.
                     </li>
-                    <li class="flex text-sm font-semibold mb-2">
-                        <x-lucide-check-check class="h-5 w-5 me-2" />
+                    <li class="flex mb-2 text-sm font-semibold">
+                        <x-heroicon-s-check class="w-5 h-5 me-2" />
                         Коли локони надійно упаковані, їх можна відправляти поштою в нашу компанію.
                     </li>
-                    <li class="flex text-sm font-semibold mb-2">
-                        <x-lucide-check-check class="h-5 w-5 me-2" />
+                    <li class="flex mb-2 text-sm font-semibold">
+                        <x-heroicon-s-check class="w-5 h-5 me-2" />
                         Відправка волосся проводиться післяплатою, через послуги Нової Пошти.
                     </li>
                 </ul>
@@ -185,74 +185,80 @@
         </x-slot>
 
         {{-- ELSE IF ISDESKTOP --}}
-        <div class="grid-rows-2 grid-flow-col gap-8 hidden lg:grid">
+        <div class="hidden grid-flow-col grid-rows-2 gap-8 lg:grid">
             <div
-                class="bg-white rounded-lg shadow-md py-10 px-5 flex flex-col items-center hover:shadow-xl transition-shadow">
-                <img data-src="{{ asset('images/icons/washing.svg') }}" class="lazyload h-20 w-20" alt="Миття волосся">
-                <h2 class="font-bold uppercase text-center mt-8 mb-2">Миття волосся</h2>
+                class="flex flex-col items-center px-5 py-10 transition-shadow bg-white rounded-lg shadow-md hover:shadow-xl">
+                <img data-src="{{ asset('images/icons/washing.svg') }}" class="w-20 h-20 lazyload" alt="Миття волосся">
+                <h2 class="mt-8 mb-2 font-bold text-center uppercase">Миття волосся</h2>
                 <div class="description">Попередньо необхідно вимити волосся шампунем, яким Ви зазвичай
-                    користуєтесь</div>
+                    користуєтесь
+                </div>
             </div>
             <div
-                class="bg-white rounded-lg shadow-md py-10 px-5 flex flex-col items-center hover:shadow-xl transition-shadow">
-                <img data-src="{{ asset('images/icons/bunch.svg') }}" class="lazyload h-20 w-20" alt="Поділ волосся">
-                <h2 class="font-bold uppercase text-center mt-8 mb-2">Поділ волосся</h2>
+                class="flex flex-col items-center px-5 py-10 transition-shadow bg-white rounded-lg shadow-md hover:shadow-xl">
+                <img data-src="{{ asset('images/icons/bunch.svg') }}" class="w-20 h-20 lazyload" alt="Поділ волосся">
+                <h2 class="mt-8 mb-2 font-bold text-center uppercase">Поділ волосся</h2>
                 <div class="description">Розділити волосся на кілька пасів, обмотавши кілька разів, туго
-                    перетягнути кожну гумкою</div>
+                    перетягнути кожну гумкою
+                </div>
             </div>
             <div
-                class="bg-white rounded-lg shadow-md py-10 px-5 flex flex-col items-center hover:shadow-xl transition-shadow">
-                <img data-src="{{ asset('images/icons/dry.svg') }}" class="lazyload h-20 w-20" alt="Сушка волосся">
-                <h2 class="font-bold uppercase text-center mt-8 mb-2">Сушка волосся</h2>
-                <div class="description">Просушити волосся без використання фена, дайте локонам висохнути природним
-                    шляхом</div>
+                class="flex flex-col items-center px-5 py-10 transition-shadow bg-white rounded-lg shadow-md hover:shadow-xl">
+                <img data-src="{{ asset('images/icons/dry.svg') }}" class="w-20 h-20 lazyload" alt="Сушка волосся">
+                <h2 class="mt-8 mb-2 font-bold text-center uppercase">Сушка волосся</h2>
+                <div class="description">Просушити волосся без використання фена, дайте локонам висохнути
+                    природним
+                    шляхом
+                </div>
             </div>
             <div
-                class="bg-white rounded-lg shadow-md py-10 px-5 flex flex-col items-center hover:shadow-xl transition-shadow">
-                <img data-src="{{ asset('images/icons/cutting.svg') }}" class="lazyload h-20 w-20" alt="Зріз волосся">
-                <h2 class="font-bold uppercase text-center mt-8 mb-2">Зріз волосся</h2>
+                class="flex flex-col items-center px-5 py-10 transition-shadow bg-white rounded-lg shadow-md hover:shadow-xl">
+                <img data-src="{{ asset('images/icons/cutting.svg') }}" class="w-20 h-20 lazyload" alt="Зріз волосся">
+                <h2 class="mt-8 mb-2 font-bold text-center uppercase">Зріз волосся</h2>
                 <div class="description">Зробити зріз, відступивши кілька сантиметрів трохи вище кріплення та
-                    заплітаємо зрізане волосся в косу</div>
+                    заплітаємо зрізане волосся в косу
+                </div>
             </div>
             <div
-                class="bg-white rounded-lg shadow-md py-10 px-5 flex flex-col items-center hover:shadow-xl transition-shadow">
-                <img data-src="{{ asset('images/icons/hairdresser.svg') }}" class="lazyload h-20 w-20"
+                class="flex flex-col items-center px-5 py-10 transition-shadow bg-white rounded-lg shadow-md hover:shadow-xl">
+                <img data-src="{{ asset('images/icons/hairdresser.svg') }}" class="w-20 h-20 lazyload"
                     alt="Розчісування волосся">
-                <h2 class="font-bold uppercase text-center mt-8 mb-2">Розчісування</h2>
+                <h2 class="mt-8 mb-2 font-bold text-center uppercase">Розчісування</h2>
                 <div class="description">Розчесати пасма, щоб позбутися ковтунів (якщо такі є), також,
-                    запобігти подальшому заплутування</div>
+                    запобігти подальшому заплутування
+                </div>
             </div>
             <div
-                class="bg-white rounded-lg shadow-md py-10 px-5 flex flex-col items-center hover:shadow-xl transition-shadow">
-                <img data-src="{{ asset('images/icons/hair-info.svg') }}" class="lazyload h-20 w-20"
+                class="flex flex-col items-center px-5 py-10 transition-shadow bg-white rounded-lg shadow-md hover:shadow-xl">
+                <img data-src="{{ asset('images/icons/hair-info.svg') }}" class="w-20 h-20 lazyload"
                     alt="Оцінка волосся">
-                <h2 class="font-bold uppercase text-center mt-8 mb-2">Оцінка волосся</h2>
+                <h2 class="mt-8 mb-2 font-bold text-center uppercase">Оцінка волосся</h2>
                 <div class="description">Зважити зріз та сфотографувати біля сантиметра і надіслати дані для
-                    оцінювання</div>
+                    оцінювання
+                </div>
             </div>
         </div>
 
         {{-- IF ISMOBILE --}}
-        <div class="hs-accordion-group lg:hidden bg-max-dark/30 rounded-lg shadow-lg shadow-max-dark/20 mt-8">
-            <div class="hs-accordion active hs-accordion-active:bg-max-dark/10 rounded-t-lg" id="hs-basic-heading-1">
+        <div class="mt-8 rounded-lg shadow-lg hs-accordion-group lg:hidden bg-max-dark/30 shadow-max-dark/20">
+            <div class="rounded-t-lg hs-accordion active hs-accordion-active:bg-max-dark/10" id="hs-basic-heading-1">
                 <button
-                    class="hs-accordion-toggle uppercase p-3 inline-flex items-center text-max-dark gap-x-3 text-sm w-full font-semibold text-start rounded-lg"
+                    class="inline-flex items-center w-full p-3 text-sm font-semibold uppercase rounded-lg hs-accordion-toggle text-max-dark gap-x-3 text-start"
                     aria-controls="hs-basic-collapse-1">
                     <div
-                        class="h-8 w-8 flex bg-max-soft/20 hs-accordion-active:bg-max-soft/30 rounded-full border-2 border-max-dark/20 hs-accordion-active:border-max-dark/30 justify-center">
+                        class="flex justify-center w-8 h-8 border-2 rounded-full bg-max-soft/20 hs-accordion-active:bg-max-soft/30 border-max-dark/20 hs-accordion-active:border-max-dark/30">
                         <span class="self-center text-sm font-bold text-max-dark">1</span>
                     </div>
                     Миття волосся
-                    <x-lucide-chevron-up class="h-5 w-5 ms-auto hs-accordion-active:block hidden" />
-                    <x-lucide-chevron-down class="h-5 w-5 ms-auto hs-accordion-active:hidden block" />
                 </button>
                 <div id="hs-basic-collapse-1"
                     class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300"
                     aria-labelledby="hs-basic-heading-1">
-                    <div class="pb-6 pt-3 ps-14 px-12 flex flex-col items-center">
-                        <img data-src="{{ asset('images/icons/washing.svg') }}" class="lazyload h-24 w-24"
+                    <div class="flex flex-col items-center px-12 pt-3 pb-6 ps-14">
+                        <img data-src="{{ asset('images/icons/washing.svg') }}" class="w-24 h-24 lazyload"
                             alt="Миття волосся">
-                        <p class="text-max-dark font-semibold mt-5">Попередньо необхідно вимити волосся шампунем, яким
+                        <p class="mt-5 font-semibold text-max-dark">Попередньо необхідно вимити волосся
+                            шампунем, яким
                             Ви зазвичай користуєтесь</p>
                     </div>
                 </div>
@@ -260,22 +266,21 @@
 
             <div class="hs-accordion hs-accordion-active:bg-max-dark/10" id="hs-basic-heading-2">
                 <button
-                    class="hs-accordion-toggle uppercase font-semibold p-3 inline-flex items-center gap-x-3 text-sm w-full text-start rounded-lg"
+                    class="inline-flex items-center w-full p-3 text-sm font-semibold uppercase rounded-lg hs-accordion-toggle gap-x-3 text-start"
                     aria-controls="hs-basic-collapse-2">
-                    <div class="h-8 w-8 flex bg-max-soft/20 rounded-full border-2 border-max-dark/20 justify-center">
+                    <div class="flex justify-center w-8 h-8 border-2 rounded-full bg-max-soft/20 border-max-dark/20">
                         <span class="self-center text-sm font-bold text-max-dark">2</span>
                     </div>
                     Сушка волосся
-                    <x-lucide-chevron-up class="h-5 w-5 ms-auto hs-accordion-active:block hidden" />
-                    <x-lucide-chevron-down class="h-5 w-5 ms-auto hs-accordion-active:hidden block" />
                 </button>
                 <div id="hs-basic-collapse-2"
                     class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
                     aria-labelledby="hs-basic-heading-2">
-                    <div class="pb-6 pt-3 ps-14 px-12 flex flex-col items-center">
-                        <img data-src="{{ asset('images/icons/dry.svg') }}" class="lazyload h-24 w-24"
+                    <div class="flex flex-col items-center px-12 pt-3 pb-6 ps-14">
+                        <img data-src="{{ asset('images/icons/dry.svg') }}" class="w-24 h-24 lazyload"
                             alt="Сушка волосся">
-                        <p class="text-max-dark font-semibold mt-5">Просушити волосся без використання фена, дайте
+                        <p class="mt-5 font-semibold text-max-dark">Просушити волосся без використання фена,
+                            дайте
                             локонам висохнути природним шляхом</p>
                     </div>
                 </div>
@@ -283,22 +288,20 @@
 
             <div class="hs-accordion hs-accordion-active:bg-max-dark/10" id="hs-basic-heading-3">
                 <button
-                    class="hs-accordion-toggle uppercase font-semibold p-3 inline-flex items-center gap-x-3 text-sm w-full text-start rounded-lg"
+                    class="inline-flex items-center w-full p-3 text-sm font-semibold uppercase rounded-lg hs-accordion-toggle gap-x-3 text-start"
                     aria-controls="hs-basic-collapse-3">
-                    <div class="h-8 w-8 flex bg-max-soft/20 rounded-full border-2 border-max-dark/20 justify-center">
+                    <div class="flex justify-center w-8 h-8 border-2 rounded-full bg-max-soft/20 border-max-dark/20">
                         <span class="self-center text-sm font-bold text-max-dark">3</span>
                     </div>
                     Розчісування
-                    <x-lucide-chevron-up class="h-5 w-5 ms-auto hs-accordion-active:block hidden" />
-                    <x-lucide-chevron-down class="h-5 w-5 ms-auto hs-accordion-active:hidden block" />
                 </button>
                 <div id="hs-basic-collapse-3"
                     class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
                     aria-labelledby="hs-basic-heading-3">
-                    <div class="pb-6 pt-3 ps-14 px-12 flex flex-col items-center">
-                        <img data-src="{{ asset('images/icons/hairdresser.svg') }}" class="lazyload h-24 w-24"
+                    <div class="flex flex-col items-center px-12 pt-3 pb-6 ps-14">
+                        <img data-src="{{ asset('images/icons/hairdresser.svg') }}" class="w-24 h-24 lazyload"
                             alt="Розчісування волосся">
-                        <p class="text-max-dark font-semibold mt-5">
+                        <p class="mt-5 font-semibold text-max-dark">
                             Розчесати пасма, щоб позбутися ковтунів (якщо такі є), також, запобігти подальшому
                             заплутування</p>
                     </div>
@@ -307,23 +310,22 @@
 
             <div class="hs-accordion hs-accordion-active:bg-max-dark/10" id="hs-basic-heading-4">
                 <button
-                    class="hs-accordion-toggle uppercase font-semibold p-3 inline-flex items-center gap-x-3 text-sm w-full text-start rounded-lg"
+                    class="inline-flex items-center w-full p-3 text-sm font-semibold uppercase rounded-lg hs-accordion-toggle gap-x-3 text-start"
                     aria-controls="hs-basic-collapse-4">
-                    <div class="h-8 w-8 flex bg-max-soft/20 rounded-full border-2 border-max-dark/20 justify-center">
+                    <div class="flex justify-center w-8 h-8 border-2 rounded-full bg-max-soft/20 border-max-dark/20">
                         <span class="self-center text-sm font-bold text-max-dark">4</span>
                     </div>
                     Поділ волосся
-                    <x-lucide-chevron-up class="h-5 w-5 ms-auto hs-accordion-active:block hidden" />
-                    <x-lucide-chevron-down class="h-5 w-5 ms-auto hs-accordion-active:hidden block" />
                 </button>
                 <div id="hs-basic-collapse-4"
                     class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
                     aria-labelledby="hs-basic-heading-4">
-                    <div class="pb-6 pt-3 ps-14 px-12 flex flex-col items-center">
-                        <img data-src="{{ asset('images/icons/bunch.svg') }}" class="lazyload h-24 w-24"
+                    <div class="flex flex-col items-center px-12 pt-3 pb-6 ps-14">
+                        <img data-src="{{ asset('images/icons/bunch.svg') }}" class="w-24 h-24 lazyload"
                             alt="Поділ волосся">
-                        <p class="text-max-dark font-semibold mt-5">
-                            Розділити волосся на кілька пасів, обмотавши кілька разів, туго перетягнути кожну гумкою
+                        <p class="mt-5 font-semibold text-max-dark">
+                            Розділити волосся на кілька пасів, обмотавши кілька разів, туго перетягнути кожну
+                            гумкою
                         </p>
                     </div>
                 </div>
@@ -331,22 +333,21 @@
 
             <div class="hs-accordion hs-accordion-active:bg-max-dark/10" id="hs-basic-heading-5">
                 <button
-                    class="hs-accordion-toggle uppercase font-semibold p-3 inline-flex items-center gap-x-3 text-sm w-full text-start rounded-lg"
+                    class="inline-flex items-center w-full p-3 text-sm font-semibold uppercase rounded-lg hs-accordion-toggle gap-x-3 text-start"
                     aria-controls="hs-basic-collapse-5">
-                    <div class="h-8 w-8 flex bg-max-soft/20 rounded-full border-2 border-max-dark/20 justify-center">
+                    <div class="flex justify-center w-8 h-8 border-2 rounded-full bg-max-soft/20 border-max-dark/20">
                         <span class="self-center text-sm font-bold text-max-dark">5</span>
                     </div>
                     Зріз волосся
-                    <x-lucide-chevron-up class="h-5 w-5 ms-auto hs-accordion-active:block hidden" />
-                    <x-lucide-chevron-down class="h-5 w-5 ms-auto hs-accordion-active:hidden block" />
                 </button>
                 <div id="hs-basic-collapse-5"
                     class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
                     aria-labelledby="hs-basic-heading-5">
-                    <div class="pb-6 pt-3 ps-14 px-12 flex flex-col items-center">
-                        <img data-src="{{ asset('images/icons/cutting.svg') }}" class="lazyload h-24 w-24"
+                    <div class="flex flex-col items-center px-12 pt-3 pb-6 ps-14">
+                        <img data-src="{{ asset('images/icons/cutting.svg') }}" class="w-24 h-24 lazyload"
                             alt="Зріз волосся">
-                        <p class="text-max-dark font-semibold mt-5">Зробити зріз, відступивши кілька сантиметрів трохи
+                        <p class="mt-5 font-semibold text-max-dark">Зробити зріз, відступивши кілька сантиметрів
+                            трохи
                             вище
                             кріплення та заплітаємо зрізане волосся в косу</p>
                     </div>
@@ -356,22 +357,21 @@
             <div class="hs-accordion hs-accordion-active:bg-max-dark/10 hs-accordion-active:rounded-b-lg"
                 id="hs-basic-heading-6">
                 <button
-                    class="hs-accordion-toggle uppercase font-semibold p-3 inline-flex items-center gap-x-3 text-sm w-full text-start rounded-lg"
+                    class="inline-flex items-center w-full p-3 text-sm font-semibold uppercase rounded-lg hs-accordion-toggle gap-x-3 text-start"
                     aria-controls="hs-basic-collapse-6">
-                    <div class="h-8 w-8 flex bg-max-soft/20 rounded-full border-2 border-max-dark/20 justify-center">
+                    <div class="flex justify-center w-8 h-8 border-2 rounded-full bg-max-soft/20 border-max-dark/20">
                         <span class="self-center text-sm font-bold text-max-dark">6</span>
                     </div>
                     Оцінка волосся
-                    <x-lucide-chevron-up class="h-5 w-5 ms-auto hs-accordion-active:block hidden" />
-                    <x-lucide-chevron-down class="h-5 w-5 ms-auto hs-accordion-active:hidden block" />
                 </button>
                 <div id="hs-basic-collapse-6"
                     class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
                     aria-labelledby="hs-basic-heading-6">
-                    <div class="pb-6 pt-3 ps-14 px-12 flex flex-col items-center">
-                        <img data-src="{{ asset('images/icons/hair-info.svg') }}" class="lazyload h-24 w-24"
+                    <div class="flex flex-col items-center px-12 pt-3 pb-6 ps-14">
+                        <img data-src="{{ asset('images/icons/hair-info.svg') }}" class="w-24 h-24 lazyload"
                             alt="Оцінка волосся">
-                        <p class="text-max-dark font-semibold mt-5">Зважити зріз та сфотографувати біля сантиметра і
+                        <p class="mt-5 font-semibold text-max-dark">Зважити зріз та сфотографувати біля
+                            сантиметра і
                             надіслати дані для оцінювання</p>
                     </div>
                 </div>
@@ -379,11 +379,11 @@
         </div>
 
         {{-- Warning Info --}}
-        <div class="flex bg-max-soft/5 border-max-soft/10 border rounded-lg mt-8 lg:w-1/2 p-3">
+        <div class="flex p-3 mt-8 border rounded-lg bg-max-soft/5 border-max-soft/10 lg:w-1/2">
             <div class="flex me-3">
-                <x-lucide-alert-triangle class="h-8 w-8 text-max-dark/70 animate-pulse self-center" />
+                <x-heroicon-o-exclamation-triangle class="self-center w-8 h-8 text-max-dark/70 animate-pulse" />
             </div>
-            <div class="leading-3 text-max-soft/95 font-semibold text-xs">
+            <div class="text-xs font-semibold leading-3 text-max-soft/95">
                 Не намагайтесь обдурити оцінювача, використовуючи прийоми, щоб поліпшити
                 якість волосся, або розтягувати пасмо, щоб візуально збільшити довжину.
                 Наш фахівець обов'язково розпізнає обман.
@@ -436,97 +436,106 @@
         <div class="grid lg:grid-cols-2 gap-y-8 lg:gap-x-8">
             <div>
                 <div class="flex">
-                    <div class="text-lg flex-none text-max-text me-3">Довжина зрізу</div>
-                    <div class="mx-auto w-full relative">
+                    <div class="flex-none text-lg text-max-text me-3">Довжина зрізу</div>
+                    <div class="relative w-full mx-auto">
                         <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
                     </div>
-                    <div class="border-2 flex-none border-max-soft rounded-full h-11 w-11 flex justify-center ms-3">
-                        <span class="text-xs text-max-text font-bold self-center">~20%</span>
+                    <div class="flex justify-center flex-none border-2 rounded-full border-max-soft h-11 w-11 ms-3">
+                        <span class="self-center text-xs font-bold text-max-text">~20%</span>
                     </div>
                 </div>
-                <p class="text-gray-200/90 italic">Ми купуємо зрізи від 40 сантиметрів. Якщо ваші локони коротші, то
+                <p class="italic text-gray-200/90">Ми купуємо зрізи від 40 сантиметрів. Якщо ваші локони
+                    коротші, то
                     рекомендуємо ненадовго відкласти продаж, кожен сантиметр здатний сильно відбитися на
                     вартості.</p>
             </div>
             <div>
                 <div class="flex">
-                    <div class="text-lg flex-none text-max-text me-3">Структура локонів</div>
-                    <div class="mx-auto w-full relative">
+                    <div class="flex-none text-lg text-max-text me-3">Структура локонів</div>
+                    <div class="relative w-full mx-auto">
                         <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
                     </div>
-                    <div class="border-2 flex-none border-max-soft rounded-full h-11 w-11 flex justify-center ms-3">
-                        <span class="text-xs text-max-text font-bold self-center">~20%</span>
+                    <div class="flex justify-center flex-none border-2 rounded-full border-max-soft h-11 w-11 ms-3">
+                        <span class="self-center text-xs font-bold text-max-text">~20%</span>
                     </div>
                 </div>
-                <p class="text-gray-200/90 italic">Вища вартість пропонується за якісні, здорові та рівномірні локони.
+                <p class="italic text-gray-200/90">Вища вартість пропонується за якісні, здорові та рівномірні
+                    локони.
                     М'які і природньо гладкі на дотик пасма, завжди мають значно вищу ціну.</p>
             </div>
             <div>
                 <div class="flex">
-                    <div class="text-lg flex-none text-max-text me-3">Стан пучка</div>
-                    <div class="mx-auto w-full relative">
+                    <div class="flex-none text-lg text-max-text me-3">Стан пучка</div>
+                    <div class="relative w-full mx-auto">
                         <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
                     </div>
-                    <div class="border-2 flex-none border-max-soft rounded-full h-11 w-11 flex justify-center ms-3">
-                        <span class="text-xs text-max-text font-bold self-center">~20%</span>
+                    <div class="flex justify-center flex-none border-2 rounded-full border-max-soft h-11 w-11 ms-3">
+                        <span class="self-center text-xs font-bold text-max-text">~20%</span>
                     </div>
                 </div>
-                <p class="text-gray-200/90 italic">Зріз має бути зроблений за правилами та закріплений зверху гумкою і
+                <p class="italic text-gray-200/90">Зріз має бути зроблений за правилами та закріплений зверху
+                    гумкою і
                     не мати колунів. Краще продавати свіжозрізані коси, їх ціна вища. Пролежані
                     прядки втрачають свій природний блиск та натуральні масла, які містяться в них.
                 </p>
             </div>
             <div>
                 <div class="flex">
-                    <div class="text-lg flex-none text-max-text me-3">Хімічний вплив</div>
-                    <div class="mx-auto w-full relative">
+                    <div class="flex-none text-lg text-max-text me-3">Хімічний вплив</div>
+                    <div class="relative w-full mx-auto">
                         <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
                     </div>
-                    <div class="border-2 flex-none border-max-soft rounded-full h-11 w-11 flex justify-center ms-3">
-                        <span class="text-xs text-max-text font-bold self-center">~20%</span>
+                    <div class="flex justify-center flex-none border-2 rounded-full border-max-soft h-11 w-11 ms-3">
+                        <span class="self-center text-xs font-bold text-max-text">~20%</span>
                     </div>
                 </div>
-                <p class="text-gray-200/90 italic">Ми не приймаємо пошкодженні, ламкі та сухі локони, або локони з
+                <p class="italic text-gray-200/90">Ми не приймаємо пошкодженні, ламкі та сухі локони, або локони
+                    з
                     неоднорідною структурою. А також волосся із завивкою, забруднене або оброблене будь якими
                     хімічними речовинами.</p>
             </div>
             <div>
                 <div class="flex">
-                    <div class="text-lg flex-none text-max-text me-3">Колір волосся</div>
-                    <div class="mx-auto w-full relative">
+                    <div class="flex-none text-lg text-max-text me-3">Колір волосся</div>
+                    <div class="relative w-full mx-auto">
                         <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
                     </div>
-                    <div class="border-2 flex-none border-max-soft rounded-full h-11 w-11 flex justify-center ms-3">
-                        <span class="text-xs text-max-text font-bold self-center">~20%</span>
+                    <div class="flex justify-center flex-none border-2 rounded-full border-max-soft h-11 w-11 ms-3">
+                        <span class="self-center text-xs font-bold text-max-text">~20%</span>
                     </div>
                 </div>
-                <p class="text-gray-200/90 italic">Пофарбовані пасма будуть коштувати набагато дешевше натуральних.
-                    Скупка волосся здійснюється будь-якому кольорі, але більш висока ціна встановлюється на світлі
+                <p class="italic text-gray-200/90">Пофарбовані пасма будуть коштувати набагато дешевше
+                    натуральних.
+                    Скупка волосся здійснюється будь-якому кольорі, але більш висока ціна встановлюється на
+                    світлі
                     натуральні тони.</p>
             </div>
             <div>
                 <div class="flex">
-                    <div class="text-lg flex-none text-max-text me-3">Наявність сивини</div>
-                    <div class="mx-auto w-full relative">
+                    <div class="flex-none text-lg text-max-text me-3">Наявність сивини</div>
+                    <div class="relative w-full mx-auto">
                         <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
                     </div>
-                    <div class="border-2 flex-none border-max-soft rounded-full h-11 w-11 flex justify-center ms-3">
-                        <span class="text-xs text-max-text font-bold self-center">~20%</span>
+                    <div class="flex justify-center flex-none border-2 rounded-full border-max-soft h-11 w-11 ms-3">
+                        <span class="self-center text-xs font-bold text-max-text">~20%</span>
                     </div>
                 </div>
-                <p class="text-gray-200/90 italic">Зрізи з сивиною теж підлягають купівлі, але багато залежить від
-                    доглянутості волосся та як довго росло з сивиною. Забарвлене і сиве волосся приймається від 50
+                <p class="italic text-gray-200/90">Зрізи з сивиною теж підлягають купівлі, але багато залежить
+                    від
+                    доглянутості волосся та як довго росло з сивиною. Забарвлене і сиве волосся приймається від
+                    50
                     сантиметрів.</p>
             </div>
         </div>
 
         {{-- Warning Info --}}
-        <div class="flex bg-max-soft/15 border-max-soft/10 border rounded-lg mt-10 lg:w-1/2 p-3">
+        <div class="flex p-3 mt-10 border rounded-lg bg-max-soft/15 border-max-soft/10 lg:w-1/2">
             <div class="flex me-3">
-                <x-lucide-info class="h-8 w-8 text-max-text/50 animate-pulse self-center" />
+                <x-heroicon-o-information-circle class="self-center w-8 h-8 text-max-text/50 animate-pulse" />
             </div>
-            <div class="leading-3 text-max-text font-semibold text-xs">
-                Відсоткове відношення впливу на ціну є відносним та орієнтовним. В деяких випадках відсотки можуть
+            <div class="text-xs font-semibold leading-3 text-max-text">
+                Відсоткове відношення впливу на ціну є відносним та орієнтовним. В деяких випадках відсотки
+                можуть
                 змінюватись та інші фактори можуть переважати.
             </div>
         </div>

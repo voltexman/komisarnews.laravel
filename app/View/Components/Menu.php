@@ -35,7 +35,7 @@ class Menu extends Component
             [
                 'label' => 'Контакти',
                 'url' => route('contacts.show'),
-                'icon' => 'contacts',
+                'icon' => 'contact',
             ],
         ];
 
