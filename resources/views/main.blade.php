@@ -241,141 +241,56 @@
 
         {{-- IF ISMOBILE --}}
         <div class="mt-8 rounded-lg shadow-lg hs-accordion-group lg:hidden bg-max-dark/30 shadow-max-dark/20">
-            <div class="rounded-t-lg hs-accordion active hs-accordion-active:bg-max-dark/10" id="hs-basic-heading-1">
-                <button
-                    class="inline-flex items-center w-full p-3 text-sm font-semibold uppercase rounded-lg hs-accordion-toggle text-max-dark gap-x-3 text-start"
-                    aria-controls="hs-basic-collapse-1">
-                    <div
-                        class="flex justify-center w-8 h-8 border-2 rounded-full bg-max-soft/20 hs-accordion-active:bg-max-soft/30 border-max-dark/20 hs-accordion-active:border-max-dark/30">
-                        <span class="self-center text-sm font-bold text-max-dark">1</span>
-                    </div>
-                    Миття волосся
-                </button>
-                <div id="hs-basic-collapse-1"
-                    class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300"
-                    aria-labelledby="hs-basic-heading-1">
-                    <div class="flex flex-col items-center px-12 pt-3 pb-6 ps-14">
-                        <img data-src="{{ asset('images/icons/washing.svg') }}" class="w-24 h-24 lazyload"
-                            alt="Миття волосся">
-                        <p class="mt-5 font-semibold text-max-dark">Попередньо необхідно вимити волосся
-                            шампунем, яким
-                            Ви зазвичай користуєтесь</p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="hs-accordion hs-accordion-active:bg-max-dark/10" id="hs-basic-heading-2">
-                <button
-                    class="inline-flex items-center w-full p-3 text-sm font-semibold uppercase rounded-lg hs-accordion-toggle gap-x-3 text-start"
-                    aria-controls="hs-basic-collapse-2">
-                    <div class="flex justify-center w-8 h-8 border-2 rounded-full bg-max-soft/20 border-max-dark/20">
-                        <span class="self-center text-sm font-bold text-max-dark">2</span>
-                    </div>
-                    Сушка волосся
-                </button>
-                <div id="hs-basic-collapse-2"
-                    class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
-                    aria-labelledby="hs-basic-heading-2">
-                    <div class="flex flex-col items-center px-12 pt-3 pb-6 ps-14">
-                        <img data-src="{{ asset('images/icons/dry.svg') }}" class="w-24 h-24 lazyload"
-                            alt="Сушка волосся">
-                        <p class="mt-5 font-semibold text-max-dark">Просушити волосся без використання фена,
-                            дайте
-                            локонам висохнути природним шляхом</p>
-                    </div>
-                </div>
-            </div>
+            @php
+                $accordion = [
+                    [
+                        'heading' => 'Миття волосся',
+                        'icon' => 'washing',
+                        'content' => 'Попередньо необхідно вимити волосся шампунем, яким Ви зазвичай користуєтесь.',
+                    ],
+                    [
+                        'heading' => 'Сушка волосся',
+                        'icon' => 'dry',
+                        'content' =>
+                            'Просушити волосся без використання фена, дайте локонам висохнути природним шляхом.',
+                    ],
+                    [
+                        'heading' => 'Розчісування',
+                        'icon' => 'hairdresser',
+                        'content' =>
+                            'Розчесати пасма, щоб позбутися ковтунів (якщо такі є), також, запобігти подальшому заплутування.',
+                    ],
+                    [
+                        'heading' => 'Поділ волосся',
+                        'icon' => 'bunch',
+                        'content' =>
+                            'Розділити волосся на кілька пасів, обмотавши кілька разів, туго перетягнути кожну гумкою.',
+                    ],
+                    [
+                        'heading' => 'Зріз волосся',
+                        'icon' => 'cutting',
+                        'content' =>
+                            'Зробити зріз, відступивши кілька сантиметрів трохи вище кріплення та заплітаємо зрізане волосся в косу.',
+                    ],
+                    [
+                        'heading' => 'Оцінка волосся',
+                        'icon' => 'hair-info',
+                        'content' => 'Зважити зріз та сфотографувати біля сантиметра і надіслати дані для оцінювання.',
+                    ],
+                ];
+            @endphp
 
-            <div class="hs-accordion hs-accordion-active:bg-max-dark/10" id="hs-basic-heading-3">
-                <button
-                    class="inline-flex items-center w-full p-3 text-sm font-semibold uppercase rounded-lg hs-accordion-toggle gap-x-3 text-start"
-                    aria-controls="hs-basic-collapse-3">
-                    <div class="flex justify-center w-8 h-8 border-2 rounded-full bg-max-soft/20 border-max-dark/20">
-                        <span class="self-center text-sm font-bold text-max-dark">3</span>
-                    </div>
-                    Розчісування
-                </button>
-                <div id="hs-basic-collapse-3"
-                    class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
-                    aria-labelledby="hs-basic-heading-3">
-                    <div class="flex flex-col items-center px-12 pt-3 pb-6 ps-14">
-                        <img data-src="{{ asset('images/icons/hairdresser.svg') }}" class="w-24 h-24 lazyload"
-                            alt="Розчісування волосся">
-                        <p class="mt-5 font-semibold text-max-dark">
-                            Розчесати пасма, щоб позбутися ковтунів (якщо такі є), також, запобігти подальшому
-                            заплутування</p>
-                    </div>
-                </div>
-            </div>
+            <x-accordion>
+                @foreach ($accordion as $item)
+                    <x-accordion.item label="{{ $item['heading'] }}" index="{{ $loop->index++ }}">
+                        <img data-src="{{ asset("images/icons/{$item['icon']}.svg") }}" class="w-24 h-24 mx-auto mb-5 lazyload"
+                            alt="{{ $item['heading'] }}">
+                        {{ $item['content'] }}
+                    </x-accordion.item>
+                @endforeach
+            </x-accordion>
 
-            <div class="hs-accordion hs-accordion-active:bg-max-dark/10" id="hs-basic-heading-4">
-                <button
-                    class="inline-flex items-center w-full p-3 text-sm font-semibold uppercase rounded-lg hs-accordion-toggle gap-x-3 text-start"
-                    aria-controls="hs-basic-collapse-4">
-                    <div class="flex justify-center w-8 h-8 border-2 rounded-full bg-max-soft/20 border-max-dark/20">
-                        <span class="self-center text-sm font-bold text-max-dark">4</span>
-                    </div>
-                    Поділ волосся
-                </button>
-                <div id="hs-basic-collapse-4"
-                    class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
-                    aria-labelledby="hs-basic-heading-4">
-                    <div class="flex flex-col items-center px-12 pt-3 pb-6 ps-14">
-                        <img data-src="{{ asset('images/icons/bunch.svg') }}" class="w-24 h-24 lazyload"
-                            alt="Поділ волосся">
-                        <p class="mt-5 font-semibold text-max-dark">
-                            Розділити волосся на кілька пасів, обмотавши кілька разів, туго перетягнути кожну
-                            гумкою
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="hs-accordion hs-accordion-active:bg-max-dark/10" id="hs-basic-heading-5">
-                <button
-                    class="inline-flex items-center w-full p-3 text-sm font-semibold uppercase rounded-lg hs-accordion-toggle gap-x-3 text-start"
-                    aria-controls="hs-basic-collapse-5">
-                    <div class="flex justify-center w-8 h-8 border-2 rounded-full bg-max-soft/20 border-max-dark/20">
-                        <span class="self-center text-sm font-bold text-max-dark">5</span>
-                    </div>
-                    Зріз волосся
-                </button>
-                <div id="hs-basic-collapse-5"
-                    class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
-                    aria-labelledby="hs-basic-heading-5">
-                    <div class="flex flex-col items-center px-12 pt-3 pb-6 ps-14">
-                        <img data-src="{{ asset('images/icons/cutting.svg') }}" class="w-24 h-24 lazyload"
-                            alt="Зріз волосся">
-                        <p class="mt-5 font-semibold text-max-dark">Зробити зріз, відступивши кілька сантиметрів
-                            трохи
-                            вище
-                            кріплення та заплітаємо зрізане волосся в косу</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="hs-accordion hs-accordion-active:bg-max-dark/10 hs-accordion-active:rounded-b-lg"
-                id="hs-basic-heading-6">
-                <button
-                    class="inline-flex items-center w-full p-3 text-sm font-semibold uppercase rounded-lg hs-accordion-toggle gap-x-3 text-start"
-                    aria-controls="hs-basic-collapse-6">
-                    <div class="flex justify-center w-8 h-8 border-2 rounded-full bg-max-soft/20 border-max-dark/20">
-                        <span class="self-center text-sm font-bold text-max-dark">6</span>
-                    </div>
-                    Оцінка волосся
-                </button>
-                <div id="hs-basic-collapse-6"
-                    class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
-                    aria-labelledby="hs-basic-heading-6">
-                    <div class="flex flex-col items-center px-12 pt-3 pb-6 ps-14">
-                        <img data-src="{{ asset('images/icons/hair-info.svg') }}" class="w-24 h-24 lazyload"
-                            alt="Оцінка волосся">
-                        <p class="mt-5 font-semibold text-max-dark">Зважити зріз та сфотографувати біля
-                            сантиметра і
-                            надіслати дані для оцінювання</p>
-                    </div>
-                </div>
-            </div>
         </div>
 
         {{-- Warning Info --}}

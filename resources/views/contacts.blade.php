@@ -33,36 +33,36 @@
 
                     <div class="flex mt-10 mb-5">
                         <div class="p-4 border rounded-full border-max-soft/80">
-                            <i data-lucide="map-pin" class="w-6 h-6 text-max-soft"></i>
+                            <x-heroicon-o-map-pin class="w-6 h-6 text-max-soft" />
                         </div>
-                        <div class="flex flex-col ms-4">
+                        <div class="flex flex-col self-center ms-4">
                             <span class="font-bold">Адреса</span>
                             <span>Україна, Київ</span>
                         </div>
                     </div>
                     <div class="flex mb-5">
                         <div class="p-4 border rounded-full border-max-soft/80">
-                            <i data-lucide="phone" class="w-6 h-6 text-max-soft"></i>
+                            <x-heroicon-o-phone class="w-6 h-6 text-max-soft" />
                         </div>
-                        <div class="flex flex-col ms-4">
+                        <div class="flex flex-col self-center ms-4">
                             <span class="font-bold">Телефон</span>
                             <span><a href="tel:+380737857777">+380 (73) 785-77-77</a></span>
                         </div>
                     </div>
                     <div class="flex mb-5">
                         <div class="p-4 border rounded-full border-max-soft/80">
-                            <i data-lucide="mail" class="w-6 h-6 text-max-soft"></i>
+                            <x-heroicon-o-envelope class="w-6 h-6 text-max-soft" />
                         </div>
-                        <div class="flex flex-col ms-4">
+                        <div class="flex flex-col self-center ms-4">
                             <span class="font-bold">e-Mail</span>
                             <span>123komisar@gmail.com</span>
                         </div>
                     </div>
                     <div class="flex">
                         <div class="p-4 border rounded-full border-max-soft/80">
-                            <i data-lucide="user" class="w-6 h-6 text-max-soft"></i>
+                            <x-heroicon-o-user class="w-6 h-6 text-max-soft" />
                         </div>
-                        <div class="flex flex-col ms-4">
+                        <div class="flex flex-col self-center ms-4">
                             <span class="font-bold">Контактна особа</span>
                             <span>Максим Комісар</span>
                         </div>
