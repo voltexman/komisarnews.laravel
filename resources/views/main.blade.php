@@ -7,24 +7,24 @@
 
 @section('header')
     @parent
-    <div class="relative w-full h-screen overflow-hidden">
-        <div class="absolute w-full h-screen bg-black/60"></div>
+    <div class="relative w-screen h-screen overflow-hidden">
+        <div class="absolute top-0 left-0 w-screen h-screen backdrop-brightness-50"></div>
         <div
-            class="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 uppercase text-white text-center w-full px-4 lg:px-0">
+            class="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 uppercase text-white text-center w-screen px-4 lg:px-0">
             <h1 class="font-thin text-2xl lg:text-4xl lg:leading-[50px]">
                 Продаж та покупка<br>волосся у Києві<span>.</span></h1>
             <h2 class="mt-5 font-semibold">Швидко, Дорого, Надійно</h2>
         </div>
         <img data-src="{{ asset('images/bg-header.webp') }}" data-sizes="auto" alt="komisarnes"
-            class="object-cover object-left w-full h-screen lazyload animate-ricochet lg:animate-none">
+            class="object-cover object-left w-screen h-screen lazyload animate-ricochet lg:animate-none">
 
         {{-- Кнопка прокрутки вниз --}}
-        <div class="absolute flex -translate-x-1/2 bottom-8 left-1/2 ">
+        {{-- <div class="absolute flex -translate-x-1/2 bottom-8 left-1/2 ">
             <a href="#about" rel="nofollow" aria-label="Перейти до опису"
                 class="z-40 flex w-12 h-12 border rounded-full animate-bounce bg-slate-50/10">
                 <x-heroicon-o-arrow-down class="self-center w-6 h-6 mx-auto text-slate-100" />
             </a>
-        </div>
+        </div> --}}
     </div>
 @endsection
 
@@ -74,6 +74,7 @@
             ЗВЕРТАЮЧИСЬ В НАШУ КОМПАНІЮ З БАЖАННЯМ ПРОДАТИ ВОЛОССЯ, ВИ ГАРАНТОВАНО ОТРИМУЄТЕ</h3>
 
         <div class="grid grid-flow-col grid-rows-6 gap-8 lg:grid-rows-2">
+
             <div class="flex">
                 <div class="w-16 h-16 me-3">
                     <img src="{{ asset('images/icons/individual.svg') }}" width="100" height="100"
@@ -184,112 +185,40 @@
             ЯК ПРАВИЛЬНО ЗРОБИТИ ЗРІЗ<br class="lg:hidden">ЩОБ ВИРУЧИТИ МАКСИМАЛЬНУ ЦІНУ
         </x-slot>
 
-        {{-- ELSE IF ISDESKTOP --}}
+        {{-- IF ISDESKTOP --}}
         <div class="hidden grid-flow-col grid-rows-2 gap-8 lg:grid">
-            <div
-                class="flex flex-col items-center px-5 py-10 transition-shadow bg-white rounded-lg shadow-md hover:shadow-xl">
-                <img data-src="{{ asset('images/icons/washing.svg') }}" class="w-20 h-20 lazyload" alt="Миття волосся">
-                <h2 class="mt-8 mb-2 font-bold text-center uppercase">Миття волосся</h2>
-                <div class="description">Попередньо необхідно вимити волосся шампунем, яким Ви зазвичай
-                    користуєтесь
-                </div>
-            </div>
-            <div
-                class="flex flex-col items-center px-5 py-10 transition-shadow bg-white rounded-lg shadow-md hover:shadow-xl">
-                <img data-src="{{ asset('images/icons/bunch.svg') }}" class="w-20 h-20 lazyload" alt="Поділ волосся">
-                <h2 class="mt-8 mb-2 font-bold text-center uppercase">Поділ волосся</h2>
-                <div class="description">Розділити волосся на кілька пасів, обмотавши кілька разів, туго
-                    перетягнути кожну гумкою
-                </div>
-            </div>
-            <div
-                class="flex flex-col items-center px-5 py-10 transition-shadow bg-white rounded-lg shadow-md hover:shadow-xl">
-                <img data-src="{{ asset('images/icons/dry.svg') }}" class="w-20 h-20 lazyload" alt="Сушка волосся">
-                <h2 class="mt-8 mb-2 font-bold text-center uppercase">Сушка волосся</h2>
-                <div class="description">Просушити волосся без використання фена, дайте локонам висохнути
-                    природним
-                    шляхом
-                </div>
-            </div>
-            <div
-                class="flex flex-col items-center px-5 py-10 transition-shadow bg-white rounded-lg shadow-md hover:shadow-xl">
-                <img data-src="{{ asset('images/icons/cutting.svg') }}" class="w-20 h-20 lazyload" alt="Зріз волосся">
-                <h2 class="mt-8 mb-2 font-bold text-center uppercase">Зріз волосся</h2>
-                <div class="description">Зробити зріз, відступивши кілька сантиметрів трохи вище кріплення та
-                    заплітаємо зрізане волосся в косу
-                </div>
-            </div>
-            <div
-                class="flex flex-col items-center px-5 py-10 transition-shadow bg-white rounded-lg shadow-md hover:shadow-xl">
-                <img data-src="{{ asset('images/icons/hairdresser.svg') }}" class="w-20 h-20 lazyload"
-                    alt="Розчісування волосся">
-                <h2 class="mt-8 mb-2 font-bold text-center uppercase">Розчісування</h2>
-                <div class="description">Розчесати пасма, щоб позбутися ковтунів (якщо такі є), також,
-                    запобігти подальшому заплутування
-                </div>
-            </div>
-            <div
-                class="flex flex-col items-center px-5 py-10 transition-shadow bg-white rounded-lg shadow-md hover:shadow-xl">
-                <img data-src="{{ asset('images/icons/hair-info.svg') }}" class="w-20 h-20 lazyload"
-                    alt="Оцінка волосся">
-                <h2 class="mt-8 mb-2 font-bold text-center uppercase">Оцінка волосся</h2>
-                <div class="description">Зважити зріз та сфотографувати біля сантиметра і надіслати дані для
-                    оцінювання
-                </div>
-            </div>
+
+            @isset($accordion)
+
+                {{-- @dump($accordion) --}}
+
+                @foreach ($accordion as $item)
+                    <div
+                        class="flex flex-col items-center px-8 py-10 transition-shadow bg-white rounded-lg shadow-md hover:shadow-xl">
+                        <img data-src="{{ asset("images/icons/{$item['icon']}.svg") }}" class="w-20 h-20 lazyload"
+                            alt="{{ $item['heading'] }}">
+                        {{-- <h2 class="mt-8 mb-2 font-bold text-center uppercase">{{ $item['heading'] }}</h2> --}}
+                        {{-- <div class="">{{ $item['content'] }}</div> --}}
+                    </div>
+                @endforeach
+            @endisset
+
         </div>
 
         {{-- IF ISMOBILE --}}
         <div class="mt-8 rounded-lg shadow-lg hs-accordion-group lg:hidden bg-max-dark/30 shadow-max-dark/20">
 
-            @php
-                $accordion = [
-                    [
-                        'heading' => 'Миття волосся',
-                        'icon' => 'washing',
-                        'content' => 'Попередньо необхідно вимити волосся шампунем, яким Ви зазвичай користуєтесь.',
-                    ],
-                    [
-                        'heading' => 'Сушка волосся',
-                        'icon' => 'dry',
-                        'content' =>
-                            'Просушити волосся без використання фена, дайте локонам висохнути природним шляхом.',
-                    ],
-                    [
-                        'heading' => 'Розчісування',
-                        'icon' => 'hairdresser',
-                        'content' =>
-                            'Розчесати пасма, щоб позбутися ковтунів (якщо такі є), також, запобігти подальшому заплутування.',
-                    ],
-                    [
-                        'heading' => 'Поділ волосся',
-                        'icon' => 'bunch',
-                        'content' =>
-                            'Розділити волосся на кілька пасів, обмотавши кілька разів, туго перетягнути кожну гумкою.',
-                    ],
-                    [
-                        'heading' => 'Зріз волосся',
-                        'icon' => 'cutting',
-                        'content' =>
-                            'Зробити зріз, відступивши кілька сантиметрів трохи вище кріплення та заплітаємо зрізане волосся в косу.',
-                    ],
-                    [
-                        'heading' => 'Оцінка волосся',
-                        'icon' => 'hair-info',
-                        'content' => 'Зважити зріз та сфотографувати біля сантиметра і надіслати дані для оцінювання.',
-                    ],
-                ];
-            @endphp
-
-            <x-accordion>
-                @foreach ($accordion as $item)
-                    <x-accordion.item label="{{ $item['heading'] }}" index="{{ $loop->index++ }}">
-                        <img data-src="{{ asset("images/icons/{$item['icon']}.svg") }}" class="w-24 h-24 mx-auto mb-5 lazyload"
-                            alt="{{ $item['heading'] }}">
+            {{-- @isset($accordion)
+                <x-accordion>
+                    @foreach ($accordion as $item)
+                        <x-accordion.item label="{{ $item['heading'] }}" index="{{ $loop->index++ }}">
+                        <img data-src="{{ asset("images/icons/{$item['icon']}.svg") }}"
+                            class="w-24 h-24 mx-auto mb-5 lazyload" alt="{{ $item['heading'] }}">
                         {{ $item['content'] }}
                     </x-accordion.item>
-                @endforeach
-            </x-accordion>
+                    @endforeach
+                </x-accordion>
+            @endisset --}}
 
         </div>
 
@@ -450,8 +379,7 @@
             </div>
             <div class="text-xs font-semibold leading-3 text-max-text">
                 Відсоткове відношення впливу на ціну є відносним та орієнтовним. В деяких випадках відсотки
-                можуть
-                змінюватись та інші фактори можуть переважати.
+                можуть змінюватись та інші фактори можуть переважати.
             </div>
         </div>
     </x-section>

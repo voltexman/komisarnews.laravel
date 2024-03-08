@@ -480,8 +480,7 @@
             <x-modal x-show="showModal" @click.away="showModal = false">
                 {{-- Close Modal Button X --}}
                 <span class="absolute cursor-pointer top-2 right-2">
-                    <x-heroicon-s-x-mark class="w-5 h-5"
-                    @click="showModal = false"/>
+                    <x-heroicon-s-x-mark class="w-5 h-5" @click="showModal = false" />
                 </span>
                 <x-slot name="header" icon="document-check">
                     Правила заявки

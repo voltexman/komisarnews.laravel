@@ -37,10 +37,7 @@
 
     <meta name="robots" content="@yield('robots')">
 
-    {{-- @livewireStyles --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-    {{--    <script src="https://unpkg.com/lucide@latest"></script> --}}
 </head>
 
 <body x-data="{ loading: true }">
@@ -71,51 +68,70 @@
     {{--    </div> --}}
     {{-- </div> --}}
 
-    @section('header')
-        <div x-data="navbar" x-init="scrolled"
-            x-bind:class="(isScrolled || isOpen) && 'bg-max-black/90 backdrop-blur-sm shadow-lg shadow-max-black/40'"
-            @scroll.window="scrolled" class="fixed z-50 w-screen h-16 duration-300">
-            <div class="container flex self-center justify-between h-full">
+    <header>
+        @section('header')
+            <nav x-data="navbar" x-init="scrolled" class="fixed z-50 w-screen duration-500" x-cloak
+                x-bind:class="(isScrolled || isOpen) && 'bg-max-black/90 backdrop-blur-sm shadow-lg shadow-max-black/40'"
+                @scroll.window="scrolled">
+                <div class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
+                    <div class="relative flex items-center justify-between h-16">
 
-                <div class="flex items-center">
-                    <a href="/" class="text-lg font-normal text-white uppercase">
-                        Kom<span class="px-2 text-white rounded bg-max-dark">!</span>sarnews
-                    </a>
+                        {{-- Logo --}}
+                        <div class="flex items-center flex-shrink-0">
+                            <a href="/" class="text-lg font-normal text-white uppercase">
+                                Kom<span class="px-2 text-white rounded bg-max-dark">!</span>sarnews
+                            </a>
+                        </div>
+
+                        {{-- Desktop Menu --}}
+                        <div class="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start ">
+                            <div class="hidden w-full sm:ml-6 sm:block">
+                                <div class="flex space-x-4">
+                                    <x-menu />
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- Scroll to Map Button --}}
+                        <div class="inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                            <div class="flex items-center order-1 ms-auto lg:ms-0">
+                                <button href="#map"
+                                    class="items-center hidden px-2 text-xs font-normal text-white uppercase rounded-lg bg-max-dark lg:inline-flex h-9">
+                                    <x-heroicon-o-map-pin class="w-4 h-4 me-1" />
+                                    Обрати місто
+                                </button>
+                                <a href="#map"
+                                    class="inline-flex items-center px-2 text-xs font-normal text-white uppercase rounded-lg bg-max-dark lg:hidden h-9">
+                                    <x-heroicon-o-map-pin class="w-4 h-4 me-1" />
+                                    Міста
+                                </a>
+                            </div>
+                        </div>
+
+                        {{-- Mobile Show Menu Button --}}
+                        <div class="inset-y-0 left-0 flex items-center sm:hidden">
+                            <!-- Mobile menu button-->
+                            <button type="button" @click="toggle"
+                                class="relative inline-flex items-center justify-center p-2 text-white rounded-md"
+                                aria-controls="mobile-menu" aria-expanded="false">
+                                <span class="absolute -inset-0.5"></span>
+                                <span class="sr-only">Open main menu</span>
+                                <x-heroicon-s-bars-3 class="w-6 h-6" x-show="!isOpen" />
+                                <x-heroicon-s-x-mark class="w-6 h-6" x-show="isOpen" />
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="hidden lg:flex">
-                    <x-menu />
-                </div>
-
-                <button @click="toggle" type="button" class="order-2 outline-none lg:hidden ms-3" aria-label="Навігація">
-                    <x-heroicon-o-bars-3 class="w-6 h-6 text-white" x-show="!isOpen" />
-                    <x-heroicon-o-x-mark class="w-6 h-6 text-white" x-show="isOpen" />
-                </button>
-
-                <!-- mobile navbar -->
-                <div class="lg:hidden" x-cloak>
-                    <div x-show="isOpen" class="absolute left-0 w-screen p-4 rounded-b-lg shadow-xl top-16 bg-max-black/90"
-                        x-transition.transform @click.away="isOpen = false">
+                <!-- Mobile menu, show/hide based on menu state. -->
+                <div x-show="isOpen" x-collapse class="sm:hidden" id="mobile-menu">
+                    <div class="px-2 pt-2 pb-3 space-y-1">
                         <x-menu />
                     </div>
                 </div>
-                <!-- end mobile navbar -->
-
-                <div class="flex items-center order-1 ms-auto lg:ms-0">
-                    <a href="#map"
-                        class="items-center hidden px-2 text-xs font-normal text-white uppercase rounded-lg bg-max-dark lg:inline-flex h-9">
-                        <x-heroicon-o-map-pin class="w-4 h-4 me-1" />
-                        Обрати місто
-                    </a>
-                    <a href="#map"
-                        class="inline-flex items-center px-2 text-xs font-normal text-white uppercase rounded-lg bg-max-dark lg:hidden h-9">
-                        <x-heroicon-o-map-pin class="w-4 h-4 me-1" />
-                        Міста
-                    </a>
-                </div>
-            </div>
-        </div>
-    @show
+            </nav>
+        @show
+    </header>
 
     <main>
 
@@ -178,60 +194,6 @@
             {{ date('Y') }} © KomisarNews. Всі права застережено.
         </div>
     </footer>
-
-    <!-- Modal -->
-    <div id="hs-modal-upgrade-to-pro"
-        class="hs-overlay hidden w-full h-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto">
-        <div
-            class="m-3 mt-0 transition-all ease-out opacity-0 hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 sm:max-w-lg sm:w-full sm:mx-auto">
-            <div class="overflow-hidden bg-white border border-gray-200 shadow-sm pointer-events-auto rounded-xl">
-                <div class="p-4 sm:p-7">
-                    <div class="relative text-center">
-                        <div class="text-lg font-semibold text-gray-700">Умови погодження</div>
-                        <button type="button"
-                            class="absolute top-0 right-0 flex items-center justify-center text-sm font-semibold text-gray-800 border border-transparent rounded-lg w-7 h-7"
-                            data-hs-overlay="#hs-bg-gray-on-hover-cards">
-                            <span class="sr-only">Close</span>
-                            <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d=" M18 6 6 18" />
-                                <path d="m6 6 12 12" />
-                            </svg>
-                        </button>
-                    </div>
-
-                    <p class="mt-5 divide-y divide-gray-200">
-                        Заповніть всі необхіні поля та надішліть нам замовлення.
-
-                        Бажано вказати колір, вагу і довжину Вашого волосся.
-
-                        Електронна пошта та номер телефону нам необхідний для зворотнього зв`язку з Вами та для того
-                        щоб -повідомити Вас про купівлю волосся і його вартість. Спочатку Ви отримаєте сповіщення про
-                        те,
-                        що наш фахівець ознайомлюється з замовленням, після чого Вам надійде другий лист з інформацією
-                        про вартість та іншими деталями. Зазвичай це займає не більше декількох годин після відправлення
-                        замовлення.
-
-                        В полі "Ваше повідомлення" Ви можете вказати будь-яку іншу, на Вашу думку, важливу
-                        інформацію стосовно волосся. Наприклад, структуру волосся, стан зрізу: свіжа рівна стрижка або
-                        просто укладене волосся або шиньйон. Вкажіть якомога більше інформації, важливі всі деталі.
-                    </p>
-                </div>
-
-                <!-- Footer -->
-                <div class="p-3 text-xs leading-4 bg-red-100">
-                    <b>МИ НЕ НАДАЄМО ВАШІ КОНТАКТНІ ДАНІ ІНШИМ ОСОБАМ ТА НЕ РОЗСИЛАЄМО СПАМ!</b>
-                    НЕ НАМАГАЙТЕСЯ ОБДУРИТИ ОЦІНЮВАЧА, ВИКОРИСТОВУЮЧИ ПРИЙОМИ, ЩОБ ПОЛІПШИТИ ЯКІСТЬ ВОЛОССЯ, АБО
-                    РОЗТЯГУВАТИ ПАСМО ЩОБ ВІЗУАЛЬНО ЗБІЛЬШИТИ ДОВЖИНУ. НАШ ФАХІВЕЦЬ ОБОВ'ЯЗКОВО РОЗПІЗНАЄ ОБМАН.
-                </div>
-                <!-- End Footer -->
-            </div>
-        </div>
-    </div>
-    <!-- End Modal -->
-
-    {{-- @livewireScriptConfig --}}
 
     <script>
         document.addEventListener('alpine:init', () => {

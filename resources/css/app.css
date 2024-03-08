@@ -12,7 +12,7 @@
     }
 
     body {
-        color: #5D5751;
+        color: #5d5751;
         font-weight: 600;
         outline: none !important;
     }
@@ -21,16 +21,27 @@
         margin-bottom: 8px;
     }
 
+    .required::after {
+        position: absolute;
+        content: "*";
+        top: 5px;
+        right: 5px;
+        font-size: 16px;
+        color: red;
+        font-weight: bold;
+        opacity: 0.9;
+    }
+
     #KyivCity {
-        fill: #3184EA;
+        fill: #3184ea;
         opacity: 0;
     }
 
     .mapBackground {
         fill: #f5eee7;
         stroke: #9b7f62;
-        stroke-width: .8;
-        transition: .5s;
+        stroke-width: 0.8;
+        transition: 0.5s;
         cursor: pointer;
     }
 
@@ -55,40 +66,39 @@
     .cityName {
         transition: all 0.3s ease;
         pointer-events: none;
-        font-family: 'Roboto', sans-serif;
+        font-family: "Roboto", sans-serif;
         font-weight: bold;
         font-size: 0.6em;
         fill: #685340;
     }
 
-    #Kiev:hover~.cityKiev,
-    #KyivCity:hover~.cityKiev,
-    #SevastopolCity:hover~.citySevastopol,
-    #Crimea:hover~.citySimferopol,
-    #Cherkasy:hover~.cityCherkasy,
-    #Chernivtsi:hover~.cityChernivtsi,
-    #Dnipropetrovsk:hover~.cityDnipro,
-    #Donetsk:hover~.cityDonetsk,
-    #Ivano-Frankivsk:hover~.cityIvano-Frankivsk,
-    #Kharkiv:hover~.cityKharkiv,
-    #Kherson:hover~.cityKherson,
-    #Khmelnytskyi:hover~.cityKhmelnytskyi,
-    #Kirovohrad:hover~.cityKropyvnytskyi,
-    #Luhansk:hover~.cityLuhansk,
-    #Lviv:hover~.cityLviv,
-    #Mykolaiv:hover~.cityMykolaiv,
-    #Odessa:hover~.cityOdessa,
-    #Poltava:hover~.cityPoltava,
-    #Rivne:hover~.cityRivne,
-    #Sumu:hover~.citySumu,
-    #Chernihiv:hover~.cityChernihiv,
-    #Ternopil:hover~.cityTernopil,
-    #Zakarpattia:hover~.cityUzhhorod,
-    #Vinnytsia:hover~.cityVinnytsia,
-    #Volyn:hover~.cityLutsk,
-    #Zaporizhia:hover~.cityZaporizhia,
-    #Zhytomyr:hover~.cityZhytomyr {
-
+    #Kiev:hover ~ .cityKiev,
+    #KyivCity:hover ~ .cityKiev,
+    #SevastopolCity:hover ~ .citySevastopol,
+    #Crimea:hover ~ .citySimferopol,
+    #Cherkasy:hover ~ .cityCherkasy,
+    #Chernivtsi:hover ~ .cityChernivtsi,
+    #Dnipropetrovsk:hover ~ .cityDnipro,
+    #Donetsk:hover ~ .cityDonetsk,
+    #Ivano-Frankivsk:hover ~ .cityIvano-Frankivsk,
+    #Kharkiv:hover ~ .cityKharkiv,
+    #Kherson:hover ~ .cityKherson,
+    #Khmelnytskyi:hover ~ .cityKhmelnytskyi,
+    #Kirovohrad:hover ~ .cityKropyvnytskyi,
+    #Luhansk:hover ~ .cityLuhansk,
+    #Lviv:hover ~ .cityLviv,
+    #Mykolaiv:hover ~ .cityMykolaiv,
+    #Odessa:hover ~ .cityOdessa,
+    #Poltava:hover ~ .cityPoltava,
+    #Rivne:hover ~ .cityRivne,
+    #Sumu:hover ~ .citySumu,
+    #Chernihiv:hover ~ .cityChernihiv,
+    #Ternopil:hover ~ .cityTernopil,
+    #Zakarpattia:hover ~ .cityUzhhorod,
+    #Vinnytsia:hover ~ .cityVinnytsia,
+    #Volyn:hover ~ .cityLutsk,
+    #Zaporizhia:hover ~ .cityZaporizhia,
+    #Zhytomyr:hover ~ .cityZhytomyr {
         visibility: visible;
         opacity: 1;
     }

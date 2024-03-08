@@ -1,5 +1,3 @@
-@props(['class' => ''])
-
 <div x-data="{
     setActiveAccordion(id) {
             this.activeAccordion = (this.activeAccordion == id) ? '' : id

@@ -1,4 +1,4 @@
-@props(['label', 'required', 'icon'])
+@props(['label', 'required' => false, 'icon'])
 
 <div x-data="{ counter: false }" class="relative">
 
@@ -15,13 +15,9 @@
         x-on:blur="counter = false">
 
     <label for="input-{{ Str::slug($label) }}"
-        class="{{ isset($icon) ? 'pl-12' : '' }} absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-max-soft peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-max-soft">
+        class="{{ isset($icon) ? 'pl-12' : '' }} {{ $required ? 'required' : '' }} w-full absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-max-soft peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-max-soft">
         {{ $label }}
     </label>
-
-    <template x-if="'{{ isset($required) }}'">
-        <span class="absolute top-0 text-lg text-red-500 right-1">*</span>
-    </template>
 
     {{-- TODO: вказати name поля --}}
     <template x-if="'{{ $attributes->has('maxlength') }}'">
