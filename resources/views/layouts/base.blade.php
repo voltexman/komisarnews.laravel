@@ -50,23 +50,14 @@
         </div>
     </div>
 
-    {{-- <div x-show="scrolled" x-init="getScrolled(); --}}
-    {{-- getPosition()" class="fixed z-50 bottom-4 right-4 size-12" --}}
-    {{--    @scroll.window="getScrolled(); getPosition()" x-transition.duration.500ms> --}}
-    {{--    <svg class="size-full" width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"> --}}
-    {{--        <!-- Background Circle --> --}}
-    {{--        <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-max-soft" --}}
-    {{--            stroke-width="1.7"></circle> --}}
-    {{--        <!-- Progress Circle inside a group with rotation --> --}}
-    {{--        <g class="origin-center transform -rotate-90"> --}}
-    {{--            <circle cx="18" cy="18" r="16" fill="none" class="text-gray-300 stroke-current" --}}
-    {{--                stroke-width="1.7" stroke-dasharray="100" :stroke-dashoffset="position"></circle> --}}
-    {{--        </g> --}}
-    {{--    </svg> --}}
-    {{--    <div class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 start-1/2"> --}}
-    {{--        <a href="#" rel="nofollow"><x-lucide-arrow-up class="w-4 h-4 text-max-soft" /></a> --}}
-    {{--    </div> --}}
-    {{-- </div> --}}
+    <div x-data="scrollProgress" x-show="isVisible" x-init="scrollProgress" x-transition.opacity.duration.500ms x-cloak
+        class="fixed z-40 grid items-center w-12 h-12 rounded-full shadow-md bottom-4 right-4 bg-max-soft/50 shadow-max-dark/20"
+        :style="{ background: `conic-gradient(rgb(92, 75, 56, .7) ${percent}% , rgb(145, 118, 90, .4) ${percent}%)` }"
+        @scroll.window="scrollProgress">
+        <span class="z-50 flex items-center justify-center w-10 h-10 mx-auto rounded-full bg-max-soft">
+            <x-heroicon-s-arrow-up class="w-4 h-4 text-center text-max-light" />
+        </span>
+    </div>
 
     <header>
         @section('header')
@@ -207,25 +198,25 @@
                     this.isScrolled = window.pageYOffset >= 200 ? true : false;
                 }
             }));
+
+            Alpine.data('scrollProgress', () => ({
+                circumference: 30 * 2 * Math.PI,
+                percent: 0,
+                isVisible: false,
+                init() {
+                    window.addEventListener('scroll', () => {
+                        let winScroll = document.body.scrollTop || document.documentElement
+                            .scrollTop
+                        let height = document.documentElement.scrollHeight - document
+                            .documentElement.clientHeight
+                        this.percent = Math.round((winScroll / height) * 100)
+
+                        this.isVisible = window.pageYOffset >= 500 ? true : false;
+                    });
+                }
+            }));
         });
-
-        // Alpine.data('scroll', () => {
-        //     return {
-        //         scrolled: false,
-        //         position: 0,
-        //         loading: true,
-        //         getPosition() {
-        //             var scrollPosition = window.pageYOffset;
-        //             var windowHeight = window.innerHeight;
-        //             var documentHeight = document.body.clientHeight;
-        //
-        //             this.position = -(scrollPosition / (documentHeight - windowHeight)) * 100;
-        //         }
-        //     }
-        // });
     </script>
-    @stack('bladeicons')
-
 </body>
 
 </html>

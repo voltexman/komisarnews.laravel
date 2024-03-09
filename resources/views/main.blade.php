@@ -7,30 +7,29 @@
 
 @section('header')
     @parent
-    <div class="relative w-screen h-screen overflow-hidden">
-        <div class="absolute top-0 left-0 w-screen h-screen backdrop-brightness-50"></div>
-        <div
-            class="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 uppercase text-white text-center w-screen px-4 lg:px-0">
-            <h1 class="font-thin text-2xl lg:text-4xl lg:leading-[50px]">
-                Продаж та покупка<br>волосся у Києві<span>.</span></h1>
-            <h2 class="mt-5 font-semibold">Швидко, Дорого, Надійно</h2>
+    <div class="relative w-full h-screen py-24 overflow-hidden bg-gray-900 isolate sm:py-32">
+        <div class="absolute top-0 left-0 w-full h-full bg-max-black/75"></div>
+        <img data-src="{{ asset('images/bg-header.webp') }}" data-sizes="auto" alt="Komisarnews"
+            class="absolute inset-0 object-cover object-right w-full h-full -z-10 md:object-center wscreen hscreen lazyload animate-ricochet lg:animate-none">
+        <div class="px-6 mx-auto max-w-7xl lg:px-8">
+            <div class="absolute w-full top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 mx-auto lg:mx-0">
+                <h1 class="text-2xl font-thin text-center text-white uppercase lg:text-4xl">
+                    Продаж та покупка<br>волосся у Києві<span class="text-max-soft">.</span></h1>
+                <h2 class="mt-5 font-semibold text-center text-white uppercase">Швидко, Дорого, Надійно</h2>
+            </div>
         </div>
-        <img data-src="{{ asset('images/bg-header.webp') }}" data-sizes="auto" alt="komisarnes"
-            class="object-cover object-left w-screen h-screen lazyload animate-ricochet lg:animate-none">
-
-        {{-- Кнопка прокрутки вниз --}}
-        {{-- <div class="absolute flex -translate-x-1/2 bottom-8 left-1/2 ">
+        <div class="absolute flex -translate-x-1/2 bottom-8 left-1/2 ">
             <a href="#about" rel="nofollow" aria-label="Перейти до опису"
-                class="z-40 flex w-12 h-12 border rounded-full animate-bounce bg-slate-50/10">
+                class="z-40 flex w-12 h-12 border rounded-full animate-bounce bg-slate-50/20">
                 <x-heroicon-o-arrow-down class="self-center w-6 h-6 mx-auto text-slate-100" />
             </a>
-        </div> --}}
+        </div>
     </div>
 @endsection
 
 @section('content')
     <x-section class="bg-max-light py-14" id="about">
-        <div class="grid lg:grid-cols-2 gap-x-5">
+        <div class="grid overflow-hidden lg:grid-cols-2 gap-x-5">
             <div>
                 <h2 class="text-2xl font-semibold text-center uppercase drop-shadow-lg lg:text-left">
                     Шукаєте Кому Вигідно<br class="lg:hidden">Продати Волосся?
@@ -47,7 +46,7 @@
                     сервіс і обслуговування. Ми є професіоналами своєї справи і поважаємо кожного нашого клієнта, тому
                     гарантуємо максимум задоволення від співпраці.</p>
             </div>
-            <div class="flex justify-center px-5 mt-10 lg:mt-0 lg:px-0">
+            <div class="flex justify-center px-5 py-10 lg:py-10 lg:px-10">
                 <div class="animate-jumping-down">
                     <img data-src="{{ asset('images/about2.webp') }}" width="280" height="360" alt="Фото салону 1"
                         class="lazyload skew-12 rotate-[-10deg] border-2 rounded-2xl shadow-lg shadow-max-soft/50 hover:transform-none transition-transform duration-500">
