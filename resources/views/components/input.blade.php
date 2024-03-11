@@ -3,7 +3,7 @@
 <div x-data="{ counter: false }" class="relative">
 
     @isset($icon)
-        @svg('lucide-' . $icon, 'absolute w-5 h-5 top-4 left-4 opacity-80')
+        @svg('lucide-' . $icon, 'absolute w-5 h-5 top-4 left-4 text-max-soft opacity-90')
     @endisset
 
     <input
