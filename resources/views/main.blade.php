@@ -188,16 +188,13 @@
         <div class="hidden grid-flow-col grid-rows-2 gap-8 lg:grid">
 
             @isset($accordion)
-
-                {{-- @dump($accordion) --}}
-
                 @foreach ($accordion as $item)
                     <div
                         class="flex flex-col items-center px-8 py-10 transition-shadow bg-white rounded-lg shadow-md hover:shadow-xl">
                         <img data-src="{{ asset("images/icons/{$item['icon']}.svg") }}" class="w-20 h-20 lazyload"
                             alt="{{ $item['heading'] }}">
-                        {{-- <h2 class="mt-8 mb-2 font-bold text-center uppercase">{{ $item['heading'] }}</h2> --}}
-                        {{-- <div class="">{{ $item['content'] }}</div> --}}
+                        <h2 class="mt-8 mb-2 font-bold text-center uppercase">{{ $item['heading'] }}</h2>
+                        <div class="">{{ $item['content'] }}</div>
                     </div>
                 @endforeach
             @endisset
@@ -207,24 +204,24 @@
         {{-- IF ISMOBILE --}}
         <div class="mt-8 rounded-lg shadow-lg hs-accordion-group lg:hidden bg-max-dark/30 shadow-max-dark/20">
 
-            {{-- @isset($accordion)
+            @isset($accordion)
                 <x-accordion>
                     @foreach ($accordion as $item)
-                        <x-accordion.item label="{{ $item['heading'] }}" index="{{ $loop->index++ }}">
-                        <img data-src="{{ asset("images/icons/{$item['icon']}.svg") }}"
-                            class="w-24 h-24 mx-auto mb-5 lazyload" alt="{{ $item['heading'] }}">
-                        {{ $item['content'] }}
-                    </x-accordion.item>
+                        <x-accordion.item label="{{ $item['heading'] }}" index="{{ $loop->index+1 }}">
+                            <img data-src="{{ asset("images/icons/{$item['icon']}.svg") }}"
+                                class="w-24 h-24 mx-auto mb-5 lazyload" alt="{{ $item['heading'] }}">
+                            {{ $item['content'] }}
+                        </x-accordion.item>
                     @endforeach
                 </x-accordion>
-            @endisset --}}
+            @endisset
 
         </div>
 
         {{-- Warning Info --}}
         <div class="flex p-3 mt-8 border rounded-lg bg-max-soft/5 border-max-soft/10 lg:w-1/2">
             <div class="flex me-3">
-                {{-- <x-lucide-warning class="self-center w-8 h-8 text-max-dark/70 animate-pulse" /> --}}
+                <x-lucide-triangle-alert class="self-center w-8 h-8 text-max-dark/70 animate-pulse" />
             </div>
             <div class="text-xs font-semibold leading-3 text-max-soft/95">
                 Не намагайтесь обдурити оцінювача, використовуючи прийоми, щоб поліпшити

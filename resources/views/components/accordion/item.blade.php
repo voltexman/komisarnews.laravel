@@ -11,7 +11,7 @@
         <span class="me-auto" :class="isActive(id) ? '' : ''">{{ $label }}</span>
 
         <div class="duration-200 ease-out" :class="{ 'rotate-180': isActive(id) }">
-            <x-heroicon-o-chevron-down class="w-4 h-4 " />
+            <x-lucide-chevron-down class="w-4 h-4 " />
         </div>
     </button>
 
