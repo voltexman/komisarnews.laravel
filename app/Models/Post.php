@@ -47,27 +47,13 @@ class Post extends Model implements HasMedia
             ->sharpen(10)
             ->nonOptimized();
 
-        $this->addMediaConversion('preview-webp')
-            ->format('webp')
+        $this->addMediaConversion('preview')
             ->width(640)
             ->height(480)
             ->sharpen(10)
             ->nonOptimized();
 
-        $this->addMediaConversion('preview-jpg')
-            ->format('jpg')
-            ->width(640)
-            ->height(480)
-            ->sharpen(10)
-            ->nonOptimized();
-
-        $this->addMediaConversion('header-webp')
-            ->format('webp')
-            ->height(280)
-            ->nonOptimized();
-
-        $this->addMediaConversion('header-jpg')
-            ->format('jpg')
+        $this->addMediaConversion('header')
             ->height(280)
             ->nonOptimized();
     }

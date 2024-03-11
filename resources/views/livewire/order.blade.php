@@ -69,7 +69,7 @@
                     </span>
                 </div>
                 <div class="mt-1 grow md:grow-0">
-                    <span class="block text-sm font-semibold text-gray-600">
+                    <span class="block text-xs font-semibold text-gray-600 lg:text-sm">
                         Заявка
                     </span>
                 </div>
@@ -89,7 +89,7 @@
                     </span>
                 </div>
                 <div class="mt-1 grow md:grow-0">
-                    <span class="block text-sm font-semibold text-gray-600">
+                    <span class="block text-xs font-semibold text-gray-600 lg:text-sm">
                         Параметри
                     </span>
                 </div>
@@ -110,7 +110,7 @@
                     </span>
                 </div>
                 <div class="mt-1 grow md:grow-0">
-                    <span class="block text-sm font-semibold text-gray-600">
+                    <span class="block text-xs font-semibold text-gray-600 lg:text-sm">
                         Опис
                     </span>
                 </div>
@@ -130,7 +130,7 @@
                     </span>
                 </div>
                 <div class="mt-1 grow md:grow-0">
-                    <span class="block text-sm font-semibold text-gray-600">
+                    <span class="block text-xs font-semibold text-gray-600 lg:text-sm">
                         Дані
                     </span>
                 </div>
@@ -191,7 +191,7 @@
                         <x-input type="text" label="Місто" icon="map-pin" maxlength="30"
                             class="border bg-max-soft/20 border-max-soft/20" wire:model='order.city' required />
 
-                        <x-input type="text" label="Електронна пошта" icon="envelope" maxlength="40"
+                        <x-input type="text" label="Електронна пошта" icon="mail" maxlength="40"
                             class="border bg-max-soft/20 border-max-soft/20" wire:model='order.email' />
 
                         <x-input type="text" label="Номер телефону" icon="phone" maxlength="15"

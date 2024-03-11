@@ -33,7 +33,7 @@
 
                     <div class="flex mt-10 mb-5">
                         <div class="p-4 border rounded-full border-max-soft/80">
-                            <x-heroicon-o-map-pin class="w-6 h-6 text-max-soft" />
+                            <x-lucide-map-pin class="w-6 h-6 text-max-soft" />
                         </div>
                         <div class="flex flex-col self-center ms-4">
                             <span class="font-bold">Адреса</span>
@@ -42,7 +42,7 @@
                     </div>
                     <div class="flex mb-5">
                         <div class="p-4 border rounded-full border-max-soft/80">
-                            <x-heroicon-o-phone class="w-6 h-6 text-max-soft" />
+                            <x-lucide-phone class="w-6 h-6 text-max-soft" />
                         </div>
                         <div class="flex flex-col self-center ms-4">
                             <span class="font-bold">Телефон</span>
@@ -51,7 +51,7 @@
                     </div>
                     <div class="flex mb-5">
                         <div class="p-4 border rounded-full border-max-soft/80">
-                            <x-heroicon-o-envelope class="w-6 h-6 text-max-soft" />
+                            <x-lucide-mail class="w-6 h-6 text-max-soft" />
                         </div>
                         <div class="flex flex-col self-center ms-4">
                             <span class="font-bold">e-Mail</span>
@@ -60,7 +60,7 @@
                     </div>
                     <div class="flex">
                         <div class="p-4 border rounded-full border-max-soft/80">
-                            <x-heroicon-o-user class="w-6 h-6 text-max-soft" />
+                            <x-lucide-user class="w-6 h-6 text-max-soft" />
                         </div>
                         <div class="flex flex-col self-center ms-4">
                             <span class="font-bold">Контактна особа</span>
