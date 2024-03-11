@@ -1,19 +1,16 @@
 <div
     {{ $attributes->class('fixed inset-0 z-[90] flex items-center justify-center overflow-auto bg-black bg-opacity-50 backdrop-blur-sm') }}>
-        
-    <div {{ $attributes }}
-        x-transition:enter="transition ease-out duration-300"
-        x-transition:enter-start="opacity-0 scale-90"
-        x-transition:enter-end="opacity-100 scale-100"
-        x-transition:leave="transition ease-in duration-300"
-        x-transition:leave-start="opacity-100 scale-100"
+
+    <div {{ $attributes }} x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
+        x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 scale-100"
         x-transition:leave-end="opacity-0 scale-90"
         class="absolute w-full lg:max-w-xl max-h-[80%] lg:h-[500px] flex flex-col flex-shrink shadow-lg shadow-max-light/15 bg-white rounded-lg top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 overflow-hidden transition ease-out duration-300">
 
         {{-- Header --}}
         <div class="p-4 bg-max-soft/15">
             <div class="font-semibold uppercase text-max-dark drop-shadow-lg shadow-max-dark">
-                @svg('heroicon-o-' . $header->attributes['icon'], 'inline-flex h-7 w-7', ['style' => 'color: #555'])
+                @svg('lucide-info', 'inline-flex h-7 w-7 text-max-dark')
                 {{ $header }}
             </div>
         </div>

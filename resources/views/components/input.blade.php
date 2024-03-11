@@ -3,7 +3,6 @@
 <div x-data="{ counter: false }" class="relative">
 
     @isset($icon)
-        @svg('heroicon-m-' . $icon, 'absolute w-5 h-5 top-4 left-4 opacity-70', ['style' => 'color: #5C4B38'])
     @endisset
 
     <input

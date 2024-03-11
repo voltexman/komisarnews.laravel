@@ -21,14 +21,14 @@
         <div class="absolute flex -translate-x-1/2 bottom-8 left-1/2 ">
             <a href="#about" rel="nofollow" aria-label="Перейти до опису"
                 class="z-40 flex w-12 h-12 border rounded-full animate-bounce bg-slate-50/20">
-                <x-heroicon-o-arrow-down class="self-center w-6 h-6 mx-auto text-slate-100" />
+                <x-lucide-arrow-down class="self-center w-6 h-6 mx-auto text-slate-100" />
             </a>
         </div>
     </div>
 @endsection
 
 @section('content')
-    <x-section class="bg-max-light py-14" id="about">
+    <x-section class="bg-max-light py-14 scroll-mt-16" id="about">
         <div class="grid overflow-hidden lg:grid-cols-2 gap-x-5">
             <div>
                 <h2 class="text-2xl font-semibold text-center uppercase drop-shadow-lg lg:text-left">
@@ -153,23 +153,23 @@
                     доставки. гроші ви зможете забрати в своєму відділенні нової пошти.</p>
                 <ul class="list-unstyled text-max-light">
                     <li class="flex mb-2 text-sm font-semibold">
-                        <x-heroicon-s-check class="w-5 h-5 me-2" />
+                        <x-lucide-check class="w-5 h-5 me-2" />
                         Насамперед ви повинні обумовити деталі з нашим менеджером.
                     </li>
                     <li class="flex mb-2 text-sm font-semibold">
-                        <x-heroicon-s-check class="w-5 h-5 me-2" />
+                        <x-lucide-check class="w-5 h-5 me-2" />
                         Кладемо біля волосся сантиметр і робимо фото, після чого зважуємо їх.
                     </li>
                     <li class="flex mb-2 text-sm font-semibold">
-                        <x-heroicon-s-check class="w-5 h-5 me-2" />
+                        <x-lucide-check class="w-5 h-5 me-2" />
                         Надсилаємо фотографію на наш Вайбер, а оцінювач встановлює точну вартість зрізу.
                     </li>
                     <li class="flex mb-2 text-sm font-semibold">
-                        <x-heroicon-s-check class="w-5 h-5 me-2" />
+                        <x-lucide-check class="w-5 h-5 me-2" />
                         Коли локони надійно упаковані, їх можна відправляти поштою в нашу компанію.
                     </li>
                     <li class="flex mb-2 text-sm font-semibold">
-                        <x-heroicon-s-check class="w-5 h-5 me-2" />
+                        <x-lucide-check class="w-5 h-5 me-2" />
                         Відправка волосся проводиться післяплатою, через послуги Нової Пошти.
                     </li>
                 </ul>
@@ -224,7 +224,7 @@
         {{-- Warning Info --}}
         <div class="flex p-3 mt-8 border rounded-lg bg-max-soft/5 border-max-soft/10 lg:w-1/2">
             <div class="flex me-3">
-                <x-heroicon-o-exclamation-triangle class="self-center w-8 h-8 text-max-dark/70 animate-pulse" />
+                {{-- <x-lucide-warning class="self-center w-8 h-8 text-max-dark/70 animate-pulse" /> --}}
             </div>
             <div class="text-xs font-semibold leading-3 text-max-soft/95">
                 Не намагайтесь обдурити оцінювача, використовуючи прийоми, щоб поліпшити
@@ -374,7 +374,7 @@
         {{-- Warning Info --}}
         <div class="flex p-3 mt-10 border rounded-lg bg-max-soft/15 border-max-soft/10 lg:w-1/2">
             <div class="flex me-3">
-                <x-heroicon-o-information-circle class="self-center w-8 h-8 text-max-text/50 animate-pulse" />
+                <x-lucide-info class="self-center w-8 h-8 text-max-text/50 animate-pulse" />
             </div>
             <div class="text-xs font-semibold leading-3 text-max-text">
                 Відсоткове відношення впливу на ціну є відносним та орієнтовним. В деяких випадках відсотки

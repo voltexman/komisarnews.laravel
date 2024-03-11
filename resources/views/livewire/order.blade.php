@@ -64,11 +64,8 @@
                         class="flex items-center justify-center flex-shrink-0 w-8 h-8 mx-auto font-medium rounded-full"
                         :class="[isActive(1) && 'animate-bounce', isDone(1) ? 'bg-max-dark' : 'bg-white']">
 
-                        <x-heroicon-o-document-text class="w-5 h-5 text-max-soft"
-                            x-bind:class="{ 'hidden': isDone(1) }" />
-
-                        <x-heroicon-o-check class="w-5 h-5"
-                            x-bind:class="isDone(1) ? 'block text-max-light' : 'hidden'" />
+                        <x-lucide-file-text class="w-5 h-5 text-max-soft" x-bind:class="{ 'hidden': isDone(1) }" />
+                        <x-lucide-check class="w-5 h-5" x-bind:class="isDone(1) ? 'block text-max-light' : 'hidden'" />
                     </span>
                 </div>
                 <div class="mt-1 grow md:grow-0">
@@ -87,11 +84,8 @@
                         class="flex items-center justify-center flex-shrink-0 w-8 h-8 mx-auto font-medium rounded-full"
                         :class="[isActive(2) && 'animate-bounce', isDone(2) ? 'bg-max-dark' : 'bg-white']">
 
-                        <x-heroicon-o-document-text class="w-5 h-5 text-max-soft"
-                            x-bind:class="{ 'hidden': isDone(2) }" />
-
-                        <x-heroicon-o-check class="w-5 h-5"
-                            x-bind:class="isDone(2) ? 'block text-max-light' : 'hidden'" />
+                        <x-lucide-file-text class="w-5 h-5 text-max-soft" x-bind:class="{ 'hidden': isDone(2) }" />
+                        <x-lucide-check class="w-5 h-5" x-bind:class="isDone(2) ? 'block text-max-light' : 'hidden'" />
                     </span>
                 </div>
                 <div class="mt-1 grow md:grow-0">
@@ -110,11 +104,9 @@
                         class="flex items-center justify-center flex-shrink-0 w-8 h-8 mx-auto font-medium rounded-full"
                         :class="[isActive(3) && 'animate-bounce', isDone(3) ? 'bg-max-dark' : 'bg-white']">
 
-                        <x-heroicon-o-chat-bubble-bottom-center-text class="w-5 h-5 text-max-soft"
+                        <x-lucide-message-square-text class="w-5 h-5 text-max-soft"
                             x-bind:class="{ 'hidden': isDone(3) }" />
-
-                        <x-heroicon-o-check class="w-5 h-5"
-                            x-bind:class="isDone(3) ? 'block text-max-light' : 'hidden'" />
+                        <x-lucide-check class="w-5 h-5" x-bind:class="isDone(3) ? 'block text-max-light' : 'hidden'" />
                     </span>
                 </div>
                 <div class="mt-1 grow md:grow-0">
@@ -133,11 +125,8 @@
                         class="flex items-center justify-center flex-shrink-0 w-8 h-8 mx-auto font-medium rounded-full"
                         :class="[isActive(4) && 'animate-bounce', isDone(4) ? 'bg-max-dark' : 'bg-white']">
 
-                        <x-heroicon-o-document-check class="w-5 h-5 text-max-soft"
-                            x-bind:class="{ 'hidden': isDone(4) }" />
-
-                        <x-heroicon-o-check class="w-5 h-5"
-                            x-bind:class="isDone(4) ? 'block text-max-light' : 'hidden'" />
+                        <x-lucide-file-check class="w-5 h-5 text-max-soft" x-bind:class="{ 'hidden': isDone(4) }" />
+                        <x-lucide-check class="w-5 h-5" x-bind:class="isDone(4) ? 'block text-max-light' : 'hidden'" />
                     </span>
                 </div>
                 <div class="mt-1 grow md:grow-0">
@@ -186,7 +175,6 @@
                                         <div class="flex flex-col">
                                             <span @click="$wire.set('order.goal', '{{ $goal['option'] }}')"
                                                 class="text-sm font-bold text-max-dark">
-                                                @svg('heroicon-o-' . $goal['icon'], 'inline-flex w-5 h-5 me-1 mb-1', ['style' => 'color: #555'])
                                                 {{ $goal['option'] }}
                                             </span>
                                             <span class="text-sm text-max-dark/70">{{ $goal['description'] }}</span>
@@ -450,19 +438,19 @@
             <div class="flex justify-between gap-x-2">
                 <button x-show="current > 1" type="button" @click="previous"
                     class="inline-flex items-center px-3 py-2 text-sm font-medium duration-300 rounded-lg shadow-sm gap-x-1 bg-max-dark text-max-light hover:bg-max-soft disabled:opacity-50 disabled:pointer-events-none">
-                    <x-heroicon-s-arrow-left class="w-4 h-4 me-1" />
+                    <x-lucide-arrow-left class="w-4 h-4 me-1" />
                     Назад
                 </button>
 
                 <button type="button" @click="showModal = true" aria-label="Правила заявки"
                     class="inline-flex items-center px-3 py-2 text-sm font-medium duration-300 rounded-lg shadow-sm me-auto gap-x-1 bg-max-dark hover:bg-max-soft disabled:opacity-50 disabled:pointer-events-none">
-                    <x-heroicon-s-information-circle class="w-5 h-5 text-max-light" />
+                    <x-lucide-info class="w-5 h-5 text-max-light" />
                 </button>
 
                 <button x-show="current !== total" type="button" @click="next"
                     class="inline-flex items-center px-3 py-2 text-sm font-semibold duration-300 rounded-lg gap-x-1 ms-auto bg-max-dark text-max-light hover:bg-max-soft disabled:opacity-50 disabled:pointer-events-none">
                     Далі
-                    <x-heroicon-s-arrow-right class="w-4 h-4 ms-1" />
+                    <x-lucide-arrow-right class="w-4 h-4 ms-1" />
                 </button>
                 <button x-show="current === total" type="submit"
                     class="inline-flex items-center px-3 py-2 text-sm font-semibold duration-300 rounded-lg gap-x-1 bg-max-soft text-max-light hover:bg-max-dark disabled:opacity-50 disabled:pointer-events-none"
@@ -480,13 +468,13 @@
             <x-modal x-show="showModal" @click.away="showModal = false">
                 {{-- Close Modal Button X --}}
                 <span class="absolute cursor-pointer top-2 right-2">
-                    <x-heroicon-s-x-mark class="w-5 h-5" @click="showModal = false" />
+                    <x-lucide-x class="w-5 h-5" @click="showModal = false" />
                 </span>
                 <x-slot name="header" icon="document-check">
                     Правила заявки
                 </x-slot>
 
-                <p><x-heroicon-o-document-text class="h-14 w-14 float-start me-2" />
+                <p><x-lucide-file-text class="h-14 w-14 float-start me-2" />
                     Заповніть всі необхіні поля та надішліть нам замовлення. Бажано вказати
                     колір, вагу і довжину Вашого волосся. Електронна пошта та номер телефону нам
                     необхідний для зворотнього зв`язку з Вами та для того щоб повідомити Вас про

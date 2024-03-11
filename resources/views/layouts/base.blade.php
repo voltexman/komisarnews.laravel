@@ -50,13 +50,14 @@
         </div>
     </div>
 
-    <div x-data="scrollProgress" x-show="isVisible" x-init="scrollProgress" x-transition.opacity.duration.500ms x-cloak
+    <div x-data="scrollProgress" x-show="isVisible" x-transition.opacity.duration.500ms x-cloak
         class="fixed z-40 grid items-center w-12 h-12 rounded-full shadow-md bottom-4 right-4 bg-max-soft/50 shadow-max-dark/20"
-        :style="{ background: `conic-gradient(rgb(92, 75, 56, .7) ${percent}% , rgb(145, 118, 90, .4) ${percent}%)` }"
-        @scroll.window="scrollProgress">
-        <span class="z-50 flex items-center justify-center w-10 h-10 mx-auto rounded-full bg-max-soft">
-            <x-heroicon-s-arrow-up class="w-4 h-4 text-center text-max-light" />
-        </span>
+        :style="{ background: `conic-gradient(rgb(92, 75, 56, .7) ${percent}% , rgb(145, 118, 90, .4) ${percent}%)` }">
+        <a href="#" rel="nofollow">
+            <span class="z-50 flex items-center justify-center w-10 h-10 mx-auto rounded-full bg-max-soft">
+                <x-lucide-arrow-up class="w-4 h-4 text-center text-max-light" />
+            </span>
+        </a>
     </div>
 
     <header>
@@ -86,14 +87,14 @@
                         {{-- Scroll to Map Button --}}
                         <div class="inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                             <div class="flex items-center order-1 ms-auto lg:ms-0">
-                                <button href="#map"
+                                <a href="#map"
                                     class="items-center hidden px-2 text-xs font-normal text-white uppercase rounded-lg bg-max-dark lg:inline-flex h-9">
-                                    <x-heroicon-o-map-pin class="w-4 h-4 me-1" />
+                                    <x-lucide-map-pin class="w-4 h-4 me-1" />
                                     Обрати місто
-                                </button>
+                                </a>
                                 <a href="#map"
                                     class="inline-flex items-center px-2 text-xs font-normal text-white uppercase rounded-lg bg-max-dark lg:hidden h-9">
-                                    <x-heroicon-o-map-pin class="w-4 h-4 me-1" />
+                                    <x-lucide-map-pin class="w-4 h-4 me-1" />
                                     Міста
                                 </a>
                             </div>
@@ -107,8 +108,8 @@
                                 aria-controls="mobile-menu" aria-expanded="false">
                                 <span class="absolute -inset-0.5"></span>
                                 <span class="sr-only">Open main menu</span>
-                                <x-heroicon-s-bars-3 class="w-6 h-6" x-show="!isOpen" />
-                                <x-heroicon-s-x-mark class="w-6 h-6" x-show="isOpen" />
+                                <x-lucide-menu class="w-6 h-6" x-show="!isOpen" />
+                                <x-lucide-x class="w-6 h-6" x-show="isOpen" />
                             </button>
                         </div>
                     </div>
@@ -128,7 +129,7 @@
 
         @yield('content')
 
-        <section class="py-10 bg-max-soft" id="map">
+        <section class="py-10 bg-max-soft scroll-mt-16" id="map">
             <div class="container">
                 <h2 class="text-2xl font-semibold text-center uppercase drop-shadow-lg text-max-light">
                     Купівля і продаж<br class="lg:hidden"> волосся в містах
@@ -155,11 +156,11 @@
             <div class="flex flex-col lg:flex-row lg:justify-between">
                 <div class="font-semibold lg:w-1/3 text-max-light/60">
                     <p class="flex flex-row justify-center lg:justify-start">
-                        <x-heroicon-m-map-pin class="h-4 w-4 me-1 mt-0.5" />
+                        <x-lucide-map-pin class="h-4 w-4 me-1 mt-0.5" />
                         Україна, Київ
                     </p>
                     <p class="flex flex-row justify-center lg:justify-start">
-                        <x-heroicon-m-user class="h-4 w-4 me-1 mt-0.5" />
+                        <x-lucide-user class="h-4 w-4 me-1 mt-0.5" />
                         Максим Комісар
                     </p>
                 </div>
@@ -172,11 +173,11 @@
                 <div class="flex self-center justify-end gap-3 mt-10 lg:w-1/3 text-max-soft lg:mt-0">
                     <a href="https://www.facebook.com/profile.php?id=100081276925197" aria-label="Ми в Facebook"
                         target="_blank">
-                        <i data-lucide="facebook" class="w-6 h-6"></i>
+                        <x-lucide-facebook class="w-6 h-6" />
                     </a>
                     <a href="https://instagram.com/sale_hair_kyiv?igshid=OGQ5ZDc2ODk2ZA==" aria-label="Ми в Instagram"
                         target="_blank">
-                        <i data-lucide="instagram" class="w-6 h-6"></i>
+                        <x-lucide-instagram class="w-6 h-6" />
                     </a>
                 </div>
             </div>
@@ -204,6 +205,7 @@
                 percent: 0,
                 isVisible: false,
                 init() {
+                    this.isVisible = window.pageYOffset >= 500 ? true : false;
                     window.addEventListener('scroll', () => {
                         let winScroll = document.body.scrollTop || document.documentElement
                             .scrollTop
