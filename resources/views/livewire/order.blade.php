@@ -442,7 +442,7 @@
                     Назад
                 </button>
 
-                <button type="button" @click="showModal = true" aria-label="Правила заявки"
+                <button type="button" @click="$dispatch('show-modal')" aria-label="Правила заявки"
                     class="inline-flex items-center px-3 py-2 text-sm font-medium duration-300 rounded-lg shadow-sm me-auto gap-x-1 bg-max-dark hover:bg-max-soft disabled:opacity-50 disabled:pointer-events-none">
                     <x-lucide-info class="w-5 h-5 text-max-light" />
                 </button>
@@ -464,42 +464,45 @@
         <!-- End Stepper Content -->
 
         {{-- Модальне вікно правил --}}
-        <template x-teleport="body">
-            <x-modal x-show="showModal" @click.away="showModal = false">
-                {{-- Close Modal Button X --}}
-                <span class="absolute cursor-pointer top-2 right-2">
-                    <x-lucide-x class="w-5 h-5" @click="showModal = false" />
-                </span>
-                <x-slot name="header" icon="document-check">
+        <x-modal>
+            <x-modal.panel>
+                <x-modal.close />
+                <x-modal.header>
+                    <x-lucide-file-check class="inline-flex w-5 h-5 -mt-1 text-max-dark" />
                     Правила заявки
-                </x-slot>
+                </x-modal.header>
 
-                <p><x-lucide-file-text class="h-14 w-14 float-start me-2" />
-                    Заповніть всі необхіні поля та надішліть нам замовлення. Бажано вказати
-                    колір, вагу і довжину Вашого волосся. Електронна пошта та номер телефону нам
-                    необхідний для зворотнього зв`язку з Вами та для того щоб повідомити Вас про
-                    купівлю волосся і його вартість.
-                </p>
-                <p>Спочатку Ви отримаєте сповіщення про те, що наш фахівець ознайомлюється з
-                    замовленням, після чого Вам надійде другий лист з інформацією про вартість
-                    та іншими деталями. Зазвичай це займає не більше декількох годин після
-                    відправлення замовлення.
-                </p>
-                <p>В полі "Ваше повідомлення" Ви можете вказати будь-яку іншу, на Вашу думку,
-                    важливу інформацію стосовно волосся. Наприклад, структуру волосся, стан
-                    зрізу: свіжа рівна стрижка або просто укладене волосся або шиньйон. Вкажіть
-                    якомога більше інформації, важливі всі деталі.</p>
+                <x-modal.body>
+                    <div class="">
+                        <p><x-lucide-file-text class="h-14 w-14 float-start me-2" />
+                            Заповніть всі необхіні поля та надішліть нам замовлення. Бажано вказати
+                            колір, вагу і довжину Вашого волосся. Електронна пошта та номер телефону нам
+                            необхідний для зворотнього зв`язку з Вами та для того щоб повідомити Вас про
+                            купівлю волосся і його вартість.
+                        </p>
+                        <p>Спочатку Ви отримаєте сповіщення про те, що наш фахівець ознайомлюється з
+                            замовленням, після чого Вам надійде другий лист з інформацією про вартість
+                            та іншими деталями. Зазвичай це займає не більше декількох годин після
+                            відправлення замовлення.
+                        </p>
+                        <p>В полі "Ваше повідомлення" Ви можете вказати будь-яку іншу, на Вашу думку,
+                            важливу інформацію стосовно волосся. Наприклад, структуру волосся, стан
+                            зрізу: свіжа рівна стрижка або просто укладене волосся або шиньйон. Вкажіть
+                            якомога більше інформації, важливі всі деталі.</p>
+                    </div>
+                </x-modal.body>
 
-                <x-slot name="footer" class="bg-red-500/70">
+                <x-modal.footer>
                     <p class="text-xs font-normal leading-4 text-white">
                         МИ НЕ НАДАЄМО ВАШІ КОНТАКТНІ ДАНІ ІНШИМ ОСОБАМ ТА НЕ РОЗСИЛАЄМО СПАМ!
                         НЕ НАМАГАЙТЕСЯ ОБДУРИТИ ОЦІНЮВАЧА, ВИКОРИСТОВУЮЧИ ПРИЙОМИ, ЩОБ ПОЛІПШИТИ
                         ЯКІСТЬ ВОЛОССЯ, АБО РОЗТЯГУВАТИ ПАСМО ЩОБ ВІЗУАЛЬНО ЗБІЛЬШИТИ ДОВЖИНУ. НАШ
                         ФАХІВЕЦЬ ОБОВ'ЯЗКОВО РОЗПІЗНАЄ ОБМАН.
                     </p>
-                </x-slot>
-            </x-modal>
-        </template>
+                </x-modal.footer>
+
+            </x-modal.panel>
+        </x-modal>
 
         {{-- Loading... --}}
         <div wire:loading wire:target="save" class="absolute top-0 w-full h-full rounded-lg start-0 bg-white/80">

@@ -12,7 +12,7 @@ class MainController extends Controller
     {
         return view('main', [
             'accordion' => Main::$accordion,
-            'meta' => Meta::firstWhere('page', Meta::MAIN_PAGE),
+            // 'meta' => Meta::firstWhere('page', Meta::MAIN_PAGE),
         ]);
     }
 }
