@@ -14,7 +14,7 @@ class ContactController extends Controller
     public function show(): View
     {
         return view('contacts', [
-            'seo' => Meta::where('page', Meta::CONTACTS_PAGE)->first(),
+            // 'seo' => Meta::where('page', Meta::CONTACTS_PAGE)->first(),
         ]);
     }
 

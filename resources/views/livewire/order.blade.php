@@ -1,44 +1,3 @@
-@php
-    $goals = [
-        [
-            'icon' => 'question-mark-circle',
-            'option' => 'Хочу оцінити вартість',
-            'description' => 'Лише дізнатись ціну у майстра',
-        ],
-        [
-            'icon' => 'currency-dollar',
-            'option' => 'Хочу продати волосся',
-            'description' => 'Відправити волосся та отримати гроші',
-        ],
-    ];
-    $colors = [
-        [
-            'label' => '#fff',
-            'option' => 'Блонд',
-        ],
-        [
-            'label' => '#ccc',
-            'option' => 'Світло-русий',
-        ],
-        [
-            'label' => '#ff0000',
-            'option' => 'Русий',
-        ],
-        [
-            'label' => '#ff0000',
-            'option' => 'Світло-коричневий',
-        ],
-        [
-            'label' => '#ff0000',
-            'option' => 'Темно-коричневий',
-        ],
-        [
-            'label' => '#ff0000',
-            'option' => 'Чорний',
-        ],
-    ];
-@endphp
-
 <!-- Stepper -->
 <div x-data="stepper" class="relative bg-max-light h-[575px] p-5 rounded-lg shadow-lg shadow-max-black/25">
 
@@ -145,36 +104,35 @@
             <div class="flex flex-col h-[375px]">
                 <!-- Person Content -->
                 <div x-show="isActive(1)">
+
                     <!-- Floating Input -->
                     <div class="flex flex-col w-full gap-y-5">
+
                         {{-- Ціль заявки --}}
                         <div x-data="{ open: false }" @click.away="open = false" @keydown.esc="open = false"
                             class="relative">
 
-                            <input type="hidden" wire:model='order.goal' />
-
                             {{-- Button --}}
                             <button type="button" @click="open = !open"
-                                x-bind:class="open && 'rounded-b-none border-b0 bg-white border-b-white'"
-                                class="relative py-3 px-4 pe-9 flex items-center text-nowrap w-full duration-300 cursor-pointer bg-max-soft/20 border border-max-soft/30 rounded-lg text-start text-sm before:absolute before:inset-0 before:z-[1] outline-none">
-                                <span x-text="$wire.order.goal"></span>
+                                x-bind:class="open && 'rounded-b-none bg-white border-b-white'"
+                                class="relative py-4 px-4 pe-9 flex items-center text-nowrap w-full duration-300 cursor-pointer bg-max-soft/20 border border-max-soft/30 rounded-lg text-start text-sm before:absolute before:inset-0 before:z-[1] outline-none">
+                                @svg('lucide-' . $goals[$selectedGoal]['icon'], 'inline-flex w-5 h-5 me-2 -mt-0.5 text-max-soft opacity-90')
+                                {{ $goals[$selectedGoal]['option'] }}
                                 <div class="absolute -translate-y-1/2 top-1/2 end-3">
-                                    <i data-lucide="chevrons-up-down"
-                                        class="flex-shrink-0 w-3.5 h-3.5 text-max-soft"></i>
+                                    <x-lucide-chevrons-up-down class="flex-shrink-0 w-3.5 h-3.5 text-max-soft" />
                                 </div>
                             </button>
 
-                            {{--
-                             Panel --}}
+                            {{-- Panel --}}
                             <div x-show="open" x-transition.opacity.300ms
                                 class="absolute -mt-0.5 left-0 bg-white border border-t-0 border-max-soft/30 rounded-b-lg z-10 w-full p-2 shadow-lg">
 
                                 @foreach ($goals as $goal)
-                                    <div
+                                    <div wire:click='selectGoal({{ $loop->index }})' @click="open = false"
                                         class="flex flex-row px-3 py-2 duration-300 rounded-lg cursor-pointer hover:bg-max-soft/20">
                                         <div class="flex flex-col">
-                                            <span @click="$wire.set('order.goal', '{{ $goal['option'] }}')"
-                                                class="text-sm font-bold text-max-dark">
+                                            <span class="text-sm font-bold text-max-dark">
+                                                @svg('lucide-' . $goal['icon'], 'inline-flex w-4 h-4 me-1 -mt-1')
                                                 {{ $goal['option'] }}
                                             </span>
                                             <span class="text-sm text-max-dark/70">{{ $goal['description'] }}</span>
@@ -456,7 +414,7 @@
                     class="inline-flex items-center px-3 py-2 text-sm font-semibold duration-300 rounded-lg gap-x-1 bg-max-soft text-max-light hover:bg-max-dark disabled:opacity-50 disabled:pointer-events-none"
                     x-bind:disabled="!$wire.order.city || !$wire.order.phone || !$wire.order.hair_length">
                     Відправити
-                    <i data-lucide="send" class="w-4 h-4 ms-1"></i>
+                    <x-lucide-send class="w-4 h-4 ms-1" />
                 </button>
             </div>
             <!-- End Button Group -->
@@ -473,7 +431,8 @@
                 </x-modal.header>
 
                 <x-modal.body>
-                    <div class="">
+                    <div
+                        class="h-full overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300">
                         <p><x-lucide-file-text class="h-14 w-14 float-start me-2" />
                             Заповніть всі необхіні поля та надішліть нам замовлення. Бажано вказати
                             колір, вагу і довжину Вашого волосся. Електронна пошта та номер телефону нам
