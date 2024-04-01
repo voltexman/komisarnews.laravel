@@ -1,10 +1,12 @@
 <!-- Stepper -->
-<div x-data="stepper" class="relative bg-max-light h-[575px] p-5 rounded-lg shadow-lg shadow-max-black/25">
+<div data-hs-stepper='{
+    "currentIndex": 1
+}'
+    class="relative bg-max-light h-[575px] p-5 rounded-lg shadow-lg shadow-max-black/25" wire:ignore>
 
     <form wire:submit="save" x-data="{
         showDescription: false,
-        showModal: false
-    }" @keydown.esc="showModal = false">
+    }">
 
         <div class="mb-5">
             <span class="block text-lg font-semibold text-center uppercase text-max-soft">
@@ -16,82 +18,85 @@
         <ul class="relative flex flex-row justify-between max-w-sm mx-auto gap-x-2">
 
             <!-- Person Item -->
-            <li class="flex flex-col items-center justify-center flex-1 md:shrink md:basis-0 group gap-x-2 md:flex">
+            <li class="flex flex-col items-center justify-center flex-1 md:shrink md:basis-0 group gap-x-2 md:flex"
+                data-hs-stepper-nav-item='{
+                "index": 1
+              }'>
                 <div
                     class="relative min-w-[28px] min-h-[28px] flex flex-col items-center md:w-full md:inline-flex md:flex-wrap md:flex-row text-xs align-middl">
                     <span
-                        class="flex items-center justify-center flex-shrink-0 w-8 h-8 mx-auto font-medium rounded-full"
-                        :class="[isActive(1) && 'animate-bounce', isDone(1) ? 'bg-max-dark' : 'bg-white']">
-
-                        <x-lucide-file-text class="w-5 h-5 text-max-soft" x-bind:class="{ 'hidden': isDone(1) }" />
-                        <x-lucide-check class="w-5 h-5" x-bind:class="isDone(1) ? 'block text-max-light' : 'hidden'" />
+                        class="flex items-center justify-center flex-shrink-0 w-8 h-8 mx-auto font-medium rounded-full">
+                        <x-lucide-file-text
+                            class="w-5 h-5 text-max-soft hs-stepper-active:block hs-stepper-active:animate-bounce hs-stepper-success:hidden" />
+                        <x-lucide-check class="hidden w-5 h-5 text-max-soft hs-stepper-success:block" />
                     </span>
                 </div>
-                <div class="mt-1 grow md:grow-0">
-                    <span class="block text-xs font-semibold text-gray-600 lg:text-sm">
-                        Заявка
-                    </span>
+                <div class="grow md:grow-0">
+                    <span
+                        class="block text-xs font-semibold text-gray-600 lg:text-sm hs-stepper-success:text-gray-400">Заявка</span>
                 </div>
             </li>
             <!-- End Item -->
 
             <!-- Parameters Item -->
-            <li class="flex flex-col items-center justify-center flex-1 md:shrink md:basis-0 group gap-x-2 md:flex">
+            <li class="flex flex-col items-center justify-center flex-1 md:shrink md:basis-0 group gap-x-2 md:flex"
+                data-hs-stepper-nav-item='{
+                "index": 2
+              }'>
                 <div
                     class="relative min-w-[28px] min-h-[28px] flex flex-col items-center md:w-full md:inline-flex md:flex-wrap md:flex-row text-xs align-middl">
                     <span
-                        class="flex items-center justify-center flex-shrink-0 w-8 h-8 mx-auto font-medium rounded-full"
-                        :class="[isActive(2) && 'animate-bounce', isDone(2) ? 'bg-max-dark' : 'bg-white']">
-
-                        <x-lucide-file-text class="w-5 h-5 text-max-soft" x-bind:class="{ 'hidden': isDone(2) }" />
-                        <x-lucide-check class="w-5 h-5" x-bind:class="isDone(2) ? 'block text-max-light' : 'hidden'" />
+                        class="flex items-center justify-center flex-shrink-0 w-8 h-8 mx-auto font-medium rounded-full">
+                        <x-lucide-swatch-book
+                            class="w-5 h-5 text-max-soft hs-stepper-active:block hs-stepper-active:animate-bounce hs-stepper-success:hidden" />
+                        <x-lucide-check class="hidden w-5 h-5 text-max-soft hs-stepper-success:block" />
                     </span>
                 </div>
-                <div class="mt-1 grow md:grow-0">
-                    <span class="block text-xs font-semibold text-gray-600 lg:text-sm">
-                        Параметри
-                    </span>
+                <div class="grow md:grow-0">
+                    <span
+                        class="block text-xs font-semibold text-gray-600 lg:text-sm hs-stepper-success:text-gray-400">Опції</span>
                 </div>
             </li>
             <!-- End Item -->
 
             <!-- Description Item -->
-            <li class="flex flex-col items-center justify-center flex-1 md:shrink md:basis-0 group gap-x-2 md:flex">
+            <li class="flex flex-col items-center justify-center flex-1 md:shrink md:basis-0 group gap-x-2 md:flex"
+                data-hs-stepper-nav-item='{
+                "index": 3
+              }'>
                 <div
                     class="min-w-[28px] min-h-[28px] flex flex-col items-center md:w-full md:inline-flex md:flex-wrap md:flex-row text-xs align-middle">
                     <span
-                        class="flex items-center justify-center flex-shrink-0 w-8 h-8 mx-auto font-medium rounded-full"
-                        :class="[isActive(3) && 'animate-bounce', isDone(3) ? 'bg-max-dark' : 'bg-white']">
-
-                        <x-lucide-message-square-text class="w-5 h-5 text-max-soft"
-                            x-bind:class="{ 'hidden': isDone(3) }" />
-                        <x-lucide-check class="w-5 h-5" x-bind:class="isDone(3) ? 'block text-max-light' : 'hidden'" />
+                        class="flex items-center justify-center flex-shrink-0 w-8 h-8 mx-auto font-medium rounded-full">
+                        <x-lucide-message-circle-more
+                            class="w-5 h-5 text-max-soft hs-stepper-active:block hs-stepper-active:animate-bounce hs-stepper-success:hidden" />
+                        <x-lucide-check class="hidden w-5 h-5 hs-stepper-success:block" />
                     </span>
                 </div>
-                <div class="mt-1 grow md:grow-0">
-                    <span class="block text-xs font-semibold text-gray-600 lg:text-sm">
-                        Опис
-                    </span>
+                <div class="grow md:grow-0">
+                    <span
+                        class="block text-xs font-semibold text-gray-600 lg:text-sm hs-stepper-success:text-gray-400">Опис</span>
                 </div>
             </li>
             <!-- End Item -->
 
             <!-- Check Item -->
-            <li class="flex flex-col items-center justify-center flex-1 md:shrink md:basis-0 group gap-x-2 md:flex">
+            <li class="flex flex-col items-center justify-center flex-1 md:shrink md:basis-0 group gap-x-2 md:flex"
+                data-hs-stepper-nav-item='{
+                "index": 4
+              }'>
                 <div
                     class="min-w-[28px] min-h-[28px] flex flex-col items-center md:w-full md:inline-flex md:flex-wrap md:flex-row text-xs align-middl">
                     <span
-                        class="flex items-center justify-center flex-shrink-0 w-8 h-8 mx-auto font-medium rounded-full"
-                        :class="[isActive(4) && 'animate-bounce', isDone(4) ? 'bg-max-dark' : 'bg-white']">
-
-                        <x-lucide-file-check class="w-5 h-5 text-max-soft" x-bind:class="{ 'hidden': isDone(4) }" />
-                        <x-lucide-check class="w-5 h-5" x-bind:class="isDone(4) ? 'block text-max-light' : 'hidden'" />
+                        class="flex items-center justify-center flex-shrink-0 w-8 h-8 mx-auto font-medium rounded-full">
+                        <x-lucide-file-check
+                            class="w-5 h-5 text-max-soft hs-stepper-active:block hs-stepper-active:animate-bounce hs-stepper-success:hidden" />
+                        <x-lucide-check class="hidden w-5 h-5 hs-stepper-success:block" />
                     </span>
                 </div>
-                <div class="mt-1 grow md:grow-0">
-                    <span class="block text-xs font-semibold text-gray-600 lg:text-sm">
-                        Дані
-                    </span>
+                <div class="grow md:grow-0">
+                    <span
+                        class="block text-xs font-semibold text-gray-600 lg:text-sm hs-stepper-success:text-gray-400">Дані</span>
                 </div>
             </li>
             <!-- End Item -->
@@ -102,109 +107,63 @@
         <!-- Stepper Content -->
         <div class="flex flex-col mt-5">
             <div class="flex flex-col h-[375px]">
+
                 <!-- Person Content -->
-                <div x-show="isActive(1)">
-
-                    <!-- Floating Input -->
+                <div data-hs-stepper-content-item='{
+                        "index": 1
+                    }'>
                     <div class="flex flex-col w-full gap-y-5">
+                        <x-form.select label="Вкажіть ціль заявки" id="goals">
+                            @foreach ($goals as $goal)
+                                <option value="{{ $goal['option'] }}"
+                                    data-hs-select-option='{
+                                        "description": "{{ $goal['description'] }}"
+                                    }'>
+                                    {{ $goal['option'] }}
+                                </option>
+                            @endforeach
+                        </x-form.select>
 
-                        {{-- Ціль заявки --}}
-                        <div x-data="{ open: false }" @click.away="open = false" @keydown.esc="open = false"
-                            class="relative">
+                        <x-form.input class="border bg-max-soft/20 border-max-soft/20" label="Ваше ім'я" icon="user"
+                            maxlength="40" name="order.name" />
 
-                            {{-- Button --}}
-                            <button type="button" @click="open = !open"
-                                x-bind:class="open && 'rounded-b-none bg-white border-b-white'"
-                                class="relative py-4 px-4 pe-9 flex items-center text-nowrap w-full duration-300 cursor-pointer bg-max-soft/20 border border-max-soft/30 rounded-lg text-start text-sm before:absolute before:inset-0 before:z-[1] outline-none">
-                                @svg('lucide-' . $goals[$selectedGoal]['icon'], 'inline-flex w-5 h-5 me-2 -mt-0.5 text-max-soft opacity-90')
-                                {{ $goals[$selectedGoal]['option'] }}
-                                <div class="absolute -translate-y-1/2 top-1/2 end-3">
-                                    <x-lucide-chevrons-up-down class="flex-shrink-0 w-3.5 h-3.5 text-max-soft" />
-                                </div>
-                            </button>
+                        <x-form.input class="border bg-max-soft/20 border-max-soft/20" label="Місто" icon="map-pin"
+                            maxlength="30" name="order.city" required />
 
-                            {{-- Panel --}}
-                            <div x-show="open" x-transition.opacity.300ms
-                                class="absolute -mt-0.5 left-0 bg-white border border-t-0 border-max-soft/30 rounded-b-lg z-10 w-full p-2 shadow-lg">
+                        <x-form.input class="border bg-max-soft/20 border-max-soft/20" label="Електронна пошта"
+                            icon="mail" maxlength="40" name="order.email" />
 
-                                @foreach ($goals as $goal)
-                                    <div wire:click='selectGoal({{ $loop->index }})' @click="open = false"
-                                        class="flex flex-row px-3 py-2 duration-300 rounded-lg cursor-pointer hover:bg-max-soft/20">
-                                        <div class="flex flex-col">
-                                            <span class="text-sm font-bold text-max-dark">
-                                                @svg('lucide-' . $goal['icon'], 'inline-flex w-4 h-4 me-1 -mt-1')
-                                                {{ $goal['option'] }}
-                                            </span>
-                                            <span class="text-sm text-max-dark/70">{{ $goal['description'] }}</span>
-                                        </div>
-                                    </div>
-                                @endforeach
-
-                            </div>
-                        </div>
-
-                        <x-input type="text" label="Ваше ім'я" icon="user" maxlength="40"
-                            class="border bg-max-soft/20 border-max-soft/20" wire:model='order.name' />
-
-                        <x-input type="text" label="Місто" icon="map-pin" maxlength="30"
-                            class="border bg-max-soft/20 border-max-soft/20" wire:model='order.city' required />
-
-                        <x-input type="text" label="Електронна пошта" icon="mail" maxlength="40"
-                            class="border bg-max-soft/20 border-max-soft/20" wire:model='order.email' />
-
-                        <x-input type="text" label="Номер телефону" icon="phone" maxlength="15"
-                            class="border bg-max-soft/20 border-max-soft/20" wire:model='order.phone' required />
+                        <x-form.input class="border bg-max-soft/20 border-max-soft/20" label="Номер телефону"
+                            icon="phone" maxlength="15" name="order.phone" required />
                     </div>
-                    <!-- End Floating Input -->
                 </div>
                 <!-- End Person Content -->
 
                 {{-- Parameters Content --}}
-                <div x-show="isActive(2)">
+                <div data-hs-stepper-content-item='{
+                    "index": 2
+                }'
+                    style="display: none" class="flex flex-col gap-y-5">
 
-                    {{-- Колір волосся --}}
-                    <div x-data="{ open: false }" @click.away="open = false" @keydown.esc="open = false"
-                        class="relative">
+                    <p class="-mb-4 text-xs leading-4 text-max-dark/80">
+                        Якийсь текст пояснюючий що потрібно вказати в даному полі</p>
+                    <x-form.select label="Вкажіть колір" id="colors">
+                        @foreach ($colors as $item)
+                            <option value="{{ $item['option'] }}">
+                                {{ $item['option'] }}
+                            </option>
+                        @endforeach
+                    </x-form.select>
 
-                        <input type="hidden" wire:model='order.color' />
-
-                        {{-- Button --}}
-                        <button type="button" @click="open = !open"
-                            x-bind:class="open && 'rounded-b-none border-b0 bg-white border-b-white'"
-                            class="relative py-3 px-4 pe-9 flex items-center text-nowrap w-full duration-300 cursor-pointer bg-max-soft/20 border border-max-soft/30 rounded-lg text-start text-sm before:absolute before:inset-0 before:z-[1] outline-none">
-                            <span x-text="$wire.order.color"></span>
-                            <div class="absolute -translate-y-1/2 top-1/2 end-3">
-                                <i data-lucide="chevrons-up-down" class="flex-shrink-0 w-3.5 h-3.5 text-max-soft"></i>
-                            </div>
-                        </button>
-
-                        {{-- Panel --}}
-                        <div x-show="open" x-transition.opacity.500ms
-                            class="absolute -mt-0.5 left-0 bg-white border border-t-0 border-max-soft/30 rounded-b-lg z-10 w-full p-2 shadow-lg">
-
-                            @foreach ($colors as $color)
-                                <div
-                                    class="flex flex-row px-3 py-2 duration-300 rounded-lg cursor-pointer hover:bg-max-soft/20">
-                                    <div class="self-center me-3">
-                                        <span style="background-color: {{ $color['label'] }}"
-                                            class="block w-5 h-5 border rounded-full shadow-lg border-max-dark"></span>
-                                    </div>
-                                    <div class="text-sm text-max-dark">{{ $color['option'] }}</div>
-                                </div>
-                            @endforeach
-
-                        </div>
-                    </div>
-
+                    <p class="-mb-4 text-xs leading-4 text-max-dark/80">
+                        Якийсь текст пояснюючий що потрібно вказати в даному полі</p>
                     <div class="flex justify-between gap-x-4">
 
                         <!-- Input Number -->
-                        <div class="border rounded-lg bg-max-soft/5 border-max-soft/30">
+                        <div class="border rounded-lg bg-max-soft/20 border-max-soft/30">
                             <div class="flex items-center justify-between w-full gap-x-1">
                                 <div class="px-3 py-2 grow">
-                                    <span class="block text-xs text-gray-700">
-                                        Вага (гр)
-                                    </span>
+                                    <span class="block text-xs text-max-dark">Вага (гр)</span>
                                     <input type="text" wire:model='order.hair_weight' placeholder="0"
                                         class="w-full p-0 bg-transparent border-0 text-max-dark focus:ring-0 placeholder:text-sm placeholder:text-max-soft/50"
                                         aria-label="Вага">
@@ -214,28 +173,24 @@
                         <!-- End Input Number -->
 
                         <!-- Input Number -->
-                        <div class="border rounded-lg bg-max-soft/5 border-max-soft/30">
+                        <div class="border rounded-lg bg-max-soft/20 border-max-soft/30" data-hs-input-number>
                             <div class="flex items-center justify-between w-full gap-x-1">
                                 <div class="relative px-3 py-2 grow">
-                                    <span class="block text-xs text-gray-700">
-                                        Довжина (мм)
-                                    </span>
+                                    <span class="block text-xs text-max-dark">Довжина (мм)</span>
                                     <span class="absolute top-0 text-lg text-red-500 right-1">*</span>
-                                    <input type="text" wire:model='order.hair_length' placeholder="0"
+                                    <input type="text" wire:model.blur='order.hair_length' placeholder="0"
                                         class="w-full p-0 bg-transparent border-0 text-max-dark focus:ring-0 placeholder:text-sm placeholder:text-max-soft/50"
-                                        aria-label="Довжина">
+                                        aria-label="Довжина" data-hs-input-number-input>
                                 </div>
                             </div>
                         </div>
                         <!-- End Input Number -->
 
                         <!-- Input Number -->
-                        <div class="border rounded-lg bg-max-soft/5 border-max-soft/30">
+                        <div class="w-[130px] border rounded-lg bg-max-soft/20 border-max-soft/30">
                             <div class="flex items-center justify-between w-full gap-x-1">
                                 <div class="px-3 py-2 grow">
-                                    <span class="block text-xs text-gray-700">
-                                        Вік
-                                    </span>
+                                    <span class="block text-xs text-max-dark">Вік</span>
                                     <input type="text" wire:model='order.age' placeholder="25"
                                         class="w-full p-0 bg-transparent border-0 text-max-dark focus:ring-0 placeholder:text-sm placeholder:text-max-soft/50"
                                         aria-label="Вік">
@@ -243,11 +198,57 @@
                             </div>
                         </div>
                     </div>
+
+                    <p class="-mb-4 text-xs leading-4 text-max-dark/80">
+                        Якийсь текст пояснюючий що потрібно вказати в даному полі</p>
+                    <ul class="flex flex-col justify-between sm:flex-row">
+                        <li
+                            class="inline-flex items-center w-full gap-x-2.5 py-3 px-4 text-sm font-medium transition hover:bg-max-soft/40 bg-max-soft/20 border border-max-soft/30 text-max-dark -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
+                            <div class="relative flex items-start w-full">
+                                <div class="flex items-center h-6">
+                                    <input id="hair-options-1" wire:model="order.hair_options" type="checkbox"
+                                        value="Зрізані"
+                                        class="p-2.5 rounded-full border-max-soft checked:bg-max-soft disabled:opacity-50">
+                                </div>
+                                <label for="hair-options-1"
+                                    class="self-center block w-full text-sm ms-3 text-max-dark">Зрізані</label>
+                            </div>
+                        </li>
+
+                        <li
+                            class="inline-flex items-center w-full gap-x-2.5 py-3 px-4 text-sm font-medium transition hover:bg-max-soft/40 bg-max-soft/20 border border-max-soft/30 text-max-dark -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
+                            <div class="relative flex items-start w-full">
+                                <div class="flex items-center h-6">
+                                    <input id="hair-options-2" wire:model="order.hair_options" type="checkbox"
+                                        value="Фарбовані"
+                                        class="p-2.5 rounded-full border-max-soft checked:bg-max-soft disabled:opacity-50">
+                                </div>
+                                <label for="hair-options-2"
+                                    class="self-center block w-full text-sm ms-3 text-max-dark">Фарбовані</label>
+                            </div>
+                        </li>
+
+                        <li
+                            class="inline-flex items-center w-full gap-x-2.5 py-3 px-4 text-sm font-medium transition hover:bg-max-soft/40 bg-max-soft/20 border border-max-soft/30 text-max-dark -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
+                            <div class="relative flex items-start w-full">
+                                <div class="flex items-center h-6">
+                                    <input id="hair-options-3" wire:model="order.hair_options" type="checkbox"
+                                        value="З сивиною"
+                                        class="p-2.5 rounded-full border-max-soft checked:bg-max-soft disabled:opacity-50">
+                                </div>
+                                <label for="hair-options-3"
+                                    class="self-center block w-full text-sm ms-3 text-max-dark">З сивиною</label>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
                 {{-- End Parameters Content --}}
 
                 <!-- Description Content -->
-                <div x-show="isActive(3)">
+                <div data-hs-stepper-content-item='{
+                    "index": 3
+                }'
+                    style="display: none">
                     <div
                         class="flex flex-row mb-4 overflow-hidden border rounded-lg bg-max-soft/10 border-max-soft/10">
                         <div class="flex px-3 py-2 border-e pe-2 bg-max-soft/20 border-max-soft/10">
@@ -257,14 +258,16 @@
                             Можете вказати будь-яку додаткову інформацію, яку вважаєте важливою, для майстра.
                         </span>
                     </div>
-                    <x-textarea label="Додатковий опис" rows="12"
-                        class="border bg-max-soft/20 border-max-soft/20" wire:model='order.description'
+                    <x-form.textarea label="Додатковий опис" rows="12" name="order.description"
                         maxlength="1000" />
                 </div>
                 <!-- End Description Content -->
 
                 <!-- Check Content -->
-                <div x-show="isActive(4)">
+                <div data-hs-stepper-content-item='{
+                    "index": 4
+                }'
+                    style="display: none">
                     <div class="text-sm font-semibold text-center uppercase text-max-soft">
                         Перевірка заповнених даних
                     </div>
@@ -338,7 +341,16 @@
                     <div class="mt-4">
                         <div class="flex flex-col text-sm">
                             <span class="font-bold">Колір:</span>
-                            <span class="font-normal" x-text="$wire.order.color"></span>
+                            <span class="font-normal" x-bind:class="{ 'italic text-gray-500': !$wire.order.color }"
+                                x-text="$wire.order.color ? $wire.order.color + 'р.' : 'не вказано'"></>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <div class="flex flex-col text-sm">
+                            <span class="font-bold">Опції:</span>
+                            <span class="font-normal"
+                                x-text="$wire.order.hair_options ? $wire.order.hair_options : 'Не зразані, не фарбовані, без сивини'"></span>
                         </div>
                     </div>
 
@@ -384,7 +396,10 @@
                                 class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
                                 id="hs-checkbox-in-form">
                             <span class="text-sm text-gray-500 ms-3">Ознайомлений(а) та погоджуюсь з
-                                <span class="font-bold text-max-soft">правилами</span>
+                                <span class="font-bold cursor-pointer text-max-soft"
+                                    data-hs-overlay="#rules-check-document">
+                                    правилами
+                                </span>
                             </span>
                         </label>
                     </div>
@@ -394,23 +409,23 @@
 
             <!-- Button Group -->
             <div class="flex justify-between gap-x-2">
-                <button x-show="current > 1" type="button" @click="previous"
+                <button type="button" data-hs-stepper-back-btn
                     class="inline-flex items-center px-3 py-2 text-sm font-medium duration-300 rounded-lg shadow-sm gap-x-1 bg-max-dark text-max-light hover:bg-max-soft disabled:opacity-50 disabled:pointer-events-none">
                     <x-lucide-arrow-left class="w-4 h-4 me-1" />
                     Назад
                 </button>
 
-                <button type="button" @click="$dispatch('show-modal')" aria-label="Правила заявки"
+                <button type="button" data-hs-overlay="#rules-check-document" aria-label="Правила заявки"
                     class="inline-flex items-center px-3 py-2 text-sm font-medium duration-300 rounded-lg shadow-sm me-auto gap-x-1 bg-max-dark hover:bg-max-soft disabled:opacity-50 disabled:pointer-events-none">
                     <x-lucide-info class="w-5 h-5 text-max-light" />
                 </button>
 
-                <button x-show="current !== total" type="button" @click="next"
+                <button type="button" data-hs-stepper-next-btn
                     class="inline-flex items-center px-3 py-2 text-sm font-semibold duration-300 rounded-lg gap-x-1 ms-auto bg-max-dark text-max-light hover:bg-max-soft disabled:opacity-50 disabled:pointer-events-none">
                     Далі
                     <x-lucide-arrow-right class="w-4 h-4 ms-1" />
                 </button>
-                <button x-show="current === total" type="submit"
+                <button type="submit" data-hs-stepper-finish-btn style="display: none;"
                     class="inline-flex items-center px-3 py-2 text-sm font-semibold duration-300 rounded-lg gap-x-1 bg-max-soft text-max-light hover:bg-max-dark disabled:opacity-50 disabled:pointer-events-none"
                     x-bind:disabled="!$wire.order.city || !$wire.order.phone || !$wire.order.hair_length">
                     Відправити
@@ -422,6 +437,99 @@
         <!-- End Stepper Content -->
 
         {{-- Модальне вікно правил --}}
+
+
+
+        <div id="rules-check-document"
+            class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto">
+            <div
+                class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto h-[calc(100%-3.5rem)] flex items-center">
+                <div
+                    class="flex flex-col max-h-full overflow-hidden bg-white border shadow-sm pointer-events-auto rounded-xl h-2/3">
+                    <div class="flex items-center justify-between px-4 py-3 border-b dark:border-gray-700">
+                        <h3 class="font-bold text-gray-800 dark:text-white">
+                            Modal title
+                        </h3>
+                        <button type="button"
+                            class="flex items-center justify-center text-sm font-semibold text-gray-800 border border-transparent rounded-full size-7 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                            data-hs-overlay="#hs-scroll-inside-body-modal">
+                            <span class="sr-only">Close</span>
+                            <x-lucide-x class="w-4 h-4" />
+                        </button>
+                    </div>
+                    <div
+                        class="p-4 overflow-y-auto text-gray-600 [&::-webkit-scrollbar]:w-2
+                                            [&::-webkit-scrollbar-track]:rounded-full
+                                            [&::-webkit-scrollbar-track]:bg-gray-100
+                                            [&::-webkit-scrollbar-thumb]:rounded-full
+                                            [&::-webkit-scrollbar-thumb]:bg-gray-300
+                                            dark:[&::-webkit-scrollbar-track]:bg-max-soft/20
+                                            dark:[&::-webkit-scrollbar-thumb]:bg-max-soft">
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Be bold</h3>
+                                <p class="mt-1 text-gray-800 dark:text-gray-400">
+                                    Motivate teams to do their best work. Offer best practices to get users
+                                    going in the right direction. Be bold and offer just enough help to get
+                                    the work started, and then get out of the way. Give accurate information
+                                    so users can make educated decisions. Know your user's struggles and
+                                    desired outcomes and give just enough information to let them get where
+                                    they need to go.
+                                </p>
+                            </div>
+
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Be
+                                    optimistic</h3>
+                                <p class="mt-1 text-gray-800 dark:text-gray-400">
+                                    Focusing on the details gives people confidence in our products. Weave a
+                                    consistent story across our fabric and be diligent about vocabulary
+                                    across all messaging by being brand conscious across products to create
+                                    a seamless flow across all the things. Let people know that they can
+                                    jump in and start working expecting to find a dependable experience
+                                    across all the things. Keep teams in the loop about what is happening by
+                                    informing them of relevant features, products and opportunities for
+                                    success. Be on the journey with them and highlight the key points that
+                                    will help them the most - right now. Be in the moment by focusing
+                                    attention on the important bits first.
+                                </p>
+                            </div>
+
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Be
+                                    practical, with a wink</h3>
+                                <p class="mt-1 text-gray-800 dark:text-gray-400">
+                                    Keep our own story short and give teams just enough to get moving. Get
+                                    to the point and be direct. Be concise - we tell the story of how we can
+                                    help, but we do it directly and with purpose. Be on the lookout for
+                                    opportunities and be quick to offer a helping hand. At the same time
+                                    realize that nobody likes a nosy neighbor. Give the user just enough to
+                                    know that something awesome is around the corner and then get out of the
+                                    way. Write clear, accurate, and concise text that makes interfaces more
+                                    usable and consistent - and builds trust. We strive to write text that
+                                    is understandable by anyone, anywhere, regardless of their culture or
+                                    language so that everyone feels they are part of the team.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-end px-4 py-3 border-t gap-x-2 dark:border-gray-700">
+                        <button type="button"
+                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                            data-hs-overlay="#hs-scroll-inside-body-modal">
+                            Close
+                        </button>
+                        <button type="button"
+                            class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-blue-600 border border-transparent rounded-lg gap-x-2 hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+                            Save changes
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
         <x-modal>
             <x-modal.panel>
                 <x-modal.close />
@@ -500,26 +608,20 @@
 
 @script
     <script>
-        Alpine.data('stepper', () => {
-            return {
-                current: 1,
-                total: 4,
-                previous() {
-                    this.current--;
-                },
-                next() {
-                    this.current++;
-                },
-                isActive(step) {
-                    return this.current === step;
-                },
-                isDone(step) {
-                    return this.current > step;
-                },
-                isFinal() {
-                    return this.current === this.total;
-                }
-            }
+        window.addEventListener('load', () => {
+            const goalSelect = HSSelect.getInstance('#goals');
+            const colorSelect = HSSelect.getInstance('#colors');
+            // const optionsSelect = HSSelect.getInstance('#hair-options');
+
+            goalSelect.on('change', (value) => {
+                $wire.set('order.goal', value)
+            });
+            colorSelect.on('change', (value) => {
+                $wire.set('order.color', value)
+            });
+            // optionsSelect.on('change', (values) => {
+            //     $wire.set('order.hair_options', values)
+            // });
         })
     </script>
 @endscript

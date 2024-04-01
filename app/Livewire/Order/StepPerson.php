@@ -22,7 +22,7 @@ class StepPerson extends Component
     public function render()
     {
         return view('livewire.order.step-person', [
-            'goalSelectOptions' => $this->goalSelectOptions
+            'goalSelectOptions' => $this->goalSelectOptions,
         ]);
     }
 }

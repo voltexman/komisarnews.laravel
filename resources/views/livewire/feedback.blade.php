@@ -8,34 +8,18 @@
                 </div>
             </div>
 
-            <x-input label="Ваше ім`я" wire:model="feedback.name" class="mt-5 bg-max-light/95 focus:bg-max-light/85"
-                type="text" required maxlength="40" />
-            <div>
-                @error('feedback.name')
-                    <span class="text-xs text-red-500">{{ $message }}</span>
-                @enderror
-            </div>
+            <x-form.input label="Ваше ім`я" dark name='feedback.name' class="mt-5" required maxlength="40" />
 
-            <x-input label="Контактні дані" wire:model="feedback.contact"
-                class="mt-5 bg-max-light/95 focus:bg-max-light/85" type="text" required maxlength="60" />
-            <div>
-                @error('feedback.contact')
-                    <span class="text-xs text-red-500">{{ $message }}</span>
-                @enderror
-            </div>
+            <x-form.input label="Контактні дані" dark name="feedback.contact" class="mt-5" required maxlength="60" />
 
-            <x-textarea label="Повідомлення" wire:model="feedback.text" rows="5"
-                class="mt-5 bg-max-light/95 focus:bg-max-light/85" required maxlength="1500" />
-            <div>
-                @error('feedback.text')
-                    <span class="text-xs text-red-500">{{ $message }}</span>
-                @enderror
-            </div>
+            <x-form.textarea label="Повідомлення" dark name="feedback.text" rows="5" class="mt-5" required
+                maxlength="1500" />
 
             {{-- Loading... --}}
-            <div wire:loading class="absolute top-0 w-full h-full start-0 bg-max-black/80"></div>
+            <div wire:loading wire:target="save" class="absolute top-0 w-full h-full start-0 bg-max-black/80"></div>
 
-            <div wire:loading class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 start-1/2">
+            <div wire:loading wire:target="save"
+                class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 start-1/2">
                 <div class="animate-spin inline-block w-14 h-14 border-[3px] border-current border-t-transparent text-max-soft rounded-full"
                     role="status" aria-label="loading">
                     <span class="sr-only">Loading...</span>

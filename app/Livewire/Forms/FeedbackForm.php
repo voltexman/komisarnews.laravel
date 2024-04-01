@@ -3,14 +3,18 @@
 namespace App\Livewire\Forms;
 
 use App\Models\Feedback;
+use Livewire\Attributes\Validate;
 use Livewire\Form;
 
 class FeedbackForm extends Form
 {
+    #[Validate]
     public $name = '';
 
+    #[Validate]
     public $contact = '';
 
+    #[Validate]
     public $text = '';
 
     public function rules()

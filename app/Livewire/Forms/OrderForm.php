@@ -4,6 +4,7 @@ namespace App\Livewire\Forms;
 
 use App\Models\Order;
 use Illuminate\Validation\Rule;
+use Livewire\Attributes\Validate;
 use Livewire\Form;
 
 class OrderForm extends Form
@@ -12,10 +13,12 @@ class OrderForm extends Form
 
     public $name = '';
 
+    #[Validate]
     public $city = '';
 
     public $email = '';
 
+    #[Validate]
     public $phone = '';
 
     public $photos = [];
@@ -24,11 +27,12 @@ class OrderForm extends Form
 
     public $hair_weight = '';
 
+    #[Validate]
     public $hair_length = '';
 
     public $age = '';
 
-    public $hair_options = '';
+    public $hair_options = [];
 
     public $description = '';
 
@@ -55,7 +59,7 @@ class OrderForm extends Form
             'name' => 'string|max:255',
             'city' => 'string|required|min:2|max:255',
             'email' => 'email|min:5',
-            'phone' => 'numeric|required|min:5|max:20',
+            'phone' => 'string|required|min:5|max:20',
             'photos.*' => 'image',
             'color' => 'string|max:100',
             'hair_weight' => 'numeric|max:3',

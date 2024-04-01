@@ -11,7 +11,7 @@ class PostController extends Controller
     public function list(): View
     {
         return view('article.list', [
-            'meta' => Meta::where('page', Meta::POSTS_PAGE)->first(),
+            // 'meta' => Meta::where('page', Meta::POSTS_PAGE)->first(),
             'posts' => Post::where(
                 [
                     'status' => Post::STATUS_ACTIVE,

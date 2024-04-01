@@ -42,11 +42,11 @@ class PostList extends Component
 
     public function placeholder()
     {
-        return view('livewire.skeleton-post-list');
+        return view('livewire.posts.skeleton-post-list');
     }
 
     public function render()
     {
-        return view('livewire.post-list');
+        return view('livewire.posts.post-list');
     }
 }

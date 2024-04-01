@@ -14,12 +14,10 @@ class Order extends Component
 
     public array $goals = [
         [
-            'icon' => 'circle-dollar-sign',
             'option' => 'Хочу оцінити вартість',
             'description' => 'Лише дізнатись ціну у майстра',
         ],
         [
-            'icon' => 'handshake',
             'option' => 'Хочу продати волосся',
             'description' => 'Відправити волосся та отримати гроші',
         ],
@@ -27,39 +25,30 @@ class Order extends Component
 
     public array $colors = [
         [
-            'label' => '#fff',
+            'color' => '#fff',
             'option' => 'Блонд',
         ],
         [
-            'label' => '#ccc',
+            'color' => '#ccc',
             'option' => 'Світло-русий',
         ],
         [
-            'label' => '#ff0000',
+            'color' => '#ff0000',
             'option' => 'Русий',
         ],
         [
-            'label' => '#ff0000',
+            'color' => '#ff0000',
             'option' => 'Світло-коричневий',
         ],
         [
-            'label' => '#ff0000',
+            'color' => '#ff0000',
             'option' => 'Темно-коричневий',
         ],
         [
-            'label' => '#ff0000',
+            'color' => '#ff0000',
             'option' => 'Чорний',
         ],
     ];
-
-    public $selectedGoal = 0;
-
-    public function selectGoal($index): void
-    {
-        $this->order->goal = $this->goals[$index]['option'];
-
-        $this->selectedGoal = $index;
-    }
 
     public function save()
     {
