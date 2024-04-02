@@ -1,9 +1,5 @@
 <!-- Stepper -->
-<div data-hs-stepper='{
-    "currentIndex": 1
-}'
-    class="relative bg-max-light h-[575px] p-5 rounded-lg shadow-lg shadow-max-black/25" wire:ignore>
-
+<x-stepper current="3">
     <form wire:submit="save" x-data="{
         showDescription: false,
     }">
@@ -14,95 +10,13 @@
             </span>
         </div>
 
-        <!-- Stepper Nav -->
-        <ul class="relative flex flex-row justify-between max-w-sm mx-auto gap-x-2">
-
-            <!-- Person Item -->
-            <li class="flex flex-col items-center justify-center flex-1 md:shrink md:basis-0 group gap-x-2 md:flex"
-                data-hs-stepper-nav-item='{
-                "index": 1
-              }'>
-                <div
-                    class="relative min-w-[28px] min-h-[28px] flex flex-col items-center md:w-full md:inline-flex md:flex-wrap md:flex-row text-xs align-middl">
-                    <span
-                        class="flex items-center justify-center flex-shrink-0 w-8 h-8 mx-auto font-medium rounded-full">
-                        <x-lucide-file-text
-                            class="w-5 h-5 text-max-soft hs-stepper-active:block hs-stepper-active:animate-bounce hs-stepper-success:hidden" />
-                        <x-lucide-check class="hidden w-5 h-5 text-max-soft hs-stepper-success:block" />
-                    </span>
-                </div>
-                <div class="grow md:grow-0">
-                    <span
-                        class="block text-xs font-semibold text-gray-600 lg:text-sm hs-stepper-success:text-gray-400">Заявка</span>
-                </div>
-            </li>
-            <!-- End Item -->
-
-            <!-- Parameters Item -->
-            <li class="flex flex-col items-center justify-center flex-1 md:shrink md:basis-0 group gap-x-2 md:flex"
-                data-hs-stepper-nav-item='{
-                "index": 2
-              }'>
-                <div
-                    class="relative min-w-[28px] min-h-[28px] flex flex-col items-center md:w-full md:inline-flex md:flex-wrap md:flex-row text-xs align-middl">
-                    <span
-                        class="flex items-center justify-center flex-shrink-0 w-8 h-8 mx-auto font-medium rounded-full">
-                        <x-lucide-swatch-book
-                            class="w-5 h-5 text-max-soft hs-stepper-active:block hs-stepper-active:animate-bounce hs-stepper-success:hidden" />
-                        <x-lucide-check class="hidden w-5 h-5 text-max-soft hs-stepper-success:block" />
-                    </span>
-                </div>
-                <div class="grow md:grow-0">
-                    <span
-                        class="block text-xs font-semibold text-gray-600 lg:text-sm hs-stepper-success:text-gray-400">Опції</span>
-                </div>
-            </li>
-            <!-- End Item -->
-
-            <!-- Description Item -->
-            <li class="flex flex-col items-center justify-center flex-1 md:shrink md:basis-0 group gap-x-2 md:flex"
-                data-hs-stepper-nav-item='{
-                "index": 3
-              }'>
-                <div
-                    class="min-w-[28px] min-h-[28px] flex flex-col items-center md:w-full md:inline-flex md:flex-wrap md:flex-row text-xs align-middle">
-                    <span
-                        class="flex items-center justify-center flex-shrink-0 w-8 h-8 mx-auto font-medium rounded-full">
-                        <x-lucide-message-circle-more
-                            class="w-5 h-5 text-max-soft hs-stepper-active:block hs-stepper-active:animate-bounce hs-stepper-success:hidden" />
-                        <x-lucide-check class="hidden w-5 h-5 hs-stepper-success:block" />
-                    </span>
-                </div>
-                <div class="grow md:grow-0">
-                    <span
-                        class="block text-xs font-semibold text-gray-600 lg:text-sm hs-stepper-success:text-gray-400">Опис</span>
-                </div>
-            </li>
-            <!-- End Item -->
-
-            <!-- Check Item -->
-            <li class="flex flex-col items-center justify-center flex-1 md:shrink md:basis-0 group gap-x-2 md:flex"
-                data-hs-stepper-nav-item='{
-                "index": 4
-              }'>
-                <div
-                    class="min-w-[28px] min-h-[28px] flex flex-col items-center md:w-full md:inline-flex md:flex-wrap md:flex-row text-xs align-middl">
-                    <span
-                        class="flex items-center justify-center flex-shrink-0 w-8 h-8 mx-auto font-medium rounded-full">
-                        <x-lucide-file-check
-                            class="w-5 h-5 text-max-soft hs-stepper-active:block hs-stepper-active:animate-bounce hs-stepper-success:hidden" />
-                        <x-lucide-check class="hidden w-5 h-5 hs-stepper-success:block" />
-                    </span>
-                </div>
-                <div class="grow md:grow-0">
-                    <span
-                        class="block text-xs font-semibold text-gray-600 lg:text-sm hs-stepper-success:text-gray-400">Дані</span>
-                </div>
-            </li>
-            <!-- End Item -->
-
-        </ul>
-        <!-- End Stepper Nav -->
+        <x-stepper.navigation>
+            <x-stepper.navigation.item step='1' icon='file-text' label='Заявка' />
+            <x-stepper.navigation.item step='2' icon='swatch-book' label='Опції' />
+            <x-stepper.navigation.item step='3' icon='camera' label='Фото' />
+            <x-stepper.navigation.item step='4' icon='message-square-text' label='Опис' />
+            <x-stepper.navigation.item step='5' icon='file-check' label='Дані' />
+        </x-stepper.navigation>
 
         <!-- Stepper Content -->
         <div class="flex flex-col mt-5">
@@ -244,9 +158,17 @@
                 </div>
                 {{-- End Parameters Content --}}
 
-                <!-- Description Content -->
+                <!-- Person Content -->
                 <div data-hs-stepper-content-item='{
                     "index": 3
+                }'>
+                    photos...
+                </div>
+                {{-- End Photos Content --}}
+
+                <!-- Description Content -->
+                <div data-hs-stepper-content-item='{
+                    "index": 4
                 }'
                     style="display: none">
                     <div
@@ -265,7 +187,7 @@
 
                 <!-- Check Content -->
                 <div data-hs-stepper-content-item='{
-                    "index": 4
+                    "index": 5
                 }'
                     style="display: none">
                     <div class="text-sm font-semibold text-center uppercase text-max-soft">
@@ -603,7 +525,7 @@
             </div>
         @endif
     </form>
-</div>
+</x-stepper>
 <!-- End Stepper -->
 
 @script
