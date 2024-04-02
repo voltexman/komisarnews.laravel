@@ -1,5 +1,5 @@
 <!-- Stepper -->
-<x-stepper current="3">
+<x-stepper current="2">
     <form wire:submit="save" x-data="{
         showDescription: false,
     }">
@@ -59,7 +59,7 @@
                 }'
                     style="display: none" class="flex flex-col gap-y-5">
 
-                    <p class="-mb-4 text-xs leading-4 text-max-dark/80">
+                    <p class="hidden -mb-4 text-xs leading-4 lg:block text-max-dark/80">
                         Якийсь текст пояснюючий що потрібно вказати в даному полі</p>
                     <x-form.select label="Вкажіть колір" id="colors">
                         @foreach ($colors as $item)
@@ -69,7 +69,7 @@
                         @endforeach
                     </x-form.select>
 
-                    <p class="-mb-4 text-xs leading-4 text-max-dark/80">
+                    <p class="hidden -mb-4 text-xs leading-4 lg:block text-max-dark/80">
                         Якийсь текст пояснюючий що потрібно вказати в даному полі</p>
                     <div class="flex justify-between gap-x-4">
 
@@ -113,45 +113,54 @@
                         </div>
                     </div>
 
-                    <p class="-mb-4 text-xs leading-4 text-max-dark/80">
+                    <p class="hidden -mb-4 text-xs leading-4 lg:block text-max-dark/80">
                         Якийсь текст пояснюючий що потрібно вказати в даному полі</p>
                     <ul class="flex flex-col justify-between sm:flex-row">
                         <li
                             class="inline-flex items-center w-full gap-x-2.5 py-3 px-4 text-sm font-medium transition hover:bg-max-soft/40 bg-max-soft/20 border border-max-soft/30 text-max-dark -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
                             <div class="relative flex items-start w-full">
-                                <div class="flex items-center h-6">
+                                <div class="flex items-center self-center h-6">
                                     <input id="hair-options-1" wire:model="order.hair_options" type="checkbox"
                                         value="Зрізані"
                                         class="p-2.5 rounded-full border-max-soft checked:bg-max-soft disabled:opacity-50">
                                 </div>
                                 <label for="hair-options-1"
-                                    class="self-center block w-full text-sm ms-3 text-max-dark">Зрізані</label>
+                                    class="flex flex-col self-center w-full text-sm ms-3 text-max-dark">
+                                    Зрізані
+                                    <span class="text-xs lg:hidden">some text</span>
+                                </label>
                             </div>
                         </li>
 
                         <li
-                            class="inline-flex items-center w-full gap-x-2.5 py-3 px-4 text-sm font-medium transition hover:bg-max-soft/40 bg-max-soft/20 border border-max-soft/30 text-max-dark -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
+                            class="inline-flex items-center w-full gap-x-2.5 py-3 px-4 text-sm font-medium transition hover:bg-max-soft/40 bg-max-soft/20 border border-max-soft/30 border-t-0 lg:border-t text-max-dark -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
                             <div class="relative flex items-start w-full">
-                                <div class="flex items-center h-6">
+                                <div class="flex items-center self-center h-6">
                                     <input id="hair-options-2" wire:model="order.hair_options" type="checkbox"
                                         value="Фарбовані"
                                         class="p-2.5 rounded-full border-max-soft checked:bg-max-soft disabled:opacity-50">
                                 </div>
                                 <label for="hair-options-2"
-                                    class="self-center block w-full text-sm ms-3 text-max-dark">Фарбовані</label>
+                                    class="flex flex-col self-center w-full text-sm ms-3 text-max-dark">
+                                    Фарбовані
+                                    <span class="text-xs lg:hidden">some text</span>
+                                </label>
                             </div>
                         </li>
 
                         <li
-                            class="inline-flex items-center w-full gap-x-2.5 py-3 px-4 text-sm font-medium transition hover:bg-max-soft/40 bg-max-soft/20 border border-max-soft/30 text-max-dark -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
+                            class="inline-flex items-center w-full gap-x-2.5 py-3 px-4 text-sm font-medium transition hover:bg-max-soft/40 bg-max-soft/20 border border-max-soft/30 border-t-0 lg:border-t text-max-dark -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
                             <div class="relative flex items-start w-full">
-                                <div class="flex items-center h-6">
+                                <div class="flex items-center self-center h-6">
                                     <input id="hair-options-3" wire:model="order.hair_options" type="checkbox"
                                         value="З сивиною"
                                         class="p-2.5 rounded-full border-max-soft checked:bg-max-soft disabled:opacity-50">
                                 </div>
                                 <label for="hair-options-3"
-                                    class="self-center block w-full text-sm ms-3 text-max-dark">З сивиною</label>
+                                    class="flex flex-col self-center w-full text-sm ms-3 text-max-dark">
+                                    З сивиною
+                                    <span class="text-xs lg:hidden">some text</span>
+                                </label>
                             </div>
                         </li>
                     </ul>
