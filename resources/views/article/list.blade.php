@@ -7,7 +7,7 @@
 
 @section('header')
     @parent
-    <header class="relative h-[280px] w-full overflow-hidden">
+    <div class="relative h-[280px] w-full overflow-hidden">
         <picture>
             <source srcset="{{ asset('images/article-header.webp') }}" type="image/webp">
             <source srcset="{{ asset('images/article-header.jpg') }}" type="image/jpeg">
@@ -15,11 +15,11 @@
                 class="object-cover object-center h-full">
         </picture>
         <div
-            class="absolute top-0 left-0 h-full w-full flex flex-col justify-center items-center backdrop-blur-sm backdrop-brightness-75 bg-max-black/50">
-            <h1 class="text-max-light text-xl uppercase">Статті та новини</h1>
-            <span class="text-md text-max-light/80 uppercase font-light">Інформативно, пізнавально</span>
+            class="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full backdrop-blur-sm backdrop-brightness-75 bg-max-black/50">
+            <h1 class="text-xl uppercase text-max-light">Статті та новини</h1>
+            <span class="font-light uppercase text-md text-max-light/80">Інформативно, пізнавально</span>
         </div>
-    </header>
+    </div>
 @endsection
 
 @section('content')

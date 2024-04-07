@@ -1,5 +1,5 @@
 <!-- Stepper -->
-<x-stepper current="2">
+<x-stepper current="3">
     <form wire:submit="save" x-data="{
         showDescription: false,
     }">
@@ -23,9 +23,7 @@
             <div class="flex flex-col h-[375px]">
 
                 <!-- Person Content -->
-                <div data-hs-stepper-content-item='{
-                        "index": 1
-                    }'>
+                <x-stepper.content step='1'>
                     <div class="flex flex-col w-full gap-y-5">
                         <x-form.select label="Вкажіть ціль заявки" id="goals">
                             @foreach ($goals as $goal)
@@ -50,155 +48,146 @@
                         <x-form.input class="border bg-max-soft/20 border-max-soft/20" label="Номер телефону"
                             icon="phone" maxlength="15" name="order.phone" required />
                     </div>
-                </div>
+                </x-stepper.content>
                 <!-- End Person Content -->
 
                 {{-- Parameters Content --}}
-                <div data-hs-stepper-content-item='{
-                    "index": 2
-                }'
-                    style="display: none" class="flex flex-col gap-y-5">
+                <x-stepper.content step='2' style="display: none">
 
-                    <p class="hidden -mb-4 text-xs leading-4 lg:block text-max-dark/80">
-                        Якийсь текст пояснюючий що потрібно вказати в даному полі</p>
-                    <x-form.select label="Вкажіть колір" id="colors">
-                        @foreach ($colors as $item)
-                            <option value="{{ $item['option'] }}">
-                                {{ $item['option'] }}
-                            </option>
-                        @endforeach
-                    </x-form.select>
+                    <div>
+                        <p class="hidden text-xs leading-4 lg:block text-max-dark/80">
+                            Якийсь текст пояснюючий що потрібно вказати в даному полі</p>
+                        <x-form.select label="Вкажіть колір волосся" id="colors">
+                            @foreach ($colors as $item)
+                                <option value="{{ $item['option'] }}">
+                                    {{ $item['option'] }}
+                                </option>
+                            @endforeach
+                        </x-form.select>
+                    </div>
 
-                    <p class="hidden -mb-4 text-xs leading-4 lg:block text-max-dark/80">
-                        Якийсь текст пояснюючий що потрібно вказати в даному полі</p>
-                    <div class="flex justify-between gap-x-4">
+                    <div>
+                        <p class="hidden text-xs leading-4 lg:inline-block text-max-dark/80">
+                            Якийсь текст пояснюючий що потрібно вказати в даному полі</p>
+                        <div class="flex justify-between gap-x-4">
 
-                        <!-- Input Number -->
-                        <div class="border rounded-lg bg-max-soft/20 border-max-soft/30">
-                            <div class="flex items-center justify-between w-full gap-x-1">
-                                <div class="px-3 py-2 grow">
-                                    <span class="block text-xs text-max-dark">Вага (гр)</span>
-                                    <input type="text" wire:model='order.hair_weight' placeholder="0"
-                                        class="w-full p-0 bg-transparent border-0 text-max-dark focus:ring-0 placeholder:text-sm placeholder:text-max-soft/50"
-                                        aria-label="Вага">
+                            <!-- Input Number -->
+                            <div class="border rounded-lg bg-max-soft/20 border-max-soft/30">
+                                <div class="flex items-center justify-between w-full gap-x-1">
+                                    <div class="px-3 py-2 grow">
+                                        <span class="block text-xs text-max-dark">Вага (гр)</span>
+                                        <input type="text" wire:model='order.hair_weight' placeholder="0"
+                                            class="w-full p-0 bg-transparent border-0 text-max-dark focus:ring-0 placeholder:text-sm placeholder:text-max-soft/50"
+                                            aria-label="Вага">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- End Input Number -->
+                            <!-- End Input Number -->
 
-                        <!-- Input Number -->
-                        <div class="border rounded-lg bg-max-soft/20 border-max-soft/30" data-hs-input-number>
-                            <div class="flex items-center justify-between w-full gap-x-1">
-                                <div class="relative px-3 py-2 grow">
-                                    <span class="block text-xs text-max-dark">Довжина (мм)</span>
-                                    <span class="absolute top-0 text-lg text-red-500 right-1">*</span>
-                                    <input type="text" wire:model.blur='order.hair_length' placeholder="0"
-                                        class="w-full p-0 bg-transparent border-0 text-max-dark focus:ring-0 placeholder:text-sm placeholder:text-max-soft/50"
-                                        aria-label="Довжина" data-hs-input-number-input>
+                            <!-- Input Number -->
+                            <div class="border rounded-lg bg-max-soft/20 border-max-soft/30" data-hs-input-number>
+                                <div class="flex items-center justify-between w-full gap-x-1">
+                                    <div class="relative px-3 py-2 grow">
+                                        <span class="block text-xs text-max-dark">Довжина (мм)</span>
+                                        <span class="absolute top-0 text-lg text-red-500 right-1">*</span>
+                                        <input type="text" wire:model.blur='order.hair_length' placeholder="0"
+                                            class="w-full p-0 bg-transparent border-0 text-max-dark focus:ring-0 placeholder:text-sm placeholder:text-max-soft/50"
+                                            aria-label="Довжина" data-hs-input-number-input>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- End Input Number -->
+                            <!-- End Input Number -->
 
-                        <!-- Input Number -->
-                        <div class="w-[130px] border rounded-lg bg-max-soft/20 border-max-soft/30">
-                            <div class="flex items-center justify-between w-full gap-x-1">
-                                <div class="px-3 py-2 grow">
-                                    <span class="block text-xs text-max-dark">Вік</span>
-                                    <input type="text" wire:model='order.age' placeholder="25"
-                                        class="w-full p-0 bg-transparent border-0 text-max-dark focus:ring-0 placeholder:text-sm placeholder:text-max-soft/50"
-                                        aria-label="Вік">
+                            <!-- Input Number -->
+                            <div class="w-[130px] border rounded-lg bg-max-soft/20 border-max-soft/30">
+                                <div class="flex items-center justify-between w-full gap-x-1">
+                                    <div class="px-3 py-2 grow">
+                                        <span class="block text-xs text-max-dark">Вік</span>
+                                        <input type="text" wire:model='order.age' placeholder="25"
+                                            class="w-full p-0 bg-transparent border-0 text-max-dark focus:ring-0 placeholder:text-sm placeholder:text-max-soft/50"
+                                            aria-label="Вік">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <p class="hidden -mb-4 text-xs leading-4 lg:block text-max-dark/80">
-                        Якийсь текст пояснюючий що потрібно вказати в даному полі</p>
-                    <ul class="flex flex-col justify-between sm:flex-row">
-                        <li
-                            class="inline-flex items-center w-full gap-x-2.5 py-3 px-4 text-sm font-medium transition hover:bg-max-soft/40 bg-max-soft/20 border border-max-soft/30 text-max-dark -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
-                            <div class="relative flex items-start w-full">
-                                <div class="flex items-center self-center h-6">
-                                    <input id="hair-options-1" wire:model="order.hair_options" type="checkbox"
-                                        value="Зрізані"
-                                        class="p-2.5 rounded-full border-max-soft checked:bg-max-soft disabled:opacity-50">
+                    <div>
+                        <p class="hidden text-xs leading-4 lg:block text-max-dark/80">
+                            Якийсь текст пояснюючий що потрібно вказати в даному полі</p>
+                        <ul class="flex flex-col justify-between sm:flex-row">
+                            <li
+                                class="inline-flex items-center w-full gap-x-2.5 py-3 px-4 text-sm font-medium transition hover:bg-max-soft/40 bg-max-soft/20 border border-max-soft/30 text-max-dark -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
+                                <div class="relative flex items-start w-full">
+                                    <div class="flex items-center self-center h-6">
+                                        <input id="hair-options-1" wire:model="order.hair_options" type="checkbox"
+                                            value="Зрізані"
+                                            class="p-2.5 rounded-full border-max-soft checked:bg-max-soft disabled:opacity-50">
+                                    </div>
+                                    <label for="hair-options-1"
+                                        class="flex flex-col self-center w-full text-sm ms-3 text-max-dark">
+                                        Зрізані
+                                        <span class="text-xs lg:hidden">some text</span>
+                                    </label>
                                 </div>
-                                <label for="hair-options-1"
-                                    class="flex flex-col self-center w-full text-sm ms-3 text-max-dark">
-                                    Зрізані
-                                    <span class="text-xs lg:hidden">some text</span>
-                                </label>
-                            </div>
-                        </li>
+                            </li>
 
-                        <li
-                            class="inline-flex items-center w-full gap-x-2.5 py-3 px-4 text-sm font-medium transition hover:bg-max-soft/40 bg-max-soft/20 border border-max-soft/30 border-t-0 lg:border-t text-max-dark -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
-                            <div class="relative flex items-start w-full">
-                                <div class="flex items-center self-center h-6">
-                                    <input id="hair-options-2" wire:model="order.hair_options" type="checkbox"
-                                        value="Фарбовані"
-                                        class="p-2.5 rounded-full border-max-soft checked:bg-max-soft disabled:opacity-50">
+                            <li
+                                class="inline-flex items-center w-full gap-x-2.5 py-3 px-4 text-sm font-medium transition hover:bg-max-soft/40 bg-max-soft/20 border border-max-soft/30 border-t-0 lg:border-t text-max-dark -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
+                                <div class="relative flex items-start w-full">
+                                    <div class="flex items-center self-center h-6">
+                                        <input id="hair-options-2" wire:model="order.hair_options" type="checkbox"
+                                            value="Фарбовані"
+                                            class="p-2.5 rounded-full border-max-soft checked:bg-max-soft disabled:opacity-50">
+                                    </div>
+                                    <label for="hair-options-2"
+                                        class="flex flex-col self-center w-full text-sm ms-3 text-max-dark">
+                                        Фарбовані
+                                        <span class="text-xs lg:hidden">some text</span>
+                                    </label>
                                 </div>
-                                <label for="hair-options-2"
-                                    class="flex flex-col self-center w-full text-sm ms-3 text-max-dark">
-                                    Фарбовані
-                                    <span class="text-xs lg:hidden">some text</span>
-                                </label>
-                            </div>
-                        </li>
+                            </li>
 
-                        <li
-                            class="inline-flex items-center w-full gap-x-2.5 py-3 px-4 text-sm font-medium transition hover:bg-max-soft/40 bg-max-soft/20 border border-max-soft/30 border-t-0 lg:border-t text-max-dark -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
-                            <div class="relative flex items-start w-full">
-                                <div class="flex items-center self-center h-6">
-                                    <input id="hair-options-3" wire:model="order.hair_options" type="checkbox"
-                                        value="З сивиною"
-                                        class="p-2.5 rounded-full border-max-soft checked:bg-max-soft disabled:opacity-50">
+                            <li
+                                class="inline-flex items-center w-full gap-x-2.5 py-3 px-4 text-sm font-medium transition hover:bg-max-soft/40 bg-max-soft/20 border border-max-soft/30 border-t-0 lg:border-t text-max-dark -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
+                                <div class="relative flex items-start w-full">
+                                    <div class="flex items-center self-center h-6">
+                                        <input id="hair-options-3" wire:model="order.hair_options" type="checkbox"
+                                            value="З сивиною"
+                                            class="p-2.5 rounded-full border-max-soft checked:bg-max-soft disabled:opacity-50">
+                                    </div>
+                                    <label for="hair-options-3"
+                                        class="flex flex-col self-center w-full text-sm ms-3 text-max-dark">
+                                        З сивиною
+                                        <span class="text-xs lg:hidden">some text</span>
+                                    </label>
                                 </div>
-                                <label for="hair-options-3"
-                                    class="flex flex-col self-center w-full text-sm ms-3 text-max-dark">
-                                    З сивиною
-                                    <span class="text-xs lg:hidden">some text</span>
-                                </label>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </x-stepper.content>
                 {{-- End Parameters Content --}}
 
                 <!-- Person Content -->
-                <div data-hs-stepper-content-item='{
-                    "index": 3
-                }'>
-                    photos...
-                </div>
+                <x-stepper.content step='3' style="display: none">
+
+                    <livewire:order.photos />
+
+                </x-stepper.content>
                 {{-- End Photos Content --}}
 
                 <!-- Description Content -->
-                <div data-hs-stepper-content-item='{
-                    "index": 4
-                }'
-                    style="display: none">
-                    <div
-                        class="flex flex-row mb-4 overflow-hidden border rounded-lg bg-max-soft/10 border-max-soft/10">
-                        <div class="flex px-3 py-2 border-e pe-2 bg-max-soft/20 border-max-soft/10">
-                            <i data-lucide="info" class="self-center w-4 h-4"></i>
-                        </div>
-                        <span class="px-4 py-2 text-xs leading-4 text-gray-600">
-                            Можете вказати будь-яку додаткову інформацію, яку вважаєте важливою, для майстра.
-                        </span>
-                    </div>
+                <x-stepper.content step='4' style="display: none">
+                    <x-alert>
+                        Можете вказати будь-яку додаткову інформацію, яку вважаєте важливою, для майстра.
+                    </x-alert>
                     <x-form.textarea label="Додатковий опис" rows="12" name="order.description"
                         maxlength="1000" />
-                </div>
+                </x-stepper.content>
                 <!-- End Description Content -->
 
                 <!-- Check Content -->
-                <div data-hs-stepper-content-item='{
-                    "index": 5
-                }'
-                    style="display: none">
+                <x-stepper.content step='5' style="display: none">
                     <div class="text-sm font-semibold text-center uppercase text-max-soft">
                         Перевірка заповнених даних
                     </div>
@@ -334,7 +323,7 @@
                             </span>
                         </label>
                     </div>
-                </div>
+                </x-stepper.content>
                 <!-- End Check Content -->
             </div>
 
@@ -542,17 +531,13 @@
         window.addEventListener('load', () => {
             const goalSelect = HSSelect.getInstance('#goals');
             const colorSelect = HSSelect.getInstance('#colors');
-            // const optionsSelect = HSSelect.getInstance('#hair-options');
 
             goalSelect.on('change', (value) => {
-                $wire.set('order.goal', value)
+                $wire.set('order.goal', value);
             });
             colorSelect.on('change', (value) => {
-                $wire.set('order.color', value)
+                $wire.set('order.color', value);
             });
-            // optionsSelect.on('change', (values) => {
-            //     $wire.set('order.hair_options', values)
-            // });
-        })
+        });
     </script>
 @endscript

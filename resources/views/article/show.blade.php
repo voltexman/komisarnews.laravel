@@ -10,7 +10,7 @@
 
 @section('header')
     @parent
-    <header class="relative h-[280px] w-full overflow-hidden">
+    <div class="relative h-[280px] w-full overflow-hidden">
         <picture>
             <source srcset="{{ $post->getFirstMediaUrl('posts', 'header-webp') }}" type="image/webp">
             <source srcset="{{ $post->getFirstMediaUrl('posts', 'header-jpg') }}" type="image/jpeg">
@@ -21,7 +21,7 @@
             class="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full backdrop-blur-md backdrop-brightness-75 bg-max-black/40">
             <h1 class="text-xl uppercase text-max-light">{{ $post->name }}</h1>
         </div>
-    </header>
+    </div>
 @endsection
 
 @section('content')

@@ -1,6 +1,6 @@
 @props(['options', 'id', 'label'])
 
-<div class="relative">
+<div class="relative" wire:ignore>
     <select id="{{ $id }}"
         data-hs-select='{
             "placeholder": "{{ $label }}",
