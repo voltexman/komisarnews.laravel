@@ -8,7 +8,7 @@
                 class="flex items-center justify-center w-full transition bg-max-soft hover:bg-max-dark">
                 <x-lucide-edit class="size-4 text-max-light" />
             </button>
-            <button type="button" data-hs-overlay="#confirm-dialog-{{ $id }}"
+            <button type="button" data-hs-overlay="#confirm-dialog-{{ $id }}" id="delete-{{ $id }}"
                 class="flex items-center justify-center w-full transition bg-red-500 hover:bg-red-600">
                 <x-lucide-trash-2 class="size-4 text-max-light" />
             </button>
@@ -51,7 +51,11 @@
 
 @script
     <script>
-        // new HSOverlay($wire.$el.querySelector('[data-modal]'));
-        console.log($wire.$el.querySelector('[data-modal]'));
+        const deleteModal = new HSOverlay($wire.$el.querySelector('[data-modal]'));
+        const openDeleteModal = $wire.$el.querySelector('#delete-{{ $id }}');
+
+        openDeleteModal.addEventListener('click', () => {
+            deleteModal.open();
+        });
     </script>
 @endscript

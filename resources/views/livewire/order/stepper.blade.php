@@ -357,138 +357,38 @@
         <!-- End Stepper Content -->
 
         {{-- Модальне вікно правил --}}
+        <x-modal id="rules-check-document">
+            <x-modal.header>
+                <x-lucide-file-check class="inline-flex w-5 h-5 -mt-1 text-max-dark" />
+                Правила заявки
+            </x-modal.header>
 
+            <x-modal.body>
+                <p><x-lucide-file-text class="h-14 w-14 float-start me-2" />
+                    Заповніть всі необхіні поля та надішліть нам замовлення. Бажано вказати
+                    колір, вагу і довжину Вашого волосся. Електронна пошта та номер телефону нам
+                    необхідний для зворотнього зв`язку з Вами та для того щоб повідомити Вас про
+                    купівлю волосся і його вартість.
+                </p>
+                <p>Спочатку Ви отримаєте сповіщення про те, що наш фахівець ознайомлюється з
+                    замовленням, після чого Вам надійде другий лист з інформацією про вартість
+                    та іншими деталями. Зазвичай це займає не більше декількох годин після
+                    відправлення замовлення.
+                </p>
+                <p>В полі "Ваше повідомлення" Ви можете вказати будь-яку іншу, на Вашу думку,
+                    важливу інформацію стосовно волосся. Наприклад, структуру волосся, стан
+                    зрізу: свіжа рівна стрижка або просто укладене волосся або шиньйон. Вкажіть
+                    якомога більше інформації, важливі всі деталі.</p>
+            </x-modal.body>
 
-
-        <div id="rules-check-document"
-            class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto">
-            <div
-                class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto h-[calc(100%-3.5rem)] flex items-center">
-                <div
-                    class="flex flex-col max-h-full overflow-hidden bg-white border shadow-sm pointer-events-auto rounded-xl h-2/3">
-                    <div class="flex items-center justify-between px-4 py-3 border-b dark:border-gray-700">
-                        <h3 class="font-bold text-gray-800 dark:text-white">
-                            Modal title
-                        </h3>
-                        <button type="button"
-                            class="flex items-center justify-center text-sm font-semibold text-gray-800 border border-transparent rounded-full size-7 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                            data-hs-overlay="#hs-scroll-inside-body-modal">
-                            <span class="sr-only">Close</span>
-                            <x-lucide-x class="w-4 h-4" />
-                        </button>
-                    </div>
-                    <div
-                        class="p-4 overflow-y-auto text-gray-600 [&::-webkit-scrollbar]:w-2
-                                            [&::-webkit-scrollbar-track]:rounded-full
-                                            [&::-webkit-scrollbar-track]:bg-gray-100
-                                            [&::-webkit-scrollbar-thumb]:rounded-full
-                                            [&::-webkit-scrollbar-thumb]:bg-gray-300
-                                            dark:[&::-webkit-scrollbar-track]:bg-max-soft/20
-                                            dark:[&::-webkit-scrollbar-thumb]:bg-max-soft">
-                        <div class="space-y-4">
-                            <div>
-                                <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Be bold</h3>
-                                <p class="mt-1 text-gray-800 dark:text-gray-400">
-                                    Motivate teams to do their best work. Offer best practices to get users
-                                    going in the right direction. Be bold and offer just enough help to get
-                                    the work started, and then get out of the way. Give accurate information
-                                    so users can make educated decisions. Know your user's struggles and
-                                    desired outcomes and give just enough information to let them get where
-                                    they need to go.
-                                </p>
-                            </div>
-
-                            <div>
-                                <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Be
-                                    optimistic</h3>
-                                <p class="mt-1 text-gray-800 dark:text-gray-400">
-                                    Focusing on the details gives people confidence in our products. Weave a
-                                    consistent story across our fabric and be diligent about vocabulary
-                                    across all messaging by being brand conscious across products to create
-                                    a seamless flow across all the things. Let people know that they can
-                                    jump in and start working expecting to find a dependable experience
-                                    across all the things. Keep teams in the loop about what is happening by
-                                    informing them of relevant features, products and opportunities for
-                                    success. Be on the journey with them and highlight the key points that
-                                    will help them the most - right now. Be in the moment by focusing
-                                    attention on the important bits first.
-                                </p>
-                            </div>
-
-                            <div>
-                                <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Be
-                                    practical, with a wink</h3>
-                                <p class="mt-1 text-gray-800 dark:text-gray-400">
-                                    Keep our own story short and give teams just enough to get moving. Get
-                                    to the point and be direct. Be concise - we tell the story of how we can
-                                    help, but we do it directly and with purpose. Be on the lookout for
-                                    opportunities and be quick to offer a helping hand. At the same time
-                                    realize that nobody likes a nosy neighbor. Give the user just enough to
-                                    know that something awesome is around the corner and then get out of the
-                                    way. Write clear, accurate, and concise text that makes interfaces more
-                                    usable and consistent - and builds trust. We strive to write text that
-                                    is understandable by anyone, anywhere, regardless of their culture or
-                                    language so that everyone feels they are part of the team.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex items-center justify-end px-4 py-3 border-t gap-x-2 dark:border-gray-700">
-                        <button type="button"
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                            data-hs-overlay="#hs-scroll-inside-body-modal">
-                            Close
-                        </button>
-                        <button type="button"
-                            class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-blue-600 border border-transparent rounded-lg gap-x-2 hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-                            Save changes
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-        <x-modal>
-            <x-modal.panel>
-                <x-modal.close />
-                <x-modal.header>
-                    <x-lucide-file-check class="inline-flex w-5 h-5 -mt-1 text-max-dark" />
-                    Правила заявки
-                </x-modal.header>
-
-                <x-modal.body>
-                    <div
-                        class="h-full overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300">
-                        <p><x-lucide-file-text class="h-14 w-14 float-start me-2" />
-                            Заповніть всі необхіні поля та надішліть нам замовлення. Бажано вказати
-                            колір, вагу і довжину Вашого волосся. Електронна пошта та номер телефону нам
-                            необхідний для зворотнього зв`язку з Вами та для того щоб повідомити Вас про
-                            купівлю волосся і його вартість.
-                        </p>
-                        <p>Спочатку Ви отримаєте сповіщення про те, що наш фахівець ознайомлюється з
-                            замовленням, після чого Вам надійде другий лист з інформацією про вартість
-                            та іншими деталями. Зазвичай це займає не більше декількох годин після
-                            відправлення замовлення.
-                        </p>
-                        <p>В полі "Ваше повідомлення" Ви можете вказати будь-яку іншу, на Вашу думку,
-                            важливу інформацію стосовно волосся. Наприклад, структуру волосся, стан
-                            зрізу: свіжа рівна стрижка або просто укладене волосся або шиньйон. Вкажіть
-                            якомога більше інформації, важливі всі деталі.</p>
-                    </div>
-                </x-modal.body>
-
-                <x-modal.footer>
-                    <p class="text-xs font-normal leading-4 text-white">
-                        МИ НЕ НАДАЄМО ВАШІ КОНТАКТНІ ДАНІ ІНШИМ ОСОБАМ ТА НЕ РОЗСИЛАЄМО СПАМ!
-                        НЕ НАМАГАЙТЕСЯ ОБДУРИТИ ОЦІНЮВАЧА, ВИКОРИСТОВУЮЧИ ПРИЙОМИ, ЩОБ ПОЛІПШИТИ
-                        ЯКІСТЬ ВОЛОССЯ, АБО РОЗТЯГУВАТИ ПАСМО ЩОБ ВІЗУАЛЬНО ЗБІЛЬШИТИ ДОВЖИНУ. НАШ
-                        ФАХІВЕЦЬ ОБОВ'ЯЗКОВО РОЗПІЗНАЄ ОБМАН.
-                    </p>
-                </x-modal.footer>
-
-            </x-modal.panel>
+            <x-modal.footer class="bg-red-500">
+                <p class="text-xs font-normal leading-4 text-white">
+                    МИ НЕ НАДАЄМО ВАШІ КОНТАКТНІ ДАНІ ІНШИМ ОСОБАМ ТА НЕ РОЗСИЛАЄМО СПАМ!
+                    НЕ НАМАГАЙТЕСЯ ОБДУРИТИ ОЦІНЮВАЧА, ВИКОРИСТОВУЮЧИ ПРИЙОМИ, ЩОБ ПОЛІПШИТИ
+                    ЯКІСТЬ ВОЛОССЯ, АБО РОЗТЯГУВАТИ ПАСМО ЩОБ ВІЗУАЛЬНО ЗБІЛЬШИТИ ДОВЖИНУ. НАШ
+                    ФАХІВЕЦЬ ОБОВ'ЯЗКОВО РОЗПІЗНАЄ ОБМАН.
+                </p>
+            </x-modal.footer>
         </x-modal>
 
         {{-- Loading... --}}
