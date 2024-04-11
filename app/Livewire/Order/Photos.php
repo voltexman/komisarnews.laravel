@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Order;
 
-use Livewire\Attributes\Validate;
+use App\Livewire\Forms\OrderForm;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -10,15 +10,16 @@ class Photos extends Component
 {
     use WithFileUploads;
 
-    #[Validate(['photos.*' => 'image|max:2048'])]
-    public $photos = [];
+    public $order;
 
-    public function placeholder()
+    public function mount(OrderForm $order)
     {
-        return <<<'HTML'
-        <div>loading
-        </div>
-        HTML;
+        $this->order = $order;
+    }
+
+    public function isMaxPhotos()
+    {
+        return count($this->order->photos) == env('MAX_ORDER_PHOTOS');
     }
 
     public function render()

@@ -55,7 +55,7 @@ class OrderForm extends Form
     public function rules()
     {
         return [
-            'goal' => ['string|required', Rule::in([Order::GOAL_EVALUATE, Order::GOAL_SELL])],
+            'goal' => Rule::in([Order::GOAL_EVALUATE, Order::GOAL_SELL]),
             'name' => 'string|max:255',
             'city' => 'string|required|min:2|max:255',
             'email' => 'email|min:5',
