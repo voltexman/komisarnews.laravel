@@ -27,17 +27,25 @@ class CreateUser extends Command
      */
     public function handle()
     {
-        $user = User::create([
-            'name' => 'admin',
-            'email' => 'admin@admin.admin',
-            'password' => Hash::make('!komisarAdmin!Max.'),
-        ]);
+        if ($hasAdmin = User::where('name', 'admin')->first()) {
 
-        $user->save();
+            $this->info('Адміністратор вже існує.');
+            $this->info('Токен: '.$hasAdmin->plainTextToken);
 
-        $created = $user->createToken('admin-access');
+        } else {
 
-        $this->info('Адміністратор успішно створений.');
-        $this->info('Токен: '.$created->plainTextToken);
+            $user = User::create([
+                'name' => 'admin',
+                'email' => 'admin@admin.admin',
+                'password' => Hash::make('!komisarAdmin!Max.'),
+            ]);
+
+            $user->save();
+
+            $created = $user->createToken('admin-access');
+
+            $this->info('Адміністратор успішно створений.');
+            $this->info('Токен: '.$created->plainTextToken);
+        }
     }
 }

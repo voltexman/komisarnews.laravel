@@ -16,7 +16,7 @@
     @else
         <div :class="isDropping ? 'bg-max-text/60' : 'bg-max-text/20'"
             class="relative w-full h-40 overflow-hidden duration-300 border border-dashed rounded-lg border-max-text/90">
-            <input type="file" multiple wire:model='order.photos' @change="isDropping = false"
+            <input type="file" multiple @change="handleFileDrop($event)" @drop="isDropping=false"
                 class="absolute inset-0 z-50 w-full h-full p-0 m-0 outline-none opacity-0 cursor-pointer"
                 :class="'{{ $this->isMaxPhotos() ? 'hidden' : 'block' }}'" @dragover="isDropping=true"
                 @dragleave="isDropping=false">
@@ -59,22 +59,8 @@
         </div>
     @endif
 
-    <div x-data="{ uploading: false, progress: 0 }" x-on:livewire-upload-start="uploading = true"
-        x-on:livewire-upload-finish="uploading = false" x-on:livewire-upload-cancel="uploading = false"
-        x-on:livewire-upload-error="uploading = false"
-        x-on:livewire-upload-progress="progress = $event.detail.progress">
+    <div x-show="isUploading" class="mt-3">
 
-        {{-- <div x-show="uploading"> --}}
-        <div class="flex w-full h-2 overflow-hidden bg-gray-200 rounded-full" role="progressbar"
-            :aria-valuenow="progress" aria-valuemin="0" aria-valuemax="100">
-            <div class="flex flex-col justify-center overflow-hidden text-xs text-center text-white transition duration-500 bg-gray-800 rounded-full whitespace-nowrap"
-                :style="{ width: progress + '%' }"></div>
-        </div>
-        {{-- </div> --}}
-
-    </div>
-
-    <div wire:loading wire:target="order.photos" class="flex flex-col w-full mt-4 animate-pulse">
         <div class="w-full overflow-hidden rounded-lg bg-max-soft/30">
             <span class="block size-16 bg-max-soft/50"></span>
         </div>
@@ -93,25 +79,29 @@
         </div>
     </div>
 
-    <div wire:loading.class="hidden" wire:target='order.photos'>
+    <div x-show='!isUploading'>
         @if ($order->photos)
             <x-alert class="mt-4">
                 <p class="m-0 line-clamp-3">На мініатюрах, фотограції можуть виглядати інакше. Але майстер бачитиме
-                    повноцінне фото. Для редагування натисніть <x-lucide-edit class="inline-flex size-3 -mt-0.5" /></p>
+                    повноцінне фото. Для редагування натисніть
+                    <x-lucide-edit class="inline-flex size-3 -mt-0.5" />
+                </p>
             </x-alert>
 
             <div class="grid grid-cols-4 mt-4 gap-x-4">
                 @foreach ($order->photos as $photo)
-                    <livewire:order.photo :$photo :key="$loop->index" id="{{ $loop->index }}" lazy />
+                    <livewire:order.photo :$photo :key="$loop->index" />
                 @endforeach
             </div>
         @else
-            <x-alert class="mt-4">
+            <x-alert class="mt-5">
                 <p class="m-0 line-clamp-3">Намагайтесь обирати максимально вигідні фото та ракурс, який найкраще
                     відображає волосся та їх стан. Можете додати до <b>4</b> фотографії.</p>
             </x-alert>
-            <x-alert type='warning' class="mt-4">
-                <p class="m-0 line-clamp-4">Не застосовуйте фільтрів, які змінюють кольори та якість фото.</p>
+            <x-alert type='warning' class="mt-5">
+                <p class="m-0 line-clamp-4">Не застосовуйте фільтрів, які змінюють кольори та якість фото. Не робіть
+                    фото занадто малим, щоб майстер міг детальніше роздивитись волосся. Не наносьте на фото написів та
+                    водяних знаків.</p>
             </x-alert>
         @endif
     </div>
@@ -121,13 +111,28 @@
     <script>
         Alpine.data('dropzone', () => ({
             isDropping: false,
+            isUploading: false,
             handleFileDrop(event) {
                 this.isDropping = false;
-                let files = $wire.el.querySelector('input[type="file"]').files;
-                const successCallback = (event) => {
-                    window.HSOverlay.autoInit();
+                this.isUploading = true;
+
+                let photos = $wire.el.querySelector('input[type="file"]').files;
+
+                if (photos.length < 5) {
+                    $wire.uploadMultiple('order.photos', photos, (uploadedFilename) => {
+                        // Success callback...
+                        this.isUploading = false;
+                    }, () => {
+                        // Error callback...
+                        this.isUploading = false;
+                    }, (event) => {
+                        // Progress callback...
+                        this.progress = event.detail.progress
+                    }, () => {
+                        // Cancelled callback...
+                        this.isUploading = false;
+                    })
                 }
-                // $wire.uploadMultiple('order.photos', files, successCallback)
             },
         }));
     </script>

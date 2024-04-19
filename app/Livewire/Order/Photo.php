@@ -8,12 +8,9 @@ class Photo extends Component
 {
     public $photo;
 
-    public $id;
-
-    public function mount($photo, $id)
+    public function mount($photo)
     {
         $this->photo = $photo;
-        $this->id = $id;
     }
 
     public function placeholder()
