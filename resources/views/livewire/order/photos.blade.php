@@ -90,7 +90,7 @@
 
             <div class="grid grid-cols-4 mt-4 gap-x-4">
                 @foreach ($order->photos as $photo)
-                    <livewire:order.photo :$photo :key="$loop->index" />
+                    <livewire:order.photo :$photo :key="$loop->index" lazy />
                 @endforeach
             </div>
         @else

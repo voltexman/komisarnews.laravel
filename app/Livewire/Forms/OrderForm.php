@@ -38,13 +38,6 @@ class OrderForm extends Form
 
     public function store()
     {
-        // if ($this->photos) {
-
-        //     foreach ($this->photos as $photo) {
-        //         $validated['photos'] = $photo->store(path: 'photos');
-        //     }
-        // }
-
         $this->validate();
 
         $created = Order::create($this->all());
@@ -52,7 +45,7 @@ class OrderForm extends Form
         session()->flash('number', $created->number);
     }
 
-    public function rules()
+    public function rules(): array
     {
         return [
             'goal' => Rule::in([Order::GOAL_EVALUATE, Order::GOAL_SELL]),

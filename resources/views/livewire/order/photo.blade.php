@@ -51,10 +51,6 @@
 
 @script
     <script>
-        Livewire.hook('component.init', () => {
-            console.log('init');
-            // new HSOverlay($wire.$el.querySelector('--prevent-on-load-init'));
-            // HSOverlay.autoInit();
-        });
+        HSOverlay.autoInit();
     </script>
 @endscript

@@ -33,9 +33,9 @@ class Order extends Component
         dd($this->order->all());
         // session()->flash('number', '25457');
 
-//        foreach ($this->order->photos as $photo) {
-//            $photo->store(path: 'photos');
-//        }
+        //        foreach ($this->order->photos as $photo) {
+        //            $photo->store(path: 'photos');
+        //        }
 
         $this->order->store();
     }

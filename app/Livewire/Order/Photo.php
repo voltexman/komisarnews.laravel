@@ -15,11 +15,7 @@ class Photo extends Component
 
     public function placeholder()
     {
-        return <<<'HTML'
-        <div>
-            loading...
-        </div>
-        HTML;
+        return view('livewire.order.photo-placeholder');
     }
 
     public function render()

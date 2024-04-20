@@ -20,7 +20,7 @@
             <span class="text-xs text-red-500">{{ $message }}</span>
         @enderror
 
-        <template x-if="'{{ isset($required) }}'">
+        <template x-if="'{{ $required }}'">
             <span class="absolute top-0 text-lg text-red-500 right-1">*</span>
         </template>
 

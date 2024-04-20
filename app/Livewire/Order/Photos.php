@@ -17,7 +17,7 @@ class Photos extends Component
         $this->order = $order;
     }
 
-    public function isMaxPhotos()
+    public function isMaxPhotos(): bool
     {
         return count($this->order->photos) == env('MAX_ORDER_PHOTOS');
     }
