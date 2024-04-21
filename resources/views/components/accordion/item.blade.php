@@ -1,24 +1,24 @@
-@props(['label' => '', 'index'])
+@props(['label' => '', 'index', 'active' => false])
 
-<div x-data="{ id: $id('accordion') }" class="cursor-pointer group">
-    <button @click="setActiveAccordion(id)" :class="isActive(id) ? 'bg-max-dark/30' : 'bg-max-text/5'"
-        class="flex items-center justify-between w-full p-4 font-semibold text-left uppercase duration-500 select-none text-max-dark">
-
-        <div class="flex w-6 h-6 border rounded-full border-max-dark bg-max-light/80 me-3">
-            <span x-text="{{ $index }}" class="self-center w-full text-center"></span>
+<div @class(['hs-accordion', 'active' => $active]) id="hs-basic-heading-{{ $index }}">
+    <button
+        class="inline-flex items-center w-full p-3 text-sm font-semibold uppercase hs-accordion-toggle hs-accordion-active:bg-max-soft/35 hs-accordion-active:text-max-dark text-max-dark gap-x-3 text-start disabled:opacity-50 disabled:pointer-events-none"
+        aria-controls="hs-basic-collapse-{{ $index }}">
+        <div class="flex items-center justify-center border rounded-full bg-max-light border-max-dark/50 size-6">
+            <span class="text-xs">
+                {{ $index + 1 }}
+            </span>
         </div>
-
-        <span class="me-auto" :class="isActive(id) ? '' : ''">{{ $label }}</span>
-
-        <div class="duration-200 ease-out" :class="{ 'rotate-180': isActive(id) }">
-            <x-lucide-chevron-down class="w-4 h-4 " />
-        </div>
+        {{ $label }}
+        <x-lucide-chevron-down class="hs-accordion-active:rotate-180 size-4 ms-auto" />
     </button>
-
-    <div x-show="isActive(id)" x-collapse x-cloak>
-        <div class="py-5 px-6 text-[16px] leading-5 text-center text-max-dark bg-max-dark/15">
+    <div id="hs-basic-collapse-{{ $index }}" @class([
+        'hs-accordion-content hs-accordion-active:hidden w-full overflow-hidden transition-[height] duration-300 bg-max-soft/15',
+        'hidden' => !$active,
+    ])
+        aria-labelledby="hs-basic-heading-{{ $index }}">
+        <p class="p-6 m-0 leading-4">
             {{ $slot }}
-        </div>
+        </p>
     </div>
-
 </div>

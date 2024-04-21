@@ -1,12 +1,5 @@
-<div x-data="{
-    setActiveAccordion(id) {
-            this.activeAccordion = (this.activeAccordion == id) ? '' : id
-        },
-        isActive(id) {
-            return this.activeAccordion == id;
-        }
-}"
-    class="relative w-full mx-auto overflow-hidden text-sm font-normal border rounded-lg shadow-md border-max-dark/10 bg-maxsoft shadow-max-dark/20">
+<div
+    class="mt-8 overflow-hidden border rounded-lg shadow-lg border-max-soft/20 hs-accordion-group lg:hidden bg-max-soft/20 shadow-max-dark/15">
 
     {{ $slot }}
 
