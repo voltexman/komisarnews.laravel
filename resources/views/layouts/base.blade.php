@@ -63,7 +63,8 @@
     <header>
         @section('header')
             <nav x-data="navbar" x-init="scrolled" class="fixed z-50 w-screen duration-500" x-cloak
-                x-bind:class="(isScrolled || isOpen) && 'bg-max-black/90 backdrop-blur-sm shadow-lg shadow-max-black/40'"
+                x-bind:class="(isScrolled || navIsOpen || searchIsOpen) &&
+                'bg-max-black/90 backdrop-blur-sm shadow-lg shadow-max-black/40'"
                 @scroll.window="scrolled">
                 <div class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div class="relative flex items-center justify-between h-16">
@@ -84,12 +85,19 @@
                             </div>
                         </div>
 
+                        <div>
+                            <button type="button" class="text-white me-4 h-9" @click="searchToggle">
+                                <x-lucide-search class="size-5" x-show="!searchIsOpen" />
+                                <x-lucide-x class="size-5" x-show="searchIsOpen" />
+                            </button>
+                        </div>
+
                         {{-- Scroll to Map Button --}}
                         <div class="inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                             <div class="flex items-center order-1 ms-auto lg:ms-0">
                                 <a href="#map"
                                     class="items-center hidden px-2 text-xs font-normal text-white uppercase rounded-lg bg-max-dark lg:inline-flex h-9">
-                                    <x-lucide-map-pin class="w-4 h-4 me-1" />
+                                    <x-lucide-map-pin class="size-4 me-1" />
                                     Обрати місто
                                 </a>
                                 <a href="#map"
@@ -103,22 +111,27 @@
                         {{-- Mobile Show Menu Button --}}
                         <div class="inset-y-0 left-0 flex items-center sm:hidden">
                             <!-- Mobile menu button-->
-                            <button type="button" @click="toggle"
+                            <button type="button" @click="navToggle"
                                 class="relative inline-flex items-center justify-center p-2 text-white rounded-md"
                                 aria-controls="mobile-menu" aria-expanded="false">
                                 <span class="absolute -inset-0.5"></span>
                                 <span class="sr-only">Open main menu</span>
-                                <x-lucide-menu class="w-6 h-6" x-show="!isOpen" />
-                                <x-lucide-x class="w-6 h-6" x-show="isOpen" />
+                                <x-lucide-menu class="w-6 h-6" x-show="!navIsOpen" />
+                                <x-lucide-x class="w-6 h-6" x-show="navIsOpen" />
                             </button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Mobile menu, show/hide based on menu state. -->
-                <div x-show="isOpen" x-collapse class="sm:hidden" id="mobile-menu">
+                <div x-show="navIsOpen" x-collapse class="sm:hidden" id="mobile-menu">
                     <div class="px-2 pt-2 pb-3 space-y-1">
                         <x-menu />
+                    </div>
+                </div>
+                <div x-show="searchIsOpen" x-collapse class="sm:hidden" id="mobile-search">
+                    <div class="px-2 pt-2 pb-3 space-y-1">
+                        <livewire:search-posts />
                     </div>
                 </div>
             </nav>
@@ -190,10 +203,16 @@
     <script>
         document.addEventListener('alpine:init', () => {
             Alpine.data('navbar', () => ({
-                isOpen: false,
+                navIsOpen: false,
+                searchIsOpen: false,
                 isScrolled: false,
-                toggle() {
-                    this.isOpen = !this.isOpen;
+                navToggle() {
+                    this.navIsOpen = !this.navIsOpen;
+                    this.searchIsOpen = false;
+                },
+                searchToggle() {
+                    this.searchIsOpen = !this.searchIsOpen;
+                    this.navIsOpen = false;
                 },
                 scrolled() {
                     this.isScrolled = window.pageYOffset >= 200 ? true : false;
