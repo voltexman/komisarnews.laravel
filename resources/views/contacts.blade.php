@@ -8,12 +8,8 @@
 @section('header')
     @parent
     <header class="relative h-[280px] w-full overflow-hidden">
-        <picture>
-            <source srcset="{{ asset('images/contact-header.webp') }}" type="image/webp">
-            <source srcset="{{ asset('images/contact-header.jpg') }}" type="image/jpeg">
-            <img src="{{ asset('images/contact-header.jpg') }}" height="280" alt={{ env('APP_NAME') }}
-                class="object-cover object-center h-full">
-        </picture>
+        <img src="{{ asset('images/contact-header.webp') }}" height="280" alt={{ env('APP_NAME') }}
+            class="object-cover object-center h-full">
         <div
             class="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full backdrop-blur-sm backdrop-brightness-75 bg-max-black/40">
             <h1 class="text-xl uppercase text-max-light">Контакти</h1>

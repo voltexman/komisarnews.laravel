@@ -5,18 +5,11 @@
 @section('description', $post->description)
 @section('robots', $post->robots ? 'index, follow' : 'noindex, nofollow')
 
-@vite(['resources/css/pages/articles.css'])
-@vite(['resources/js/pages/articles.js'])
-
 @section('header')
     @parent
     <div class="relative h-[280px] w-full overflow-hidden">
-        <picture>
-            <source srcset="{{ $post->getFirstMediaUrl('posts', 'header-webp') }}" type="image/webp">
-            <source srcset="{{ $post->getFirstMediaUrl('posts', 'header-jpg') }}" type="image/jpeg">
-            <img src="{{ $post->getFirstMediaUrl('posts', 'header-jpg') }}" width="auto" height="280"
-                alt={{ env('APP_NAME') }} class="object-cover object-center w-full h-full">
-        </picture>
+        <img src="{{ $post->getFirstMediaUrl('posts', 'header') }}" width="auto" height="280" alt={{ env('APP_NAME') }}
+            class="object-cover object-center w-full h-full">
         <div
             class="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full backdrop-blur-md backdrop-brightness-75 bg-max-black/40">
             <h1 class="text-xl uppercase text-max-light">{{ $post->name }}</h1>
