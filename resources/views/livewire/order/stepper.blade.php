@@ -192,9 +192,7 @@
 
                 <!-- Person Content -->
                 <x-stepper.content step='3' style="display: none">
-
                     <livewire:order.photos :order="$order" />
-
                 </x-stepper.content>
                 {{-- End Photos Content --}}
 
