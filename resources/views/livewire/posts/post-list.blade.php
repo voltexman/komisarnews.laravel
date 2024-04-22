@@ -4,9 +4,11 @@
             <div class="relative">
 
                 {{-- Зображення статті Preview --}}
-                <img src="{{ $post->getFirstMediaUrl('posts', 'preview') }}" width="640" height="480"
-                    alt="{{ env('APP_NAME') . ' ' . $post->name }}"
-                    class="rounded-t-lg lg:rounded-lg shadow-xl shadow-max-soft/30 lg:w-[640px]">
+                <div>
+                    <img src="{{ $post->getFirstMediaUrl('posts', 'preview') }}" width="640" height="480"
+                        alt="{{ env('APP_NAME') . ' ' . $post->name }}"
+                        class="rounded-t-lg lg:rounded-lg shadow-xl shadow-max-soft/30 lg:w-[640px]">
+                </div>
 
                 <div x-data="{ maximize: false }"
                     :class="maximize ? 'lg:w-full lg:h-full' :
