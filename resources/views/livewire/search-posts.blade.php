@@ -22,11 +22,11 @@
     </div>
 
     <div x-show='$wire.search.length' class="pt-5">
-        @isset($posts)
+        @if ($posts !== null && count($posts) > 0)
             <div class="w-full text-center">Знайдені статті...</div>
             <x-scrollbar class="max-h-[50vh]">
                 @foreach ($posts as $post)
-                    <div class="grid grid-cols-3 gap-4" wire:key='{{ $post->id }}'>
+                    <div class="grid grid-cols-3 gap-4" :key='{{ $post->id }}'>
                         <div>
                             <a href="{{ route('article.show', ['slug' => $post->slug]) }}">
                                 <img src="{{ $post->getFirstMediaUrl('posts', 'preview') }}"
@@ -49,6 +49,6 @@
                 <x-lucide-search-x class="mb-2 text-max-light opacity-40 size-8" />
                 <span class="text-xs text-max-light opacity-40">По вашому запиту статей не знайдено.</span>
             </div>
-        @endisset
+        @endif
     </div>
 </div>
