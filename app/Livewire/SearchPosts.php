@@ -9,6 +9,11 @@ class SearchPosts extends Component
 {
     public ?string $search = '';
 
+    public function clear()
+    {
+        $this->search = '';
+    }
+
     public function render()
     {
         $posts = null;

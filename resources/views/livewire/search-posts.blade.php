@@ -15,7 +15,7 @@
         <div x-show="$wire.search.length" class="absolute inset-y-0 flex items-center end-4">
             <x-lucide-loader-circle class="hidden opacity-60 size-4 text-max-light animate-spin"
                 wire:loading.remove.class='hidden' wire:targeta='search' />
-            <button type="button" class="hfull" wire:loading.remove wire:target='search' @click="$wire">
+            <button type="button" wire:loading.remove wire:target='search' @click="$wire.search = ''">
                 <x-lucide-circle-x class="opacity-60 size-4 text-max-light" />
             </button>
         </div>
