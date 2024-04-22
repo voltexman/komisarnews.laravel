@@ -204,7 +204,7 @@
         document.addEventListener('alpine:init', () => {
             Alpine.data('navbar', () => ({
                 navIsOpen: false,
-                searchIsOpen: true,
+                searchIsOpen: false,
                 isScrolled: false,
                 navToggle() {
                     this.navIsOpen = !this.navIsOpen;
