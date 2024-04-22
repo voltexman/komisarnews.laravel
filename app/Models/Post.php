@@ -51,10 +51,12 @@ class Post extends Model implements HasMedia
             ->width(640)
             ->height(480)
             ->sharpen(10)
+            ->format('webp')
             ->nonOptimized();
 
         $this->addMediaConversion('header')
             ->height(280)
+            ->format('webp')
             ->nonOptimized();
     }
 
