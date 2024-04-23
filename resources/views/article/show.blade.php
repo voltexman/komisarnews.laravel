@@ -20,13 +20,9 @@
 @section('content')
     <article class="overflow-hidden bg-max-light py-14 lg:py-20">
         <div class="container">
-            <picture>
-                <source srcset="{{ $post->getFirstMediaUrl('posts', 'header-webp') }}" type="image/webp">
-                <source srcset="{{ $post->getFirstMediaUrl('posts', 'header-jpg') }}" type="image/jpeg">
-                <img src="{{ $post->getFirstMediaUrl('posts', 'header-jpg') }}" width="300" height="280"
-                    alt={{ env('APP_NAME') }}
-                    class="w-full mb-8 border rounded-lg shadow-lg lg:w-1/3 lg:float-left lg:me-8 lg:mb-5 shadow-max-soft/50 border-max-soft/45">
-            </picture>
+            <img src="{{ $post->getFirstMediaUrl('posts', 'header') }}" width="300" height="280"
+                alt={{ env('APP_NAME') }}
+                class="w-full mb-8 border rounded-lg shadow-lg lg:w-1/3 lg:float-left lg:me-8 lg:mb-5 shadow-max-soft/50 border-max-soft/45">
 
             <p>{{ $post->text }}</p>
 

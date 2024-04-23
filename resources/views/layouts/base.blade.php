@@ -86,7 +86,8 @@
                         </div>
 
                         <div>
-                            <button type="button" class="text-white me-4 h-9" @click="searchToggle">
+                            <button type="button" class="text-white me-4 h-9" @click="searchToggle"
+                                aria-label="Пошук статей">
                                 <x-lucide-search class="size-5" x-show="!searchIsOpen" />
                                 <x-lucide-x class="size-5" x-show="searchIsOpen" />
                             </button>
