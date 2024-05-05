@@ -21,7 +21,7 @@
 
         <!-- Stepper Content -->
         <div class="flex flex-col mt-5">
-            <div class="flex flex-col h-[375px]">
+            <div class="flex flex-col h-[385px]">
 
                 <!-- Person Content -->
                 <x-stepper.content step='1'>
@@ -290,7 +290,7 @@
                             <div class="flex flex-col text-sm">
                                 <span class="font-bold">Опції:</span>
                                 <span class="font-normal"
-                                    x-text="$wire.order.hair_options ? $wire.order.hair_options : 'Не зразані, не фарбовані, без сивини'"></span>
+                                    x-text="$wire.order.hair_options.length ? $wire.order.hair_options : 'Не зрізані, не фарбовані, без сивини'"></span>
                             </div>
 
                             <div class="flex flex-col text-sm">
@@ -350,7 +350,7 @@
             </div>
 
             <!-- Button Group -->
-            <div class="flex justify-between gap-x-2">
+            <div class="flex justify-between mt-2 gap-x-2">
                 <x-button class="text-sm" data-hs-stepper-back-btn dark>
                     <x-lucide-arrow-left class="inline-block size-4 me-1" /> Назад
                 </x-button>
