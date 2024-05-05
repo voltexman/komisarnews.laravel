@@ -1,4 +1,4 @@
-<div class="bg-max-light h-[575px] p-5 rounded-lg shadow-lg shadow-max-black/25">
+<div class="bg-max-light h-[585px] p-5 rounded-lg shadow-lg shadow-max-black/25">
     <div class="animate-pulse">
         <div class="w-[70%] mx-auto h-6 mt-3 rounded-lg bg-max-soft/40"></div>
 
