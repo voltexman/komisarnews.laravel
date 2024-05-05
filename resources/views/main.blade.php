@@ -75,7 +75,7 @@
         <h3 class="mb-8 font-bold text-center uppercase drop-shadow-lg text-max-dark mt-14">
             Звертаючись в нашу компанію з бажанням <br class="lg:hidden">продати волосся, ви гарантовано отримуєте</h3>
 
-        <div class="grid grid-flow-col gap-8 sm:grid-cols-2 sm:grid-rows-3 lg:grid-rows-2">
+        <div class="grid grid-flow-col grid-rows-6 gap-8 sm:grid-cols-2 sm:grid-rows-3 lg:grid-rows-2">
             @isset($accordion)
                 @foreach ($about as $item)
                     <div class="flex">
