@@ -1,10 +1,15 @@
-@props(['label', 'color', 'icon'])
+@props(['dark'])
 
-<button type="button"
+@php
+    $class = isset($dark)
+        ? 'bg-max-dark disabled:hover:bg-max-dark/40 disabled:bg-max-dark/40 disabled:text-max-light/50'
+        : 'bg-max-soft disabled:hover:bg-max-dark/40 disabled:bg-max-dark/40 disabled:text-max-text/60';
+@endphp
+
+<button
     {{ $attributes->class([
-        'bg-max-soft/85' => $color == 'light',
-        'bg-max-text/40' => $color == 'dark',
-        'rounded-lg py-2.5 px-4 text-max-light text-sm cursor-pointer',
-    ]) }}>
-    {{ isset($label) ? $lebel : $slot }}
+            $class,
+            'px-3 py-2 rounded-lg shadow text-max-light active:bg-max-dark lg:hover:bg-max-dark lg:hover:shadow-lg transitiond duration-300',
+        ])->merge(['type' => 'button']) }}>
+    {{ $slot }}
 </button>

@@ -19,7 +19,7 @@ class SearchPosts extends Component
         $posts = null;
 
         if (strlen($this->search) > 3) {
-            $posts = Post::where('name', 'like', '%' . $this->search . '%')->limit(10)->get();
+            $posts = Post::where('name', 'like', '%'.$this->search.'%')->limit(10)->get();
         }
 
         return view('livewire.search-posts', compact('posts'));

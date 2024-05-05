@@ -38,7 +38,7 @@
                 </div>
                 <div class="flex items-stretch w-2/3">
                     <div class="flex flex-col self-center">
-                        <x-button color='light'>
+                        <x-button>
                             <x-lucide-camera class="inline-flex size-5 me-1" />
                             Відкрити зображення
                         </x-button>
@@ -122,6 +122,7 @@
                     $wire.uploadMultiple('order.photos', photos, (uploadedFilename) => {
                         // Success callback...
                         this.isUploading = false;
+                        console.log(uploadedFilename);
                     }, () => {
                         // Error callback...
                         this.isUploading = false;

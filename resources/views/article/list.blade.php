@@ -8,12 +8,8 @@
 @section('header')
     @parent
     <div class="relative h-[280px] w-full overflow-hidden">
-        <picture>
-            <source srcset="{{ asset('images/article-header.webp') }}" type="image/webp">
-            <source srcset="{{ asset('images/article-header.jpg') }}" type="image/jpeg">
-            <img src="{{ asset('images/article-header.jpg') }}" height="280" width="auto" alt={{ env('APP_NAME') }}
-                class="object-cover object-center h-full">
-        </picture>
+        <img src="{{ asset('images/article-header.webp') }}" height="280" width="auto" alt={{ env('APP_NAME') }}
+            class="object-cover object-center h-full">
         <div
             class="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full backdrop-blur-sm backdrop-brightness-75 bg-max-black/50">
             <h1 class="text-xl uppercase text-max-light">Статті та новини</h1>

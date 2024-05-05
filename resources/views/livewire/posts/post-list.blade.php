@@ -7,13 +7,13 @@
             </span>
         </div>
     @else
-        <div class="grid gap-12 lg:grid-cols-2 lg:gap-20">
+        <div class="grid gap-12 sm:grid-cols-2 sm:gap-20">
             @foreach ($posts as $post)
                 <article class="flex flex-col lg:flex-row">
                     <div class="relative">
                         {{-- Зображення статті Preview --}}
-                        <img src="{{ $post->getFirstMediaUrl('posts', 'preview') }}" width="640" height="480"
-                            alt="{{ env('APP_NAME') . ' ' . $post->name }}"
+                        <img src="{{ $post->getFirstMediaUrl('posts', 'preview') || asset('images/bg-header.webp') }}"
+                            width="640" height="480" alt="{{ env('APP_NAME') . ' ' . $post->name }}"
                             class="rounded-t-lg object-contain lg:rounded-lg shadow-xl shadow-max-soft/30 lg:w-[640px] w-full">
 
                         <div x-data="{ maximize: false }"
@@ -32,18 +32,9 @@
                             </div>
 
                             {{-- Scrollbar розгорнутого тексту --}}
-                            <div
-                                class="mb-auto max-h-full overflow-y-auto
-                            [&::-webkit-scrollbar]:w-2
-                            [&::-webkit-scrollbar-track]:rounded-full
-                            [&::-webkit-scrollbar-track]:bg-gray-100
-                            [&::-webkit-scrollbar-thumb]:rounded-full
-                            [&::-webkit-scrollbar-thumb]:bg-gray-300
-                            dark:[&::-webkit-scrollbar-track]:bg-max-soft/20
-                            dark:[&::-webkit-scrollbar-thumb]:bg-max-soft">
-                                <p :class="!maximize && 'line-clamp-4'">
-                                    {{ strip_tags($post->text) }}</p>
-                            </div>
+                            <x-scrollbar>
+                                <p :class="!maximize && 'line-clamp-4'">{{ strip_tags($post->text) }}</p>
+                            </x-scrollbar>
 
                             <div class="flex items-center justify-between mt-5">
 
@@ -74,12 +65,10 @@
 
         @if ($this->paginator->hasMorePages())
             <div class="flex justify-center mt-12 lg:mt-24">
-                <button wire:click="loadMore"
-                    class="flex p-3 transition-all rounded-lg shadow bg-max-soft text-max-light hover:shadow-lg"
-                    wire:loading.class='bg-zinc-400' wire:loading.attr="disabled">
+                <x-button wire:click="loadMore" wire:loading.attr="disabled">
                     Завантажити ще
-                    <x-lucide-refresh-cw class="h-5 w-5 ms-1.5 mt-0.5" wire:loading.class='animate-spin' />
-                </button>
+                    <x-lucide-refresh-cw class="size-5 inline-block ms-1.5" wire:loading.class='animate-spin' />
+                </x-button>
             </div>
         @else
             <div class="flex flex-col items-center px-10 mt-20">

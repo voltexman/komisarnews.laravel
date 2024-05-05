@@ -36,6 +36,8 @@ class Post extends Model implements HasMedia
 
     const STATUS_INDEXATION = 1;
 
+    const STATUS_NO_INDEXATION = 0;
+
     const CATEGORY_CITIES = 'Міста';
 
     const CATEGORY_ARTICLES = 'Статті';

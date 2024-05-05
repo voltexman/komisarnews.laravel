@@ -1,5 +1,5 @@
 <div
-    {{ $attributes->class('mx-4 space-y-5 mb-auto overflow-y-auto
+    {{ $attributes->class('space-y-5 mb-auto overflow-y-auto
         [&::-webkit-scrollbar]:w-2
         [&::-webkit-scrollbar-track]:rounded-full
         [&::-webkit-scrollbar-track]:bg-gray-100

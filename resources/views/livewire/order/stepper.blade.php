@@ -351,28 +351,22 @@
 
             <!-- Button Group -->
             <div class="flex justify-between gap-x-2">
-                <button type="button" data-hs-stepper-back-btn
-                    class="inline-flex items-center px-3 py-2 text-sm font-medium duration-300 rounded-lg shadow-sm gap-x-1 bg-max-dark text-max-light hover:bg-max-soft disabled:opacity-50 disabled:pointer-events-none">
-                    <x-lucide-arrow-left class="w-4 h-4 me-1" />
-                    Назад
-                </button>
+                <x-button class="text-sm" data-hs-stepper-back-btn dark>
+                    <x-lucide-arrow-left class="inline-block size-4 me-1" /> Назад
+                </x-button>
 
-                <button type="button" data-hs-overlay="#rules-check-document" aria-label="Правила заявки"
-                    class="inline-flex items-center px-3 py-2 text-sm font-medium duration-300 rounded-lg shadow-sm me-auto gap-x-1 bg-max-dark hover:bg-max-soft disabled:opacity-50 disabled:pointer-events-none">
-                    <x-lucide-info class="w-5 h-5 text-max-light" />
-                </button>
+                <x-button class="text-sm me-auto" data-hs-overlay="#rules-check-document" aria-label="Правила заявки"
+                    dark>
+                    <x-lucide-info class="inline-block size-5 text-max-light" />
+                </x-button>
 
-                <button type="button" data-hs-stepper-next-btn
-                    class="inline-flex items-center px-3 py-2 text-sm font-semibold duration-300 rounded-lg gap-x-1 ms-auto bg-max-dark text-max-light hover:bg-max-soft disabled:opacity-50 disabled:pointer-events-none">
-                    Далі
-                    <x-lucide-arrow-right class="w-4 h-4 ms-1" />
-                </button>
-                <button type="submit" data-hs-stepper-finish-btn style="display: none;"
-                    class="inline-flex items-center px-3 py-2 text-sm font-semibold duration-300 rounded-lg gap-x-1 bg-max-soft text-max-light hover:bg-max-dark disabled:opacity-50 disabled:pointer-events-none"
+                <x-button class="text-sm" data-hs-stepper-next-btn dark>
+                    Далі <x-lucide-arrow-right class="inline-block size-4 ms-1" />
+                </x-button>
+                <x-button type="submit" class="text-sm" data-hs-stepper-finish-btn style="display: none;" dark
                     x-bind:disabled="!$wire.order.city || !$wire.order.phone || !$wire.order.hair_length || !rulesConfirm">
-                    Відправити
-                    <x-lucide-send class="w-4 h-4 ms-1" />
-                </button>
+                    Відправити <x-lucide-send class="inline-block size-4 ms-1" />
+                </x-button>
             </div>
             <!-- End Button Group -->
         </div>

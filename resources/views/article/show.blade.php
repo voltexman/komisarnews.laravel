@@ -22,10 +22,8 @@
         <div class="container">
             <img src="{{ $post->getFirstMediaUrl('posts', 'header') }}" width="300" height="280"
                 alt={{ env('APP_NAME') }}
-                class="w-full mb-8 border rounded-lg shadow-lg lg:w-1/3 lg:float-left lg:me-8 lg:mb-5 shadow-max-soft/50 border-max-soft/45">
-
+                class="w-full mb-8 border rounded-lg shadow-lg sm:w-1/3 sm:float-left sm:me-8 sm:mb-5 shadow-max-soft/50 border-max-soft/45">
             <p>{{ $post->text }}</p>
-
         </div>
     </article>
 @endsection

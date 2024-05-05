@@ -35,7 +35,7 @@
                     Шукаєте Кому Вигідно<br class="lg:hidden">Продати Волосся?
                 </h2>
                 <h3 class="mb-5 font-bold text-center uppercase drop-shadow-lg lg:text-left text-max-dark">
-                    НАША КОМПАНІЯ ЗАВЖДИ ГОТОВА<br class="lg:hidden">КУПИТИ ВОЛОССЯ ДОРОГО!
+                    Наша компанія завжди готова<br class="lg:hidden">купити волосся дорого!
                 </h3>
                 <p class="leading-7">Жителі багатьох міст можуть продати волосся
                     особисто нам в руки! Подаруєте собі настрій, не бійтеся мінятися і удосконалюватися,
@@ -48,11 +48,13 @@
             </div>
             <div class="flex justify-center px-5 py-10 lg:py-10 lg:px-10">
                 <div class="animate-jumping-down">
-                    <img data-src="{{ asset('images/about2.webp') }}" width="280" height="360" alt="Фото салону 1"
+                    <img data-src="{{ asset('images/about2.webp') }}" width="280" height="360" alt="Фото салону"
+                        title="Фото салону"
                         class="lazyload skew-12 rotate-[-10deg] border-2 rounded-2xl shadow-lg shadow-max-soft/50 hover:transform-none transition-transform duration-500">
                 </div>
                 <div class="mt-10 animate-jumping-up">
-                    <img data-src="{{ asset('images/about.webp') }}" width="280" height="360" alt="Фото салону 2"
+                    <img data-src="{{ asset('images/about.webp') }}" width="280" height="360" alt="Фото салону"
+                        title="Фото салону"
                         class="lazyload rotate-[10deg] border-2 rounded-2xl shadow-lg shadow-max-soft/50 hover:transform-none transition-transform duration-500">
                 </div>
             </div>
@@ -69,69 +71,25 @@
             гарантуємо приємну співпрацю і гідну оплату Вашого товару. Здійснюємо скупку волосся по Україні і
             відбираємо якісні, живі зрізи. Після покупки, всі зрізи проходять обробку і надходять в подальший
             продаж, а також використовуються у виробництві перук.</p>
+
         <h3 class="mb-8 font-bold text-center uppercase drop-shadow-lg text-max-dark mt-14">
-            ЗВЕРТАЮЧИСЬ В НАШУ КОМПАНІЮ З БАЖАННЯМ ПРОДАТИ ВОЛОССЯ, ВИ ГАРАНТОВАНО ОТРИМУЄТЕ</h3>
+            Звертаючись в нашу компанію з бажанням <br class="lg:hidden">продати волосся, ви гарантовано отримуєте</h3>
 
-        <div class="grid grid-flow-col grid-rows-6 gap-8 lg:grid-rows-2">
-
-            <div class="flex">
-                <div class="w-16 h-16 me-3">
-                    <img src="{{ asset('images/icons/individual.svg') }}" width="100" height="100"
-                        alt="Індивідуальний підхід">
-                </div>
-                <div class="flex flex-col">
-                    <div class="font-semibold uppercase">Індивідуальність</div>
-                    <div class="description">Окремий та індивідуальний підхід для кожного нашого покупця</div>
-                </div>
-            </div>
-            <div class="flex">
-                <div class="w-16 h-16 me-3">
-                    <img src="{{ asset('images/icons/money.svg') }}" width="100" height="100"
-                        alt="Вигідні умови співпраці">
-                </div>
-                <div class="flex flex-col">
-                    <div class="font-semibold uppercase">Вигоду</div>
-                    <div class="description">Найвигідніші для Вас умови співпраці. Ми зацікавлені в цьому</div>
-                </div>
-            </div>
-            <div class="flex">
-                <div class="w-16 h-16 me-3">
-                    <img src="{{ asset('images/icons/handshake.svg') }}" width="100" height="100"
-                        alt="Зручність та виплата">
-                </div>
-                <div class="flex flex-col">
-                    <div class="font-semibold uppercase">Зручність</div>
-                    <div class="description">Обговорена грошова виплата в зручний для Вас час та спосіб</div>
-                </div>
-            </div>
-            <div class="flex">
-                <div class="w-16 h-16 me-3">
-                    <img src="{{ asset('images/icons/fast-money.svg') }}" width="100" height="100"
-                        alt="Моментальна оплата">
-                </div>
-                <div class="flex flex-col">
-                    <div class="font-semibold uppercase">Швидкість</div>
-                    <div class="description">Моментальна оплата після оцінки та відправки Вашой шевелюри</div>
-                </div>
-            </div>
-            <div class="flex">
-                <div class="w-16 h-16 me-3">
-                    <img src="{{ asset('images/icons/info.svg') }}" width="100" height="100" alt="Інформативна оцінка">
-                </div>
-                <div class="flex flex-col">
-                    <div class="font-semibold uppercase">Інформативність</div>
-                    <div class="description">Відправляйте по вайберу фото волосся і спеціаліст оголосить ціну</div>
-                </div>
-            </div>
-            <div class="flex">
-                <div class="w-16 h-16 me-3">
-                    <img src="{{ asset('images/icons/style.svg') }}" width="100" height="100" alt="Стильно та модно">
-                </div>
-                <div class="flex flex-col">
-                    <div class="font-semibold uppercase">Стиль</div>
-                    <div class="description">Ми запропонуємо Вам стильну та модну стрижку в подарунок</div>
-                </div>
-            </div>
+        <div class="grid grid-flow-col gap-8 sm:grid-cols-2 sm:grid-rows-3 lg:grid-rows-2">
+            @isset($accordion)
+                @foreach ($about as $item)
+                    <div class="flex">
+                        <div class="size-16 me-3">
+                            <img src="{{ asset("images/icons/{$item['icon']}.svg") }}" width="100" height="100"
+                                alt="{{ $item['name'] }}">
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="font-semibold uppercase">{{ $item['name'] }}</div>
+                            <div class="description">{{ $item['description'] }}</div>
+                        </div>
+                    </div>
+                @endforeach
+            @endisset
         </div>
     </x-section>
 
@@ -203,8 +161,8 @@
         <x-accordion>
             @foreach ($accordion as $item)
                 <x-accordion.item :label="$item['heading']" :index="$loop->index" :active="$loop->first">
-                    <img data-src="{{ asset("images/icons/{$item['icon']}.svg") }}"
-                        class="w-24 h-24 mx-auto mb-5 lazyload" alt="{{ $item['heading'] }}">
+                    <img data-src="{{ asset("images/icons/{$item['icon']}.svg") }}" class="w-24 h-24 mx-auto mb-5 lazyload"
+                        alt="{{ $item['heading'] }}">
                     {{ $item['content'] }}
                 </x-accordion.item>
             @endforeach

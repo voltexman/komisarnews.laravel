@@ -8,34 +8,34 @@ class Main extends Model
 {
     public static $about = [
         [
-            'icon' => '',
-            'name' => '',
-            'description' => '',
+            'icon' => 'individual',
+            'name' => 'Індивідуальність',
+            'description' => 'Окремий та індивідуальний підхід для кожного нашого покупця',
         ],
         [
-            'icon' => '',
-            'name' => '',
-            'description' => '',
+            'icon' => 'money',
+            'name' => 'Вигоду',
+            'description' => 'Найвигідніші для Вас умови співпраці. Ми зацікавлені в цьому',
         ],
         [
-            'icon' => '',
-            'name' => '',
-            'description' => '',
+            'icon' => 'handshake',
+            'name' => 'Зручність',
+            'description' => 'Обговорена грошова виплата в зручний для Вас час та спосіб',
         ],
         [
-            'icon' => '',
-            'name' => '',
-            'description' => '',
+            'icon' => 'fast-money',
+            'name' => 'Швидкість',
+            'description' => 'Моментальна оплата після оцінки та відправки Вашой шевелюри',
         ],
         [
-            'icon' => '',
-            'name' => '',
-            'description' => '',
+            'icon' => 'info',
+            'name' => 'Інформативність',
+            'description' => 'Відправляйте по вайберу фото волосся і спеціаліст оголосить ціну',
         ],
         [
-            'icon' => '',
-            'name' => '',
-            'description' => '',
+            'icon' => 'style',
+            'name' => 'Стиль',
+            'description' => 'Ми запропонуємо Вам стильну та модну стрижку в подарунок',
         ],
     ];
 

@@ -13,16 +13,23 @@ class Feedback extends Component
 
     public function save()
     {
-        $this->feedback->validate();
-
         $this->feedback->store();
 
-        Mail::to(env('ADMIN_EMAIL'))
-            ->send(new SendFeedback($this->feedback->all()));
-
-        $this->feedback->reset();
+        $this->sendToMail();
+        // $this->sendToTelegram();
 
         session()->flash('success');
+    }
+
+    public function sendToMail(): void
+    {
+        $sendFeedback = new SendFeedback($this->feedback->all());
+        Mail::to(env('ADMIN_EMAIL'))->send($sendFeedback);
+    }
+
+    public function sendToTelegram(): void
+    {
+        //
     }
 
     public function render()

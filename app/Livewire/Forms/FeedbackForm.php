@@ -20,8 +20,8 @@ class FeedbackForm extends Form
     public function rules()
     {
         return [
-            'name' => 'string|required|max:40',
-            'contact' => 'string|required|max:60',
+            'name' => 'string|required|min:2|max:40',
+            'contact' => 'string|required|min:6|max:60',
             'text' => 'string|required|max:1500',
         ];
     }
@@ -30,13 +30,19 @@ class FeedbackForm extends Form
     {
         return [
             'name.required' => 'Вкажіть ім`я',
+            'name.min' => 'Мінімум 2 символи',
             'contact.required' => 'Вкажіть контакти',
+            'contact.min' => 'Мінімум 6 символи',
             'text.required' => 'Напишіть листа',
         ];
     }
 
     public function store()
     {
+        $this->validate();
+
         Feedback::create($this->all());
+
+        $this->reset();
     }
 }

@@ -1,4 +1,4 @@
-<div class="mb-5 space-y-5">
+<div class="mx-auto mb-5 space-y-5 lg:w-1/2">
     <div class="relative mx-4">
         <input type="text" wire:model.live.debounce.500ms='search'
             class="block w-full px-4 py-3 text-sm border rounded-lg border-max-soft/20 bg-max-soft/10 peer ps-11 focus:border-max-dark focus:ring-max-dark placeholder:text-max-light/40"
@@ -23,7 +23,7 @@
 
     <div x-show='$wire.search.length' class="pt-5">
         @if ($posts !== null && count($posts) > 0)
-            <div class="w-full text-center">Знайдені статті...</div>
+            <div class="w-full mb-3 text-center">Знайдені статті...</div>
             <x-scrollbar class="max-h-[50vh]">
                 @foreach ($posts as $post)
                     <div class="grid grid-cols-3 gap-4" :key='{{ $post->id }}'>
@@ -34,7 +34,7 @@
                             </a>
                         </div>
                         <div class="col-span-2">
-                            <div class="text-sm uppercase text-max-light line-clamp-1">
+                            <div class="text-sm uppercase text-max-light line-clamp-1 lg:line-clamp-5">
                                 <a href="{{ route('article.show', ['slug' => $post->slug]) }}">
                                     {{ $post->name }}
                                 </a>
