@@ -6,7 +6,7 @@
         @svg('lucide-' . $icon, 'absolute w-5 h-5 top-4 left-4 text-max-soft opacity-90')
     @endisset
 
-    <input wire:model{{ isset($reactive) ?: '.blur' }}='{{ $name }}'
+    <input wire:model{{ isset($reactive) ? '.blur' : '' }}='{{ $name }}'
         {{ $attributes->class([
                 'pl-12' => isset($icon),
                 'bg-max-soft/20 border-max-soft/20' => $color === 'light',

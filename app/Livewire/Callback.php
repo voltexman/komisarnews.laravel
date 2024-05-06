@@ -9,9 +9,9 @@ class Callback extends Component
 {
     public CallbackForm $form;
 
-    public function save(int $phone)
+    public function save()
     {
-        $this->form->toTelegram($phone);
+        $this->form->toTelegram();
 
         session()->flash('callback-success');
     }
