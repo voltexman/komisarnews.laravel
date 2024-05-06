@@ -1,4 +1,4 @@
-<div class="bg-max-light h-[585px] p-5 rounded-lg shadow-lg shadow-max-black/25">
+<div class="bg-max-light h-[590px] p-5 rounded-lg shadow-lg shadow-max-black/25">
     <div class="animate-pulse">
         <div class="w-[70%] mx-auto h-6 mt-3 rounded-lg bg-max-soft/40"></div>
 
@@ -19,7 +19,7 @@
             @endforeach
         </ul>
 
-        <div class="flex justify-between mt-8">
+        <div class="flex justify-between mt-12">
             <span class="w-20 rounded-lg h-9 bg-max-soft/30"></span>
             <span class="rounded-lg ms-3 size-9 bg-max-soft/30"></span>
             <span class="w-20 rounded-lg h-9 bg-max-soft/30 ms-auto"></span>
