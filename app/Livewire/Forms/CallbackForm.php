@@ -18,7 +18,11 @@ class CallbackForm extends Form
     {
         $this->validate();
 
-        Telegraph::chat(431296501)->message($this->phone)->send();
+        Telegraph::chat(env('TELEGRAM_CHAT_ID'))
+            ->html('<b>Замовлення дзвінка</b>')
+            ->html('Телефон: ' . $this->phone)
+            ->html('Зараз очікує дзвінка')
+            ->send();
 
         $this->reset();
     }
