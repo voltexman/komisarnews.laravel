@@ -1,19 +1,20 @@
 <div>
     <form wire:submit="save">
         <div
-            class="relative overflow-hidden min-h-[450px] w-full bg-max-black rounded-lg shadow-lg shadow-max-black/50 p-8">
+            class="relative overflow-hidden min-h-[455px] w-full bg-max-black rounded-lg shadow-lg shadow-max-black/50 p-8">
             <div class="w-full text-center">
                 <div class="text-xl font-light uppercase text-max-light mt-">
                     Зворотній зв`язок
                 </div>
             </div>
 
-            <x-form.input label="Ваше ім`я" dark name='feedback.name' class="mt-5" required maxlength="40" />
+            <x-form.input label="Ваше ім`я" color='soft' name='feedback.name' class="mt-5" required maxlength="40" />
 
-            <x-form.input label="Контактні дані" dark name="feedback.contact" class="mt-5" required maxlength="60" />
+            <x-form.input label="Контактні дані" color='soft' name="feedback.contact" class="mt-5" required
+                maxlength="60" />
 
-            <x-form.textarea label="Повідомлення" dark name="feedback.text" rows="5" class="mt-5" required
-                maxlength="1500" />
+            <x-form.textarea label="Повідомлення" color='soft' name="feedback.text" rows="5" class="mt-5"
+                required maxlength="1500" />
 
             {{-- Loading... --}}
             <div wire:loading wire:target="save" class="absolute top-0 w-full h-full start-0 bg-max-black/80"></div>

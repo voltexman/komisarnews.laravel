@@ -164,7 +164,7 @@
                     </div>
 
                     <div class="lg:w-1/4 lg:min-w-[480px] mt-14 lg:mt-0 mb-4 lg:mb-0">
-                        <livewire:order lazy />
+                        <livewire:order  />
                     </div>
                 </div>
             </div>

@@ -19,10 +19,9 @@
             <x-stepper.navigation.item step='5' icon='file-check' label='Дані' />
         </x-stepper.navigation>
 
-        <!-- Stepper Content -->
-        <div class="flex flex-col mt-5">
-            <div class="flex flex-col h-[385px]">
-
+        <div class="flex flex-col justify-between h-[450px]">
+            <!-- Stepper Content -->
+            <div class="flex flex-col mt-5">
                 <!-- Person Content -->
                 <x-stepper.content step='1'>
                     <div class="flex flex-col w-full gap-y-5">
@@ -37,17 +36,14 @@
                             @endforeach
                         </x-form.select>
 
-                        <x-form.input class="border bg-max-soft/20 border-max-soft/20" label="Ваше ім'я" icon="user"
-                            maxlength="40" name="order.name" />
+                        <x-form.input label="Ваше ім'я" icon="user" maxlength="40" name="order.name" />
 
-                        <x-form.input class="border bg-max-soft/20 border-max-soft/20" label="Місто" icon="map-pin"
-                            maxlength="30" name="order.city" required />
+                        <x-form.input label="Місто" icon="map-pin" maxlength="30" name="order.city" required />
 
-                        <x-form.input class="border bg-max-soft/20 border-max-soft/20" label="Електронна пошта"
-                            icon="mail" maxlength="40" name="order.email" />
+                        <x-form.input label="Електронна пошта" icon="mail" maxlength="40" name="order.email" />
 
-                        <x-form.input class="border bg-max-soft/20 border-max-soft/20" label="Номер телефону"
-                            icon="phone" maxlength="15" name="order.phone" required />
+                        <x-form.input label="Номер телефону" icon="phone" maxlength="15" name="order.phone"
+                            required />
                     </div>
                 </x-stepper.content>
                 <!-- End Person Content -->
@@ -330,12 +326,12 @@
 
                         <div class="mt-4">
                             <label for="hs-checkbox-in-form"
-                                class="flex w-full px-3 py-2 text-sm border rounded-lg bg-max-soft/10 border-max-soft/10 focus:border-max-dark focus:ring-max-dark">
+                                class="flex w-full p-2 text-sm border rounded-lg bg-max-soft/10 border-max-soft/10 focus:border-max-dark focus:ring-max-dark">
                                 <input type="checkbox" @change="rulesConfirm = ! rulesConfirm"
                                     class="shrink-0 mt-0.5 border-max-soft rounded text-max-dark focus:ring-max-dark disabled:opacity-50 disabled:pointer-events-none"
                                     id="hs-checkbox-in-form">
                                 <div class="text-sm ms-3">
-                                    <span class="hidden lg:block">Ознайомлений(а) та погоджуюсь з</span>
+                                    <span class="hidden lg:inline-block">Ознайомлений(а) та погоджуюсь з</span>
                                     <span class="lg:hidden">Погоджуюсь з</span>
                                     <span class="font-bold cursor-pointer text-max-soft"
                                         data-hs-overlay="#rules-check-document">
@@ -348,9 +344,10 @@
                 </x-stepper.content>
                 <!-- End Check Content -->
             </div>
+            <!-- End Stepper Content -->
 
             <!-- Button Group -->
-            <div class="flex justify-between mt-2 gap-x-2">
+            <div class="flex justify-between mtauto gap-x-2">
                 <x-button class="text-sm" data-hs-stepper-back-btn dark>
                     <x-lucide-arrow-left class="inline-block size-4 me-1" /> Назад
                 </x-button>
@@ -370,7 +367,6 @@
             </div>
             <!-- End Button Group -->
         </div>
-        <!-- End Stepper Content -->
 
         {{-- Модальне вікно правил --}}
         <x-modal id="rules-check-document">

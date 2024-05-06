@@ -1,11 +1,12 @@
-@props(['label', 'name', 'required' => false, 'dark'])
+@props(['label', 'name', 'required' => false, 'color' => 'light'])
 
 <div>
     <div x-data="{ counter: false }" class="relative">
         <textarea wire:model.blur='{{ $name }}'
             {{ $attributes->class([
-                'bg-max-light/95 focus:bg-max-light/85' => isset($dark),
-                'border bg-max-soft/20 border-max-soft/20' => !isset($dark),
+                'bg-max-soft/20 border-max-soft/20' => $color === 'light',
+                'bg-max-light/90 border-max-soft/80 focus:bg-max-light/85' => $color === 'soft',
+                'bg-max-dark/50 border-max-dark focus:bg-max-light/10 focus:text-max-text' => $color === 'dark',
                 'peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-max-soft focus:ring-max-soft disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2',
             ]) }}
             id="hs-floating-{{ $attributes['name'] }}" placeholder={{ $attributes }} x-on:focus="counter = true"
