@@ -197,7 +197,7 @@
                     </p>
                 </div>
                 <div class="mt-5 text-center lg:w-1/3 lg:mt-0">
-                    <p class="text-2xl font-extrabold text-max-soft">+380 (73) 785-77-77</p>
+                    <p class="text-2xl font-extrabold text-max-text">+380 (73) 785-77-77</p>
                     <span class="pb-1 font-semibold border-b text-max-light/60 border-max-soft">
                         123komisar@gmail.com
                     </span>
