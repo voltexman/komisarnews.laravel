@@ -10,10 +10,10 @@ export default {
             colors: {
                 max: {
                     black: "#14100c",
-                    dark: "#5C4B38",
-                    light: "#f5eee7",
+                    dark: "#665143",
+                    light: "#FCFAF8",
                     text: "#B19A81",
-                    soft: "#91765a",
+                    soft: "#665143",
                 },
             },
             keyframes: {
