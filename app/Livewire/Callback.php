@@ -13,7 +13,7 @@ class Callback extends Component
     {
         $this->form->toTelegram();
 
-        session()->flash('callback-success');
+        session()->flash('success');
     }
 
     public function render()

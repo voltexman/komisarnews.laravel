@@ -348,19 +348,20 @@
 
             <!-- Button Group -->
             <div class="flex justify-between mtauto gap-x-2">
-                <x-button class="text-sm" data-hs-stepper-back-btn dark>
+                <x-button class="text-sm" data-hs-stepper-back-btn color="dark">
                     <x-lucide-arrow-left class="inline-block size-4 me-1" /> Назад
                 </x-button>
 
                 <x-button class="text-sm me-auto" data-hs-overlay="#rules-check-document" aria-label="Правила заявки"
-                    dark>
+                    color="dark">
                     <x-lucide-info class="inline-block size-5 text-max-light" />
                 </x-button>
 
-                <x-button class="text-sm" data-hs-stepper-next-btn dark>
+                <x-button class="text-sm" data-hs-stepper-next-btn color="dark">
                     Далі <x-lucide-arrow-right class="inline-block size-4 ms-1" />
                 </x-button>
-                <x-button type="submit" class="text-sm" data-hs-stepper-finish-btn style="display: none;" dark
+                <x-button type="submit" class="text-sm" data-hs-stepper-finish-btn style="display: none;"
+                    color="dark"
                     x-bind:disabled="!$wire.order.city || !$wire.order.phone || !$wire.order.hair_length || !rulesConfirm">
                     Відправити <x-lucide-send class="inline-block size-4 ms-1" />
                 </x-button>

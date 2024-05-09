@@ -3,14 +3,14 @@
 namespace App\Livewire\Forms;
 
 use DefStudio\Telegraph\Facades\Telegraph;
-use Livewire\Attributes\Validate;
+use Livewire\Attributes\Rule;
 use Livewire\Form;
 
 class CallbackForm extends Form
 {
-    #[Validate('required', message: 'Необхідно вказати номер телефону')]
-    #[Validate('min:5', message: 'Ви ввели замало цифр')]
-    #[Validate('max:60', message: 'Ви ввели забагато цифр')]
+    #[Rule('required', message: 'Необхідно вказати номер телефону')]
+    #[Rule('min:5', message: 'Ви ввели замало цифр')]
+    #[Rule('max:60', message: 'Ви ввели забагато цифр')]
     // #[Validate('numeric', message: 'no tel')]
     public $phone = '';
 
@@ -23,6 +23,8 @@ class CallbackForm extends Form
                 'Телефон: ' . $this->phone . "\n" .
                 'Зараз очікує дзвінка')
             ->send();
+
+        session()->flash('callback-phone', $this->phone);
 
         $this->reset();
     }

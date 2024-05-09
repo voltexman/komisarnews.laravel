@@ -14,8 +14,9 @@
             </span>
         </div>
         <form wire:submit='save'>
-            <x-form.input label="Електронна пошта" name="form.email" icon="mail" color="dark" reactive>
-                <x-slot:button class="block p-4">
+            <x-form.input label="Електронна пошта" name="form.email" icon="mail" color="dark"
+                wire:loading.attr='disabled'>
+                <x-slot:button type='submit' wire:loading.attr='disabled'>
                     <span wire:loading.class='hidden' wire:target='save'>Підписатись
                         <x-lucide-send class="inline-block size-4 ms-1" />
                     </span>
