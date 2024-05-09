@@ -26,7 +26,8 @@
                 </x-slot>
             </x-form.input>
         </form>
-        <span class="text-xs font-normal leading-4 text-max-light/30">
+        <span class="text-xs font-light leading-4 text-max-light/50">
+            <x-lucide-info class="inline-block size-3 me-0.5" />
             ми не розсилаємо спам та листів рекламного характеру
         </span>
     @endsession
