@@ -1,7 +1,7 @@
 <div class="mx-auto mb-5 space-y-5 lg:w-1/2">
     <div class="relative mx-4">
         <input type="text" wire:model.live.debounce.500ms='search'
-            class="block w-full px-4 py-3 text-sm border rounded-lg border-max-soft/30 bg-max-dark/30 peer ps-11 focus:border-max-dark focus:ring-max-dark placeholder:text-max-light/40"
+            class="block w-full px-4 py-3 text-sm border rounded-lg text-max-text border-max-soft/30 bg-max-dark/30 peer ps-11 focus:border-max-dark focus:ring-max-dark placeholder:text-max-light/40"
             placeholder="пошук статей" aria-label="пошук статей за запитом">
         <div class="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-4">
             <x-lucide-search class="opacity-60 size-5 text-max-light" />
@@ -21,34 +21,39 @@
         </div>
     </div>
 
-    <div x-show='$wire.search.length' class="pt-5">
-        @if ($posts !== null && count($posts) > 0)
-            <div class="w-full mb-3 text-center">Знайдені статті...</div>
-            <x-scrollbar class="max-h-[50vh]">
-                @foreach ($posts as $post)
-                    <div class="grid grid-cols-3 gap-4" :key='{{ $post->id }}'>
-                        <div>
+    <div class="hidden" wire:loading.class.remove='hidden'>
+        <div class="flex flex-col items-center pt-5">
+            <x-lucide-search class="mb-2 text-max-light opacity-40 size-8" />
+            <span class="text-xs text-max-light opacity-40">Триває пошук статей за запитом...</span>
+        </div>
+    </div>
+
+    @if ($posts !== null && count($posts) > 0)
+        <div class="w-full mb-3 text-center">Знайдені статті...</div>
+        <x-scrollbar class="max-h-[50vh]">
+            @foreach ($posts as $post)
+                <div class="grid grid-cols-3 gap-4" :key='{{ $post->id }}'>
+                    <div>
+                        <a href="{{ route('article.show', ['slug' => $post->slug]) }}">
+                            <img src="{{ $post->getFirstMediaUrl('posts', 'preview') }}"
+                                class="object-cover rounded-lg" />
+                        </a>
+                    </div>
+                    <div class="col-span-2">
+                        <div class="text-sm uppercase text-max-light line-clamp-1 lg:line-clamp-5">
                             <a href="{{ route('article.show', ['slug' => $post->slug]) }}">
-                                <img src="{{ $post->getFirstMediaUrl('posts', 'preview') }}"
-                                    class="object-cover rounded-lg" />
+                                {{ $post->name }}
                             </a>
                         </div>
-                        <div class="col-span-2">
-                            <div class="text-sm uppercase text-max-light line-clamp-1 lg:line-clamp-5">
-                                <a href="{{ route('article.show', ['slug' => $post->slug]) }}">
-                                    {{ $post->name }}
-                                </a>
-                            </div>
-                            <p class="text-sm leading-5 text-max-light/50 line-clamp-3">{{ $post->text }}</p>
-                        </div>
+                        <p class="text-sm leading-5 text-max-light/50 line-clamp-3">{{ $post->text }}</p>
                     </div>
-                @endforeach
-            </x-scrollbar>
-        @else
-            <div class="flex flex-col items-center">
-                <x-lucide-search-x class="mb-2 text-max-light opacity-40 size-8" />
-                <span class="text-xs text-max-light opacity-40">По вашому запиту статей не знайдено.</span>
-            </div>
-        @endif
-    </div>
+                </div>
+            @endforeach
+        </x-scrollbar>
+    @else
+        <div class="flex flex-col items-center pt-5" wire:loading.class='hidden' x-show='$wire.search.length'>
+            <x-lucide-search-x class="mb-2 text-max-light opacity-40 size-8" />
+            <span class="text-xs text-max-light opacity-40">По вашому запиту статей не знайдено.</span>
+        </div>
+    @endif
 </div>
