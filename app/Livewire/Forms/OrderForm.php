@@ -2,10 +2,11 @@
 
 namespace App\Livewire\Forms;
 
+use Livewire\Form;
 use App\Models\Order;
 use Illuminate\Validation\Rule;
 use Livewire\Attributes\Validate;
-use Livewire\Form;
+use DefStudio\Telegraph\Facades\Telegraph;
 
 class OrderForm extends Form
 {
@@ -40,9 +41,21 @@ class OrderForm extends Form
     {
         $this->validate();
 
+        $this->toTelegram();
+
         $created = Order::create($this->all());
 
         session()->flash('number', $created->number);
+    }
+
+    public function toTelegram(): void
+    {
+        Telegraph::chat(env('TELEGRAM_CHAT_ID'))
+            ->html(
+                "<b>" . $this->goal . "</b>\n" .
+                    'Ім`я: ' . $this->name . "\n"
+                // 'Зараз очікує дзвінка'
+            )->send();
     }
 
     public function rules(): array

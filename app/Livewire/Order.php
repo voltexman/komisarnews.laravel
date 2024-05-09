@@ -30,7 +30,6 @@ class Order extends Component
 
     public function save()
     {
-        dd($this->order->all());
         // session()->flash('number', '25457');
 
         //        foreach ($this->order->photos as $photo) {
