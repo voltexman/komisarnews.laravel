@@ -1,14 +1,14 @@
 <div class="mx-auto mb-5 space-y-5 lg:w-1/2">
     <div class="relative mx-4">
         <input type="text" wire:model.live.debounce.500ms='search'
-            class="block w-full px-4 py-3 text-sm border rounded-lg border-max-soft/20 bg-max-soft/10 peer ps-11 focus:border-max-dark focus:ring-max-dark placeholder:text-max-light/40"
+            class="block w-full px-4 py-3 text-sm border rounded-lg border-max-soft/50 bg-max-dark/50 peer ps-11 focus:border-max-dark focus:ring-max-dark placeholder:text-max-light/40"
             placeholder="пошук статей" aria-label="пошук статей за запитом">
         <div class="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-4">
             <x-lucide-search class="opacity-60 size-5 text-max-light" />
         </div>
 
-        <span class="absolute text-xs text-max-soft/70">
-            <x-lucide-info class="inline-block size-3" />
+        <span class="absolute text-xs font-light text-max-light/50">
+            <x-lucide-info class="inline-block size-3 me-0.5" />
             почніть вводити запит для пошуку
         </span>
 

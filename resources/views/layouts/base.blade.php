@@ -137,7 +137,7 @@
                         </x-menu>
                     </div>
                 </div>
-                <div x-show="searchIsOpen" x-collapse>
+                <div x-show="true" x-collapse>
                     <div class="px-2 pt-2 pb-3 space-y-1">
                         <livewire:search-posts />
                     </div>

@@ -73,7 +73,8 @@
             продаж, а також використовуються у виробництві перук.</p>
 
         <h3 class="mb-8 font-bold text-center uppercase drop-shadow-lg text-max-dark mt-14">
-            Звертаючись в нашу компанію з бажанням <br class="lg:hidden">продати волосся, ви гарантовано отримуєте</h3>
+            Звертаючись в нашу компанію<br class="lg:hidden">з бажанням продати волосся,<br class="lg:hidden">
+            ви гарантовано отримуєте</h3>
 
         <x-about>
             <x-about.item icon='individual'>
