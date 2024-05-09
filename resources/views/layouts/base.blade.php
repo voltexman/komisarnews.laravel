@@ -152,7 +152,7 @@
 
         <section class="py-10 bg-max-soft scroll-mt-16" id="map">
             <div class="container">
-                <h2 class="text-2xl font-semibold text-center text-white uppercase drop-shadow-lg">
+                <h2 class="text-2xl font-semibold text-center text-white uppercase">
                     Купівля і продаж<br class="lg:hidden"> волосся в містах
                 </h2>
                 <h3 class="mb-5 font-normal text-center text-white uppercase drop-shadow-lg">

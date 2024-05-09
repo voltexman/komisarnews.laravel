@@ -5,8 +5,6 @@ namespace App\Livewire\Forms;
 use Livewire\Form;
 use App\Models\Order;
 use Illuminate\Validation\Rule;
-use Livewire\Attributes\Validate;
-use DefStudio\Telegraph\Facades\Telegraph;
 
 class OrderForm extends Form
 {
@@ -14,12 +12,10 @@ class OrderForm extends Form
 
     public $name = '';
 
-    #[Validate]
     public $city = '';
 
     public $email = '';
 
-    #[Validate]
     public $phone = '';
 
     public $photos = [];
@@ -28,7 +24,6 @@ class OrderForm extends Form
 
     public $hair_weight = '';
 
-    #[Validate]
     public $hair_length = '';
 
     public $age = '';
@@ -41,21 +36,9 @@ class OrderForm extends Form
     {
         $this->validate();
 
-        $this->toTelegram();
+        // $created = Order::create($this->all());
 
-        $created = Order::create($this->all());
-
-        session()->flash('number', $created->number);
-    }
-
-    public function toTelegram(): void
-    {
-        Telegraph::chat(env('TELEGRAM_CHAT_ID'))
-            ->html(
-                "<b>" . $this->goal . "</b>\n" .
-                    'Ім`я: ' . $this->name . "\n"
-                // 'Зараз очікує дзвінка'
-            )->send();
+        // session()->flash('number', $created->number);
     }
 
     public function rules(): array
