@@ -65,7 +65,7 @@
 
         @if ($this->paginator->hasMorePages())
             <div class="flex justify-center mt-12 lg:mt-24">
-                <x-button wire:click="loadMore" wire:loading.attr="disabled">
+                <x-button color='soft' wire:click="loadMore" wire:loading.attr="disabled">
                     Завантажити ще
                     <x-lucide-refresh-cw class="size-5 inline-block ms-1.5" wire:loading.class='animate-spin' />
                 </x-button>
