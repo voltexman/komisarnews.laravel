@@ -6,7 +6,7 @@
     }">
 
         <div class="mb-5">
-            <span class="block text-lg font-semibold text-center uppercase text-max-soft">
+            <span class="block text-lg font-medium text-center uppercase text-max-dark">
                 Оцінка та продаж волосся
             </span>
         </div>

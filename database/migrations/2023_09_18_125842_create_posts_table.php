@@ -17,10 +17,10 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug');
             $table->string('category');
-            $table->text('text')->nullable();
+            $table->longText('text')->nullable();
             $table->string('keywords')->nullable();
             $table->text('description')->nullable();
-            $table->boolean('status');
+            $table->enum('status', ['']);
             $table->boolean('indexation');
             $table->timestamps();
             $table->softDeletes();

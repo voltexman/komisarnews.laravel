@@ -27,7 +27,7 @@
     }
 
     .mapBackground {
-        fill: #f5eee7;
+        fill: #fcf8f3;
         stroke: #9b7f62;
         stroke-width: 0.8;
         transition: 0.5s;
@@ -35,11 +35,11 @@
     }
 
     #Ukraine path:hover {
-        fill: #9b7f62;
+        fill: #b19a81;
     }
 
     .regionNoActive {
-        fill: #b5a290 !important;
+        fill: #e0c9b3 !important;
         cursor: auto;
     }
 

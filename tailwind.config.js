@@ -9,11 +9,11 @@ export default {
         extend: {
             colors: {
                 max: {
-                    black: "#14100c",
-                    dark: "#534237",
-                    light: "#FCFAF8",
+                    black: "#272121",
+                    dark: "#665143",
+                    light: "#FCF8F3",
                     text: "#B19A81",
-                    soft: "#665143",
+                    soft: "#9F8772",
                 },
             },
             keyframes: {
