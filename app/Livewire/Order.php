@@ -2,9 +2,9 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
 use App\Livewire\Forms\OrderForm;
 use DefStudio\Telegraph\Facades\Telegraph;
+use Livewire\Component;
 
 class Order extends Component
 {
@@ -35,7 +35,6 @@ class Order extends Component
         //            $photo->store(path: 'photos');
         //        }
 
-
         $this->toTelegram();
         // $this->order->store();
 
@@ -46,8 +45,8 @@ class Order extends Component
     {
         Telegraph::chat(env('TELEGRAM_CHAT_ID'))
             ->html(
-                "<b>" . $this->order->goal . "</b>\n" .
-                    'Ім`я: ' . $this->order->name . "\n"
+                '<b>'.$this->order->goal."</b>\n".
+                    'Ім`я: '.$this->order->name."\n"
                 // 'Зараз очікує дзвінка'
             )->send();
     }

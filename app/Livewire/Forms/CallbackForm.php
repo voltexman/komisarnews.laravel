@@ -19,8 +19,8 @@ class CallbackForm extends Form
         $this->validate();
 
         Telegraph::chat(env('TELEGRAM_CHAT_ID'))
-            ->html("<b>Прохання передзвонити</b>\n" .
-                'Телефон: ' . $this->phone . "\n" .
+            ->html("<b>Прохання передзвонити</b>\n".
+                'Телефон: '.$this->phone."\n".
                 'Зараз очікує дзвінка')
             ->send();
 

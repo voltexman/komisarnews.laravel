@@ -2,6 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+    /**
+    * ----------------------------------------
+    * animation slide-up
+    * ----------------------------------------
+    */
+    @keyframes slide-up {
+        0% {
+            opacity: 0.5;
+            transform: translateY(100px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .slide-up {
+        animation: slide-up 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+
+    /**
+    * ----------------------------------------
+    * animation slide-down
+    * ----------------------------------------
+    */
+    @keyframes slide-down {
+        0% {
+            opacity: 0.5;
+            transform: translateY(-100px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .slide-down {
+        animation: slide-down 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+
+    /**
+    * ----------------------------------------
+    * animation scale-up-center
+    * ----------------------------------------
+    */
+    @keyframes scale-up-center {
+        0% {
+            opacity: 0.5;
+            transform: scale(0.5);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .scale-up-center {
+        animation: scale-up-center 750ms ease-in-out both;
+    }
+}
+
 @layer base {
     [x-cloak] {
         display: none !important;
@@ -21,11 +83,6 @@
         margin-bottom: 8px;
     }
 
-    #KyivCity {
-        fill: #3184ea;
-        opacity: 0;
-    }
-
     .mapBackground {
         fill: #fcf8f3;
         stroke: #9b7f62;
@@ -39,7 +96,7 @@
     }
 
     .regionNoActive {
-        fill: #e0c9b3 !important;
+        fill: #b5a290 !important;
         cursor: auto;
     }
 
@@ -53,9 +110,9 @@
     }
 
     .cityName {
-        transition: all 0.3s ease;
+        transition: all 0.5s ease;
         pointer-events: none;
-        font-family: "Roboto", sans-serif;
+        font-family: "Nunito", sans-serif;
         font-weight: bold;
         font-size: 0.6em;
         fill: #685340;

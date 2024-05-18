@@ -12,9 +12,9 @@
                 <article class="flex flex-col lg:flex-row">
                     <div class="relative">
                         {{-- Зображення статті Preview --}}
-                        <img src="{{ $post->getFirstMediaUrl('posts', 'preview') || asset('images/bg-header.webp') }}"
+                        <img src="{{ empty($post->getFirstMediaUrl('posts', 'preview')) ? asset('images/bg-header.webp') : $post->getFirstMediaUrl('posts', 'preview') }}"
                             width="640" height="480" alt="{{ env('APP_NAME') . ' ' . $post->name }}"
-                            class="rounded-t-lg object-contain lg:rounded-lg shadow-xl shadow-max-soft/30 lg:w-[640px] w-full">
+                            class="rounded-t-lg object-cover lg:rounded-lg shadow-xl shadow-max-soft/30 lg:w-[640px] lg:h-[480px] w-full">
 
                         <div x-data="{ maximize: false }"
                             :class="maximize ? 'lg:w-full lg:h-full' :
@@ -33,7 +33,7 @@
 
                             {{-- Scrollbar розгорнутого тексту --}}
                             <x-scrollbar>
-                                <p :class="!maximize && 'line-clamp-4'">{{ strip_tags($post->text) }}</p>
+                                <p :class="!maximize && 'line-clamp-4'">{{ strip_tags($post->body) }}</p>
                             </x-scrollbar>
 
                             <div class="flex items-center justify-between mt-5">
@@ -41,7 +41,7 @@
                                 {{-- Дата публікації статті --}}
                                 <span class="flex text-xs">
                                     <x-lucide-calendar class="w-4 h-4 me-1" />
-                                    {{ \Carbon\Carbon::parse($post->created_at)->format('F d, Y') }}
+                                    {{ $post->created_at->format('F d, Y') }}
                                 </span>
 
                                 {{-- Кнопка розгортання тексту статті --}}
@@ -72,7 +72,7 @@
             </div>
         @else
             <div class="flex flex-col items-center px-10 mt-20">
-                <x-lucide-smile class="size-10" />
+                <img src="{{ asset('images/icons/smile.svg') }}" alt="">
                 <p class="mt-3">Ви переглянули всі статті</p>
                 <p class="p-0 -mt-2 leading-5 text-center">Завітайте згодом, щоб ознайомитись з новими публікаціями</p>
             </div>

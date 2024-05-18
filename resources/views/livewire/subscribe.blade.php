@@ -22,7 +22,7 @@
         </div>
         <form wire:submit='save'>
             <x-form.input label="Електронна пошта" name="form.email" icon="mail" color="dark"
-                class="subscribe-email-input" wire:loading.attr='disabled'>
+                class="subscribe-email-input" wire:target='save' wire:loading.attr='disabled'>
                 <x-slot:button type='submit' wire:loading.attr='disabled'>
                     <span wire:loading.class='hidden' wire:target='save'>Підписатись
                         <x-lucide-send class="inline-block size-4 ms-1" />
@@ -38,11 +38,8 @@
 
 @script
     <script>
-        const subscribeEMail = $wire.$el.querySelector('.subscribe-email-input');
-        const maskOptionsSubscribeEMail = {
-            mask: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-        };
-
-        IMask(subscribeEMail, maskOptionsSubscribeEMail);
+        IMask($wire.$el.querySelector('.subscribe-email-input'), {
+            mask: '*{3,20}@*{3,20}.*{2,7}'
+        });
     </script>
 @endscript

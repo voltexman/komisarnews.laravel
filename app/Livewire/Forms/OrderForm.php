@@ -2,9 +2,9 @@
 
 namespace App\Livewire\Forms;
 
-use Livewire\Form;
 use App\Models\Order;
 use Illuminate\Validation\Rule;
+use Livewire\Form;
 
 class OrderForm extends Form
 {

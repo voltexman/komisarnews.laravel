@@ -16,19 +16,4 @@ class ChatForm extends Form
 
     #[Validate('required|min:5|max:1000')]
     public $message = '';
-
-    // #[Validate(['photos.*' => 'image|max:1024'])]
-    // public $photos = [];
-
-    public function store($chat): void
-    {
-        $this->validate();
-
-        session()->push('chat', [
-            'user' => self::USER_CLIENT,
-            'date' => now()->timestamp,
-            'name' => 'name',
-            'text' => $this->message,
-        ]);
-    }
 }

@@ -13,9 +13,11 @@
             class="absolute inset-0 object-cover object-right w-full h-full -z-10 md:object-center wscreen hscreen lazyload animate-ricochet lg:animate-none">
         <div class="px-6 mx-auto max-w-7xl lg:px-8">
             <div class="absolute w-full top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 mx-auto lg:mx-0">
-                <h1 class="text-2xl font-thin text-center text-white uppercase lg:text-4xl">
+                <h1 class="text-2xl font-thin text-center text-white uppercase lg:text-4xl"
+                    x-intersect="$el.classList.add('slide-down')">
                     Продаж та покупка<br>волосся у Києві<span class="text-max-soft">.</span></h1>
-                <h2 class="mt-5 font-semibold text-center text-white uppercase">Швидко, Дорого, Надійно</h2>
+                <h2 class="mt-5 font-semibold text-center text-white uppercase" x-intersect="$el.classList.add('slide-up')">
+                    Швидко, Дорого, Надійно</h2>
             </div>
         </div>
         <div class="absolute flex -translate-x-1/2 bottom-8 left-1/2 ">
@@ -47,15 +49,19 @@
                     гарантуємо максимум задоволення від співпраці.</p>
             </div>
             <div class="flex justify-center px-5 py-10 lg:py-10 lg:px-10">
-                <div class="animate-jumping-down">
-                    <img data-src="{{ asset('images/about2.webp') }}" width="280" height="360" alt="Фото салону"
-                        title="Фото салону"
-                        class="lazyload skew-12 rotate-[-10deg] border-2 rounded-2xl shadow-lg shadow-max-soft/50 hover:transform-none transition-transform duration-500">
+                <div x-intersect="$el.classList.add('scale-up-center')">
+                    <div class="animate-jumping-down">
+                        <img data-src="{{ asset('images/about2.webp') }}" width="280" height="360" alt="Фото салону"
+                            title="Фото салону"
+                            class="lazyload skew-12 rotate-[-10deg] border-2 rounded-2xl shadow-lg shadow-max-soft/50 hover:transform-none transition-transform duration-500">
+                    </div>
                 </div>
-                <div class="mt-10 animate-jumping-up">
-                    <img data-src="{{ asset('images/about.webp') }}" width="280" height="360" alt="Фото салону"
-                        title="Фото салону"
-                        class="lazyload rotate-[10deg] border-2 rounded-2xl shadow-lg shadow-max-soft/50 hover:transform-none transition-transform duration-500">
+                <div x-data x-intersect="$el.classList.add('scale-up-center')">
+                    <div class="mt-10 animate-jumping-up">
+                        <img data-src="{{ asset('images/about.webp') }}" width="280" height="360" alt="Фото салону"
+                            title="Фото салону"
+                            class="lazyload rotate-[10deg] border-2 rounded-2xl shadow-lg shadow-max-soft/50 hover:transform-none transition-transform duration-500">
+                    </div>
                 </div>
             </div>
         </div>
@@ -313,7 +319,7 @@
                         <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
                     </div>
                     <div class="flex justify-center flex-none border-2 rounded-full border-max-soft h-11 w-11 ms-3">
-                        <span class="self-center text-xs font-bold text-max-text">~20%</span>
+                        <span class="self-center text-xs font-bold text-max-text">20%</span>
                     </div>
                 </div>
                 <p class="italic text-gray-200/90">Ми купуємо зрізи від 40 сантиметрів. Якщо ваші локони
@@ -328,7 +334,7 @@
                         <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
                     </div>
                     <div class="flex justify-center flex-none border-2 rounded-full border-max-soft h-11 w-11 ms-3">
-                        <span class="self-center text-xs font-bold text-max-text">~20%</span>
+                        <span class="self-center text-xs font-bold text-max-text">20%</span>
                     </div>
                 </div>
                 <p class="italic text-gray-200/90">Вища вартість пропонується за якісні, здорові та рівномірні
@@ -342,7 +348,7 @@
                         <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
                     </div>
                     <div class="flex justify-center flex-none border-2 rounded-full border-max-soft h-11 w-11 ms-3">
-                        <span class="self-center text-xs font-bold text-max-text">~20%</span>
+                        <span class="self-center text-xs font-bold text-max-text">20%</span>
                     </div>
                 </div>
                 <p class="italic text-gray-200/90">Зріз має бути зроблений за правилами та закріплений зверху
@@ -358,7 +364,7 @@
                         <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
                     </div>
                     <div class="flex justify-center flex-none border-2 rounded-full border-max-soft h-11 w-11 ms-3">
-                        <span class="self-center text-xs font-bold text-max-text">~20%</span>
+                        <span class="self-center text-xs font-bold text-max-text">20%</span>
                     </div>
                 </div>
                 <p class="italic text-gray-200/90">Ми не приймаємо пошкодженні, ламкі та сухі локони, або локони
@@ -373,7 +379,7 @@
                         <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
                     </div>
                     <div class="flex justify-center flex-none border-2 rounded-full border-max-soft h-11 w-11 ms-3">
-                        <span class="self-center text-xs font-bold text-max-text">~20%</span>
+                        <span class="self-center text-xs font-bold text-max-text">20%</span>
                     </div>
                 </div>
                 <p class="italic text-gray-200/90">Пофарбовані пасма будуть коштувати набагато дешевше
@@ -389,7 +395,7 @@
                         <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
                     </div>
                     <div class="flex justify-center flex-none border-2 rounded-full border-max-soft h-11 w-11 ms-3">
-                        <span class="self-center text-xs font-bold text-max-text">~20%</span>
+                        <span class="self-center text-xs font-bold text-max-text">20%</span>
                     </div>
                 </div>
                 <p class="italic text-gray-200/90">Зрізи з сивиною теж підлягають купівлі, але багато залежить

@@ -12,14 +12,6 @@ class PostController extends Controller
     {
         return view('article.list', [
             // 'meta' => Meta::where('page', Meta::POSTS_PAGE)->first(),
-            'posts' => Post::where(
-                [
-                    'status' => Post::STATUS_ACTIVE,
-                    'category' => Post::CATEGORY_ARTICLES,
-                ]
-            )
-                ->orderBy('created_at', 'desc')
-                ->simplePaginate(2),
         ]);
     }
 
@@ -27,7 +19,7 @@ class PostController extends Controller
     {
         $post = Post::firstWhere(
             [
-                'status' => Post::STATUS_ACTIVE,
+                'is_published' => Post::PUBLISHED,
                 'slug' => $slug,
             ]
         );

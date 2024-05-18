@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Meta extends Model
 {
-    use HasFactory;
-
     const MAIN_PAGE = 'main';
 
     const POSTS_PAGE = 'posts';
@@ -16,4 +13,8 @@ class Meta extends Model
     const CONTACTS_PAGE = 'contacts';
 
     protected $table = 'meta';
+
+    public $timestamps = false;
+
+    protected $fillable = ['page', 'title', 'description', 'robots'];
 }

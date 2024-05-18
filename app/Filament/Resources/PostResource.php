@@ -8,92 +8,132 @@ use Filament\Forms\Components\Group;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TagsInput;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use Filament\Forms\Components\SpatieTagsInput;
+use Filament\Forms\Components\Split as FormSplit;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
+use Filament\Support\Enums\ActionSize;
+use Filament\Support\Enums\FontWeight;
 use Filament\Tables;
-use Filament\Tables\Columns\SelectColumn;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\IconColumn\IconColumnSize;
+use Filament\Tables\Columns\Layout\Grid;
+use Filament\Tables\Columns\Layout\Split;
+use Filament\Tables\Columns\Layout\Stack;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\TextColumn\TextColumnSize;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
+use Illuminate\Support\Str;
 
 class PostResource extends Resource
 {
-    protected static ?string $navigationLabel = 'Статті';
-
     protected static ?string $model = Post::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
 
-    protected static ?string $navigationGroup = 'Main';
+    protected static ?int $navigationSort = 1;
+
+    protected static ?string $navigationLabel = 'Статті';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Group::make()->schema([
+                Group::make([
                     Section::make('Зображення')
                         ->icon('heroicon-o-photo')
+                        ->description('Головне зображення статті')
                         ->schema([
-                            //
-                        ]),
-
-                    Section::make('Параметри')
+                            SpatieMediaLibraryFileUpload::make('image')
+                                ->collection('posts')
+                                ->conversion('preview')
+                                ->disk('media')
+                                ->imageEditor()
+                                ->imageEditorMode(3)
+                                ->maxSize(2048)
+                                ->image()
+                                ->label(false),
+                        ])->collapsible(),
+                    Section::make('SEO оптимізація')
                         ->icon('heroicon-o-document-magnifying-glass')
+                        ->description('Meta дані сторінки')
                         ->schema([
+                            Textarea::make('description')->rows(4)->label('Опис')->hint('Meta description')
+                                ->extraAttributes(['class' => 'resize-none']),
 
-                            TagsInput::make('tags'),
-
-                            TextInput::make('keywords')
-                                ->prefixIcon('heroicon-m-key'),
-
-                            Textarea::make('description')
-                                ->rows(4)
-                                ->autosize(),
-
-                            Toggle::make('status')
+                            Toggle::make('is_published')
+                                ->onIcon('heroicon-m-eye')
+                                ->offIcon('heroicon-m-eye-slash')
+                                ->label(fn (Get $get): string => $get('is_published') ? 'Опубліковано' : 'Приховано')
+                                ->afterStateUpdated(fn (Set $set, bool $state) => $set('is_published', $state))
                                 ->hint('Публікація')
-                                ->onIcon('heroicon-m-bolt')
-                                ->offIcon('heroicon-m-user'),
+                                ->live(),
 
-                            Toggle::make('indexation')
+                            Toggle::make('is_indexing')
+                                ->onIcon('heroicon-m-document-magnifying-glass')
+                                ->offIcon('heroicon-m-document-minus')
+                                ->label(fn (Get $get): string => $get('is_indexing') ? 'Індексується' : 'Не індексується')
+                                ->afterStateUpdated(fn (Set $set, bool $state) => $set('is_indexing ', $state))
                                 ->hint('Індексація')
-                                ->onIcon('heroicon-m-bolt')
-                                ->offIcon('heroicon-m-user'),
-                        ]),
-                ]),
+                                ->live(),
+                        ])->collapsible(),
+                ])->columnSpan(1),
 
-                Section::make('Загальні дані')
-                    ->icon('heroicon-o-document-text')
+                Section::make('SEO оптимізація')
+                    ->icon('heroicon-o-window')
+                    ->description('Meta дані сторінки')
                     ->schema([
+                        FormSplit::make([
+                            TextInput::make('name')
+                                ->label('Назва')
+                                ->prefixIcon('heroicon-o-newspaper')
+                                ->prefixIconColor('primary')
+                                ->maxLength(100)
+                                ->required()
+                                ->live()
+                                ->afterStateUpdated(function (Set $set, $state) {
+                                    $set('slug', Str::slug($state, '_'));
+                                }),
 
-                        TextInput::make('name')
-                            ->prefixIcon('heroicon-m-newspaper')
-                            ->label('Назва статті')
-                            ->placeholder('Назва статті')
-                            ->required(),
+                            TextInput::make('slug')
+                                ->label('Аліас')
+                                ->prefixIcon('heroicon-o-globe-alt')
+                                ->prefixIconColor('primary')
+                                ->unique(ignoreRecord: true)
+                                ->maxLength(255)
+                                ->hint('Посилання'),
+                        ])->from('lg'),
+                        FormSplit::make([
+                            TextInput::make('title')
+                                ->label('Заголовок')
+                                ->prefixIcon('heroicon-o-window')
+                                ->prefixIconColor('primary')
+                                ->maxLength(120)
+                                ->hint('Title'),
 
-                        TextInput::make('slug')
-                            ->prefixIcon('heroicon-m-globe-alt')
-                            ->label('Аліас')
-                            ->required(),
-
-                        TextInput::make('title')
-                            ->prefixIcon('heroicon-m-window')
-                            ->label('Заголовок статті')
-                            ->required(),
-
-                        Select::make('category')
-                            ->options([
+                            Select::make('category')->options([
                                 Post::CATEGORY_ARTICLES => 'Статті',
                                 Post::CATEGORY_CITIES => 'Міста',
-                            ]),
+                            ])->label('Категорія')
+                                ->prefixIcon('heroicon-o-rectangle-stack')
+                                ->prefixIconColor('primary')
+                                ->native(false),
+                        ])->from('lg'),
 
-                        RichEditor::make('text')
+                        SpatieTagsInput::make('tags')->type('posts')->label('Теги'),
+
+                        RichEditor::make('content')
                             ->toolbarButtons([
                                 'attachFiles',
+                                'blockquote',
                                 'bold',
                                 'bulletList',
                                 'h2',
@@ -105,9 +145,8 @@ class PostResource extends Resource
                                 'strike',
                                 'underline',
                                 'undo',
-                            ])
-                            ->columnSpanFull(),
-                    ])->columnSpan(2)->columns(2),
+                            ])->label(false)->extraAttributes(['class' => 'h-[400px]']),
+                    ])->columnSpan(2),
             ])->columns(3);
     }
 
@@ -115,40 +154,136 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('name')->label('dsg'),
+                Grid::make(['lg' => 8])->schema([
+                    SpatieMediaLibraryImageColumn::make('image')
+                        ->collection('posts')
+                        ->conversion('preview')
+                        ->defaultImageUrl(url('images/bg-header.webp'))
+                        ->square()
+                        ->width(90)
+                        ->height(60)
+                        ->grow(false)
+                        ->visibleFrom('lg')
+                        ->extraAttributes(['class' => 'rounded-lg overflow-hidden']),
 
-                TextColumn::make('category')
-                    ->badge()
-                    ->color('primary'),
+                    Stack::make([
+                        TextColumn::make('name')->searchable(),
+                        TextColumn::make('slug')
+                            ->size(TextColumnSize::ExtraSmall)
+                            ->color('gray')
+                            ->visibleFrom('lg'),
+                    ])->columnSpan(3),
 
-                SelectColumn::make('status')
-                    ->options([
-                        Post::STATUS_ACTIVE => 'Активний',
-                        Post::STATUS_INACTIVE => 'Не активний',
+                    Stack::make([
+                        Split::make([
+                            TextColumn::make('created_at')
+                                ->size(TextColumnSize::ExtraSmall)
+                                ->date('d.m.Y')
+                                ->grow(false),
+                            TextColumn::make('created_at')
+                                ->size(TextColumnSize::ExtraSmall)
+                                ->time('H:m')
+                                ->grow(false),
+                            TextColumn::make('category')
+                                ->size(TextColumnSize::ExtraSmall)
+                                ->weight(FontWeight::SemiBold)
+                                ->color('primary')
+                                ->grow(false),
+                            IconColumn::make('is_published')
+                                ->trueIcon('heroicon-o-eye')
+                                ->falseIcon('heroicon-o-eye-slash')
+                                ->size(IconColumnSize::Small)
+                                ->grow(false)
+                                ->boolean(),
+                            IconColumn::make('is_indexing')
+                                ->trueIcon('heroicon-o-document-magnifying-glass')
+                                ->falseIcon('heroicon-o-document-minus')
+                                ->size(IconColumnSize::Small)
+                                ->boolean(),
+                        ])->hiddenFrom('lg'),
+                    ]),
+
+                    Split::make([
+                        TextColumn::make('category')
+                            ->badge()
+                            ->color('primary')
+                            ->extraAttributes(['class' => 'self-center']),
+                    ])->visibleFrom('lg')->extraAttributes(['class' => 'flex h-full']),
+
+                    Stack::make([
+                        TextColumn::make('created_at')
+                            ->icon('heroicon-o-calendar')
+                            ->weight(FontWeight::Bold)
+                            ->size(TextColumnSize::ExtraSmall)
+                            ->date('d.m.y'),
+                        TextColumn::make('created_at')
+                            ->icon('heroicon-o-clock')
+                            ->weight(FontWeight::Bold)
+                            ->size(TextColumnSize::ExtraSmall)
+                            ->time('H:m'),
+                    ])->visibleFrom('lg')->view('filament.tables.columns.timestamp'),
+
+                    Stack::make([
+                        TextColumn::make('is_published')->badge()
+                            ->state(function (Post $post): string {
+                                return match ($post->is_published) {
+                                    Post::PUBLISHED => 'Опубліковано',
+                                    Post::HIDDEN => 'Приховано'
+                                };
+                            })
+                            ->color(function (Post $post): string {
+                                return match ($post->is_published) {
+                                    Post::PUBLISHED => 'success',
+                                    Post::HIDDEN => 'danger'
+                                };
+                            }),
+                        TextColumn::make('is_indexing')->badge()
+                            ->state(function (Post $post): string {
+                                return match ($post->is_published) {
+                                    Post::PUBLISHED => 'Індексується',
+                                    Post::HIDDEN => 'Не індексується'
+                                };
+                            })->color(function (Post $post): string {
+                                return match ($post->is_indexing) {
+                                    Post::PUBLISHED => 'success',
+                                    Post::HIDDEN => 'danger'
+                                };
+                            }),
                     ])
-                    ->rules(['required']),
-
-                SelectColumn::make('indexation')
-                    ->options([
-                        Post::STATUS_INDEXATION => 'Індексується',
-                        Post::STATUS_NO_INDEXATION => 'Не індексується',
-                    ])
-                    ->rules(['required']),
-
-                TextColumn::make('created_at')
-                    ->since(),
+                        ->extraAttributes(['class' => 'space-y-2'])
+                        ->visibleFrom('lg'),
+                ]),
             ])
             ->filters([
+                SelectFilter::make('category')
+                    ->options([
+                        Post::CATEGORY_CITIES => 'Міста',
+                        Post::CATEGORY_ARTICLES => 'Статті',
+                    ])->label('Категорія'),
+                SelectFilter::make('is_published')
+                    ->options([
+                        Post::PUBLISHED => 'Опубліковано',
+                        Post::HIDDEN => 'Приховано',
+                    ])->label('Статус'),
+                SelectFilter::make('is_indexing')
+                    ->options([
+                        Post::INDEXING => 'Індексується',
+                        Post::NO_INDEXING => 'Не індексується',
+                    ])->label('Індексація'),
+            ])->headerActions([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\ViewAction::make()->size(ActionSize::Small)->label(false),
+                Tables\Actions\EditAction::make()->size(ActionSize::Small)->label(false),
+                Tables\Actions\DeleteAction::make()->size(ActionSize::Small)->label(false),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                // Tables\Actions\BulkActionGroup::make([
+                //     Tables\Actions\DeleteBulkAction::make(),
+                //     Tables\Actions\ForceDeleteBulkAction::make(),
+                //     Tables\Actions\RestoreBulkAction::make(),
+                // ]),
             ]);
     }
 

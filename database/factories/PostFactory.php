@@ -21,11 +21,10 @@ class PostFactory extends Factory
             'name' => fake()->text(30),
             'title' => fake()->text(30),
             'slug' => fake()->slug(),
-            'text' => fake()->paragraph(80),
+            'body' => fake()->paragraph(80),
             'category' => Arr::random(['Статті', 'Міста']),
-            'status' => fake()->boolean(),
-            'indexation' => fake()->boolean(),
-            'keywords' => fake()->text(20),
+            'is_published' => fake()->boolean(),
+            'is_indexing' => fake()->boolean(),
             'description' => fake()->text(100),
         ];
     }

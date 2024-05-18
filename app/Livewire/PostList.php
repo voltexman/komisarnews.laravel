@@ -26,7 +26,7 @@ class PostList extends Component
     public function paginator()
     {
         return Post::where([
-            'status' => Post::STATUS_ACTIVE,
+            'is_published' => Post::PUBLISHED,
             'category' => Post::CATEGORY_ARTICLES,
         ])->latest()->paginate(8, ['*'], 'page', $this->page);
     }

@@ -2,14 +2,14 @@
 
 <div>
     <div x-data="{ counter: false }" class="relative">
-        <textarea wire:model.blur='{{ $name }}'
+        <textarea wire:model='{{ $name }}'
             {{ $attributes->class([
-                'bg-max-soft/20 border-max-soft/20' => $color === 'light',
+                'bg-max-soft/20 border-max-soft/20 text-max-dark' => $color === 'light',
                 'bg-max-light/90 border-max-soft/80 focus:bg-max-light/85' => $color === 'soft',
-                'bg-max-dark/50 border-max-dark focus:bg-max-light/10 focus:text-max-text' => $color === 'dark',
+                'bg-max-dark/40 border-max-dark text-max-text focus:bg-max-light/10 focus:text-max-text' => $color === 'dark',
                 'peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-max-soft focus:ring-max-soft disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2',
             ]) }}
-            id="hs-floating-{{ $attributes['name'] }}" placeholder={{ $attributes }} x-on:focus="counter = true"
+            id="hs-floating-{{ $attributes['name'] }}" placeholder="{{ $label }}" x-on:focus="counter = true"
             x-on:blur="counter = false" style="resize: none"></textarea>
 
         <label for="hs-floating-{{ $attributes['name'] }}"
@@ -17,12 +17,10 @@
             {{ $label }}
         </label>
 
-        @error($name)
-            <span class="text-xs text-red-500">{{ $message }}</span>
-        @enderror
-
         <template x-if="'{{ $required }}'">
-            <span class="absolute top-0 text-lg text-red-500 right-1">*</span>
+            <div class="absolute top-2 text-lg right-2">
+                <span class="block bg-red-500 h-1.5 w-1.5 rounded-full"></span>
+            </div>
         </template>
 
         <template x-if="'{{ $attributes->has('maxlength') }}'">
@@ -35,4 +33,8 @@
             </div>
         </template>
     </div>
+
+    @error($name)
+        <span class="text-xs text-red-500">{{ $message }}</span>
+    @enderror
 </div>

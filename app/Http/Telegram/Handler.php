@@ -9,9 +9,9 @@ class Handler extends WebhookHandler
     public function start(): void
     {
         $this->chat->message(
-            "Доброго дня!\n" .
-                "Вас вітає KomisarNews.\n" .
-                "Ми будемо сповіщати Вас про нові статті"
+            "Доброго дня!\n".
+                "Вас вітає KomisarNews.\n".
+                'Ми будемо сповіщати Вас про нові статті'
         )->send();
     }
 
@@ -21,6 +21,6 @@ class Handler extends WebhookHandler
             $this->chat->message('ти адмін')->send();
         } else {
             $this->chat->message('ти не адмін')->send();
-        };
+        }
     }
 }

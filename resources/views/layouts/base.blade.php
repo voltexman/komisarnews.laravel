@@ -27,10 +27,6 @@
 
     <title>@yield('title')</title>
 
-    @hasSection('keywords')
-        <meta name="keywords" content="@yield('keywords')">
-    @endif
-
     @hasSection('description')
         <meta name="description" content="@yield('description')">
     @endif

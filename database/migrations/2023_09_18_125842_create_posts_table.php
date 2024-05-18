@@ -17,11 +17,10 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug');
             $table->string('category');
-            $table->longText('text')->nullable();
-            $table->string('keywords')->nullable();
+            $table->longText('body')->nullable();
             $table->text('description')->nullable();
-            $table->enum('status', ['']);
-            $table->boolean('indexation');
+            $table->boolean('is_published')->default(true);
+            $table->boolean('is_indexing')->default(true);
             $table->timestamps();
             $table->softDeletes();
         });

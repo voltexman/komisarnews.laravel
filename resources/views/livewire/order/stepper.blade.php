@@ -61,7 +61,9 @@
 
                     <div>
                         <p class="hidden text-xs leading-4 lg:inline-block text-max-dark/80">
-                            Якийсь текст пояснюючий що потрібно вказати в даному полі</p>
+                            <x-lucide-info class="inline-block size-3 -mt-0.5" />
+                            Бажано вказати якомога більше подробиць
+                        </p>
                         <div class="flex justify-between gap-x-4">
 
                             <!-- Input Number -->
@@ -70,7 +72,7 @@
                                     <div class="relative px-3 py-2 grow">
                                         <span class="block text-xs text-max-dark line-clamp-1">Вага (гр)</span>
                                         <input type="text" wire:model='order.hair_weight' placeholder="0"
-                                            class="w-full p-0 bg-transparent border-0 text-max-dark focus:ring-0 placeholder:text-sm placeholder:text-max-soft/50"
+                                            class="weight-input w-full p-0 bg-transparent border-0 text-max-dark focus:ring-0 placeholder:text-sm placeholder:text-max-soft/50"
                                             aria-label="Вага">
                                     </div>
                                 </div>
@@ -82,9 +84,11 @@
                                 <div class="flex items-center justify-between w-full gap-x-1">
                                     <div class="relative px-3 py-2 grow">
                                         <span class="text-xs text-max-dark line-clamp-1">Довжина (мм)</span>
-                                        <span class="absolute top-0 text-lg text-red-500 right-1">*</span>
+                                        <div class="absolute top-2 text-lg right-2">
+                                            <span class="block bg-red-500 h-1.5 w-1.5 rounded-full"></span>
+                                        </div>
                                         <input type="text" wire:model.blur='order.hair_length' placeholder="0"
-                                            class="w-full p-0 bg-transparent border-0 text-max-dark focus:ring-0 placeholder:text-sm placeholder:text-max-soft/50"
+                                            class="length-input w-full p-0 bg-transparent border-0 text-max-dark focus:ring-0 placeholder:text-sm placeholder:text-max-soft/50"
                                             aria-label="Довжина" data-hs-input-number-input>
                                     </div>
                                 </div>
@@ -97,7 +101,7 @@
                                     <div class="px-3 py-2 grow">
                                         <span class="block text-xs text-max-dark">Вік</span>
                                         <input type="text" wire:model='order.age' placeholder="25"
-                                            class="w-full p-0 bg-transparent border-0 text-max-dark focus:ring-0 placeholder:text-sm placeholder:text-max-soft/50"
+                                            class="age-input w-full p-0 bg-transparent border-0 text-max-dark focus:ring-0 placeholder:text-sm placeholder:text-max-soft/50"
                                             aria-label="Вік">
                                     </div>
                                 </div>
@@ -112,7 +116,7 @@
                         </p>
                         <ul class="flex flex-col justify-between sm:flex-row">
                             <li
-                                class="inline-flex items-center w-full gap-x-2.5 py-2 px-4 lg:py-4 text-sm font-medium lg:transition lg:hover:bg-max-soft/40 bg-max-soft/20 border border-max-soft/30 text-max-dark -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
+                                class="inline-flex items-center w-full gap-x-2.5 py-2 px-4 lg:py-4 text-sm font-medium lg:transition lg:hover:bg-max-soft/40 bg-max-soft/20 border border-max-soft/30 text-max-dark -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-tl-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center self-center h-6">
                                         <input id="hair-options-1" wire:model="order.hair_options" type="checkbox"
@@ -121,8 +125,9 @@
                                     </div>
                                     <label for="hair-options-1"
                                         class="flex flex-col self-center w-full text-sm font-semibold ms-3 text-max-dark">Зрізане
-                                        <span class="-mt-1 text-xs text-max-dark/80 lg:hidden">волосся наразі
-                                            зрізане</span>
+                                        <span class="-mt-1 text-xs text-max-dark/80 lg:hidden">
+                                            волосся наразі зрізане
+                                        </span>
                                     </label>
                                 </div>
                             </li>
@@ -137,14 +142,15 @@
                                     </div>
                                     <label for="hair-options-2"
                                         class="flex flex-col self-center w-full text-sm font-semibold ms-3 text-max-dark">Фарбоване
-                                        <span class="-mt-1 text-xs text-max-dark/80 lg:hidden">волосся вже
-                                            фарбоване</span>
+                                        <span class="-mt-1 text-xs text-max-dark/80 lg:hidden">
+                                            волосся вже фарбоване
+                                        </span>
                                     </label>
                                 </div>
                             </li>
 
                             <li
-                                class="inline-flex items-center w-full gap-x-2.5 py-2 px-4 lg:py-4 text-sm font-medium lg:transition lg:hover:bg-max-soft/40 bg-max-soft/20 border border-max-soft/30 border-t-0 lg:border-t text-max-dark -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
+                                class="inline-flex items-center w-full gap-x-2.5 py-2 px-4 lg:py-4 text-sm font-medium lg:rounded-tr-lg lg:cursor-pointer lg:transition lg:hover:bg-max-soft/40 bg-max-soft/20 border border-max-soft/30 border-t-0 lg:border-t text-max-dark -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center self-center h-6">
                                         <input id="hair-options-3" wire:model="order.hair_options" type="checkbox"
@@ -152,10 +158,11 @@
                                             class="p-2.5 rounded-full border-max-soft checked:bg-max-soft text-max-dark focus:ring-max-dark disabled:opacity-50">
                                     </div>
                                     <label for="hair-options-3"
-                                        class="flex flex-col self-center w-full text-sm font-semibold ms-3 text-max-dark">З
-                                        сивиною
-                                        <span class="-mt-1 text-xs text-max-dark/80 lg:hidden">частково має
-                                            сивину</span>
+                                        class="flex flex-col self-center w-full text-sm font-semibold ms-3 text-max-dark lg:cursor-pointer">
+                                        З сивиною
+                                        <span class="-mt-1 text-xs text-max-dark/80 lg:hidden">
+                                            частково має сивину
+                                        </span>
                                     </label>
                                 </div>
                             </li>
@@ -182,6 +189,10 @@
                                 </div>
                             </li>
                         </ul>
+
+                        <x-form.textarea label="Додаткові уточнення" color='soft' name="order.description"
+                            class="rounded-t-none border-t-0 bg-max-soft/20 focus:ring-0" maxlength="1000"
+                            rows="4" />
                     </div>
                 </x-stepper.content>
                 {{-- End Parameters Content --}}
@@ -197,7 +208,7 @@
                     <x-alert>
                         Можете вказати будь-яку додаткову інформацію, яку вважаєте важливою, для майстра.
                     </x-alert>
-                    <x-form.textarea label="Додатковий опис" rows="12" name="order.description"
+                    <x-form.textarea label="Додатковий опис" rows="13" name="order.description"
                         maxlength="1000" />
                 </x-stepper.content>
                 <!-- End Description Content -->
@@ -312,9 +323,7 @@
                                                 [&::-webkit-scrollbar-track]:rounded-full
                                                 [&::-webkit-scrollbar-track]:bg-gray-100
                                                 [&::-webkit-scrollbar-thumb]:rounded-full
-                                                [&::-webkit-scrollbar-thumb]:bg-gray-300
-                                                dark:[&::-webkit-scrollbar-track]:bg-max-soft/20
-                                                dark:[&::-webkit-scrollbar-thumb]:bg-max-soft">
+                                                [&::-webkit-scrollbar-thumb]:bg-gray-300">
                                             </p>
                                         </div>
                                         <x-lucide-minimize x-on:click="descriptionFull=!descriptionFull"
@@ -454,6 +463,18 @@
 
             goalSelect.on('change', value => $wire.set('order.goal', value));
             colorSelect.on('change', value => $wire.set('order.color', value));
+
+            IMask(document.querySelector('.weight-input'), {
+                mask: IMask.MaskedNumber,
+                max: 999
+            });
+            IMask(document.querySelector('.length-input'), {
+                mask: IMask.MaskedNumber,
+                max: 2000
+            });
+            IMask(document.querySelector('.age-input'), {
+                mask: IMask.MaskedNumber,
+            });
         });
     </script>
 @endscript

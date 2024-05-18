@@ -8,47 +8,51 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\Tags\HasTags;
 
 class Post extends Model implements HasMedia
 {
     use HasFactory;
+    use HasTags;
     use InteractsWithMedia;
     use SoftDeletes;
 
     protected $fillable = [
-        'id',
         'name',
         'title',
         'slug',
-        'text',
-        'status',
+        'body',
         'category',
-        'indexation',
-        'keywords',
+        'is_published',
+        'is_indexing',
         'description',
-        'created_at',
-        'updated_at',
+        'keywords',
     ];
 
-    const STATUS_ACTIVE = 1;
+    const PUBLISHED = 1;
 
-    const STATUS_INACTIVE = 0;
+    const HIDDEN = 0;
 
-    const STATUS_INDEXATION = 1;
+    const INDEXING = 1;
 
-    const STATUS_NO_INDEXATION = 0;
+    const NO_INDEXING = 0;
 
     const CATEGORY_CITIES = 'Міста';
 
     const CATEGORY_ARTICLES = 'Статті';
 
+    public function likes()
+    {
+        return $this->morphMany(Like::class, 'likeable');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     public function registerMediaConversions(?Media $media = null): void
     {
-        $this->addMediaConversion('admin')
-            ->width(80)
-            ->sharpen(10)
-            ->nonOptimized();
-
         $this->addMediaConversion('preview')
             ->width(640)
             ->height(480)
@@ -60,21 +64,5 @@ class Post extends Model implements HasMedia
             ->height(280)
             ->format('webp')
             ->nonOptimized();
-    }
-
-    public static function getAllPostsCount()
-    {
-        return Post::count();
-    }
-
-    public static function getPublicationCount()
-    {
-        return Post::where('status', self::STATUS_ACTIVE)->count();
-    }
-
-    public static function getIndexationCount()
-    {
-        return Post::where('indexation', self::STATUS_INDEXATION)
-            ->count();
     }
 }

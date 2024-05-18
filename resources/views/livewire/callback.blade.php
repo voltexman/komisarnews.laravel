@@ -35,7 +35,7 @@
                 </div>
             </div>
             <x-form.input label="Номер телефону" name="form.phone" icon="phone" color="dark"
-                class="callback-phone-input" wire:loading.attr='disabled'>
+                class="callback-phone-input" wire:target='save' wire:loading.attr='disabled'>
                 <x-slot:button type="submit" color="dark" wire:loading.attr='disabled' aria-label="Передзвоніть">
                     <span wire:loading.class='hidden' wire:target='save'>Передзвоніть
                         <x-lucide-phone-call class="inline-block size-4 ms-1" />
@@ -51,11 +51,8 @@
 
 @script
     <script>
-        const callbackPhone = $wire.$el.querySelector('.callback-phone-input');
-        const maskOptionsCallbackPhone = {
+        IMask($wire.$el.querySelector('.callback-phone-input'), {
             mask: '+{380} (00) 000-00-00'
-        };
-
-        IMask(callbackPhone, maskOptionsCallbackPhone);
+        });
     </script>
 @endscript

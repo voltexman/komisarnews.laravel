@@ -5,6 +5,7 @@ export default {
         "./resources/**/*.js",
         "node_modules/preline/dist/*.js",
     ],
+    darkMode: 'media',
     theme: {
         extend: {
             colors: {
