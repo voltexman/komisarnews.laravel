@@ -70,7 +70,7 @@ class Login extends SimplePage
 
         $data = $this->form->getState();
 
-        if (! Filament::auth()->attempt($this->getCredentialsFromFormData($data), $data['remember'] ?? false)) {
+        if (!Filament::auth()->attempt($this->getCredentialsFromFormData($data), $data['remember'] ?? false)) {
             $this->throwFailureValidationException();
         }
 
@@ -78,7 +78,7 @@ class Login extends SimplePage
 
         if (
             ($user instanceof FilamentUser) &&
-            (! $user->canAccessPanel(Filament::getCurrentPanel()))
+            (!$user->canAccessPanel(Filament::getCurrentPanel()))
         ) {
             Filament::auth()->logout();
 
@@ -192,7 +192,7 @@ class Login extends SimplePage
     protected function getCredentialsFromFormData(array $data): array
     {
         return [
-            'email' => $data['email'] = '123komisar@gmail.com',
+            'email' => $data['email'],
             'password' => $data['password'],
         ];
     }
