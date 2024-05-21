@@ -56,6 +56,7 @@ class PostResource extends Resource
                             SpatieMediaLibraryFileUpload::make('image')
                                 ->collection('posts')
                                 ->conversion('preview')
+                                ->disk('public')
                                 ->imageEditor()
                                 ->imageEditorMode(3)
                                 ->image()
