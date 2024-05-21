@@ -36,9 +36,9 @@ class OrderForm extends Form
     {
         $this->validate();
 
-        // $created = Order::create($this->all());
+        $created = Order::create($this->all());
 
-        // session()->flash('number', $created->number);
+        session()->flash('number', $created->number);
     }
 
     public function rules(): array

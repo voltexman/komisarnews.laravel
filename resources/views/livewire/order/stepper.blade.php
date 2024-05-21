@@ -190,9 +190,11 @@
                             </li>
                         </ul>
 
-                        <x-form.textarea label="Додаткові уточнення" color='soft' name="order.description"
-                            class="rounded-t-none border-t-0 bg-max-soft/20 focus:ring-0" maxlength="1000"
-                            rows="4" />
+                        <div class="hidden lg:block">
+                            <x-form.textarea label="Додаткові уточнення" color='soft' name="order.description"
+                                class="rounded-t-none border-t-0 bg-max-soft/20 focus:ring-0" maxlength="1000"
+                                rows="4" />
+                        </div>
                     </div>
                 </x-stepper.content>
                 {{-- End Parameters Content --}}

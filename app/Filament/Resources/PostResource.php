@@ -48,6 +48,7 @@ class PostResource extends Resource
         return $form
             ->schema([
                 Group::make([
+
                     Section::make('Зображення')
                         ->icon('heroicon-o-photo')
                         ->description('Головне зображення статті')
@@ -62,6 +63,7 @@ class PostResource extends Resource
                                 ->image()
                                 ->label(false),
                         ])->collapsible(),
+
                     Section::make('SEO оптимізація')
                         ->icon('heroicon-o-document-magnifying-glass')
                         ->description('Meta дані сторінки')
@@ -87,9 +89,8 @@ class PostResource extends Resource
                         ])->collapsible(),
                 ])->columnSpan(1),
 
-                Section::make('SEO оптимізація')
+                Section::make('Дані матеріалу')
                     ->icon('heroicon-o-window')
-                    ->description('Meta дані сторінки')
                     ->schema([
                         FormSplit::make([
                             TextInput::make('name')
@@ -98,8 +99,9 @@ class PostResource extends Resource
                                 ->prefixIconColor('primary')
                                 ->maxLength(100)
                                 ->required()
-                                ->live()
-                                ->afterStateUpdated(function (Set $set, $state) {
+                                ->live(debounce: 1500)
+                                ->afterStateUpdated(function (Set $set, $operation, $state) {
+                                    if ($operation === 'edit') return;
                                     $set('slug', Str::slug($state, '_'));
                                 }),
 
@@ -111,6 +113,7 @@ class PostResource extends Resource
                                 ->maxLength(255)
                                 ->hint('Посилання'),
                         ])->from('lg'),
+
                         FormSplit::make([
                             TextInput::make('title')
                                 ->label('Заголовок')
@@ -125,19 +128,22 @@ class PostResource extends Resource
                             ])->label('Категорія')
                                 ->prefixIcon('heroicon-o-rectangle-stack')
                                 ->prefixIconColor('primary')
-                                ->native(false),
+                                ->afterStateUpdated(fn (Set $set, $state) => $set('category', $state))
+                                ->native(false)->live(),
                         ])->from('lg'),
 
-                        SpatieTagsInput::make('tags')->type('posts')->label('Теги'),
+                        SpatieTagsInput::make('tags')->type('posts')->label('Теги')->rules(['max:8'])
+                            ->hidden(fn (Get $get) => $get('category') === Post::CATEGORY_CITIES)
+                            ->required()->validationMessages([
+                                'required' => 'Необхідно вказати декілька тегів'
+                            ]),
 
-                        RichEditor::make('content')
+                        RichEditor::make('body')
                             ->toolbarButtons([
                                 'attachFiles',
                                 'blockquote',
                                 'bold',
                                 'bulletList',
-                                'h2',
-                                'h3',
                                 'italic',
                                 'link',
                                 'orderedList',
