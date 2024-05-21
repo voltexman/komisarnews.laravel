@@ -59,7 +59,6 @@ class PostResource extends Resource
                                 ->disk('media')
                                 ->imageEditor()
                                 ->imageEditorMode(3)
-                                ->maxSize(2048)
                                 ->image()
                                 ->label(false),
                         ])->collapsible(),
