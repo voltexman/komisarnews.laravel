@@ -122,7 +122,7 @@ class Login extends SimplePage
 
     protected function getEmailFormComponent(): Component
     {
-        return TextInput::make('email')->hidden();
+        return TextInput::make('email');
     }
 
     protected function getPasswordFormComponent(): Component
