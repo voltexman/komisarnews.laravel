@@ -72,7 +72,7 @@
                                     <div class="relative px-3 py-2 grow">
                                         <span class="block text-xs text-max-dark line-clamp-1">Вага (гр)</span>
                                         <input type="text" wire:model='order.hair_weight' placeholder="0"
-                                            class="weight-input w-full p-0 bg-transparent border-0 text-max-dark focus:ring-0 placeholder:text-sm placeholder:text-max-soft/50"
+                                            class="w-full p-0 bg-transparent border-0 weight-input text-max-dark focus:ring-0 placeholder:text-sm placeholder:text-max-soft/50"
                                             aria-label="Вага">
                                     </div>
                                 </div>
@@ -84,11 +84,11 @@
                                 <div class="flex items-center justify-between w-full gap-x-1">
                                     <div class="relative px-3 py-2 grow">
                                         <span class="text-xs text-max-dark line-clamp-1">Довжина (мм)</span>
-                                        <div class="absolute top-2 text-lg right-2">
+                                        <div class="absolute text-lg top-2 right-2">
                                             <span class="block bg-red-500 h-1.5 w-1.5 rounded-full"></span>
                                         </div>
                                         <input type="text" wire:model.blur='order.hair_length' placeholder="0"
-                                            class="length-input w-full p-0 bg-transparent border-0 text-max-dark focus:ring-0 placeholder:text-sm placeholder:text-max-soft/50"
+                                            class="w-full p-0 bg-transparent border-0 length-input text-max-dark focus:ring-0 placeholder:text-sm placeholder:text-max-soft/50"
                                             aria-label="Довжина" data-hs-input-number-input>
                                     </div>
                                 </div>
@@ -101,7 +101,7 @@
                                     <div class="px-3 py-2 grow">
                                         <span class="block text-xs text-max-dark">Вік</span>
                                         <input type="text" wire:model='order.age' placeholder="25"
-                                            class="age-input w-full p-0 bg-transparent border-0 text-max-dark focus:ring-0 placeholder:text-sm placeholder:text-max-soft/50"
+                                            class="w-full p-0 bg-transparent border-0 age-input text-max-dark focus:ring-0 placeholder:text-sm placeholder:text-max-soft/50"
                                             aria-label="Вік">
                                     </div>
                                 </div>
@@ -192,7 +192,7 @@
 
                         <div class="hidden lg:block">
                             <x-form.textarea label="Додаткові уточнення" color='soft' name="order.description"
-                                class="rounded-t-none border-t-0 bg-max-soft/20 focus:ring-0" maxlength="1000"
+                                class="border-t-0 rounded-t-none bg-max-soft/20 focus:ring-0" maxlength="1000"
                                 rows="4" />
                         </div>
                     </div>
@@ -293,7 +293,7 @@
                                 <span class="font-bold">Колір:</span>
                                 <span class="font-normal"
                                     x-bind:class="{ 'italic text-gray-500': !$wire.order.color }"
-                                    x-text="$wire.order.color ? $wire.order.color + 'р.' : 'не вказано'"></>
+                                    x-text="$wire.order.color ? $wire.order.color : 'не вказано'"></>
                             </div>
 
                             <div class="flex flex-col text-sm">

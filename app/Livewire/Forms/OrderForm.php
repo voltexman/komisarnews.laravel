@@ -20,7 +20,7 @@ class OrderForm extends Form
 
     public $photos = [];
 
-    public $color = '';
+    public $color = 'Блонд';
 
     public $hair_weight = '';
 
