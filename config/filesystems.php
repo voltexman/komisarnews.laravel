@@ -39,13 +39,13 @@ return [
         'media' => [
             'driver' => 'local',
             'root' => public_path('media'),
-            'url' => env('APP_URL').'/media',
+            'url' => env('APP_URL') . '/media',
         ],
 
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage/app/public',
+            'url' => env('APP_URL') . '/storage/app/public',
             'visibility' => 'public',
             'throw' => false,
         ],

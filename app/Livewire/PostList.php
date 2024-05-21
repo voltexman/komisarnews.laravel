@@ -28,7 +28,7 @@ class PostList extends Component
         return Post::where([
             'is_published' => Post::PUBLISHED,
             'category' => Post::CATEGORY_ARTICLES,
-        ])->latest()->paginate(8, ['*'], 'page', $this->page);
+        ])->latest()->paginate(18, ['*'], 'page', $this->page);
     }
 
     public function loadMore()
