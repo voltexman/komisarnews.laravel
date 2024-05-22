@@ -6,7 +6,7 @@
         [&::-webkit-scrollbar-thumb]:rounded-full
         [&::-webkit-scrollbar-thumb]:bg-gray-300
         [&::-webkit-scrollbar-track]:bg-max-soft/20
-        [&::-webkit-scrollbar-thumb]:bg-max-soft/50') }}>
+        [&::-webkit-scrollbar-thumb]:bg-max-soft') }}>
 
     {{ $slot }}
 

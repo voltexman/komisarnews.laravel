@@ -38,17 +38,17 @@
 @section('content')
     <article class="overflow-hidden bg-max-light py-14 lg:py-20">
         <div class="container">
-            <div class="flex">
+            <div class="flex flex-col lg:flex-row">
                 @if ($post->getFirstMediaUrl('posts', 'preview'))
                     <img src="{{ $post->getFirstMediaUrl('posts', 'preview') }}" width="300" height="280"
                         alt={{ env('APP_NAME') }}
                         class="w-full mb-8 block border rounded-lg sm:w-1/3 sm:float-left sm:me-5 sm:mb-5 shadow-max-soft/50 shadow-lg border-max-soft/30">
                 @endif
-                {!! $post->body !!}
+                <div>{!! $post->body !!}</div>
             </div>
 
             @if ($post->category === App\Models\Post::CATEGORY_ARTICLES)
-                <div class="flex flex-col lg:flex-row lg:justify-between">
+                <div class="flex flex-col lg:flex-row justify-normal lg:justify-between">
                     @if (!$post->tags->isEmpty())
                         <div class="flex mt-5">
                             @foreach ($post->tags as $tag)
