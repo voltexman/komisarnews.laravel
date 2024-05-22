@@ -100,7 +100,9 @@ class PostResource extends Resource
                                 ->required()
                                 ->live(debounce: 1500)
                                 ->afterStateUpdated(function (Set $set, $operation, $state) {
-                                    if ($operation === 'edit') return;
+                                    if ($operation === 'edit') {
+                                        return;
+                                    }
                                     $set('slug', Str::slug($state, '_'));
                                 }),
 
@@ -134,7 +136,7 @@ class PostResource extends Resource
                         SpatieTagsInput::make('tags')->type('posts')->label('Теги')->rules(['max:8'])
                             ->hidden(fn (Get $get) => $get('category') === Post::CATEGORY_CITIES)
                             ->required()->validationMessages([
-                                'required' => 'Необхідно вказати декілька тегів'
+                                'required' => 'Необхідно вказати декілька тегів',
                             ]),
 
                         RichEditor::make('body')

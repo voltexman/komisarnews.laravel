@@ -43,18 +43,18 @@ class Order extends Component
     {
         Telegraph::chat(env('TELEGRAM_CHAT_ID'))
             ->html(
-                '<b>' . $this->order->goal . "</b>\n" .
-                    '<b>Ім`я: </b>' . $this->order->name . "\n" .
-                    '<b>Місто: </b>' . $this->order->city . "\n" .
-                    '<b>Пошта: </b>' . $this->order->email . "\n" .
-                    '<b>Телефон: </b>' . $this->order->phone . "\n" .
-                    "<b>Колір волосся: </b>\n" . $this->order->color . "\n" .
+                '<b>'.$this->order->goal."</b>\n".
+                    '<b>Ім`я: </b>'.$this->order->name."\n".
+                    '<b>Місто: </b>'.$this->order->city."\n".
+                    '<b>Пошта: </b>'.$this->order->email."\n".
+                    '<b>Телефон: </b>'.$this->order->phone."\n".
+                    "<b>Колір волосся: </b>\n".$this->order->color."\n".
 
-                    "<b>Вага: </b>" . $this->order->hair_weight . ", " .
-                    "<b>Довжина: </b>" . $this->order->hair_length . ", " .
-                    "<b>Вік: </b>" . $this->order->age . "\n" .
+                    '<b>Вага: </b>'.$this->order->hair_weight.', '.
+                    '<b>Довжина: </b>'.$this->order->hair_length.', '.
+                    '<b>Вік: </b>'.$this->order->age."\n".
 
-                    "<b>Додатковий опис: </b>\n " . $this->order->description . "\n"
+                    "<b>Додатковий опис: </b>\n ".$this->order->description."\n"
             )->send();
     }
 

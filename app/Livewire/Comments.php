@@ -27,7 +27,7 @@ class Comments extends Component
     {
         $comment = Comment::find($commentId);
 
-        if ($comment && !$this->hasLike($commentId)) {
+        if ($comment && ! $this->hasLike($commentId)) {
             Like::create([
                 'likeable_id' => $comment->id,
                 'likeable_type' => Comment::class,

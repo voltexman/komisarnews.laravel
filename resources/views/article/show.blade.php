@@ -41,16 +41,16 @@
             <div class="flex flex-col lg:flex-row">
                 @if ($post->getFirstMediaUrl('posts', 'preview'))
                     <img src="{{ $post->getFirstMediaUrl('posts', 'preview') }}" width="300" height="280"
-                        alt={{ env('APP_NAME') }}
+                        alt="{{ env('APP_NAME') . ' - ' . $post->title }}"
                         class="w-full mb-8 block border rounded-lg sm:w-1/3 sm:float-left sm:me-5 sm:mb-5 shadow-max-soft/50 shadow-lg border-max-soft/30">
                 @endif
                 <div>{!! $post->body !!}</div>
             </div>
 
             @if ($post->category === App\Models\Post::CATEGORY_ARTICLES)
-                <div class="flex flex-col lg:flex-row justify-normal lg:justify-between">
+                <div class="flex flex-col lg:flex-row lg:justify-between">
                     @if (!$post->tags->isEmpty())
-                        <div class="flex mt-5">
+                        <div class="mt-5">
                             @foreach ($post->tags as $tag)
                                 <span class="text-sm font-medium uppercase me-3 text-max-dark">
                                     #{{ $tag->name }}

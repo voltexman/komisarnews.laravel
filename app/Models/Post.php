@@ -54,17 +54,19 @@ class Post extends Model implements HasMedia
 
     public function registerMediaConversions(?Media $media = null): void
     {
+        $this->addMediaConversion('admin')
+            ->width(320)
+            ->height(240)
+            ->nonOptimized();
+
         $this->addMediaConversion('preview')
             ->width(640)
             ->height(480)
             ->sharpen(10)
-            ->format('webp')
-            ->nonOptimized();
+            ->format('webp');
 
         $this->addMediaConversion('header')
             ->crop(1920, 280, CropPosition::Center)
-            // ->height(280)
-            ->format('webp')
-            ->nonOptimized();
+            ->format('webp');
     }
 }
