@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Image\Enums\CropPosition;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -61,7 +62,8 @@ class Post extends Model implements HasMedia
             ->nonOptimized();
 
         $this->addMediaConversion('header')
-            ->height(280)
+            ->crop(1920, 280, CropPosition::Center)
+            // ->height(280)
             ->format('webp')
             ->nonOptimized();
     }
