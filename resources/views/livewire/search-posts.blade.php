@@ -36,7 +36,7 @@
                     <div class="me-3 h-[100px] w-[120px] lg:w-[160px] flex-none rounded-lg overflow-hidden">
                         <a href="{{ route('article.show', ['slug' => $post->slug]) }}">
                             <img src="{{ $post->getFirstMediaUrl('posts', 'preview') ?: asset('images/bg-header.webp') }}"
-                                class="object-cover object-center h-full" />
+                                class="object-cover object-center h-full w-full" />
                         </a>
                     </div>
                     <div class="flex flex-col grow">
