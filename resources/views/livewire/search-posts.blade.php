@@ -30,13 +30,13 @@
 
     @if ($posts !== null && count($posts) > 0)
         <div class="w-full pt-4 font-medium text-center text-sm text-max-text/80">Знайдені статті...</div>
-        <x-scrollbar class="max-h-[50vh]">
+        <x-scrollbar class="max-h-[50vh] mx-4">
             @foreach ($posts as $post)
                 <div class="flex flex-row" :key='{{ $post->id }}'>
                     <div class="me-3 h-[100px] w-[120px] lg:w-[160px] flex-none rounded-lg overflow-hidden">
                         <a href="{{ route('article.show', ['slug' => $post->slug]) }}">
-                            <img src="{{ $post->getFirstMediaUrl('posts', 'preview') }}"
-                                class="object-cover object-center" />
+                            <img src="{{ $post->getFirstMediaUrl('posts', 'preview') ?: asset('images/bg-header.webp') }}"
+                                class="object-cover object-center h-full" />
                         </a>
                     </div>
                     <div class="flex flex-col grow">
