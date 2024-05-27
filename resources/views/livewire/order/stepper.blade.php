@@ -27,11 +27,11 @@
                     <div class="flex flex-col w-full gap-y-5">
                         <x-form.select label="Вкажіть ціль заявки" id="goals">
                             @foreach ($goals as $goal)
-                                <option value="{{ $goal['option'] }}"
+                                <option value="{{ $goal->value }}"
                                     data-hs-select-option='{
-                                        "description": "{{ $goal['description'] }}"
+                                        "description": "{{ $goal->description() }}"
                                     }'>
-                                    {{ $goal['option'] }}
+                                    {{ $goal->getLabel() }}
                                 </option>
                             @endforeach
                         </x-form.select>
@@ -53,8 +53,8 @@
 
                     <x-form.select label="Вкажіть колір волосся" id="colors">
                         @foreach ($colors as $item)
-                            <option value="{{ $item['option'] }}">
-                                {{ $item['option'] }}
+                            <option value="{{ $item->value }}">
+                                {{ $item->getLabel() }}
                             </option>
                         @endforeach
                     </x-form.select>

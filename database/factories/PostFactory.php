@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Arr;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
@@ -18,11 +17,11 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->text(30),
-            'title' => fake()->text(30),
+            'name' => fake()->sentence(),
+            'title' => fake()->sentence(),
             'slug' => fake()->slug(),
             'body' => fake()->paragraph(80),
-            'category' => Arr::random(['Статті', 'Міста']),
+            'category' => fake()->randomElement(['Статті', 'Міста']),
             'is_published' => fake()->boolean(),
             'is_indexing' => fake()->boolean(),
             'description' => fake()->text(100),

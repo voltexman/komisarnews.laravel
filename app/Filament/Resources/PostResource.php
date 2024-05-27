@@ -29,6 +29,7 @@ use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\TextColumn\TextColumnSize;
+use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
@@ -43,12 +44,23 @@ class PostResource extends Resource
 
     protected static ?string $navigationLabel = 'Статті';
 
+    protected static ?string $recordTitleAttribute = 'name';
+
+    public static function getNavigationBadge(): ?string
+    {
+        return Post::query()->where('is_indexing', Post::NO_INDEXING)->count();
+    }
+
+    public static function getNavigationBadgeColor(): string|array|null
+    {
+        return 'gray';
+    }
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Group::make([
-
                     Section::make('Зображення')
                         ->icon('heroicon-o-photo')
                         ->description('Головне зображення статті')
@@ -98,7 +110,7 @@ class PostResource extends Resource
                                 ->prefixIconColor('primary')
                                 ->maxLength(100)
                                 ->required()
-                                ->live(debounce: 1500)
+                                ->live(onBlur: true)
                                 ->afterStateUpdated(function (Set $set, $operation, $state) {
                                     if ($operation === 'edit') {
                                         return;
@@ -164,101 +176,70 @@ class PostResource extends Resource
                 Grid::make(['lg' => 8])->schema([
                     SpatieMediaLibraryImageColumn::make('image')
                         ->collection('posts')
-                        ->conversion('preview')
+                        ->conversion('admin')
                         ->defaultImageUrl(url('images/bg-header.webp'))
-                        ->square()
                         ->width(90)
                         ->height(60)
                         ->grow(false)
                         ->visibleFrom('lg')
-                        ->extraAttributes(['class' => 'rounded-lg overflow-hidden']),
+                        ->label(false),
 
-                    Stack::make([
-                        TextColumn::make('name')->searchable(),
-                        TextColumn::make('slug')
-                            ->size(TextColumnSize::ExtraSmall)
-                            ->color('gray')
-                            ->visibleFrom('lg'),
-                    ])->columnSpan(3),
+                    TextColumn::make('name')
+                        ->description(fn (Post $record): string => Str::limit($record->slug, 30))
+                        ->label(false)
+                        ->words(10)
+                        ->searchable()
+                        ->columnSpan(3),
 
-                    Stack::make([
-                        Split::make([
-                            TextColumn::make('created_at')
-                                ->size(TextColumnSize::ExtraSmall)
-                                ->date('d.m.Y')
-                                ->grow(false),
-                            TextColumn::make('created_at')
-                                ->size(TextColumnSize::ExtraSmall)
-                                ->time('H:m')
-                                ->grow(false),
-                            TextColumn::make('category')
-                                ->size(TextColumnSize::ExtraSmall)
-                                ->weight(FontWeight::SemiBold)
-                                ->color('primary')
-                                ->grow(false),
-                            IconColumn::make('is_published')
-                                ->trueIcon('heroicon-o-eye')
-                                ->falseIcon('heroicon-o-eye-slash')
-                                ->size(IconColumnSize::Small)
-                                ->grow(false)
-                                ->boolean(),
-                            IconColumn::make('is_indexing')
-                                ->trueIcon('heroicon-o-document-magnifying-glass')
-                                ->falseIcon('heroicon-o-document-minus')
-                                ->size(IconColumnSize::Small)
-                                ->boolean(),
-                        ])->hiddenFrom('lg'),
-                    ]),
+                    // Stack::make([
+                    //     Split::make([
+                    //         TextColumn::make('created_at')
+                    //             ->size(TextColumnSize::ExtraSmall)
+                    //             ->date('d.m.Y')
+                    //             ->grow(false),
+                    //         TextColumn::make('created_at')
+                    //             ->size(TextColumnSize::ExtraSmall)
+                    //             ->time('H:m')
+                    //             ->grow(false),
+                    //         TextColumn::make('category')
+                    //             ->size(TextColumnSize::ExtraSmall)
+                    //             ->weight(FontWeight::SemiBold)
+                    //             ->color('primary')
+                    //             ->grow(false),
+                    //         IconColumn::make('is_published')
+                    //             ->trueIcon('heroicon-o-eye')
+                    //             ->falseIcon('heroicon-o-eye-slash')
+                    //             ->size(IconColumnSize::Small)
+                    //             ->grow(false)
+                    //             ->boolean(),
+                    //         IconColumn::make('is_indexing')
+                    //             ->trueIcon('heroicon-o-document-magnifying-glass')
+                    //             ->falseIcon('heroicon-o-document-minus')
+                    //             ->size(IconColumnSize::Small)
+                    //             ->boolean(),
+                    //     ])->hiddenFrom('lg'),
+                    // ]),
 
-                    Split::make([
-                        TextColumn::make('category')
-                            ->badge()
-                            ->color('primary')
-                            ->extraAttributes(['class' => 'self-center']),
-                    ])->visibleFrom('lg')->extraAttributes(['class' => 'flex h-full']),
+                    TextColumn::make('category')->badge()->color('primary')->sortable()->label('Катагорія'),
+
+                    ToggleColumn::make('is_published')->visibleFrom('lg')->label('Публікація'),
+                    ToggleColumn::make('is_indexing')->visibleFrom('lg')->label('Індексація'),
 
                     Stack::make([
                         TextColumn::make('created_at')
                             ->icon('heroicon-o-calendar')
                             ->weight(FontWeight::Bold)
                             ->size(TextColumnSize::ExtraSmall)
-                            ->date('d.m.y'),
+                            ->date('d.m.y')
+                            ->label(false),
+
                         TextColumn::make('created_at')
                             ->icon('heroicon-o-clock')
                             ->weight(FontWeight::Bold)
                             ->size(TextColumnSize::ExtraSmall)
-                            ->time('H:m'),
-                    ])->visibleFrom('lg')->view('filament.tables.columns.timestamp'),
-
-                    Stack::make([
-                        TextColumn::make('is_published')->badge()
-                            ->state(function (Post $post): string {
-                                return match ($post->is_published) {
-                                    Post::PUBLISHED => 'Опубліковано',
-                                    Post::HIDDEN => 'Приховано'
-                                };
-                            })
-                            ->color(function (Post $post): string {
-                                return match ($post->is_published) {
-                                    Post::PUBLISHED => 'success',
-                                    Post::HIDDEN => 'danger'
-                                };
-                            }),
-                        TextColumn::make('is_indexing')->badge()
-                            ->state(function (Post $post): string {
-                                return match ($post->is_published) {
-                                    Post::PUBLISHED => 'Індексується',
-                                    Post::HIDDEN => 'Не індексується'
-                                };
-                            })->color(function (Post $post): string {
-                                return match ($post->is_indexing) {
-                                    Post::PUBLISHED => 'success',
-                                    Post::HIDDEN => 'danger'
-                                };
-                            }),
-                    ])
-                        ->extraAttributes(['class' => 'space-y-2'])
-                        ->visibleFrom('lg'),
+                            ->time('H:m')
+                            ->label(false),
+                    ]),
                 ]),
             ])
             ->filters([
@@ -277,9 +258,7 @@ class PostResource extends Resource
                         Post::INDEXING => 'Індексується',
                         Post::NO_INDEXING => 'Не індексується',
                     ])->label('Індексація'),
-            ])->headerActions([
-                //
-            ])
+            ])->headerActions([])
             ->actions([
                 Tables\Actions\ViewAction::make()->size(ActionSize::Small)->label(false),
                 Tables\Actions\EditAction::make()->size(ActionSize::Small)->label(false),

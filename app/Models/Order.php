@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Enums\Order\Colors;
+use App\Enums\Order\Goals;
+use App\Enums\Order\Status;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,8 +12,10 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $attributes = [
-        'status' => self::STATUS_NEW,
+    protected $casts = [
+        'goal' => Goals::class,
+        'color' => Colors::class,
+        'status' => Status::class,
     ];
 
     protected $fillable = [
@@ -36,16 +41,4 @@ class Order extends Model
             $order->number = random_int(10000, 99999);
         });
     }
-
-    const GOAL_EVALUATE = 'Хочу оцінити вартість';
-
-    const GOAL_SELL = 'Хочу продати волосся';
-
-    const STATUS_NEW = 'Нове';
-
-    const STATUS_VIEWED = 'Переглянуто';
-
-    const STATUS_PROCESSING = 'Оброблюється';
-
-    const STATUS_COMPLETED = 'Завершене';
 }

@@ -2,7 +2,6 @@
 
 namespace App\Providers\Filament;
 
-// use App\Filament\Pages\Login;
 use Filament\FontProviders\GoogleFontProvider;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;

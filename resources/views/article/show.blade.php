@@ -11,11 +11,10 @@
 @section('header')
     @parent
     <div class="relative h-[280px] w-full overflow-hidden">
-        <img src="{{ empty($post->getFirstMediaUrl('posts', 'header')) ? asset('images/article-header.webp') : $post->getFirstMediaUrl('posts', 'header') }}"
-            width="auto" height="280" alt="{{ env('APP_NAME') }} - {{ $post->title }}"
-            class="object-cover object-center w-full h-full">
+        <img src="{{ $post->getFirstMediaUrl('posts', 'header') ?: asset('images/article-header.webp') }}" width="auto"
+            height="280" alt="{{ env('APP_NAME') }} - {{ $post->title }}" class="object-cover object-center w-full h-full">
         <div
-            class="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full backdrop-blur-md backdrop-brightness-75 bg-max-black/40">
+            class="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full px-10 text-center lg:px-0 backdrop-blur-md backdrop-brightness-75 bg-max-black/40">
             <h1 class="text-xl uppercase text-max-light">{{ $post->name }}</h1>
 
             @if ($post->comments->count() > 0)
@@ -38,14 +37,14 @@
 @section('content')
     <article class="overflow-hidden bg-max-light py-14 lg:py-20">
         <div class="container">
-            <div class="flex flex-col lg:flex-row">
+            <p class="w-full">
                 @if ($post->getFirstMediaUrl('posts', 'preview'))
                     <img src="{{ $post->getFirstMediaUrl('posts', 'preview') }}" width="300" height="280"
                         alt="{{ env('APP_NAME') . ' - ' . $post->title }}"
-                        class="w-full mb-8 block border rounded-lg sm:w-1/3 sm:float-left sm:me-5 sm:mb-5 shadow-max-soft/50 shadow-lg border-max-soft/30">
+                        class="block w-full lg:mb-8 border rounded-lg shadow-lg sm:w-1/3 sm:float-left sm:me-5 sm:mb-5 shadow-max-soft/50 border-max-soft/30">
                 @endif
                 <div>{!! $post->body !!}</div>
-            </div>
+            </p>
 
             @if ($post->category === App\Models\Post::CATEGORY_ARTICLES)
                 <div class="flex flex-col lg:flex-row lg:justify-between">

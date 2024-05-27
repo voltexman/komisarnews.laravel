@@ -12,9 +12,12 @@
                 <article class="flex flex-col lg:flex-row">
                     <div class="relative">
                         {{-- Зображення статті Preview --}}
-                        <img src="{{ empty($post->getFirstMediaUrl('posts', 'preview')) ? asset('images/bg-header.webp') : $post->getFirstMediaUrl('posts', 'preview') }}"
-                            width="640" height="480" alt="{{ env('APP_NAME') . ' ' . $post->name }}"
-                            class="rounded-t-lg object-cover lg:rounded-lg shadow-xl shadow-max-soft/30 lg:w-[640px] lg:h-[480px] w-full">
+                        <a href="{{ route('article.show', ['slug' => $post->slug]) }}"
+                            class="block rounded-t-lg lg:rounded-lg overflow-hidden shadow-xl shadow-max-soft/30 lg:max-w-[640px] lg:h-[480px] w-full">
+                            <img src="{{ $post->getFirstMediaUrl('posts', 'preview') ?: asset('images/bg-header.webp') }}"
+                                width="640" height="480" alt="{{ env('APP_NAME') . ' ' . $post->title }}"
+                                class="object-cover h-full w-full block object-center hover:scale-125 hover:rotate-6 duration-700">
+                        </a>
 
                         <div x-data="{ maximize: false }"
                             :class="maximize ? 'lg:w-full lg:h-full' :

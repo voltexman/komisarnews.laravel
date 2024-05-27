@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Image\Enums\CropPosition;
 use Spatie\MediaLibrary\HasMedia;
@@ -18,6 +19,11 @@ class Post extends Model implements HasMedia
     use InteractsWithMedia;
     use SoftDeletes;
 
+    protected $casts = [
+        'is_published' => 'bool',
+        'is_indexing' => 'bool',
+    ];
+
     protected $fillable = [
         'name',
         'title',
@@ -27,7 +33,6 @@ class Post extends Model implements HasMedia
         'is_published',
         'is_indexing',
         'description',
-        'keywords',
     ];
 
     const PUBLISHED = 1;
@@ -47,7 +52,7 @@ class Post extends Model implements HasMedia
         return $this->morphMany(Like::class, 'likeable');
     }
 
-    public function comments()
+    public function comments(): HasMany
     {
         return $this->hasMany(Comment::class);
     }
@@ -60,8 +65,7 @@ class Post extends Model implements HasMedia
             ->nonOptimized();
 
         $this->addMediaConversion('preview')
-            ->width(640)
-            ->height(480)
+            ->crop(640, 480, CropPosition::Center)
             ->sharpen(10)
             ->format('webp');
 

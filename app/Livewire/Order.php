@@ -2,6 +2,8 @@
 
 namespace App\Livewire;
 
+use App\Enums\Order\Colors;
+use App\Enums\Order\Goals;
 use App\Livewire\Forms\OrderForm;
 use DefStudio\Telegraph\Facades\Telegraph;
 use Livewire\Component;
@@ -10,19 +12,15 @@ class Order extends Component
 {
     public OrderForm $order;
 
-    public array $goals = [
-        ['option' => 'Хочу оцінити вартість', 'description' => 'Лише дізнатись ціну у майстра'],
-        ['option' => 'Хочу продати волосся', 'description' => 'Відправити волосся та отримати гроші'],
-    ];
+    public $goals;
 
-    public array $colors = [
-        ['color' => '#fff', 'option' => 'Блонд'],
-        ['color' => '#ccc', 'option' => 'Світло-русий'],
-        ['color' => '#ff0000', 'option' => 'Русий'],
-        ['color' => '#ff0000', 'option' => 'Світло-коричневий'],
-        ['color' => '#ff0000', 'option' => 'Темно-коричневий'],
-        ['color' => '#ff0000', 'option' => 'Чорний'],
-    ];
+    public $colors;
+
+    public function mount()
+    {
+        $this->goals = Goals::cases();
+        $this->colors = Colors::cases();
+    }
 
     public function placeholder()
     {
