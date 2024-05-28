@@ -38,4 +38,3 @@ enum Goals: int implements HasLabel
         return array_column(self::cases(), 'value');
     }
 }
-    

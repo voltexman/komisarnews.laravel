@@ -3,7 +3,6 @@
 namespace App\Filament\Resources\PostResource\Pages;
 
 use App\Filament\Resources\PostResource;
-use App\Models\Post;
 use Filament\Actions;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -14,6 +13,7 @@ use Filament\Support\Enums\Alignment;
 use Filament\Support\Enums\IconSize;
 use Filament\Support\Enums\MaxWidth;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Model;
 
 class ListPosts extends ListRecords
 {
@@ -51,10 +51,10 @@ class ListPosts extends ListRecords
 
                     Select::make('robots')
                         ->options([
-                            'index, follow' => 'Індексувати сторінку, індексувати статті',
-                            'noindex, follow' => 'Не індексувати сторінку, індексувати статті',
-                            'index, nofollow' => 'Індексувати сторінку, не індексувати статті',
-                            'noindex, nofollow' => 'Не індексувати сторінку, не індексувати статті',
+                            'index, follow' => 'Відкрити сторінку, відкрити статті',
+                            'noindex, follow' => 'Закрити сторінку, відкрити статті',
+                            'index, nofollow' => 'Відкрити сторінку, закрити статті',
+                            'noindex, nofollow' => 'Закрити сторінку, закрити статті',
                         ])->label('Індексація')
                         ->prefixIcon('heroicon-o-globe-alt')
                         ->prefixIconColor('primary')
@@ -66,11 +66,15 @@ class ListPosts extends ListRecords
                         ->maxLength(200)
                         ->extraAttributes(['style' => 'resize: none']),
                 ])
-                ->action(function (Post $record): void {
-                    $record->approve();
+                ->action(function (Model $record) {
+                    // $page = Meta::find('page', 'posts');
+                    dd($record);
+
+                    // $record->approve();
                 })
                 ->after(fn () => Notification::make()
-                    ->title('ok')
+                    ->title('Успішно збережено')
+                    ->body('Налаштування сторінки збережені')
                     ->success()
                     ->send())
                 ->closeModalByClickingAway(false)

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Order\FeedbackStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,14 +12,14 @@ class Feedback extends Model
 
     protected $table = 'feedbacks';
 
+    protected $casts = [
+        'status' => FeedbackStatus::class,
+    ];
+
     protected $fillable = [
         'name',
         'contact',
         'text',
         'status',
     ];
-
-    const STATUS_NEW = 1;
-
-    const STATUS_VIEWED = 2;
 }

@@ -17,19 +17,21 @@
             class="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full px-10 text-center lg:px-0 backdrop-blur-md backdrop-brightness-75 bg-max-black/40">
             <h1 class="text-xl uppercase text-max-light">{{ $post->name }}</h1>
 
-            @if ($post->comments->count() > 0)
-                <span class="text-sm font-semibold text-white">
-                    <x-lucide-message-square-text class="inline-block size-4" />
-                    {{ $post->comments->count() }}
-                </span>
-            @endif
+            <div class="flex space-x-3">
+                @if ($post->comments->count() > 0)
+                    <div class="text-sm flex space-x-1 font-semibold text-white">
+                        <span><x-lucide-message-square-text class="inline-block size-4" /></span>
+                        <span class="mt-0.5">{{ $post->comments->count() }}</span>
+                    </div>
+                @endif
 
-            @if ($post->likes->count() > 0)
-                <span class="text-sm font-semibold text-white">
-                    <x-lucide-thumbs-up class="inline-block size-4" />
-                    {{ $post->likes->count() }}
-                </span>
-            @endif
+                @if ($post->likes->count() > 0)
+                    <div class="text-sm flex space-x-1 font-semibold text-white">
+                        <span><x-lucide-thumbs-up class="inline-block size-4" /></span>
+                        <span class="mt-0.5">{{ $post->likes->count() }}</span>
+                    </div>
+                @endif
+            </div>
         </div>
     </div>
 @endsection
@@ -43,7 +45,7 @@
                         alt="{{ env('APP_NAME') . ' - ' . $post->title }}"
                         class="block w-full lg:mb-8 border rounded-lg shadow-lg sm:w-1/3 sm:float-left sm:me-5 sm:mb-5 shadow-max-soft/50 border-max-soft/30">
                 @endif
-                <div>{!! $post->body !!}</div>
+            <div>{!! $post->body !!}</div>
             </p>
 
             @if ($post->category === App\Models\Post::CATEGORY_ARTICLES)
@@ -59,14 +61,14 @@
                     @endif
 
                     <div>
-                        <button class="mt-3 text-max-dark">
-                            <x-lucide-thumbs-up class="inline-block -mt-1 size-5" />
-                            Подобається стаття?
-                        </button>
+                        <livewire:like-button type='post' :model='$post' />
                     </div>
                 </div>
 
-                <livewire:comments :postId='$post->id' />
+                <div class="mt-5">
+                    <livewire:comment.comment-list :postId='$post->id' />
+                    <livewire:comment.comment-form :postId='$post->id' />
+                </div>
             @endif
         </div>
     </article>

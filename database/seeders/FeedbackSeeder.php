@@ -2,16 +2,16 @@
 
 namespace Database\Seeders;
 
-use App\Models\Post;
+use App\Models\Feedback;
 use Illuminate\Database\Seeder;
 
-class PostSeeder extends Seeder
+class FeedbackSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Post::factory(15)->hasComments(5)->hasLikes(15)->create();
+        Feedback::factory(100)->create();
     }
 }

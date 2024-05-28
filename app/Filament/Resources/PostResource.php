@@ -32,6 +32,7 @@ use Filament\Tables\Columns\TextColumn\TextColumnSize;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class PostResource extends Resource
@@ -54,6 +55,16 @@ class PostResource extends Resource
     public static function getNavigationBadgeColor(): string|array|null
     {
         return 'gray';
+    }
+
+    public static function getGlobalSearchResultTitle(Model $record): string
+    {
+        return $record->title;
+    }
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['name', 'title', 'category'];
     }
 
     public static function form(Form $form): Form
@@ -220,7 +231,7 @@ class PostResource extends Resource
                     //     ])->hiddenFrom('lg'),
                     // ]),
 
-                    TextColumn::make('category')->badge()->color('primary')->sortable()->label('Катагорія'),
+                    TextColumn::make('category')->badge()->color('primary')->label('Катагорія'),
 
                     ToggleColumn::make('is_published')->visibleFrom('lg')->label('Публікація'),
                     ToggleColumn::make('is_indexing')->visibleFrom('lg')->label('Індексація'),

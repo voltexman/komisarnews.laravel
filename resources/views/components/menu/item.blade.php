@@ -1,13 +1,9 @@
 @props(['link', 'active'])
 
 @php
-    $activeClass =
-        $link === env('APP_URL') . '/articles' && request()->routeIs('article.show')
-            ? 'text-max-soft'
-            : 'text-max-light';
+    $activeClass = $link === env('APP_URL') . '/articles' && request()->routeIs('article.show');
+    $activeClass = $activeClass ? 'text-max-soft font-bold' : 'text-max-light';
 @endphp
-
-{{-- @dump($link) --}}
 
 @if (!$active)
     <li @class([

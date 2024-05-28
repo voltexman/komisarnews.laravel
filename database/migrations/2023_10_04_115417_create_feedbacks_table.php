@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\Feedback;
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Enums\FeedbackStatus;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -16,8 +16,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('contact');
-            $table->text('text');
-            $table->smallInteger('status')->default(Feedback::STATUS_NEW);
+            $table->longText('text');
+            $table->enum('status', FeedbackStatus::all())->default(FeedbackStatus::NEW);
             $table->timestamps();
         });
     }

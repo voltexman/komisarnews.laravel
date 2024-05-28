@@ -34,8 +34,6 @@ class OrderResource extends Resource
 
     protected static ?string $pluralLabel = 'Замовлення';
 
-    protected static ?string $recordTitleAttribute = 'city';
-
     public static function getNavigationBadge(): ?string
     {
         return Order::query()->where('status', Status::NEW)->count();
@@ -44,6 +42,11 @@ class OrderResource extends Resource
     public static function getNavigationBadgeColor(): string|array|null
     {
         return 'danger';
+    }
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['number', 'city', 'name'];
     }
 
     public static function form(Form $form): Form

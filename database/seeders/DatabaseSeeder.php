@@ -16,14 +16,16 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PostSeeder::class,
             OrderSeeder::class,
+            FeedbackSeeder::class,
+            SubscribeSeeder::class,
         ]);
 
-        $posts = \App\Models\Post::factory(20)->create();
+        // $posts = \App\Models\Post::factory(20)->create();
 
-        foreach ($posts as $post) {
-            $imageUrl = 'https://www.loremflickr.com/640/480';
-            $post->addMediaFromUrl($imageUrl)->toMediaCollection('posts');
-        }
+        // foreach ($posts as $post) {
+        //     $imageUrl = 'https://www.loremflickr.com/640/480';
+        //     $post->addMediaFromUrl($imageUrl)->toMediaCollection('posts');
+        // }
 
         // \App\Models\Order::factory(50)->create();
         // \App\Models\Feedback::factory(0)->create();

@@ -2,15 +2,16 @@
 
 namespace Database\Seeders;
 
+use App\Models\Subscribe;
 use Illuminate\Database\Seeder;
 
-class LikeSeeder extends Seeder
+class SubscribeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        \App\Models\Like::factory(30)->create();
+        Subscribe::factory(200)->create();
     }
 }
