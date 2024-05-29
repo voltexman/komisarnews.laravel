@@ -25,6 +25,7 @@ class PostFactory extends Factory
             'is_published' => fake()->boolean(),
             'is_indexing' => fake()->boolean(),
             'description' => fake()->text(100),
+            'tags' => fake()->words(4),
         ];
     }
 }

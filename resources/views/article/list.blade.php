@@ -1,9 +1,8 @@
 @extends('layouts.base')
 
-@section('title', 'Статті')
-@section('keywords', 'Статті')
-@section('description', 'Статті')
-@section('robots', 'all')
+@section('title', $meta->title)
+@section('description', $meta->description)
+@section('robots', $meta->robots)
 
 @section('header')
     @parent

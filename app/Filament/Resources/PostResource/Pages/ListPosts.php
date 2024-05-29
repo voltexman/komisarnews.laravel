@@ -2,18 +2,19 @@
 
 namespace App\Filament\Resources\PostResource\Pages;
 
-use App\Filament\Resources\PostResource;
+use App\Enums\MetaPages;
+use App\Models\Meta;
 use Filament\Actions;
+use Illuminate\Contracts\View\View;
+use Filament\Support\Enums\IconSize;
+use Filament\Support\Enums\MaxWidth;
 use Filament\Forms\Components\Select;
+use Filament\Support\Enums\Alignment;
 use Filament\Forms\Components\Textarea;
+use App\Filament\Resources\PostResource;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\ListRecords;
-use Filament\Support\Enums\Alignment;
-use Filament\Support\Enums\IconSize;
-use Filament\Support\Enums\MaxWidth;
-use Illuminate\Contracts\View\View;
-use Illuminate\Database\Eloquent\Model;
 
 class ListPosts extends ListRecords
 {
@@ -35,11 +36,8 @@ class ListPosts extends ListRecords
                 ->label('Додати'),
 
             Actions\Action::make('updateMeta')
-                ->fillForm(fn (): array => [
-                    'title' => fake()->sentence(),
-                    'robots' => 'noindex, nofollow',
-                    'description' => fake()->sentence(),
-                ])
+                ->model(Meta::class)
+                ->record(Meta::query()->firstWhere('page', MetaPages::POSTS))
                 ->form([
                     TextInput::make('title')
                         ->label('Заголовок')
@@ -64,19 +62,21 @@ class ListPosts extends ListRecords
                         ->hint('Meta Description')
                         ->label('Опис')
                         ->maxLength(200)
-                        ->extraAttributes(['style' => 'resize: none']),
                 ])
-                ->action(function (Model $record) {
-                    // $page = Meta::find('page', 'posts');
-                    dd($record);
-
-                    // $record->approve();
+                ->fillForm(fn (Meta $record): array => [
+                    'title' => $record->title,
+                    'description' => $record->description,
+                    'robots' => $record->robots,
+                ])
+                ->action(function (Meta $record, array $data): void {
+                    $record->update($data);
                 })
-                ->after(fn () => Notification::make()
-                    ->title('Успішно збережено')
-                    ->body('Налаштування сторінки збережені')
-                    ->success()
-                    ->send())
+                ->successNotification(
+                    Notification::make()
+                        ->success()
+                        ->title('Успішно збережено')
+                        ->body('Налаштування сторінки збережені'),
+                )
                 ->closeModalByClickingAway(false)
                 ->modalSubmitActionLabel('Зберегти')
                 ->modalAlignment(Alignment::Center)

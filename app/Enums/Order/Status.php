@@ -29,10 +29,10 @@ enum Status: int implements HasColor, HasIcon, HasLabel
     {
         return match ($this) {
             self::NEW => 'danger',
-            self::VIEWED => 'success',
+            self::VIEWED => 'info',
             self::IN_PROGRESS => 'warning',
             self::CANCELED => 'gray',
-            self::READY => 'info',
+            self::READY => 'success',
         };
     }
 
