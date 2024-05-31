@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Enums\Order\FeedbackStatus;
+use App\Enums\FeedbackStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 

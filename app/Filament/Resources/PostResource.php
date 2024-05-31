@@ -21,11 +21,6 @@ use Filament\Resources\Resource;
 use Filament\Support\Enums\ActionSize;
 use Filament\Support\Enums\FontWeight;
 use Filament\Tables;
-use Filament\Tables\Columns\IconColumn;
-use Filament\Tables\Columns\IconColumn\IconColumnSize;
-use Filament\Tables\Columns\Layout\Grid;
-use Filament\Tables\Columns\Layout\Split;
-use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\TextColumn\TextColumnSize;
@@ -156,7 +151,7 @@ class PostResource extends Resource
                                 ->native(false)->live(),
                         ])->from('lg'),
 
-                        SpatieTagsInput::make('tags')->type('posts')->label('Теги')->rules(['max:8'])
+                        SpatieTagsInput::make('tags')->label('Теги')->rules(['max:8'])
                             ->hidden(fn (Get $get) => $get('category') === Post::CATEGORY_CITIES)
                             ->required()->validationMessages([
                                 'required' => 'Необхідно вказати декілька тегів',
@@ -184,74 +179,34 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                Grid::make(['lg' => 8])->schema([
-                    SpatieMediaLibraryImageColumn::make('image')
-                        ->collection('posts')
-                        ->conversion('admin')
-                        ->defaultImageUrl(url('images/bg-header.webp'))
-                        ->width(90)
-                        ->height(60)
-                        ->grow(false)
-                        ->visibleFrom('lg')
-                        ->label(false),
+                SpatieMediaLibraryImageColumn::make('image')
+                    ->collection('posts')
+                    ->conversion('admin')
+                    ->defaultImageUrl(url('images/bg-header.webp'))
+                    ->width(90)
+                    ->height(60)
+                    ->grow(false)
+                    ->visibleFrom('lg')
+                    ->label(false),
 
-                    TextColumn::make('name')
-                        ->description(fn (Post $record): string => Str::limit($record->slug, 30))
-                        ->label(false)
-                        ->words(10)
-                        ->searchable()
-                        ->columnSpan(3),
+                TextColumn::make('name')
+                    ->label('Назва статті')
+                    ->description(fn (Post $record): string => Str::limit($record->slug, 30))
+                    ->searchable(),
 
-                    // Stack::make([
-                    //     Split::make([
-                    //         TextColumn::make('created_at')
-                    //             ->size(TextColumnSize::ExtraSmall)
-                    //             ->date('d.m.Y')
-                    //             ->grow(false),
-                    //         TextColumn::make('created_at')
-                    //             ->size(TextColumnSize::ExtraSmall)
-                    //             ->time('H:m')
-                    //             ->grow(false),
-                    //         TextColumn::make('category')
-                    //             ->size(TextColumnSize::ExtraSmall)
-                    //             ->weight(FontWeight::SemiBold)
-                    //             ->color('primary')
-                    //             ->grow(false),
-                    //         IconColumn::make('is_published')
-                    //             ->trueIcon('heroicon-o-eye')
-                    //             ->falseIcon('heroicon-o-eye-slash')
-                    //             ->size(IconColumnSize::Small)
-                    //             ->grow(false)
-                    //             ->boolean(),
-                    //         IconColumn::make('is_indexing')
-                    //             ->trueIcon('heroicon-o-document-magnifying-glass')
-                    //             ->falseIcon('heroicon-o-document-minus')
-                    //             ->size(IconColumnSize::Small)
-                    //             ->boolean(),
-                    //     ])->hiddenFrom('lg'),
-                    // ]),
+                TextColumn::make('category')
+                    ->badge()
+                    ->color('primary')
+                    ->label('Катагорія'),
 
-                    TextColumn::make('category')->badge()->color('primary')->label('Катагорія'),
+                ToggleColumn::make('is_published')->sortable()->label('Публікація'),
+                ToggleColumn::make('is_indexing')->sortable()->label('Індексація'),
 
-                    ToggleColumn::make('is_published')->visibleFrom('lg')->label('Публікація'),
-                    ToggleColumn::make('is_indexing')->visibleFrom('lg')->label('Індексація'),
-
-                    Stack::make([
-                        TextColumn::make('created_at')
-                            ->icon('heroicon-o-calendar')
-                            ->weight(FontWeight::Bold)
-                            ->size(TextColumnSize::ExtraSmall)
-                            ->date('d.m.y')
-                            ->label(false),
-
-                        TextColumn::make('created_at')
-                            ->icon('heroicon-o-clock')
-                            ->weight(FontWeight::Bold)
-                            ->size(TextColumnSize::ExtraSmall)
-                            ->time('H:m')
-                            ->label(false),
-                    ]),
-                ]),
+                TextColumn::make('created_at')
+                    ->weight(FontWeight::Bold)
+                    ->size(TextColumnSize::ExtraSmall)
+                    ->date('d.m.y')
+                    ->label(false),
             ])
             ->filters([
                 SelectFilter::make('category')
@@ -269,7 +224,7 @@ class PostResource extends Resource
                         Post::INDEXING => 'Індексується',
                         Post::NO_INDEXING => 'Не індексується',
                     ])->label('Індексація'),
-            ])->headerActions([])
+            ])
             ->actions([
                 Tables\Actions\ViewAction::make()->size(ActionSize::Small)->label(false),
                 Tables\Actions\EditAction::make()->size(ActionSize::Small)->label(false),

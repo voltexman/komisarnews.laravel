@@ -5,7 +5,7 @@
         <div class="relative grow">
             @isset($icon)
                 <div
-                    class="absolute inset-y-0 z-20 flex items-center pointer-events-none start-0 ps-4 {{ $color === 'dark' ? 'text-max-text' : 'text-max-dark/80' }}">
+                    class="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-4 {{ $color === 'dark' ? 'text-max-text' : 'text-max-dark/80' }}">
                     @svg('lucide-' . $icon, 'flex-shrink-0 size-5')
                 </div>
             @endisset
@@ -33,7 +33,7 @@
             </label>
 
             <template x-if="'{{ $required }}'">
-                <div class="absolute top-2 text-lg right-2">
+                <div class="absolute text-lg top-2 right-2">
                     <span class="block bg-red-500 h-1.5 w-1.5 rounded-full"></span>
                 </div>
             </template>

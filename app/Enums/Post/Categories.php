@@ -2,37 +2,23 @@
 
 namespace App\Enums\Post;
 
-use Filament\Support\Contracts\HasColor;
-use Filament\Support\Contracts\HasIcon;
 use Filament\Support\Contracts\HasLabel;
 
-enum Categories: int implements HasColor, HasIcon, HasLabel
+enum Categories: int implements HasLabel
 {
-    case PUBLISHED = 1;
-    case HIDDEN = 0;
+    case ARTICLES = 1;
+    case CITIES = 2;
 
     public function getLabel(): ?string
     {
         return match ($this) {
-            self::PUBLISHED => 'Опубліковано',
-            self::HIDDEN => 'Приховано',
+            self::ARTICLES => 'Статті',
+            self::CITIES => 'Міста',
         };
     }
 
-    public function getColor(): ?string
+    public static function all(): array
     {
-        return match ($this) {
-            self::PUBLISHED => 'danger',
-            self::HIDDEN => 'success',
-        };
-    }
-
-    public function getIcon(): ?string
-    {
-        return match ($this) {
-            self::PUBLISHED => 'heroicon-o-eye',
-            self::HIDDEN => 'heroicon-o-eye',
-            default => 'heroicon-o-eye'
-        };
+        return array_column(self::cases(), 'value');
     }
 }

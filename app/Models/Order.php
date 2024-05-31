@@ -32,13 +32,4 @@ class Order extends Model
         'description',
         'status',
     ];
-
-    public static function boot()
-    {
-        parent::boot();
-
-        self::creating(function ($order) {
-            $order->number = random_int(10000, 99999);
-        });
-    }
 }

@@ -15,8 +15,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->id();
-            $table->integer('number');
+            $table->id()->startingValue(10205);
             $table->enum('goal', Goals::all())->default(Goals::EVALUATE);
             $table->string('name')->nullable();
             $table->string('city');

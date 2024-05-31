@@ -1,10 +1,10 @@
 <?php
 
-use App\Models\Meta;
 use App\Enums\MetaPages;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\Meta;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
@@ -18,14 +18,12 @@ return new class extends Migration
             $table->enum('page', MetaPages::all());
             $table->string('title')->nullable();
             $table->text('description')->nullable();
-            $table->string('robots')->default('all');
+            $table->string('robots')->default('noindex, nofollow');
         });
 
-        $pages = MetaPages::all();
-
-        foreach ($pages as $page) {
-            Meta::create(['page' => $page]);
-        }
+        Meta::create(['page' => MetaPages::MAIN]);
+        Meta::create(['page' => MetaPages::POSTS]);
+        Meta::create(['page' => MetaPages::CONTACTS]);
     }
 
     /**

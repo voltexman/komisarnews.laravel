@@ -114,9 +114,10 @@
                             <x-lucide-info class="inline-block size-3 -mt-0.5" />
                             Вкажіть особливості волосся для оцінки
                         </p>
-                        <ul class="flex flex-col justify-between sm:flex-row">
+                        <ul
+                            class="flex flex-col justify-between border rounded-lg lg:rounded-t-lg lg:rounded-b-none bg-max-soft/30 sm:flex-row border-max-soft/50">
                             <li
-                                class="inline-flex items-center w-full gap-x-2.5 py-2 px-4 lg:py-4 text-sm font-medium lg:transition lg:hover:bg-max-soft/40 bg-max-soft/20 border border-max-soft/30 text-max-dark -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-tl-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
+                                class="inline-flex items-center w-full gap-x-2.5 py-2 px-4 lg:py-4 text-sm font-medium lg:transition lg:hover:bg-max-soft/40 lg:border-e border-max-soft/50 text-max-dark -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-tl-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center self-center h-6">
                                         <input id="hair-options-1" wire:model="order.hair_options" type="checkbox"
@@ -133,7 +134,7 @@
                             </li>
 
                             <li
-                                class="inline-flex items-center w-full gap-x-2.5 py-2 px-4 lg:py-4 text-sm font-medium lg:transition lg:hover:bg-max-soft/40 bg-max-soft/20 border border-max-soft/30 border-t-0 lg:border-t text-max-dark -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
+                                class="inline-flex items-center w-full gap-x-2.5 py-2 px-4 lg:py-4 text-sm font-medium border-t lg:transition lg:hover:bg-max-soft/40 lg:border-e border-max-soft/50 lg:border-t-0 text-max-dark -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center self-center h-6">
                                         <input id="hair-options-2" wire:model="order.hair_options" type="checkbox"
@@ -150,7 +151,7 @@
                             </li>
 
                             <li
-                                class="inline-flex items-center w-full gap-x-2.5 py-2 px-4 lg:py-4 text-sm font-medium lg:rounded-tr-lg lg:cursor-pointer lg:transition lg:hover:bg-max-soft/40 bg-max-soft/20 border border-max-soft/30 border-t-0 lg:border-t text-max-dark -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
+                                class="inline-flex items-center w-full gap-x-2.5 py-2 px-4 lg:py-4 text-sm font-medium border-t lg:rounded-tr-lg lg:cursor-pointer lg:transition lg:hover:bg-max-soft/40 border-max-soft/50 lg:border-t-0 text-max-dark -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center self-center h-6">
                                         <input id="hair-options-3" wire:model="order.hair_options" type="checkbox"
@@ -168,7 +169,7 @@
                             </li>
 
                             <li
-                                class="inline-flex items-center w-full lg:hidden gap-x-2.5 py-2 px-4 lg:py-4 text-sm font-medium bg-max-soft/20 border border-max-soft/30 border-t-0 lg:border-t text-max-dark -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
+                                class="inline-flex items-center w-full lg:hidden gap-x-2.5 py-2 px-4 lg:py-4 text-sm font-medium border-t border-max-soft/50 lg:border-t text-max-dark -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
                                 <div class="hs-tooltip [--trigger:hover] w-full">
                                     <div class="flex hs-tooltip-toggle">
                                         <x-lucide-message-circle-more class="size-6 text-max-soft" />
@@ -359,20 +360,19 @@
 
             <!-- Button Group -->
             <div class="flex justify-between mtauto gap-x-2">
-                <x-button class="text-sm" data-hs-stepper-back-btn color="dark">
-                    <x-lucide-arrow-left class="inline-block size-4 me-1" /> Назад
+                <x-button data-hs-stepper-back-btn color="light">
+                    <x-lucide-arrow-left class="inline-block size-4 me-1" />Назад
                 </x-button>
 
-                <x-button class="text-sm me-auto" data-hs-overlay="#rules-check-document" aria-label="Правила заявки"
-                    color="dark">
+                <x-button class="me-auto" data-hs-overlay="#rules-check-document" aria-label="Правила заявки"
+                    color="light">
                     <x-lucide-info class="inline-block size-5 text-max-light" />
                 </x-button>
 
-                <x-button class="text-sm" data-hs-stepper-next-btn color="dark">
+                <x-button data-hs-stepper-next-btn color="light">
                     Далі <x-lucide-arrow-right class="inline-block size-4 ms-1" />
                 </x-button>
-                <x-button type="submit" class="text-sm" data-hs-stepper-finish-btn style="display: none;"
-                    color="dark"
+                <x-button type="submit" data-hs-stepper-finish-btn style="display: none;" color="light"
                     x-bind:disabled="!$wire.order.city || !$wire.order.phone || !$wire.order.hair_length || !rulesConfirm">
                     Відправити <x-lucide-send class="inline-block size-4 ms-1" />
                 </x-button>
@@ -433,16 +433,15 @@
             <div class="absolute top-0 w-full h-full rounded-lg start-0 bg-max-light">
                 <div class="flex flex-col items-stretch justify-center h-full text-max-soft" role="status">
                     <div class="self-center text-center">
-                        <i data-lucide="smile" class="w-20 h-20 mx-auto text-max-soft"></i>
-                        <p class="mt-3 leading-5 text-center">
-                            Заявка успішно надіслана.<br>Очікуйте відповіді майстра.
-                        </p>
+                        <img src="{{ asset('images/icons/order-check.svg') }}" class="mx-auto mb-5 size-32">
+                        <p class="m-0">Заявка успішно надіслана</p>
+                        <p class="m-0">Очікуйте відповіді майстра</p>
                         <div class="mt-5 text-xl font-bold drop-shadow-lg">#{{ session('number') }}</div>
-                        <button type="button"
-                            class="px-3 py-2 mt-10 transition-all rounded-lg shadow bg-max-soft text-max-light hover:bg-max-dark hover:shadow-lg">
-                            Нова заявка
-                            <i data-lucide="rotate-ccw" class="inline-block w-4 h-4 ms-1"></i>
-                        </button>
+                        <x-button type="button" color='light' class="mt-5" wire:click='$refresh'
+                            wire:target.except='save' wire:loading.attr='disabled'>Нова заявка
+                            <x-lucide-rotate-ccw class="inline-block size-4 ms-1" wire:loading.remove />
+                            <x-lucide-refresh-cw class="inline-block size-4 ms-1 animate-spin" wire:loading />
+                        </x-button>
                     </div>
                 </div>
             </div>
@@ -468,14 +467,19 @@
 
             IMask(document.querySelector('.weight-input'), {
                 mask: IMask.MaskedNumber,
-                max: 999
+                max: 999,
+                maxLength: 3
             });
             IMask(document.querySelector('.length-input'), {
                 mask: IMask.MaskedNumber,
-                max: 2000
+                max: 2000,
+                maxLength: 4
             });
             IMask(document.querySelector('.age-input'), {
-                mask: IMask.MaskedNumber,
+                mask: IMask.MaskedRange,
+                from: 14,
+                to: 60,
+                maxLength: 2
             });
         });
     </script>

@@ -2,13 +2,16 @@
 
 namespace App\Livewire\Forms;
 
+use App\Enums\Order\Goals;
 use App\Models\Order;
 use Illuminate\Validation\Rule;
 use Livewire\Form;
 
 class OrderForm extends Form
 {
-    public $goal = 'Хочу оцінити вартість';
+    public $number = '';
+
+    public $goal = '';
 
     public $name = '';
 
@@ -20,7 +23,7 @@ class OrderForm extends Form
 
     public $photos = [];
 
-    public $color = 'Блонд';
+    public $color = '';
 
     public $hair_weight = '';
 
@@ -44,7 +47,7 @@ class OrderForm extends Form
     public function rules(): array
     {
         return [
-            'goal' => Rule::in([Order::GOAL_EVALUATE, Order::GOAL_SELL]),
+            'goal' => Rule::in([Goals::EVALUATE, Goals::SELL]),
             'name' => 'string|max:255',
             'city' => 'string|required|min:2|max:255',
             'email' => 'email|min:5',

@@ -66,7 +66,6 @@ class Post extends Model implements HasMedia
 
         $this->addMediaConversion('preview')
             ->crop(640, 480, CropPosition::Center)
-            ->sharpen(10)
             ->format('webp');
 
         $this->addMediaConversion('header')

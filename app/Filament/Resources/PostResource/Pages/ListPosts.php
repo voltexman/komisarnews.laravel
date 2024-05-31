@@ -3,18 +3,18 @@
 namespace App\Filament\Resources\PostResource\Pages;
 
 use App\Enums\MetaPages;
+use App\Filament\Resources\PostResource;
 use App\Models\Meta;
 use Filament\Actions;
-use Illuminate\Contracts\View\View;
-use Filament\Support\Enums\IconSize;
-use Filament\Support\Enums\MaxWidth;
 use Filament\Forms\Components\Select;
-use Filament\Support\Enums\Alignment;
 use Filament\Forms\Components\Textarea;
-use App\Filament\Resources\PostResource;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\ListRecords;
+use Filament\Support\Enums\Alignment;
+use Filament\Support\Enums\IconSize;
+use Filament\Support\Enums\MaxWidth;
+use Illuminate\Contracts\View\View;
 
 class ListPosts extends ListRecords
 {
@@ -22,10 +22,10 @@ class ListPosts extends ListRecords
 
     protected static ?string $title = 'Статті';
 
-    public function getHeader(): ?View
-    {
-        return view('filament.resources.pages.headers');
-    }
+    // public function getHeader(): ?View
+    // {
+    //     return view('filament.resources.pages.headers');
+    // }
 
     protected function getHeaderActions(): array
     {
@@ -61,7 +61,7 @@ class ListPosts extends ListRecords
                     Textarea::make('description')->rows(5)
                         ->hint('Meta Description')
                         ->label('Опис')
-                        ->maxLength(200)
+                        ->maxLength(200),
                 ])
                 ->fillForm(fn (Meta $record): array => [
                     'title' => $record->title,

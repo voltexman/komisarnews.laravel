@@ -21,7 +21,6 @@ class OrderFactory extends Factory
     {
         return [
             'goal' => fake()->randomElement(Goals::all()),
-            'number' => fake()->numberBetween(1, 10000),
             'name' => fake()->name(),
             'city' => fake()->city(),
             'email' => fake()->unique()->email(),

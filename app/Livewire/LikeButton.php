@@ -20,7 +20,7 @@ class LikeButton extends Component
     {
         $model = $this->model->find($id);
 
-        if ($model && !$this->hasLike($id)) {
+        if ($model && ! $this->hasLike($id)) {
             Like::create([
                 'likeable_id' => $model->id,
                 'likeable_type' => $this->model::class,

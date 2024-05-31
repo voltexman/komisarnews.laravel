@@ -19,6 +19,7 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.4",
         "mallardduck/blade-lucide-icons": "^1.17",
+        "rupadana/filament-custom-forms": "^3.0",
         "spatie/laravel-medialibrary": "11.0.0"
     },
     "require-dev": {

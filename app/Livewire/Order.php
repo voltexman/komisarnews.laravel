@@ -33,15 +33,16 @@ class Order extends Component
         //            $photo->store(path: 'photos');
         //        }
 
-        $this->toTelegram();
-        // $this->order->store();
+        $number = $this->order->store();
+        $this->toTelegram($number);
     }
 
-    public function toTelegram()
+    public function toTelegram($number)
     {
         Telegraph::chat(env('TELEGRAM_CHAT_ID'))
             ->html(
                 '<b>'.$this->order->goal."</b>\n".
+                    '<b>Заявка: </b>'.$number."\n".
                     '<b>Ім`я: </b>'.$this->order->name."\n".
                     '<b>Місто: </b>'.$this->order->city."\n".
                     '<b>Пошта: </b>'.$this->order->email."\n".

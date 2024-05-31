@@ -39,7 +39,7 @@ enum Status: int implements HasColor, HasIcon, HasLabel
     public function getIcon(): ?string
     {
         return match ($this) {
-            self::NEW => 'heroicon-o-eye',
+            self::NEW => 'heroicon-o-plus',
             self::VIEWED => 'heroicon-o-eye',
             self::IN_PROGRESS => 'heroicon-o-clock',
             self::CANCELED => 'heroicon-o-exclamation-triangle',
