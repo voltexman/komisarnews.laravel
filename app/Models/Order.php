@@ -19,7 +19,6 @@ class Order extends Model
     ];
 
     protected $fillable = [
-        'number',
         'goal',
         'name',
         'city',

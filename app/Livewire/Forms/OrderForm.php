@@ -9,8 +9,6 @@ use Livewire\Form;
 
 class OrderForm extends Form
 {
-    public $number = '';
-
     public $goal = '';
 
     public $name = '';
@@ -41,7 +39,9 @@ class OrderForm extends Form
 
         $created = Order::create($this->all());
 
-        session()->flash('number', $created->number);
+        session()->flash('number', $created->id);
+
+        return $created->id;
     }
 
     public function rules(): array
