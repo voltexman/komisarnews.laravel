@@ -3,8 +3,8 @@
 namespace App\Livewire;
 
 use App\Models\Like;
-use Livewire\Component;
 use Illuminate\Database\Eloquent\Model;
+use Livewire\Component;
 
 class LikeButton extends Component
 {
@@ -21,7 +21,7 @@ class LikeButton extends Component
     {
         $model = $this->model->find($id);
 
-        if (!$this->hasLike($id)) {
+        if (! $this->hasLike($id)) {
             Like::create([
                 'likeable_id' => $model->id,
                 'likeable_type' => $this->model::class,

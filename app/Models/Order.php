@@ -28,6 +28,7 @@ class Order extends Model
         'hair_length',
         'age',
         'color',
+        'hair_options',
         'description',
         'status',
     ];

@@ -17,6 +17,15 @@ class FeedbackForm extends Form
     #[Validate]
     public $text = '';
 
+    public function store()
+    {
+        $this->validate();
+
+        Feedback::create($this->all());
+
+        $this->reset();
+    }
+
     public function rules()
     {
         return [
@@ -35,14 +44,5 @@ class FeedbackForm extends Form
             'contact.min' => 'Мінімум 6 символи',
             'text.required' => 'Напишіть листа',
         ];
-    }
-
-    public function store()
-    {
-        $this->validate();
-
-        Feedback::create($this->all());
-
-        $this->reset();
     }
 }

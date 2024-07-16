@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Forms;
 
+use App\Enums\Order\Colors;
 use App\Enums\Order\Goals;
 use App\Models\Order;
 use Illuminate\Validation\Rule;
@@ -9,7 +10,7 @@ use Livewire\Form;
 
 class OrderForm extends Form
 {
-    public $goal = '';
+    public $goal = null;
 
     public $name = '';
 
@@ -21,44 +22,40 @@ class OrderForm extends Form
 
     public $photos = [];
 
-    public $color = '';
+    public $color = null;
 
-    public $hair_weight = '';
+    public $hair_weight = null;
 
-    public $hair_length = '';
+    public $hair_length = null;
 
-    public $age = '';
+    public $age = null;
 
-    public $hair_options = [];
+    // public $hair_options = [];
 
     public $description = '';
 
-    public function store()
+    public function store(): Order
     {
         $this->validate();
 
-        $created = Order::create($this->all());
-
-        session()->flash('number', $created->id);
-
-        return $created->id;
+        return Order::create($this->all());
     }
 
     public function rules(): array
     {
         return [
-            'goal' => Rule::in([Goals::EVALUATE, Goals::SELL]),
-            'name' => 'string|max:255',
-            'city' => 'string|required|min:2|max:255',
-            'email' => 'email|min:5',
-            'phone' => 'string|required|min:5|max:20',
-            'photos.*' => 'image',
-            'color' => 'string|max:100',
-            'hair_weight' => 'numeric|max:3',
-            'hair_length' => 'numeric|required|max:3',
-            'age' => 'numeric|max:2',
-            'hair_options' => 'json',
-            'description' => 'string|max:1500',
+            'goal' => ['required', Rule::in([Goals::EVALUATE, Goals::SELL])],
+            // 'name' => 'string|max:255',
+            // 'city' => 'string|required|min:2|max:255',
+            // 'email' => 'email|min:5',
+            // 'phone' => 'string|required|min:5|max:20',
+            // 'photos.*' => 'image',
+            'color' => ['required', Rule::in([Colors::BLOND, Colors::FAIR, Colors::LIGHT_FAIR, Colors::LIGHT_BROWN, Colors::DARK_BROWN, Colors::BLACK])],
+            // 'hair_weight' => 'integer|max:4',
+            // 'hair_length' => 'integer|required|max:4',
+            // 'age' => 'integer|max:2',
+            // 'hair_options' => 'json',
+            // 'description' => 'string|max:1500',
         ];
     }
 
