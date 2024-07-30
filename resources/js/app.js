@@ -1,3 +1,4 @@
-import "preline";
-import "imask";
+import { xMaska } from "maska/alpine";
 import "lazysizes";
+
+Alpine.plugin(xMaska);

@@ -69,8 +69,20 @@
         display: none !important;
     }
 
-    * {
-        outline: none !important;
+    .modal {
+        @apply flex flex-col max-w-lg gap-4 overflow-hidden rounded-xl bg-max-light text-neutral-500;
+    }
+
+    .modal-header {
+        @apply flex items-center justify-between p-4 bg-max-soft;
+    }
+
+    .modal-body {
+        @apply p-3;
+    }
+
+    .modal-footer {
+        @apply p-3;
     }
 
     body {
