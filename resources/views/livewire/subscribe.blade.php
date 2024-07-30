@@ -21,8 +21,8 @@
             </div>
         </div>
         <form wire:submit='save'>
-            <x-form.input label="Електронна пошта" name="form.email" icon="mail" color="dark"
-                class="subscribe-email-input" wire:target='save' wire:loading.attr='disabled'>
+            <x-form.input label="Електронна пошта" name="form.email" icon="mail" color="dark" wire:target='save'
+                wire:loading.attr='disabled'>
                 <x-slot:button type='submit' wire:loading.attr='disabled'>
                     <span wire:loading.class='hidden' wire:target='save'>Підписатись
                         <x-lucide-send class="inline-block size-4 ms-1" />
@@ -35,11 +35,3 @@
         </form>
     @endsession
 </div>
-
-@script
-    <script>
-        IMask($wire.$el.querySelector('.subscribe-email-input'), {
-            mask: '*{3,20}@*{3,20}.*{2,7}'
-        });
-    </script>
-@endscript

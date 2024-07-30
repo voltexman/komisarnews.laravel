@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Enums\FeedbackStatus;
 use App\Models\Feedback;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
@@ -30,7 +31,7 @@ class SendFeedback extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: env('APP_NAME')." - Зворотній зв'язок",
+            subject: env('APP_NAME') . " - Зворотній зв'язок",
             from: new Address(env('MAIL_FROM_ADDRESS'))
         );
     }
@@ -47,7 +48,7 @@ class SendFeedback extends Mailable
                 'feedback' => $this->feedback,
                 'allCount' => Feedback::all()->count(),
                 'newCount' => Feedback::where([
-                    'status' => Feedback::STATUS_NEW,
+                    'status' => FeedbackStatus::NEW,
                 ])->count(),
             ]
         );

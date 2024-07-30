@@ -1,0 +1,39 @@
+@props(['open', 'header', 'body', 'footer'])
+
+<div x-data="{ modalIsOpen: true }">
+
+    <x-button @click="modalIsOpen = true" type="button">
+        {{ $open }}
+    </x-button>
+
+    <div x-cloak x-show="modalIsOpen" x-transition.opacity.duration.200ms x-trap.inert.noscroll="modalIsOpen"
+        @keydown.esc.window="modalIsOpen = false" @click.self="modalIsOpen = false"
+        class="fixed inset-0 z-50 flex items-end justify-center p-4 pb-8 bg-black/20 backdrop-blur-md sm:items-center lg:p-8"
+        role="dialog" aria-modal="true">
+
+        <!-- Modal -->
+        <div x-show="modalIsOpen"
+            x-transition:enter="transition ease-out duration-200 delay-100 motion-reduce:transition-opacity"
+            x-transition:enter-start="opacity-0 scale-50" x-transition:enter-end="opacity-100 scale-100"
+            {{ $attributes->class('modal') }}>
+
+            <!--  Header -->
+            <div {{ $header->attributes->class('modal-header') }}>
+                {{ $header }}
+                <button @click="modalIsOpen = false" aria-label="Закрити вікно">
+                    <x-lucide-x class="size-5 text-max-light" />
+                </button>
+            </div>
+
+            <!-- Body -->
+            <div {{ $body->attributes->class('modal-body') }}>
+                {{ $body }}
+            </div>
+
+            <!-- Footer -->
+            <div {{ $footer->attributes->class('modal-footer') }}>
+                {{ $footer }}
+            </div>
+        </div>
+    </div>
+</div>

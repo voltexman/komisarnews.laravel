@@ -2,11 +2,11 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
-use App\Mail\SendFeedback;
 use App\Livewire\Forms\FeedbackForm;
-use Illuminate\Support\Facades\Mail;
+use App\Mail\SendFeedback;
 use DefStudio\Telegraph\Facades\Telegraph;
+use Illuminate\Support\Facades\Mail;
+use Livewire\Component;
 
 class Feedback extends Component
 {
@@ -26,10 +26,10 @@ class Feedback extends Component
     {
         Telegraph::chat(env('TELEGRAM_CHAT_ID'))
             ->html(
-                "<b>Зворотній зв`язок</b>\n" .
-                    '<b>Ім`я: </b>' . $this->feedback->name . "\n" .
-                    '<b>Контакт: </b>' . $this->feedback->contact . "\n" .
-                    '<b>Повідомлення: </b>' . $this->feedback->text . "\n"
+                "<b>Зворотній зв`язок</b>\n".
+                    '<b>Ім`я: </b>'.$this->feedback->name."\n".
+                    '<b>Контакт: </b>'.$this->feedback->contact."\n".
+                    '<b>Повідомлення: </b>'.$this->feedback->text."\n"
             )->send();
     }
 
