@@ -1,6 +1,6 @@
 @props(['options', 'label'])
 
-<div x-data="{ isOpen: true }" @keydown.esc.window="isOpen = false" class="relative">
+<div x-data="{ isOpen: false }" @keydown.esc.window="isOpen = false" class="relative">
 
     <!-- Toggle Button -->
     <button type="button" @click="isOpen = ! isOpen"

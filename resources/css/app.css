@@ -73,11 +73,11 @@
     }
 
     .section-title {
-        @apply text-2xl drop-shadow-lg text-center font-semibold uppercase font-[Oswald];
+        @apply text-2xl drop-shadow-lg text-center font-semibold uppercase font-[Oswald] text-max-black;
     }
 
     .section-caption {
-        @apply mt-2 mb-8 text-sm font-bold text-center uppercase drop-shadow-lg font-[Oswald];
+        @apply mt-2 mb-8 text-sm font-semibold text-center uppercase drop-shadow-lg font-[Oswald];
     }
 
     .modal {
@@ -97,8 +97,8 @@
     }
 
     body {
-        /* color: #5d5751; */
-        color: #000;
+        color: #5d5751;
+        /* color: #353535; */
         font-weight: 600;
         outline: none !important;
     }
@@ -108,8 +108,8 @@
     }
 
     .mapBackground {
-        fill: #9e8c80;
-        stroke: #574531;
+        fill: #a38a79;
+        stroke: #796249;
         stroke-width: 0.8;
         transition: 0.5s;
         cursor: pointer;
@@ -120,7 +120,7 @@
     }
 
     .regionNoActive {
-        fill: #6d574a !important;
+        fill: #8f7668 !important;
         cursor: auto;
     }
 

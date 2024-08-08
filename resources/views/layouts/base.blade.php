@@ -99,15 +99,12 @@
                         {{-- Scroll to Map Button --}}
                         <div class="inset-y-0 right-0 flex items-center mx-2 sm:static sm:inset-auto">
                             <div class="flex items-center order-1 ms-auto lg:ms-0">
-                                <a href="#map"
-                                    class="items-center hidden px-2 text-xs font-normal text-white uppercase rounded-lg bg-max-dark lg:inline-flex h-9">
-                                    <x-lucide-map-pin class="size-4 me-1" />
-                                    Обрати місто
-                                </a>
-                                <a href="#map"
-                                    class="inline-flex items-center px-2 text-xs font-normal text-white uppercase rounded-lg bg-max-dark lg:hidden h-9">
-                                    <x-lucide-map-pin class="w-4 h-4 me-1" />
-                                    Міста
+                                <a href="#map" aria-label="Обрати місто">
+                                    <x-button class="flex items-center uppercase">
+                                        <x-lucide-map-pin class="flex-none size-4 me-1" />
+                                        <span class="hidden lg:block">Обрати місто</span>
+                                        <span class="block lg:hidden">Міста</span>
+                                    </x-button>
                                 </a>
                             </div>
                         </div>
@@ -150,14 +147,14 @@
 
         @yield('content')
 
-        <x-section class="py-10 bg-max-medium scroll-mt-16" id="map">
+        <x-section class="py-10 bg-max-dark scroll-mt-16" id="map">
 
             <x-slot:title class="text-white">
                 Купівля і продаж<br class="lg:hidden"> волосся в містах
             </x-slot>
 
             <x-slot:caption class="text-gray-200">
-                Оберіть ваше місто <br class="lg:hidden"> або зробіть заявку
+                Оберіть ваше місто<br class="lg:hidden">або зробіть заявку
             </x-slot>
 
             <div class="flex flex-col lg:flex-row">

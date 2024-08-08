@@ -10,11 +10,11 @@ export default {
         extend: {
             colors: {
                 max: {
-                    orange: "#fba85d",
+                    orange: "#c28566",
                     white: "#f9eee1",
                     black: "#272121",
                     dark: "#6d574a",
-                    light: "#ebe0cc",
+                    light: "#fef1e9",
                     medium: "#49403b",
                     text: "#B19A81",
                     soft: "#9e8c80",

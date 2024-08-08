@@ -36,7 +36,7 @@
                 <h2 class="font-[Oswald] text-2xl font-semibold text-center uppercase drop-shadow-lg lg:text-left">
                     Шукаєте Кому Вигідно<br class="lg:hidden">Продати Волосся?
                 </h2>
-                <h3 class="mb-5 font-bold font-[Oswald] text-center uppercase drop-shadow-lg lg:text-left text-max-dark">
+                <h3 class="mb-5 font-bold font-[Oswald] text-center uppercase drop-shadow-lg lg:text-left text-max-orange">
                     Наша компанія завжди готова<br class="lg:hidden">купити волосся дорого!
                 </h3>
                 <p class="leading-7">Жителі багатьох міст можуть продати волосся
@@ -64,20 +64,25 @@
     </x-section>
 
     <x-section class="bg-max-light pb-14">
-        <h2 class="mb-5 text-2xl font-semibold text-center uppercase font-[Oswald] drop-shadow-lg">
-            Чому Варто Звернутися Саме<br class="lg:hidden">В Нашу Компанію?
-        </h2>
+        <div class="grid lg:py-10 lg:grid-cols-3 gap-y-10 lg:gap-x-10">
+            <div class="">
+                <h2 class="lg:text-4xl text-2xl font-semibold text-center uppercase font-[Oswald] drop-shadow-lg">
+                    Чому Варто Звернутися <br class="lg:hidden">Саме В Нашу Компанію?
+                </h2>
+            </div>
+            <div class="lg:col-span-2">
+                <p>Куплю волосся - в мережі можна знайти тисячі оголошень, але далеко не всі продавці працюють чесно.
+                    Ми є Європейською компанією, яка співпрацює з клієнтами по всьому світу. Наша компанія є прямим
+                    скупником локонів, тому пропонуємо найвищі ціни. Цінуємо визнання і довіру наших клієнтів,
+                    гарантуємо приємну співпрацю і гідну оплату Вашого товару. Здійснюємо скупку волосся по Україні і
+                    відбираємо якісні, живі зрізи. Після покупки, всі зрізи проходять обробку і надходять в подальший
+                    продаж, а також використовуються у виробництві перук.</p>
+            </div>
+        </div>
 
-        <p>Куплю волосся - в мережі можна знайти тисячі оголошень, але далеко не всі продавці працюють чесно.
-            Ми є Європейською компанією, яка співпрацює з клієнтами по всьому світу. Наша компанія є прямим
-            скупником локонів, тому пропонуємо найвищі ціни. Цінуємо визнання і довіру наших клієнтів,
-            гарантуємо приємну співпрацю і гідну оплату Вашого товару. Здійснюємо скупку волосся по Україні і
-            відбираємо якісні, живі зрізи. Після покупки, всі зрізи проходять обробку і надходять в подальший
-            продаж, а також використовуються у виробництві перук.</p>
-
-        <h3 class="mb-8 font-bold text-center uppercase drop-shadow-lg text-max-dark mt-14 text-lg font-[Oswald]">
+        <h3 class="mb-8 font-semibold text-center uppercase drop-shadow-lg text-maxblack mt-14 text-lg font-[Oswald]">
             Звертаючись в нашу компанію<br>з бажанням продати волосся,<br class="lg:hidden">
-            ви гарантовано отримуєте
+            <span class="text-max-orange">ви гарантовано отримуєте</span>
         </h3>
 
         <x-about>
@@ -127,23 +132,23 @@
                     доставки. гроші ви зможете забрати в своєму відділенні нової пошти.</p>
                 <x-list class="text-max-light">
                     <x-list.item class="font-light">
-                        <x-lucide-check class="size-5 me-2" />
+                        <x-lucide-check class="flex-none size-5 me-3" />
                         Насамперед ви повинні обумовити деталі з нашим менеджером.
                     </x-list.item>
                     <x-list.item class="font-light">
-                        <x-lucide-check class="size-5 me-2" />
+                        <x-lucide-check class="flex-none size-5 me-3" />
                         Кладемо біля волосся сантиметр і робимо фото, після чого зважуємо їх.
                     </x-list.item>
                     <x-list.item class="font-light">
-                        <x-lucide-check class="size-5 me-2" />
+                        <x-lucide-check class="flex-none size-5 me-3" />
                         Надсилаємо фотографію на наш Вайбер, а оцінювач встановлює точну вартість зрізу.
                     </x-list.item>
                     <x-list.item class="font-normal">
-                        <x-lucide-check class="size-5 me-2" />
+                        <x-lucide-check class="flex-none size-5 me-3" />
                         Коли локони надійно упаковані, їх можна відправляти поштою в нашу компанію.
                         </x-list.it>
                         <x-list.item class="font-normal">
-                            <x-lucide-check class="size-5 me-2" />
+                            <x-lucide-check class="flex-none size-5 me-3" />
                             Відправка волосся проводиться післяплатою, через послуги Нової Пошти.
                         </x-list.item>
                 </x-list>
@@ -154,8 +159,9 @@
     <x-section class="bg-max-light py-14">
 
         <x-slot:title>Купівля волосся</x-slot>
-        <x-slot:caption class="text-max-dark">
-            ЯК ПРАВИЛЬНО ЗРОБИТИ ЗРІЗ<br class="lg:hidden">ЩОБ ВИРУЧИТИ МАКСИМАЛЬНУ ЦІНУ
+        <x-slot:caption>
+            ЯК ПРАВИЛЬНО ЗРОБИТИ ЗРІЗ<br class="lg:hidden"> ЩОБ
+            <span class="text-max-orange">ВИРУЧИТИ МАКСИМАЛЬНУ ЦІНУ</span>
         </x-slot>
 
         <x-hair-sequence.desktop>
@@ -257,8 +263,9 @@
 
     <x-section class="bg-max-light pb-14">
         <x-slot:title>ПРОДАТИ ВОЛОССЯ АБО<br class="lg:hidden">ВСЕ Ж ЗБЕРЕГТИ ДОВЖИНУ?</x-slot>
-        <x-slot:caption class="text-max-dark">
-            МІНЯЙТЕСЯ І ЗАРОБЛЯЙТЕ<br class="lg:hidden">НА НОВОМУ ОБРАЗІ ГРОШІ
+        <x-slot:caption>
+            МІНЯЙТЕСЯ І ЗАРОБЛЯЙТЕ<br class="lg:hidden">
+            <span class="text-max-orange">НА НОВОМУ ОБРАЗІ ГРОШІ</span>
         </x-slot>
 
         <p>Якщо ви досі не вирішили, то завжди можете звернутися до нас з питаннями, що цікавлять. Ми готові
@@ -289,25 +296,30 @@
                     Що потрібно знати, перш ніж зважитися на продаж волосся?
                 </x-slot>
 
-                <x-list.item>
+                <x-list.item class="flex flex-row">
+                    <x-lucide-check-check class="flex-none size-6 me-3 text-max-black" />
                     Купівля волосся нашою компанією здійснюється тільки після їх оцінки.
                 </x-list.item>
                 <x-list.item>
+                    <x-lucide-check-check class="flex-none size-6 me-3 text-max-black" />
                     Вартість формується індивідуально в кожному випадку.
                 </x-list.item>
                 <x-list.item>
+                    <x-lucide-check-check class="flex-none size-6 me-3 text-max-black" />
                     Щоб озвучити точну ціну нам необхідно побачити фотографію зрізу біля сантиметра і знати точну вагу.
                 </x-list.item>
                 <x-list.item>
+                    <x-lucide-check-check class="flex-none size-6 me-3 text-max-black" />
                     Купуємо жіночі, чоловічі та дитячі коси від 40 сантиметрів, в будь-яких відтінках.
                 </x-list.item>
                 <x-list.item>
+                    <x-lucide-check-check class="flex-none size-6 me-3 text-max-black" />
                     Найвищу ціну готові запропонувати за шовковисті, м'які зрізи, без сивини, що не піддавалися
                     фарбуванню, а також хімічній завивці.
                 </x-list.item>
             </x-list>
 
-            <div class="p-6 lg:p-10 bg-max-orange rounded-xl">
+            <div class="p-6 text-white lg:p-10 bg-max-orange rounded-xl">
                 <div class="font-[Oswald] text-lg mb-5">Ми гарантуємо чесну оцінку, без заниження ціни.</div>
                 <p class="font-medium">Натуральне слов'янське волосся - це дуже цінний товар, який не може коштувати
                     мало. Ми готові запропонувати дійсно високі ціни, так як цінуємо Вашу працю та час, витрачений на
@@ -321,8 +333,10 @@
 
     <x-section class="bg-max-black py-14">
 
-        <x-slot:title class="text-gray-300">Покупка волосся</x-slot>
-        <x-slot:caption class="text-max-text">Які чинники впливають на вартість</x-slot>
+        <x-slot:title class="text-max-light">Покупка волосся</x-slot>
+        <x-slot:caption class="text-max-text">
+            Які чинники <span class="text-max-orange">впливають на вартість</span>
+        </x-slot>
 
         <div class="grid lg:grid-cols-2 gap-y-8 lg:gap-x-8">
             <div>
@@ -411,15 +425,9 @@
             </div>
         </div>
 
-        {{-- Warning Info --}}
-        <div class="flex p-3 mt-10 border rounded-lg bg-max-soft/15 border-max-soft/10 lg:w-1/2">
-            <div class="flex me-3">
-                <x-lucide-info class="self-center w-8 h-8 text-max-text/50 animate-pulse" />
-            </div>
-            <div class="text-xs font-semibold leading-3 text-max-text">
-                Відсоткове відношення впливу на ціну є відносним та орієнтовним. В деяких випадках відсотки
-                можуть змінюватись та інші фактори можуть переважати.
-            </div>
-        </div>
+        <x-alert type="info" class="mt-10 lg:w-1/3">
+            <div class="font-thin text-max-white/80">Відсоткове відношення впливу на ціну є відносним та орієнтовним.
+                В деяких випадках відсотки можуть змінюватись та інші фактори можуть переважати.</div>
+        </x-alert>
     </x-section>
 @endsection

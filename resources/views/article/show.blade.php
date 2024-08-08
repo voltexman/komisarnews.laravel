@@ -43,7 +43,7 @@
                 @if ($post->getFirstMediaUrl('posts', 'preview'))
                     <img src="{{ $post->getFirstMediaUrl('posts', 'preview') }}" width="300" height="280"
                         alt="{{ env('APP_NAME') . ' - ' . $post->title }}"
-                        class="block w-full border rounded-lg shadow-lg lg:mb-8 sm:w-1/3 sm:float-left sm:me-5 sm:mb-5 shadow-max-soft/50 border-max-soft/30">
+                        class="block w-full rounded-lg shadow-lg sm:w-1/3 sm:float-left sm:me-5 sm:mb-5 shadow-max-soft/50">
                 @endif
             <div>{!! $post->body !!}</div>
             </p>
