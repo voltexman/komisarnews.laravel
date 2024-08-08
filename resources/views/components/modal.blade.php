@@ -1,10 +1,10 @@
 @props(['open', 'header', 'body', 'footer'])
 
-<div x-data="{ modalIsOpen: true }">
+<div x-data="{ modalIsOpen: false }">
 
-    <x-button @click="modalIsOpen = true" type="button">
+    <div @click="modalIsOpen = true">
         {{ $open }}
-    </x-button>
+    </div>
 
     <div x-cloak x-show="modalIsOpen" x-transition.opacity.duration.200ms x-trap.inert.noscroll="modalIsOpen"
         @keydown.esc.window="modalIsOpen = false" @click.self="modalIsOpen = false"

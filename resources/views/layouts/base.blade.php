@@ -7,6 +7,10 @@
     <link rel="preload" as="style" onload="this.rel='stylesheet'"
         href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, shrink-to-fit=no">
 
     <meta name="google-site-verification" content="P_5zyoITcuRC83ELC_TcPLOmRi_NKcdcH4Sct9jORGg" />
@@ -85,7 +89,7 @@
                             </div>
                         </div>
 
-                        <div class="p-2">
+                        <div class="flex items-center p-2">
                             <button type="button" class="text-white h-9" @click="searchToggle" aria-label="Пошук статей">
                                 <x-lucide-search class="size-5" x-show="!searchIsOpen" />
                                 <x-lucide-x class="size-5" x-show="searchIsOpen" />
@@ -146,25 +150,26 @@
 
         @yield('content')
 
-        <section class="py-10 bg-max-soft scroll-mt-16" id="map">
-            <div class="container">
-                <h2 class="text-2xl font-semibold text-center text-white uppercase">
-                    Купівля і продаж<br class="lg:hidden"> волосся в містах
-                </h2>
-                <h3 class="mb-5 font-normal text-center text-white uppercase">
-                    Оберіть ваше місто <br class="lg:hidden"> або зробіть заявку
-                </h3>
-                <div class="flex flex-col lg:flex-row">
-                    <div class="self-center w-full lg:w-3/4 lg:me-10">
-                        @include('layouts.partials.map')
-                    </div>
+        <x-section class="py-10 bg-max-medium scroll-mt-16" id="map">
 
-                    <div class="lg:w-1/4 lg:min-w-[480px] mt-14 lg:mt-0 mb-4 lg:mb-0 sm:px-28 lg:px-0">
-                        <livewire:order  />
-                    </div>
+            <x-slot:title class="text-white">
+                Купівля і продаж<br class="lg:hidden"> волосся в містах
+            </x-slot>
+
+            <x-slot:caption class="text-gray-200">
+                Оберіть ваше місто <br class="lg:hidden"> або зробіть заявку
+            </x-slot>
+
+            <div class="flex flex-col lg:flex-row">
+                <div class="self-center w-full lg:w-3/4 lg:me-10">
+                    @include('layouts.partials.map')
+                </div>
+
+                <div class="lg:w-1/4 lg:min-w-[480px] mt-14 lg:mt-0 mb-4 lg:mb-0 sm:px-28 lg:px-0">
+                    <livewire:order />
                 </div>
             </div>
-        </section>
+        </x-section>
 
     </main>
 

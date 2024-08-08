@@ -1,24 +1,32 @@
-@props(['label' => '', 'index', 'active' => false])
+@props(['index', 'image', 'title', 'description', 'active'])
 
-<div @class(['hs-accordion', 'active' => $active]) id="hs-basic-heading-{{ $index }}">
-    <button
-        class="inline-flex items-center w-full p-3 text-sm font-semibold uppercase hs-accordion-toggle hs-accordion-active:bg-max-soft/35 hs-accordion-active:text-max-black text-max-black/80 gap-x-3 text-start disabled:opacity-50 disabled:pointer-events-none"
-        aria-controls="hs-basic-collapse-{{ $index }}">
-        <div class="flex items-center justify-center border rounded-full bg-max-light border-max-dark/50 size-6">
-            <span class="text-xs">
-                {{ $index + 1 }}
+<div class="relative overflow-hidden rounded-lg bg-max-text rounded-br-2xl rounded-tl-2xl">
+    <button id="controlsAccordionItem-{{ $index }}" type="button"
+        class="flex items-center justify-between w-full gap-4 p-4 text-left text-white uppercase bg-max-soft underline-offset-2"
+        aria-controls="accordionItem-{{ $index }}" @click="selected = {{ $index }}"
+        :class="selected === {{ $index }} ? 'font-bold' : 'font-medium'"
+        :aria-expanded="selected === {{ $index }} ? 'true' : 'false'">
+        <div class="flex items-center justify-center rounded-full bg-max-dark/50 size-7">
+            <span class="text-sm font-bold text-gray-300">
+                {{ $index }}
             </span>
         </div>
-        {{ $label }}
-        <x-lucide-chevron-down class="hs-accordion-active:rotate-180 size-4 ms-auto" />
+        <div class="me-auto">{{ $title }}</div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor"
+            class="transition size-5 shrink-0" aria-hidden="true"
+            :class="selected === {{ $index }} ? 'rotate-180' : ''">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+        </svg>
     </button>
-    <div id="hs-basic-collapse-{{ $index }}" @class([
-        'hs-accordion-content w-full overflow-hidden transition-[height] duration-300 bg-max-soft/20',
-        'hidden' => !$active,
-    ])
-        aria-labelledby="hs-basic-heading-{{ $index }}">
-        <p class="p-6 m-0 leading-4 text-max-black/80">
-            {{ $slot }}
-        </p>
+
+    <div x-cloak x-show="selected === {{ $index }}" id="accordionItem-{{ $index }}" role="region"
+        aria-labelledby="controlsAccordionItem-{{ $index }}" x-collapse>
+        <img data-src="{{ asset('images/' . $image) }}" class="object-cover size-full lazyload" alt="">
+
+        <div class="absolute bottom-0 p-4 font-medium rounded-tl-2xl backdrop-blur-sm bg-max-dark/60">
+            <div class="text-sm text-white">
+                {{ $description }}
+            </div>
+        </div>
     </div>
 </div>

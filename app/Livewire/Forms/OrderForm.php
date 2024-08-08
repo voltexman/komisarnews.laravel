@@ -10,7 +10,7 @@ use Livewire\Form;
 
 class OrderForm extends Form
 {
-    public $goal = null;
+    public $goal = '';
 
     public $name = '';
 

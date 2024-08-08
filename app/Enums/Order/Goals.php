@@ -17,7 +17,7 @@ enum Goals: int implements HasLabel
         };
     }
 
-    public function description(): string
+    public function getDescription(): string
     {
         return match ($this) {
             self::EVALUATE => 'Лише дізнатись ціну у майстра',
@@ -25,11 +25,11 @@ enum Goals: int implements HasLabel
         };
     }
 
-    public function icon(): string
+    public function getIcon(): string
     {
         return match ($this) {
-            self::EVALUATE => '',
-            self::SELL => '',
+            self::EVALUATE => 'badge-dollar-sign',
+            self::SELL => 'wallet',
         };
     }
 

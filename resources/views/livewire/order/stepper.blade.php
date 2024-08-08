@@ -43,14 +43,17 @@
                     <!-- Person Content -->
                     <x-stepper.content x-show="step == 1">
                         <div class="flex flex-col w-full gap-y-5">
-                            <x-form.select label="Вкажіть ціль заявки" id="goals">
+                            <x-form.select label="Вкажіть ціль заявки">
                                 @foreach (App\Enums\Order\Goals::cases() as $goal)
-                                    <option value="{{ $goal->value }}"
-                                        data-hs-select-option='{
-                                        "description": "{{ $goal->description() }}"
-                                    }'>
-                                        {{ $goal->getLabel() }}
-                                    </option>
+                                    <x-form.select.item wire:click="$set('order.goal', {{ $goal->getLabel() }})"
+                                        icon="{{ $goal->getIcon() }}">
+                                        <x-slot:label>
+                                            {{ $goal->getLabel() }}
+                                        </x-slot>
+                                        <x-slot:description>
+                                            {{ $goal->getDescription() }}
+                                        </x-slot>
+                                    </x-form.select.item>
                                 @endforeach
                             </x-form.select>
 
@@ -317,8 +320,8 @@
 
                                 <div class="flex flex-col text-sm">
                                     <span class="font-bold">Опції:</span>
-                                    <span class="font-normal"
-                                        x-text="$wire.order.hair_options.length ? $wire.order.hair_options : 'Не зрізані, не фарбовані, без сивини'"></span>
+                                    {{-- <span class="font-normal"
+                                        x-text="$wire.order.hair_options.length ? $wire.order.hair_options : 'Не зрізані, не фарбовані, без сивини'"></span> --}}
                                 </div>
 
                                 <div class="flex flex-col text-sm">
@@ -383,9 +386,48 @@
                         <x-lucide-arrow-left class="inline-block size-4 me-1" />Назад
                     </x-button>
 
-                    <x-button class="me-auto" aria-label="Правила заявки" color="light">
-                        <x-lucide-info class="inline-block size-5 text-max-light" />
-                    </x-button>
+                    {{-- Модальне вікно правил --}}
+                    <x-modal>
+                        <x-slot:open>
+                            <x-button color="light">
+                                <x-lucide-info class="size-5" />
+                            </x-button>
+                        </x-slot>
+
+                        <x-slot:header>
+                            <h3 class="font-semibold tracking-wide text-max-light drop-shadow-md">
+                                Правила заявки
+                            </h3>
+                        </x-slot>
+
+                        <x-slot:body>
+                            <p>
+                                <x-lucide-file-text class="h-14 w-14 float-start me-2" />
+                                Заповніть всі необхіні поля та надішліть нам замовлення. Бажано вказати
+                                колір, вагу і довжину Вашого волосся. Електронна пошта та номер телефону нам
+                                необхідний для зворотнього зв`язку з Вами та для того щоб повідомити Вас про
+                                купівлю волосся і його вартість.
+                            </p>
+                            <p>Спочатку Ви отримаєте сповіщення про те, що наш фахівець ознайомлюється з
+                                замовленням, після чого Вам надійде другий лист з інформацією про вартість
+                                та іншими деталями. Зазвичай це займає не більше декількох годин після
+                                відправлення замовлення.
+                            </p>
+                            <p>В полі "Ваше повідомлення" Ви можете вказати будь-яку іншу, на Вашу думку,
+                                важливу інформацію стосовно волосся. Наприклад, структуру волосся, стан
+                                зрізу: свіжа рівна стрижка або просто укладене волосся або шиньйон. Вкажіть
+                                якомога більше інформації, важливі всі деталі.</p>
+                        </x-slot>
+
+                        <x-slot:footer class="bg-red-500">
+                            <p class="text-xs font-normal leading-4 text-white">
+                                МИ НЕ НАДАЄМО ВАШІ КОНТАКТНІ ДАНІ ІНШИМ ОСОБАМ ТА НЕ РОЗСИЛАЄМО СПАМ!
+                                НЕ НАМАГАЙТЕСЯ ОБДУРИТИ ОЦІНЮВАЧА, ВИКОРИСТОВУЮЧИ ПРИЙОМИ, ЩОБ ПОЛІПШИТИ
+                                ЯКІСТЬ ВОЛОССЯ, АБО РОЗТЯГУВАТИ ПАСМО ЩОБ ВІЗУАЛЬНО ЗБІЛЬШИТИ ДОВЖИНУ. НАШ
+                                ФАХІВЕЦЬ ОБОВ'ЯЗКОВО РОЗПІЗНАЄ ОБМАН.
+                            </p>
+                        </x-slot>
+                    </x-modal>
 
                     <x-button x-show="step != 5" @click="next" color="light">
                         Далі <x-lucide-arrow-right class="inline-block size-4 ms-1" />
@@ -397,47 +439,6 @@
                 </div>
                 <!-- End Button Group -->
             </div>
-
-            {{-- Модальне вікно правил --}}
-            <x-modal>
-                <x-slot:open>
-                    Правила заявки
-                </x-slot>
-
-                <x-slot:header>
-                    <h3 class="font-semibold tracking-wide text-max-light drop-shadow-md">
-                        Правила заявки
-                    </h3>
-                </x-slot>
-
-                <x-slot:body>
-                    <p>
-                        <x-lucide-file-text class="h-14 w-14 float-start me-2" />
-                        Заповніть всі необхіні поля та надішліть нам замовлення. Бажано вказати
-                        колір, вагу і довжину Вашого волосся. Електронна пошта та номер телефону нам
-                        необхідний для зворотнього зв`язку з Вами та для того щоб повідомити Вас про
-                        купівлю волосся і його вартість.
-                    </p>
-                    <p>Спочатку Ви отримаєте сповіщення про те, що наш фахівець ознайомлюється з
-                        замовленням, після чого Вам надійде другий лист з інформацією про вартість
-                        та іншими деталями. Зазвичай це займає не більше декількох годин після
-                        відправлення замовлення.
-                    </p>
-                    <p>В полі "Ваше повідомлення" Ви можете вказати будь-яку іншу, на Вашу думку,
-                        важливу інформацію стосовно волосся. Наприклад, структуру волосся, стан
-                        зрізу: свіжа рівна стрижка або просто укладене волосся або шиньйон. Вкажіть
-                        якомога більше інформації, важливі всі деталі.</p>
-                </x-slot>
-
-                <x-slot:footer class="bg-red-500">
-                    <p class="text-xs font-normal leading-4 text-white">
-                        МИ НЕ НАДАЄМО ВАШІ КОНТАКТНІ ДАНІ ІНШИМ ОСОБАМ ТА НЕ РОЗСИЛАЄМО СПАМ!
-                        НЕ НАМАГАЙТЕСЯ ОБДУРИТИ ОЦІНЮВАЧА, ВИКОРИСТОВУЮЧИ ПРИЙОМИ, ЩОБ ПОЛІПШИТИ
-                        ЯКІСТЬ ВОЛОССЯ, АБО РОЗТЯГУВАТИ ПАСМО ЩОБ ВІЗУАЛЬНО ЗБІЛЬШИТИ ДОВЖИНУ. НАШ
-                        ФАХІВЕЦЬ ОБОВ'ЯЗКОВО РОЗПІЗНАЄ ОБМАН.
-                    </p>
-                </x-slot>
-            </x-modal>
 
             {{-- Loading... --}}
             <div wire:loading wire:target="save" class="absolute top-0 w-full h-full rounded-lg start-0 bg-white/80">

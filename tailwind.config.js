@@ -5,16 +5,19 @@ export default {
         "./resources/**/*.js",
         "node_modules/preline/dist/*.js",
     ],
-    darkMode: 'media',
+    darkMode: "media",
     theme: {
         extend: {
             colors: {
                 max: {
+                    orange: "#fba85d",
+                    white: "#f9eee1",
                     black: "#272121",
-                    dark: "#665143",
-                    light: "#FCF8F3",
+                    dark: "#6d574a",
+                    light: "#ebe0cc",
+                    medium: "#49403b",
                     text: "#B19A81",
-                    soft: "#9F8772",
+                    soft: "#9e8c80",
                 },
             },
             keyframes: {

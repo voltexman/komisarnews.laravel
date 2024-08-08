@@ -1,13 +1,23 @@
-@props(['icon', 'title', 'description'])
+@props(['image', 'title', 'description'])
 
-<div class="flex flex-col items-center px-8 py-10 transition-shadow border rounded-lg shadow-md bg-max-soft/15 hover:shadow-xl border-max-soft/20">
-    <img data-src="{{ asset("images/icons/{$icon}.svg") }}" class="w-20 h-20 lazyload" alt="">
+<div
+    class="relative flex flex-col items-center overflow-hidden transition-shadow duration-300 rounded-lg shadow-lg bg-max-soft/15 hover:shadow-xl group group-hover:shadow-max-soft/80">
+    <img data-src="{{ asset('images/' . $image) }}" class="object-cover size-full lazyload" alt="">
 
-    @isset($title)
-        <h2 class="mt-8 mb-2 font-bold text-center uppercase">{{ $title }}</h2>
-    @endisset
 
-    @isset($description)
-        <div class="text-center">{{ $description }}</div>
-    @endisset
+    <div
+        class="absolute bottom-0 w-full p-4 transition duration-300 translate-y-28 h-1/2 backdrop-blur-sm bg-max-soft/60 group-hover:translate-y-0 group-hover:bg-max-dark/60 group-hover:backdrop-blur-md">
+        <h2 class="relative block mb-3 font-bold text-white uppercase -translate-x-1/2 group-hover:text-left left-1/2">
+            {{ $title }}
+        </h2>
+
+        <div
+            class="w-1/2 h-1 mb-3 transition duration-500 ease-out delay-300 translate-x-1/2 bg-white rounded-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100">
+        </div>
+
+        <div
+            class="font-thin leading-5 text-white transition duration-500 ease-out delay-300 group-hover:translate-y-0 translate-y-36">
+            {{ $description }}</div>
+
+    </div>
 </div>

@@ -69,6 +69,17 @@
         display: none !important;
     }
 
+    .section {
+    }
+
+    .section-title {
+        @apply text-2xl drop-shadow-lg text-center font-semibold uppercase font-[Oswald];
+    }
+
+    .section-caption {
+        @apply mt-2 mb-8 text-sm font-bold text-center uppercase drop-shadow-lg font-[Oswald];
+    }
+
     .modal {
         @apply flex flex-col max-w-lg gap-4 overflow-hidden rounded-xl bg-max-light text-neutral-500;
     }
@@ -86,7 +97,8 @@
     }
 
     body {
-        color: #5d5751;
+        /* color: #5d5751; */
+        color: #000;
         font-weight: 600;
         outline: none !important;
     }
@@ -96,8 +108,8 @@
     }
 
     .mapBackground {
-        fill: #fcf8f3;
-        stroke: #9b7f62;
+        fill: #9e8c80;
+        stroke: #574531;
         stroke-width: 0.8;
         transition: 0.5s;
         cursor: pointer;
@@ -108,7 +120,7 @@
     }
 
     .regionNoActive {
-        fill: #b5a290 !important;
+        fill: #6d574a !important;
         cursor: auto;
     }
 
@@ -127,7 +139,7 @@
         font-family: "Nunito", sans-serif;
         font-weight: bold;
         font-size: 0.6em;
-        fill: #685340;
+        fill: #ebe0cc;
     }
 
     #Kiev:hover ~ .cityKiev,
