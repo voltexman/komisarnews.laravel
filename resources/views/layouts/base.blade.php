@@ -62,65 +62,71 @@
 
     <header>
         @section('header')
-            <nav x-data="navbar" x-init="scrolled" class="fixed z-50 w-screen duration-500" x-cloak
+            <nav x-data="navbar" x-init="scrolled"
+                class="container fixed z-50 w-full duration-500 lg:-translate-x-1/2 lg:left-1/2 lg:rounded-xl lg:top-3"
+                x-cloak
                 x-bind:class="(isScrolled || navIsOpen || searchIsOpen) &&
                 'bg-max-black/90 backdrop-blur-sm shadow-lg shadow-max-black/40'"
                 @scroll.window="scrolled">
-                <div class="container mx-auto max-w-7xl">
-                    <div class="relative flex items-center justify-between h-16">
+                <div class="relative flex items-center justify-between h-16">
 
-                        {{-- Logo --}}
-                        <div class="flex items-center flex-shrink-0">
-                            <a href="/" class="text-lg font-normal text-white uppercase">
-                                Kom<span class="px-2 text-white rounded bg-max-dark">!</span>sarnews
+                    {{-- Logo --}}
+                    <div class="flex items-center flex-shrink-0">
+                        <a href="/" class="text-lg font-normal text-white uppercase">
+                            Kom<span class="px-2 text-white rounded bg-max-dark">!</span>sarnews
+                        </a>
+                    </div>
+
+                    {{-- Desktop Menu --}}
+                    <div class="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start">
+                        <div class="hidden w-full sm:ml-6 lg:block">
+                            <div class="flex space-x-4">
+                                <x-menu>
+                                    <x-menu.item :link="route('main')" :active="request()->routeIs('main')">
+                                        Головна
+                                    </x-menu.item>
+                                    <x-menu.item :link="route('articles.list')" :active="request()->routeIs('articles.list')">
+                                        Статті
+                                    </x-menu.item>
+                                    <x-menu.item :link="route('contacts.show')" :active="request()->routeIs('contacts.show')">
+                                        Контакти
+                                    </x-menu.item>
+                                </x-menu>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center p-2">
+                        <button type="button" class="text-white h-9" @click="searchToggle" aria-label="Пошук статей">
+                            <x-lucide-search class="size-5" x-show="!searchIsOpen" />
+                            <x-lucide-x class="size-5" x-show="searchIsOpen" />
+                        </button>
+                    </div>
+
+                    {{-- Scroll to Map Button --}}
+                    <div class="inset-y-0 right-0 flex items-center mx-2 sm:static sm:inset-auto">
+                        <div class="flex items-center order-1 ms-auto lg:ms-0">
+                            <a href="#map" aria-label="Обрати місто">
+                                <x-button class="flex items-center uppercase bg-max-orange">
+                                    <x-lucide-map-pin class="flex-none size-4 me-1" />
+                                    <span class="hidden lg:block">Обрати місто</span>
+                                    <span class="block lg:hidden">Міста</span>
+                                </x-button>
                             </a>
                         </div>
+                    </div>
 
-                        {{-- Desktop Menu --}}
-                        <div class="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start ">
-                            <div class="hidden w-full sm:ml-6 lg:block">
-                                <div class="flex space-x-4">
-                                    <x-menu>
-                                        <x-menu.item :link="route('main')" :active="request()->routeIs('main')">Головна</x-menu.item>
-                                        <x-menu.item :link="route('articles.list')" :active="request()->routeIs('articles.list')">Статті</x-menu.item>
-                                        <x-menu.item :link="route('contacts.show')" :active="request()->routeIs('contacts.show')">Контакти</x-menu.item>
-                                    </x-menu>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center p-2">
-                            <button type="button" class="text-white h-9" @click="searchToggle" aria-label="Пошук статей">
-                                <x-lucide-search class="size-5" x-show="!searchIsOpen" />
-                                <x-lucide-x class="size-5" x-show="searchIsOpen" />
-                            </button>
-                        </div>
-
-                        {{-- Scroll to Map Button --}}
-                        <div class="inset-y-0 right-0 flex items-center mx-2 sm:static sm:inset-auto">
-                            <div class="flex items-center order-1 ms-auto lg:ms-0">
-                                <a href="#map" aria-label="Обрати місто">
-                                    <x-button class="flex items-center uppercase">
-                                        <x-lucide-map-pin class="flex-none size-4 me-1" />
-                                        <span class="hidden lg:block">Обрати місто</span>
-                                        <span class="block lg:hidden">Міста</span>
-                                    </x-button>
-                                </a>
-                            </div>
-                        </div>
-
-                        {{-- Mobile Show Menu Button --}}
-                        <div class="inset-y-0 right-0 flex items-center lg:hidden">
-                            <!-- Mobile menu button-->
-                            <button type="button" @click="navToggle"
-                                class="relative inline-flex items-center justify-center p-2 text-white rounded-md"
-                                aria-controls="mobile-menu" aria-expanded="false">
-                                <span class="absolute -inset-0.5"></span>
-                                <span class="sr-only">Open main menu</span>
-                                <x-lucide-menu class="size-6" x-show="!navIsOpen" />
-                                <x-lucide-x class="size-6" x-show="navIsOpen" />
-                            </button>
-                        </div>
+                    {{-- Mobile Show Menu Button --}}
+                    <div class="inset-y-0 right-0 flex items-center lg:hidden">
+                        <!-- Mobile menu button-->
+                        <button type="button" @click="navToggle"
+                            class="relative inline-flex items-center justify-center p-2 rounded-md -me-2 text-max-light"
+                            aria-controls="mobile-menu" aria-expanded="false">
+                            <span class="absolute -inset-0.5"></span>
+                            <span class="sr-only">Open main menu</span>
+                            <x-lucide-menu class="size-6" x-show="!navIsOpen" />
+                            <x-lucide-x class="size-6" x-show="navIsOpen" />
+                        </button>
                     </div>
                 </div>
 
@@ -147,14 +153,12 @@
 
         @yield('content')
 
-        <x-section class="py-10 bg-max-dark scroll-mt-16" id="map">
-
-            <x-slot:title class="text-white">
+        <x-section class="py-10 bg-[#987070] scroll-mt-16" id="map">
+            <x-slot:title class="text-max-light">
                 Купівля і продаж<br class="lg:hidden"> волосся в містах
             </x-slot>
-
-            <x-slot:caption class="text-gray-200">
-                Оберіть ваше місто<br class="lg:hidden">або зробіть заявку
+            <x-slot:caption class="text-max-light">
+                Оберіть ваше місто<br class="lg:hidden"> або <span class="text-max-orange">зробіть заявку</span>
             </x-slot>
 
             <div class="flex flex-col lg:flex-row">

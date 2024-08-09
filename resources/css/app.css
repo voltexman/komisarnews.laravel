@@ -70,6 +70,7 @@
     }
 
     .section {
+        @apply py-14;
     }
 
     .section-title {
@@ -77,7 +78,7 @@
     }
 
     .section-caption {
-        @apply mt-2 mb-8 text-sm font-semibold text-center uppercase drop-shadow-lg font-[Oswald];
+        @apply mt-2 mb-8 text-sm font-semibold text-center uppercase drop-shadow-lg font-[Oswald] tracking-wide;
     }
 
     .modal {
@@ -97,14 +98,13 @@
     }
 
     body {
-        color: #5d5751;
-        /* color: #353535; */
+        color: #4d4843;
         font-weight: 600;
         outline: none !important;
     }
 
     p {
-        margin-bottom: 8px;
+        @apply mb-5 text-lg font-normal leading-6;
     }
 
     .mapBackground {

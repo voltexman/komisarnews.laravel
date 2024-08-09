@@ -1,6 +1,6 @@
 @props(['title', 'caption'])
 
-<section {{ $attributes }}>
+<section {{ $attributes->class('section') }}>
 
     @isset($title)
         <h2 {{ $title->attributes->class('section-title') }}>

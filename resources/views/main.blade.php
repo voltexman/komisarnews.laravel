@@ -10,12 +10,12 @@
     <div class="relative w-full h-screen py-24 overflow-hidden bg-gray-900 isolate sm:py-32">
         <div class="absolute top-0 left-0 w-full h-full bg-max-black/75"></div>
         <img data-src="{{ asset('images/bg-header.webp') }}" data-sizes="auto" alt="Komisarnews"
-            class="absolute inset-0 object-cover object-right w-full h-full -z-10 md:object-center wscreen hscreen lazyload animate-ricochet lg:animate-none">
+            class="absolute inset-0 object-cover object-right w-full h-full -z-10 md:object-center lazyload animate-ricochet lg:animate-none">
         <div class="px-6 mx-auto max-w-7xl lg:px-8">
             <div class="absolute w-full top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 mx-auto lg:mx-0">
                 <h1 class="text-2xl font-thin text-center text-white uppercase lg:text-4xl"
                     x-intersect="$el.classList.add('slide-down')">
-                    Продаж та покупка<br>волосся у Києві<span class="text-max-soft">.</span></h1>
+                    Продаж та покупка<br>волосся <span class="text-max-orange">у Києві.</span></h1>
                 <h2 class="mt-5 font-semibold text-center text-white uppercase" x-intersect="$el.classList.add('slide-up')">
                     Швидко, Дорого, Надійно</h2>
             </div>
@@ -30,91 +30,90 @@
 @endsection
 
 @section('content')
-    <x-section class="bg-max-light py-14 scroll-mt-16" id="about">
-        <div class="grid overflow-hidden lg:grid-cols-2 gap-x-5">
-            <div>
-                <h2 class="font-[Oswald] text-2xl font-semibold text-center uppercase drop-shadow-lg lg:text-left">
-                    Шукаєте Кому Вигідно<br class="lg:hidden">Продати Волосся?
-                </h2>
-                <h3 class="mb-5 font-bold font-[Oswald] text-center uppercase drop-shadow-lg lg:text-left text-max-orange">
-                    Наша компанія завжди готова<br class="lg:hidden">купити волосся дорого!
-                </h3>
-                <p class="leading-7">Жителі багатьох міст можуть продати волосся
-                    особисто нам в руки! Подаруєте собі настрій, не бійтеся мінятися і удосконалюватися,
-                    продаючи свої коси, ви робите благу справу і заробляєте додаткові гроші на потрібні покупки.</p>
-                <p class="mt-5 leading-7">Звертайтеся за консультацією прямо зараз за номером телефону,
-                    ми завжди готові відповісти на будь-які питання і запропонувати вам європейські ціни. Наша компанія
-                    завжди готова запропонувати найвищу ціну за натуральний слов'янський зріз від 40 см, а також кращий
-                    сервіс і обслуговування. Ми є професіоналами своєї справи і поважаємо кожного нашого клієнта, тому
-                    гарантуємо максимум задоволення від співпраці.</p>
+    <x-section class="bg-[#f2e9e1] scroll-mt-16" id="about">
+        <x-slot:title>
+            Шукаєте Кому Вигідно<br class="lg:hidden"> Продати Волосся?
+        </x-slot>
+        <x-slot:caption>
+            Наша компанія завжди готова<br class="lg:hidden">
+            <span class="text-max-orange">купити волосся дорого!</span>
+        </x-slot>
+
+        <div class="lg:grid lg:grid-cols-5 gap-x-16">
+            <div class="col-span-2">
+                <p>Жителі багатьох міст можуть <x-badge>продати волосся</x-badge> особисто <x-badge>нам в руки!</x-badge>
+                    Подаруєте собі настрій, не бійтеся мінятися і удосконалюватися, продаючи свої коси, ви робите благу
+                    справу і заробляєте додаткові гроші на потрібні покупки.</p>
+                <img src="https://picsum.photos/400"
+                    class="object-cover w-full mt-8 mb-8 rounded-full shadow-lg shadow-max-black/30 lg:mb-0 h-52 lg:h-72" alt="">
             </div>
-            <div class="flex justify-center px-5 py-10 lg:py-10 lg:px-10">
-                <div class="animate-jumping-down">
-                    <img data-src="{{ asset('images/about2.webp') }}" width="280" height="360" alt="Фото салону"
-                        title="Фото салону"
-                        class="lazyload skew-12 rotate-[-10deg] border-2 rounded-2xl shadow-lg shadow-max-soft/50 hover:transform-none transition-transform duration-500">
-                </div>
-                <div class="mt-10 animate-jumping-up">
-                    <img data-src="{{ asset('images/about.webp') }}" width="280" height="360" alt="Фото салону"
-                        title="Фото салону"
-                        class="lazyload rotate-[10deg] border-2 rounded-2xl shadow-lg shadow-max-soft/50 hover:transform-none transition-transform duration-500">
-                </div>
+            <div class="col-span-3 leading-5">
+                <img src="https://picsum.photos/500/400"
+                    class="hidden object-cover w-full mb-8 rounded-full shadow-lg h-72 lg:block shadow-max-black/30" alt="">
+                <p>Звертайтеся за консультацією прямо зараз за нашими контактами. Ми завжди готові відповісти на будь-які
+                    питання і запропонувати вам європейські ціни. Наша компанія завжди готова запропонувати
+                    <x-badge>найвищу ціну</x-badge> за натуральний слов'янський зріз від 40 см, а також кращий
+                    сервіс і обслуговування. Ми є професіоналами своєї справи і поважаємо кожного нашого клієнта, тому
+                    гарантуємо максимум задоволення від співпраці.
+                </p>
             </div>
         </div>
     </x-section>
 
-    <x-section class="bg-max-light pb-14">
+    <x-section class="bg-max-light">
         <div class="grid lg:py-10 lg:grid-cols-3 gap-y-10 lg:gap-x-10">
-            <div class="">
-                <h2 class="lg:text-4xl text-2xl font-semibold text-center uppercase font-[Oswald] drop-shadow-lg">
+            <div>
+                <h2 class="lg:text-4xl text-2xl mb-8 font-semibold text-center uppercase font-[Oswald] drop-shadow-lg">
                     Чому Варто Звернутися <br class="lg:hidden">Саме В Нашу Компанію?
                 </h2>
+                <p class="mt-14">Куплю волосся - в мережі можна знайти тисячі оголошень, але далеко не
+                    всі продавці працюють чесно. Ми є Європейською компанією, яка співпрацює з клієнтами по всьому світу.
+                    Наша компанія є прямим скупником локонів, тому пропонуємо <x-badge>найвищі ціни.</x-badge> Цінуємо
+                    визнання і довіру наших клієнтів, гарантуємо приємну співпрацю і гідну оплату Вашого товару.
+                    Здійснюємо скупку волосся по Україні і відбираємо якісні, живі зрізи.</p>
+                <p class="font-semibold">Після покупки, всі зрізи проходять обробку і надходять в подальший
+                    продаж, а також використовуються у виробництві перук.</p>
             </div>
             <div class="lg:col-span-2">
-                <p>Куплю волосся - в мережі можна знайти тисячі оголошень, але далеко не всі продавці працюють чесно.
-                    Ми є Європейською компанією, яка співпрацює з клієнтами по всьому світу. Наша компанія є прямим
-                    скупником локонів, тому пропонуємо найвищі ціни. Цінуємо визнання і довіру наших клієнтів,
-                    гарантуємо приємну співпрацю і гідну оплату Вашого товару. Здійснюємо скупку волосся по Україні і
-                    відбираємо якісні, живі зрізи. Після покупки, всі зрізи проходять обробку і надходять в подальший
-                    продаж, а також використовуються у виробництві перук.</p>
+                <h3 class="mb-8 font-semibold text-center uppercase drop-shadow-lg text-lg font-[Oswald]">
+                    Звертаючись в нашу компанію<br>з бажанням продати волосся,<br class="lg:hidden">
+                    <span class="text-max-orange">ви гарантовано отримуєте</span>
+                </h3>
+
+                <x-about>
+                    <x-about.item icon='individual' index='1'>
+                        <x-slot:title>Індивідуальність</x-slot>
+                        <x-slot:description>Окремий та індивідуальний підхід для кожного нашого покупця</x-slot>
+                    </x-about.item>
+                    <x-about.item icon='money' index='2'>
+                        <x-slot:title>Вигоду</x-slot>
+                        <x-slot:description>Найвигідніші для Вас умови співпраці. Ми зацікавлені в цьому</x-slot>
+                    </x-about.item>
+
+                    <x-about.item icon='handshake' index='3'>
+                        <x-slot:title>Зручність</x-slot>
+                        <x-slot:description>Обговорена грошова виплата в зручний для Вас час та спосіб</x-slot>
+                    </x-about.item>
+                    <x-about.item icon='fast-money' index='4'>
+                        <x-slot:title>Швидкість</x-slot>
+                        <x-slot:description>Моментальна оплата після оцінки та відправки Вашої шевелюри</x-slot>
+                    </x-about.item>
+                    <x-about.item icon='info' index='5'>
+                        <x-slot:title>Інформативність</x-slot>
+                        <x-slot:description>Відправляйте по вайберу фото волосся і спеціаліст оголосить ціну</x-slot>
+                    </x-about.item>
+                    <x-about.item icon='style' index='6'>
+                        <x-slot:title>Стиль</x-slot>
+                        <x-slot:description>Ми запропонуємо Вам стильну та модну стрижку в подарунок</x-slot>
+                    </x-about.item>
+                </x-about>
             </div>
         </div>
 
-        <h3 class="mb-8 font-semibold text-center uppercase drop-shadow-lg text-maxblack mt-14 text-lg font-[Oswald]">
-            Звертаючись в нашу компанію<br>з бажанням продати волосся,<br class="lg:hidden">
-            <span class="text-max-orange">ви гарантовано отримуєте</span>
-        </h3>
 
-        <x-about>
-            <x-about.item icon='individual' index='1'>
-                <x-slot:title>Індивідуальність</x-slot>
-                <x-slot:description>Окремий та індивідуальний підхід для кожного нашого покупця</x-slot>
-            </x-about.item>
-            <x-about.item icon='money' index='2'>
-                <x-slot:title>Вигоду</x-slot>
-                <x-slot:description>Найвигідніші для Вас умови співпраці. Ми зацікавлені в цьому</x-slot>
-            </x-about.item>
-
-            <x-about.item icon='handshake' index='3'>
-                <x-slot:title>Зручність</x-slot>
-                <x-slot:description>Обговорена грошова виплата в зручний для Вас час та спосіб</x-slot>
-            </x-about.item>
-            <x-about.item icon='fast-money' index='4'>
-                <x-slot:title>Швидкість</x-slot>
-                <x-slot:description>Моментальна оплата після оцінки та відправки Вашої шевелюри</x-slot>
-            </x-about.item>
-            <x-about.item icon='info' index='5'>
-                <x-slot:title>Інформативність</x-slot>
-                <x-slot:description>Відправляйте по вайберу фото волосся і спеціаліст оголосить ціну</x-slot>
-            </x-about.item>
-            <x-about.item icon='style' index='6'>
-                <x-slot:title>Стиль</x-slot>
-                <x-slot:description>Ми запропонуємо Вам стильну та модну стрижку в подарунок</x-slot>
-            </x-about.item>
-        </x-about>
     </x-section>
 
-    <x-section class="py-20 bg-max-black">
+    <x-section class="bg-max-black">
         <div class="grid lg:grid-cols-2">
             <div class="justify-center hidden lg:flex">
                 <img data-src="{{ asset('images/postman.jpg') }}" alt="Відправка Новою поштою"
@@ -156,8 +155,7 @@
         </div>
     </x-section>
 
-    <x-section class="bg-max-light py-14">
-
+    <x-section class="bg-max-light">
         <x-slot:title>Купівля волосся</x-slot>
         <x-slot:caption>
             ЯК ПРАВИЛЬНО ЗРОБИТИ ЗРІЗ<br class="lg:hidden"> ЩОБ
@@ -261,8 +259,8 @@
         </x-alert>
     </x-section>
 
-    <x-section class="bg-max-light pb-14">
-        <x-slot:title>ПРОДАТИ ВОЛОССЯ АБО<br class="lg:hidden">ВСЕ Ж ЗБЕРЕГТИ ДОВЖИНУ?</x-slot>
+    <x-section class="bg-[#f2e9e1] pb-14">
+        <x-slot:title>ПРОДАТИ ВОЛОССЯ АБО<br class="lg:hidden"> ВСЕ Ж ЗБЕРЕГТИ ДОВЖИНУ?</x-slot>
         <x-slot:caption>
             МІНЯЙТЕСЯ І ЗАРОБЛЯЙТЕ<br class="lg:hidden">
             <span class="text-max-orange">НА НОВОМУ ОБРАЗІ ГРОШІ</span>
@@ -319,7 +317,11 @@
                 </x-list.item>
             </x-list>
 
-            <div class="p-6 text-white lg:p-10 bg-max-orange rounded-xl">
+            <div class="relative p-6 text-white lg:p-10 bg-max-orange rounded-xl">
+                <span
+                    class="bg-[#6a7265] size-16 rounded-full absolute flex items-center justify-center -right-3 p-2 border-4 border-[#e0d4c8] -top-3">
+                    <x-lucide-info class="size-8" />
+                </span>
                 <div class="font-[Oswald] text-lg mb-5">Ми гарантуємо чесну оцінку, без заниження ціни.</div>
                 <p class="font-medium">Натуральне слов'янське волосся - це дуже цінний товар, який не може коштувати
                     мало. Ми готові запропонувати дійсно високі ціни, так як цінуємо Вашу працю та час, витрачений на
