@@ -296,23 +296,23 @@
                     Що потрібно знати, перш ніж зважитися на продаж волосся?
                 </x-slot>
 
-                <x-list.item class="flex flex-row">
+                <x-list.item class="py-3">
                     <x-lucide-check-check class="flex-none size-6 me-3 text-max-black" />
                     Купівля волосся нашою компанією здійснюється тільки після їх оцінки.
                 </x-list.item>
-                <x-list.item>
+                <x-list.item class="py-3">
                     <x-lucide-check-check class="flex-none size-6 me-3 text-max-black" />
                     Вартість формується індивідуально в кожному випадку.
                 </x-list.item>
-                <x-list.item>
+                <x-list.item class="py-3">
                     <x-lucide-check-check class="flex-none size-6 me-3 text-max-black" />
                     Щоб озвучити точну ціну нам необхідно побачити фотографію зрізу біля сантиметра і знати точну вагу.
                 </x-list.item>
-                <x-list.item>
+                <x-list.item class="py-3">
                     <x-lucide-check-check class="flex-none size-6 me-3 text-max-black" />
                     Купуємо жіночі, чоловічі та дитячі коси від 40 сантиметрів, в будь-яких відтінках.
                 </x-list.item>
-                <x-list.item>
+                <x-list.item class="py-3">
                     <x-lucide-check-check class="flex-none size-6 me-3 text-max-black" />
                     Найвищу ціну готові запропонувати за шовковисті, м'які зрізи, без сивини, що не піддавалися
                     фарбуванню, а також хімічній завивці.
