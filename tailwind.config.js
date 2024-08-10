@@ -21,6 +21,14 @@ export default {
                 },
             },
             keyframes: {
+                "slide-ltr": {
+                    "0%": { objectPosition: "top" },
+                    "100%": { objectPosition: "bottom" },
+                },
+                "slide-rtl": {
+                    "0%": { objectPosition: "bottom" },
+                    "100%": { objectPosition: "top" },
+                },
                 ricochet: {
                     "0%": { objectPosition: "left" },
                     "100%": { objectPosition: "right" },
@@ -39,6 +47,8 @@ export default {
                 },
             },
             animation: {
+                "slide-ltr": "slide-ltr 8s linear infinite alternate",
+                "slide-rtl": "slide-rtl 8s linear infinite alternate",
                 ricochet: "ricochet 25s linear alternate infinite",
                 "jumping-down":
                     "jumping-down 2s ease-in-out alternate infinite",
