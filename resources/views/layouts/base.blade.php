@@ -153,7 +153,7 @@
 
         @yield('content')
 
-        <x-section class="py-10 bg-[#987070] scroll-mt-16" id="map">
+        <x-section class="py-10 bg-max-dark scroll-mt-16" id="map">
             <x-slot:title class="text-max-light">
                 Купівля і продаж<br class="lg:hidden"> волосся в містах
             </x-slot>
@@ -189,29 +189,27 @@
         <div class="container py-20">
             <div class="flex flex-col lg:flex-row lg:justify-between">
                 <div class="font-semibold lg:w-1/3 text-max-light/60">
-                    <p class="flex flex-row justify-center lg:justify-start">
-                        <x-lucide-map-pin class="h-4 w-4 me-1 mt-0.5" />
-                        Україна, Київ
-                    </p>
-                    <p class="flex flex-row justify-center lg:justify-start">
-                        <x-lucide-user class="h-4 w-4 me-1 mt-0.5" />
-                        Максим Комісар
-                    </p>
+                    <div class="flex flex-row justify-center lg:justify-start">
+                        <x-lucide-map-pin class="size-4 me-1 mt-0.5" />
+                        <span>Україна, Київ</span>
+                    </div>
+                    <div class="flex flex-row justify-center lg:justify-start">
+                        <x-lucide-user class="size-4 me-1 mt-0.5" />
+                        <span>Максим Комісар</span>
+                    </div>
                 </div>
                 <div class="mt-5 text-center lg:w-1/3 lg:mt-0">
-                    <p class="text-2xl font-extrabold text-max-text">+380 (73) 785-77-77</p>
-                    <span class="pb-1 font-semibold border-b text-max-light/60 border-max-soft">
-                        123komisar@gmail.com
-                    </span>
+                    <div class="text-2xl font-extrabold text-max-text">+380 (73) 785-77-77</div>
+                    <div class="font-semibold text-max-light/60">123komisar@gmail.com</div>
                 </div>
                 <div class="flex self-center justify-end gap-3 mt-10 lg:w-1/3 text-max-soft lg:mt-0">
                     <a href="https://www.facebook.com/profile.php?id=100081276925197" aria-label="Ми в Facebook"
                         target="_blank">
-                        <x-lucide-facebook class="w-6 h-6" />
+                        <x-lucide-facebook class="size-6" />
                     </a>
                     <a href="https://instagram.com/sale_hair_kyiv?igshid=OGQ5ZDc2ODk2ZA==" aria-label="Ми в Instagram"
                         target="_blank">
-                        <x-lucide-instagram class="w-6 h-6" />
+                        <x-lucide-instagram class="size-6" />
                     </a>
                 </div>
             </div>
@@ -223,9 +221,6 @@
 
     <script>
         document.addEventListener('alpine:init', () => {
-
-            // document.body.style.overflow = 'hidden';
-
             Alpine.data('navbar', () => ({
                 navIsOpen: false,
                 searchIsOpen: false,

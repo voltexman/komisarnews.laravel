@@ -44,13 +44,13 @@
                 <p>Жителі багатьох міст можуть <x-badge>продати волосся</x-badge> особисто <x-badge>нам в руки!</x-badge>
                     Подаруєте собі настрій, не бійтеся мінятися і удосконалюватися, продаючи свої коси, ви робите благу
                     справу і заробляєте додаткові гроші на потрібні покупки.</p>
-                <img src="https://picsum.photos/400"
-                    class="object-cover w-full mt-8 mb-8 rounded-full shadow-lg animate-slide-ltr shadow-max-black/30 lg:mb-0 h-52 lg:h-72"
+                <img src="{{ asset('images/about.jpg') }}"
+                    class="object-cover w-full mt-8 mb-8 rounded-full shadow-lg h-36 lg:animate-none animate-slide-top-to-bottom shadow-max-black/30 lg:mb-0 lg:h-72"
                     alt="">
             </div>
             <div class="col-span-3 leading-5">
-                <img src="https://picsum.photos/500/400"
-                    class="hidden object-cover w-full mb-8 rounded-full shadow-lg animate-slide-rtl h-72 lg:block shadow-max-black/30"
+                <img src="{{ asset('images/about2.jpg') }}"
+                    class="hidden object-cover w-full mb-8 rounded-full shadow-lg animate-slide-bottom-to-top h-72 lg:block shadow-max-black/30"
                     alt="">
                 <p>Звертайтеся за консультацією прямо зараз за нашими контактами. Ми завжди готові відповісти на будь-які
                     питання і запропонувати вам європейські ціни. Наша компанія завжди готова запропонувати
@@ -63,16 +63,16 @@
     </x-section>
 
     <x-section class="bg-max-light">
-        <div class="grid lg:py-10 lg:grid-cols-3 gap-y-10 lg:gap-x-10">
+        <div class="grid lg:py-10 lg:grid-cols-3 md:grid-cols-1 gap-y-10 lg:gap-x-10">
             <div>
                 <h2 class="lg:text-4xl text-2xl mb-8 font-semibold text-center uppercase font-[Oswald] drop-shadow-lg">
                     Чому Варто Звернутися <br class="lg:hidden">Саме В Нашу Компанію?
                 </h2>
                 <p class="mt-14">Куплю волосся - в мережі можна знайти тисячі оголошень, але далеко не
-                    всі продавці працюють чесно. Ми є Європейською компанією, яка співпрацює з клієнтами по всьому світу.
-                    Наша компанія є прямим скупником локонів, тому пропонуємо <x-badge>найвищі ціни.</x-badge> Цінуємо
-                    визнання і довіру наших клієнтів, гарантуємо приємну співпрацю і гідну оплату Вашого товару.
-                    Здійснюємо скупку волосся по Україні і відбираємо якісні, живі зрізи.</p>
+                    всі продавці працюють <x-badge>чесно.</x-badge> Ми є Європейською компанією, яка співпрацює з клієнтами
+                    по всьому світу. Наша компанія є прямим скупником локонів, тому пропонуємо <x-badge> найвищі ціни.
+                    </x-badge> Цінуємо визнання і довіру наших клієнтів, гарантуємо приємну співпрацю і гідну
+                    оплату Вашого товару. Здійснюємо скупку волосся по Україні і відбираємо якісні, живі зрізи.</p>
                 <p class="font-semibold">Після покупки, всі зрізи проходять обробку і надходять в подальший
                     продаж, а також використовуються у виробництві перук.</p>
             </div>
@@ -83,28 +83,28 @@
                 </h3>
 
                 <x-about>
-                    <x-about.item icon='individual' index='1'>
+                    <x-about.item icon='user-round' index='1'>
                         <x-slot:title>Індивідуальність</x-slot>
                         <x-slot:description>Окремий та індивідуальний підхід для кожного нашого покупця</x-slot>
                     </x-about.item>
-                    <x-about.item icon='money' index='2'>
+                    <x-about.item icon='handshake' index='2'>
                         <x-slot:title>Вигоду</x-slot>
                         <x-slot:description>Найвигідніші для Вас умови співпраці. Ми зацікавлені в цьому</x-slot>
                     </x-about.item>
 
-                    <x-about.item icon='handshake' index='3'>
+                    <x-about.item icon='credit-card' index='3'>
                         <x-slot:title>Зручність</x-slot>
                         <x-slot:description>Обговорена грошова виплата в зручний для Вас час та спосіб</x-slot>
                     </x-about.item>
-                    <x-about.item icon='fast-money' index='4'>
+                    <x-about.item icon='gauge' index='4'>
                         <x-slot:title>Швидкість</x-slot>
                         <x-slot:description>Моментальна оплата після оцінки та відправки Вашої шевелюри</x-slot>
                     </x-about.item>
-                    <x-about.item icon='info' index='5'>
+                    <x-about.item icon='badge-info' index='5'>
                         <x-slot:title>Інформативність</x-slot>
                         <x-slot:description>Відправляйте по вайберу фото волосся і спеціаліст оголосить ціну</x-slot>
                     </x-about.item>
-                    <x-about.item icon='style' index='6'>
+                    <x-about.item icon='venetian-mask' index='6'>
                         <x-slot:title>Стиль</x-slot>
                         <x-slot:description>Ми запропонуємо Вам стильну та модну стрижку в подарунок</x-slot>
                     </x-about.item>
@@ -335,14 +335,14 @@
         </div>
     </x-section>
 
-    <x-section class="bg-max-black py-14">
+    <x-section class="bg-max-black">
 
         <x-slot:title class="text-max-light">Покупка волосся</x-slot>
         <x-slot:caption class="text-max-text">
             Які чинники <span class="text-max-orange">впливають на вартість</span>
         </x-slot>
 
-        <div class="grid lg:grid-cols-2 gap-y-8 lg:gap-x-8">
+        <div class="grid lg:grid-cols-2 gap-y-10 lg:gap-x-10">
             <div>
                 <div class="flex">
                     <div class="flex-none text-lg text-max-text me-3">Довжина зрізу</div>
@@ -353,7 +353,7 @@
                         <span class="self-center text-xs font-bold text-max-text">20%</span>
                     </div>
                 </div>
-                <p class="italic text-gray-200/90">Ми купуємо зрізи від 40 сантиметрів. Якщо ваші локони коротші, то
+                <p class="text-sm italic text-white">Ми купуємо зрізи від 40 сантиметрів. Якщо ваші локони коротші, то
                     рекомендуємо ненадовго відкласти продаж, кожен сантиметр здатний сильно відбитися на вартості.</p>
             </div>
             <div>
@@ -366,7 +366,7 @@
                         <span class="self-center text-xs font-bold text-max-text">20%</span>
                     </div>
                 </div>
-                <p class="italic text-gray-200/90">Вища вартість пропонується за якісні, здорові та рівномірні
+                <p class="text-sm italic text-white">Вища вартість пропонується за якісні, здорові та рівномірні
                     локони. М'які і природньо гладкі на дотик пасма, завжди мають значно вищу ціну.</p>
             </div>
             <div>
@@ -379,7 +379,7 @@
                         <span class="self-center text-xs font-bold text-max-text">20%</span>
                     </div>
                 </div>
-                <p class="italic text-gray-200/90">Зріз має бути зроблений за правилами та закріплений зверху
+                <p class="text-sm italic text-white">Зріз має бути зроблений за правилами та закріплений зверху
                     гумкою і не мати колунів. Краще продавати свіжозрізані коси, їх ціна вища. Пролежані
                     прядки втрачають свій природний блиск та натуральні масла, які містяться в них.
                 </p>
@@ -394,7 +394,7 @@
                         <span class="self-center text-xs font-bold text-max-text">20%</span>
                     </div>
                 </div>
-                <p class="italic text-gray-200/90">Ми не приймаємо пошкодженні, ламкі та сухі локони, або локони
+                <p class="text-sm italic text-white">Ми не приймаємо пошкодженні, ламкі та сухі локони, або локони
                     з неоднорідною структурою. А також волосся із завивкою, забруднене або оброблене будь якими
                     хімічними речовинами.</p>
             </div>
@@ -408,7 +408,7 @@
                         <span class="self-center text-xs font-bold text-max-text">20%</span>
                     </div>
                 </div>
-                <p class="italic text-gray-200/90">Пофарбовані пасма будуть коштувати набагато дешевше натуральних.
+                <p class="text-sm italic text-white">Пофарбовані пасма будуть коштувати набагато дешевше натуральних.
                     Скупка волосся здійснюється будь-якому кольорі, але більш висока ціна встановлюється на світлі
                     натуральні тони.
                 </p>
@@ -423,7 +423,7 @@
                         <span class="self-center text-xs font-bold text-max-text">20%</span>
                     </div>
                 </div>
-                <p class="italic text-gray-200/90">Зрізи з сивиною теж підлягають купівлі, але багато залежить
+                <p class="text-sm italic text-white">Зрізи з сивиною теж підлягають купівлі, але багато залежить
                     від доглянутості волосся та як довго росло з сивиною. Забарвлене і сиве волосся приймається від
                     50 сантиметрів.</p>
             </div>
