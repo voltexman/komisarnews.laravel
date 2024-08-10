@@ -14,18 +14,12 @@ use Filament\Resources\Pages\ListRecords;
 use Filament\Support\Enums\Alignment;
 use Filament\Support\Enums\IconSize;
 use Filament\Support\Enums\MaxWidth;
-use Illuminate\Contracts\View\View;
 
 class ListPosts extends ListRecords
 {
     protected static string $resource = PostResource::class;
 
     protected static ?string $title = 'Статті';
-
-    // public function getHeader(): ?View
-    // {
-    //     return view('filament.resources.pages.headers');
-    // }
 
     protected function getHeaderActions(): array
     {

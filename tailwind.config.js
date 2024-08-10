@@ -21,11 +21,11 @@ export default {
                 },
             },
             keyframes: {
-                "slide-ltr": {
+                "slide-top-to-bottom": {
                     "0%": { objectPosition: "top" },
                     "100%": { objectPosition: "bottom" },
                 },
-                "slide-rtl": {
+                "slide-bottom-to-top": {
                     "0%": { objectPosition: "bottom" },
                     "100%": { objectPosition: "top" },
                 },
@@ -47,8 +47,10 @@ export default {
                 },
             },
             animation: {
-                "slide-ltr": "slide-ltr 8s linear infinite alternate",
-                "slide-rtl": "slide-rtl 8s linear infinite alternate",
+                "slide-top-to-bottom":
+                    "slide-top-to-bottom 8s linear infinite alternate",
+                "slide-bottom-to-top":
+                    "slide-bottom-to-top 8s linear infinite alternate",
                 ricochet: "ricochet 25s linear alternate infinite",
                 "jumping-down":
                     "jumping-down 2s ease-in-out alternate infinite",
@@ -64,5 +66,5 @@ export default {
             center: true,
         },
     },
-    plugins: [require("preline/plugin"), require("@tailwindcss/forms")],
+    plugins: [require("@tailwindcss/forms")],
 };
