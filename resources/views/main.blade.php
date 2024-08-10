@@ -45,12 +45,12 @@
                     Подаруєте собі настрій, не бійтеся мінятися і удосконалюватися, продаючи свої коси, ви робите благу
                     справу і заробляєте додаткові гроші на потрібні покупки.</p>
                 <img src="https://picsum.photos/400"
-                    class="object-cover w-full mt-8 mb-8 rounded-full shadow-lg shadow-max-black/30 lg:mb-0 h-52 lg:h-72"
+                    class="object-cover w-full mt-8 mb-8 rounded-full shadow-lg animate-slide-ltr shadow-max-black/30 lg:mb-0 h-52 lg:h-72"
                     alt="">
             </div>
             <div class="col-span-3 leading-5">
                 <img src="https://picsum.photos/500/400"
-                    class="hidden object-cover w-full mb-8 rounded-full shadow-lg h-72 lg:block shadow-max-black/30"
+                    class="hidden object-cover w-full mb-8 rounded-full shadow-lg animate-slide-rtl h-72 lg:block shadow-max-black/30"
                     alt="">
                 <p>Звертайтеся за консультацією прямо зараз за нашими контактами. Ми завжди готові відповісти на будь-які
                     питання і запропонувати вам європейські ціни. Наша компанія завжди готова запропонувати
