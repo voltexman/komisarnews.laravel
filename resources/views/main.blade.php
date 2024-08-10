@@ -7,17 +7,19 @@
 
 @section('header')
     @parent
-    <div class="relative w-full h-screen py-24 overflow-hidden bg-gray-900 isolate sm:py-32">
-        <div class="absolute top-0 left-0 w-full h-full bg-max-black/75"></div>
+    <div class="relative w-full h-screen py-24 overflow-hidden isolate sm:py-32">
+        <div class="absolute top-0 left-0 w-full h-full bg-max-black/60"></div>
         <img data-src="{{ asset('images/bg-header.webp') }}" data-sizes="auto" alt="Komisarnews"
             class="absolute inset-0 object-cover object-right w-full h-full -z-10 md:object-center lazyload animate-ricochet lg:animate-none">
         <div class="px-6 mx-auto max-w-7xl lg:px-8">
             <div class="absolute w-full top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 mx-auto lg:mx-0">
-                <h1 class="text-2xl font-thin text-center text-white uppercase lg:text-4xl"
+                <h1 class="text-2xl font-light text-center text-white uppercase lg:text-5xl"
                     x-intersect="$el.classList.add('slide-down')">
-                    Продаж та покупка<br>волосся <span class="text-max-orange">у Києві.</span></h1>
+                    Продаж та покупка<br>волосся <span class="text-max-orange">у Києві.</span>
+                </h1>
                 <h2 class="mt-5 font-semibold text-center text-white uppercase" x-intersect="$el.classList.add('slide-up')">
-                    Швидко, Дорого, Надійно</h2>
+                    Швидко, Дорого, Надійно
+                </h2>
             </div>
         </div>
         <div class="absolute flex -translate-x-1/2 bottom-8 left-1/2 ">
