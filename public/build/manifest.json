@@ -1,12 +1,7 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-CV_PhFpB.css",
+    "file": "assets/app-DB4mC4eZ.css",
     "src": "resources/css/app.css",
-    "isEntry": true
-  },
-  "resources/css/filament/admin/theme.css": {
-    "file": "assets/theme-Cl_8_uAz.css",
-    "src": "resources/css/filament/admin/theme.css",
     "isEntry": true
   },
   "resources/js/app.js": {
