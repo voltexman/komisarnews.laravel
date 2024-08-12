@@ -1,3 +1,3 @@
-<div x-data="{ selected: 1 }" class="w-full space-y-5 overflow-hidden md:hidden">
+<div x-data="{ selected: 1 }" class="w-full overflow-hidden shadow-lg rounded-xl md:hidden">
     {{ $slot }}
 </div>
