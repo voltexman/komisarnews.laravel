@@ -13,12 +13,12 @@
             class="absolute inset-0 object-cover object-right w-full h-full -z-10 md:object-center lazyload animate-ricochet lg:animate-none">
         <div class="px-6 mx-auto max-w-7xl lg:px-8">
             <div class="absolute w-full top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 mx-auto lg:mx-0">
-                <h1 class="text-2xl font-light text-center text-white uppercase lg:text-5xl"
+                <h1 class="text-2xl font-light text-center text-white uppercase lg:text-6xl"
                     x-intersect="$el.classList.add('slide-down')">
                     Продаж та покупка<br>волосся <span class="text-max-orange">у Києві.</span>
                 </h1>
                 <h2 class="mt-5 font-semibold text-center text-white uppercase" x-intersect="$el.classList.add('slide-up')">
-                    Швидко, Дорого, Надійно
+                    <x-typing-effect text="'Швидко', 'Купуємо дорого', 'Працюємо надійно'" />
                 </h2>
             </div>
         </div>
@@ -47,12 +47,12 @@
                     Подаруєте собі настрій, не бійтеся мінятися і удосконалюватися, продаючи свої коси, ви робите благу
                     справу і заробляєте додаткові гроші на потрібні покупки.</p>
                 <img src="{{ asset('images/about.jpg') }}"
-                    class="object-cover w-full mt-8 mb-8 rounded-full shadow-lg h-36 lg:animate-none animate-slide-top-to-bottom shadow-max-black/30 lg:mb-0 lg:h-72"
+                    class="object-cover w-full mt-8 mb-8 shadow-lg rounded-3xl h-36 lg:animate-none animate-slide-top-to-bottom shadow-max-black/30 lg:mb-0 lg:h-72"
                     alt="">
             </div>
             <div class="col-span-3 leading-5">
                 <img src="{{ asset('images/about2.jpg') }}"
-                    class="hidden object-cover w-full mb-8 rounded-full shadow-lg animate-slide-bottom-to-top h-72 lg:block shadow-max-black/30"
+                    class="hidden object-cover w-full mb-8 shadow-lg rounded-3xl animate-slide-bottom-to-top h-72 lg:block shadow-max-black/30"
                     alt="">
                 <p>Звертайтеся за консультацією прямо зараз за нашими контактами. Ми завжди готові відповісти на будь-які
                     питання і запропонувати вам європейські ціни. Наша компанія завжди готова запропонувати
@@ -70,11 +70,12 @@
                 <h2 class="lg:text-4xl text-2xl mb-8 font-semibold text-center uppercase font-[Oswald] drop-shadow-lg">
                     Чому Варто Звернутися <br class="lg:hidden">Саме В Нашу Компанію?
                 </h2>
-                <p class="mt-14">Куплю волосся - в мережі можна знайти тисячі оголошень, але далеко не
+                <p class="mt-14"><x-badge>Куплю</x-badge> волосся - в мережі можна знайти тисячі оголошень, але далеко не
                     всі продавці працюють <x-badge>чесно.</x-badge> Ми є Європейською компанією, яка співпрацює з клієнтами
                     по всьому світу. Наша компанія є прямим скупником локонів, тому пропонуємо <x-badge> найвищі ціни.
-                    </x-badge> Цінуємо визнання і довіру наших клієнтів, гарантуємо приємну співпрацю і гідну
-                    оплату Вашого товару. Здійснюємо скупку волосся по Україні і відбираємо якісні, живі зрізи.</p>
+                    </x-badge> Цінуємо визнання і довіру наших клієнтів, <x-badge>гарантуємо</x-badge> приємну співпрацю і
+                    гідну оплату Вашого товару. Здійснюємо скупку волосся по <x-badge>Україні</x-badge> і відбираємо якісні,
+                    живі зрізи.</p>
                 <p class="font-semibold">Після покупки, всі зрізи проходять обробку і надходять в подальший
                     продаж, а також використовуються у виробництві перук.</p>
             </div>
@@ -117,11 +118,14 @@
 
     </x-section>
 
-    <x-section class="bg-max-black">
+    <x-section class="relative lg:py-20 bg-max-black">
         <div class="grid lg:grid-cols-2">
-            <div class="justify-center hidden lg:flex">
+            <div class="justify-center hidden space-x-10 lg:flex">
                 <img data-src="{{ asset('images/postman.jpg') }}" alt="Відправка Новою поштою"
-                    class="origin-right shadow-lg rounded-xl lazyload">
+                    class="rounded-3xl shadow-lg w-[220px] object-cover relative -top-8 lazyload">
+                <img data-src="https://delo.ua/static/content/thumbs/1600x900/4/3e/uhemh3---c16x9x50px50p-c16x9x50px50p--edf68aa7bffac560c0d35a9513d3c3e4.jpg"
+                    alt="Відправка Новою поштою"
+                    class="rounded-3xl shadow-lg w-[220px] top-8 relative object-cover lazyload">
             </div>
             <div class="flex flex-col self-center">
                 <h2 class="text-xl font-bold text-center uppercase text-max-light/80 lg:text-left font-[Oswald]">
@@ -263,35 +267,68 @@
         </x-alert>
     </x-section>
 
-    <x-section class="bg-[#f2e9e1] pb-14">
+    <x-section class="bg-[#f2e9e1]">
         <x-slot:title>ПРОДАТИ ВОЛОССЯ АБО<br class="lg:hidden"> ВСЕ Ж ЗБЕРЕГТИ ДОВЖИНУ?</x-slot>
         <x-slot:caption>
             МІНЯЙТЕСЯ І ЗАРОБЛЯЙТЕ<br class="lg:hidden">
             <span class="text-max-orange">НА НОВОМУ ОБРАЗІ ГРОШІ</span>
         </x-slot>
 
-        <p>Якщо ви досі не вирішили, то завжди можете звернутися до нас з питаннями, що цікавлять. Ми готові
-            дати детальну інформацію про продаж та покупку і провести повну консультацію, щоб кожен клієнт міг
-            зробити для себе остаточні висновки. Наші контактні менеджери завжди на зв'язку з клієнтами, що
-            робить наш сервіс кращим.</p>
+        <div class="grid mb-8 lg:grid-cols-2 gap-y-10 lg:gap-x-10 lg:mb-14">
+            <div class="relative p-6 lg:p-10 bg-[#6a7265] rounded-xl">
+                <span
+                    class="bg-max-orange size-16 rounded-full absolute flex items-center justify-center -right-3 p-2 border-4 border-[#f2e9e1] -top-3">
+                    <x-lucide-info class="text-white size-8" />
+                </span>
 
-        <p>Гарна густа шевелюра – це справжнє багатство будь-якої жінки.
-            Стильна зачіска завжди прикрашає образ, робить його більш ніжним, акуратним, жіночним і
-            природним. Але така краса, забирає не тільки грошові вкладення, але й багато часу, сил і терпіння.
-            Тривалі укладання, дорогий догляд, ерез це, в сучасному світі, де кожна хвилина
-            на рахунку, іноді просто немає можливості цим займатись. Якщо ви зважилися щось
-            змінити, змінити образ, надати йому родзинку і відчути небувалу легкість, то пропонуємо вам
-            продати волосся. Якщо ви думаєте про продаж волосся але ніяк не зважитеся, то уявіть, скільки
-            вільного часу у вас з'явиться. Ви зможете присвятити цінні години улюбленій справі, приділити
-            увагу близьким, а не витрачати час на укладання. Свіжий образ надихне вас на нові справи,
-            подарує впевненість, а компліменти на вашу адресу будуть сипатися звідусіль. Змінюючи себе, свій
-            образ і стиль, ви можете заробити хороші гроші в свій сімейний бюджет! Ще ніколи зміна образу не
-            була такою прибутковою. Пам'ятайте, що ваші локони можуть принести радість іншим людям, які в
-            силу різних причин не мають можливості відростити красиву довжину.</p>
+                <div class="font-semibold text-max-light">
+                    Якщо ви досі не вирішили, то завжди можете звернутися до нас з питаннями, що
+                    цікавлять. Ми готові дати детальну інформацію про продаж та покупку і провести повну консультацію,
+                    щоб кожен клієнт міг зробити для себе остаточні висновки. Наші контактні менеджери завжди на зв'язку
+                    з клієнтами, що робить наш сервіс кращим.
+                </div>
+            </div>
 
-        <p>Вся продукція надходить в салони, для процедур нарощування, а також на виробництво перук, накладних кіс і
-            шиньйонів.</p>
+            <div
+                class="font-[Oswald] flex items-center text-xl lg:text-3xl font-normal uppercase drop-shadow-lg text-center">
+                Вся продукція надходить в салони, для процедур нарощування,
+                а також на виробництво перук, накладних кіс і шиньйонів.
+            </div>
+        </div>
 
+        <div class="grid lg:mt-20 lg:grid-cols-2 gap-y-10 lg:gap-x-10">
+            <div>Гарна густа шевелюра – це справжнє багатство будь-якої жінки.
+                Стильна зачіска завжди прикрашає образ, робить його більш ніжним, акуратним, жіночним і
+                природним. Але така краса, забирає не тільки грошові вкладення, але й багато часу, сил і терпіння.
+                Тривалі укладання, дорогий догляд, ерез це, в сучасному світі, де кожна хвилина
+                на рахунку, іноді просто немає можливості цим займатись. Якщо ви зважилися щось
+                змінити, змінити образ, надати йому родзинку і відчути небувалу легкість, то пропонуємо вам
+                продати волосся. Якщо ви думаєте про продаж волосся але ніяк не зважитеся, то уявіть, скільки
+                вільного часу у вас з'явиться. Ви зможете присвятити цінні години улюбленій справі, приділити
+                увагу близьким, а не витрачати час на укладання. Свіжий образ надихне вас на нові справи,
+                подарує впевненість, а компліменти на вашу адресу будуть сипатися звідусіль. Змінюючи себе, свій
+                образ і стиль, ви можете заробити хороші гроші в свій сімейний бюджет! Ще ніколи зміна образу не
+                була такою прибутковою. Пам'ятайте, що ваші локони можуть принести радість іншим людям, які в
+                силу різних причин не мають можливості відростити красиву довжину.
+            </div>
+            <div class="grid grid-cols-3 gap-x-5">
+                <div class="overflow-hidden shadow-lg rounded-3xl shadow-max-dark/40">
+                    <img src="https://newbreed.com.ua/wp-content/uploads/2020/10/kare-dlja-hudogo-lica2.jpg"
+                        class="object-cover animate-scale-in size-full lazyload" alt="">
+                </div>
+                <div class="overflow-hidden shadow-lg rounded-3xl shadow-max-dark/40">
+                    <img src="https://newbreed.com.ua/wp-content/uploads/2020/10/bob-dlja-hudogo-lica1.jpg"
+                        class="object-cover animate-scale-out size-full lazyload" alt="">
+                </div>
+                <div class="overflow-hidden shadow-lg rounded-3xl shadow-max-dark/40">
+                    <img src="https://newbreed.com.ua/wp-content/uploads/2020/10/piksi-dlja-hudogo-lica3.jpg"
+                        class="object-cover animate-scale-in size-full lazyload" alt="">
+                </div>
+            </div>
+        </div>
+    </x-section>
+
+    <x-section class="bg-max-light">
         <div class="grid mt-10 gap-14 lg:grid-cols-2">
             <x-list class="mb-3">
                 <x-slot:caption>
@@ -321,18 +358,20 @@
                 </x-list.item>
             </x-list>
 
-            <div class="relative p-6 text-white lg:p-10 bg-max-orange rounded-xl">
+            <div class="relative p-6 lg:p-10 bg-max-orange rounded-xl">
                 <span
                     class="bg-[#6a7265] size-16 rounded-full absolute flex items-center justify-center -right-3 p-2 border-4 border-[#f2e9e1] -top-3">
-                    <x-lucide-info class="size-8" />
+                    <x-lucide-info class="text-white size-8" />
                 </span>
-                <div class="font-[Oswald] text-lg mb-5">Ми гарантуємо чесну оцінку, без заниження ціни.</div>
-                <p class="font-medium">Натуральне слов'янське волосся - це дуже цінний товар, який не може коштувати
-                    мало. Ми готові запропонувати дійсно високі ціни, так як цінуємо Вашу працю та час, витрачений на
-                    догляд за такою шевелюрою. Щоб збільшити вартість, можна попередньо підготувати волосся. Пропийте
+                <div class="font-[Oswald] text-max-light text-lg mb-5">
+                    Ми гарантуємо чесну оцінку, без заниження ціни.
+                </div>
+                <div class="font-medium text-max-light">Натуральне слов'янське волосся - це дуже цінний товар, який не може
+                    коштувати мало. Ми готові запропонувати дійсно високі ціни, так як цінуємо Вашу працю та час, витрачений
+                    на догляд за такою шевелюрою. Щоб збільшити вартість, можна попередньо підготувати волосся. Пропийте
                     курс вітамінів, використовуйте натуральні масла, пийте більше рідини, стежте за кінчиками волосся,
                     постійно оновлюючи їх і позбавляючись від посічених кінців. Нас цікавлять живі, здорові, блискучі
-                    пасма.</p>
+                    пасма.</div>
             </div>
         </div>
     </x-section>

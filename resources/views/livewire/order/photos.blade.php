@@ -38,9 +38,9 @@
                 </div>
                 <div class="flex items-stretch w-2/3">
                     <div class="flex flex-col self-center">
-                        <x-button>
+                        <x-button class="flex items-center justify-center">
                             <x-lucide-camera class="inline-flex size-5 me-1" />
-                            Відкрити зображення
+                            Відкрити<span class="hidden md:block">&nbsp;зображення</span>
                         </x-button>
                         <span class="text-sm text-max-dark/70">або перетягнути сюди...</span>
                     </div>
@@ -95,13 +95,12 @@
             </div>
         @else
             <x-alert class="mt-5">
-                <div class="m-0 line-clamp-3">Намагайтесь обирати максимально вигідні фото та ракурс, який найкраще
-                    відображає волосся та їх стан. Можете додати до <b>4</b> фотографії.</div>
+                <div class="m-0">Намагайтесь обирати максимально вигідні фото та ракурс, який найкраще
+                    відображає волосся та їх стан. Максимум до <b>4</b> фото.</div>
             </x-alert>
             <x-alert type='warning' class="mt-5">
-                <div class="m-0 line-clamp-4">Не застосовуйте фільтрів, які змінюють кольори та якість фото. Не робіть
-                    фото занадто малим, щоб майстер міг детальніше роздивитись волосся. Не наносьте на фото написів та
-                    водяних знаків.</div>
+                <div class="m-0">Не застосовуйте фільтрів, які змінюють кольори та якість фото. Не робіть
+                    фото занадто малим, щоб майстер міг детальніше роздивитись волосся.</div>
             </x-alert>
         @endif
     </div>

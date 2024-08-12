@@ -34,7 +34,7 @@
 
             <template x-if="'{{ $required }}'">
                 <div class="absolute text-lg top-2 right-2">
-                    <span class="block bg-red-500 h-1.5 w-1.5 rounded-full"></span>
+                    <span class="block bg-red size-1.5 rounded-full"></span>
                 </div>
             </template>
 

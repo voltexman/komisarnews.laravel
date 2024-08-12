@@ -1,10 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-    content: [
-        "./resources/**/*.blade.php",
-        "./resources/**/*.js",
-        "node_modules/preline/dist/*.js",
-    ],
+    content: ["./resources/**/*.blade.php", "./resources/**/*.js"],
     darkMode: "media",
     theme: {
         extend: {
@@ -33,9 +29,13 @@ export default {
                     "0%": { objectPosition: "left" },
                     "100%": { objectPosition: "right" },
                 },
-                scale: {
-                    "0%": { scale: ".95" },
-                    "100%": { scale: "1.1" },
+                "scale-in": {
+                    "0%": { scale: "1" },
+                    "100%": { scale: "1.5" },
+                },
+                "scale-out": {
+                    "0%": { scale: "1.5" },
+                    "100%": { scale: "1" },
                 },
                 "jumping-up": {
                     "0%": { transform: "translateY(0px)" },
@@ -55,7 +55,8 @@ export default {
                 "jumping-down":
                     "jumping-down 2s ease-in-out alternate infinite",
                 "jumping-up": "jumping-up 2s ease-in-out alternate infinite",
-                scale: "scale .5s linear alternate infinite",
+                "scale-in": "scale-in 10s ease-in-out alternate infinite",
+                "scale-out": "scale-out 10s ease-in-out alternate infinite",
             },
         },
         fontFamily: {

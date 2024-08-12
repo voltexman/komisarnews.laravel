@@ -32,7 +32,7 @@ class AdminPanelProvider extends PanelProvider
                 'primary' => Color::hex('#9F8772'),
             ])
             ->font('Nunito', provider: GoogleFontProvider::class)
-            ->brandLogo(fn() => view('filament.admin.logo'))
+            ->brandLogo(fn () => view('filament.admin.logo'))
             ->favicon(asset('favicon.png'))
             ->breadcrumbs(false)
             ->navigationGroups(['Main', 'Settings'])->collapsibleNavigationGroups()
