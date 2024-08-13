@@ -4,6 +4,9 @@ export default {
     darkMode: "media",
     theme: {
         extend: {
+            backgroundImage: {
+                barber: "url('/public/images/barber.png')",
+            },
             colors: {
                 max: {
                     orange: "#c28566",

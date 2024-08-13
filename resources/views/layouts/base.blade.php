@@ -72,8 +72,8 @@
 
                     {{-- Logo --}}
                     <div class="flex items-center flex-shrink-0">
-                        <a href="/" class="text-lg font-normal text-white uppercase">
-                            Kom<span class="px-2 text-white rounded bg-max-dark">!</span>sarnews
+                        <a href="{{ route('main') }}" class="text-lg font-normal text-white uppercase">
+                            Kom!sar<span class="px-1 text-white rounded bg-max-orange">news</span>
                         </a>
                     </div>
 

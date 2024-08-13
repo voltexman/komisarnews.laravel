@@ -297,50 +297,55 @@
         </div>
 
         <div class="grid lg:mt-20 lg:grid-cols-2 gap-y-10 lg:gap-x-10">
-            <div>
-                <p>Гарна густа шевелюра – це справжнє багатство будь-якої жінки.
-                    Стильна зачіска завжди прикрашає образ, робить його більш ніжним, акуратним, жіночним і
-                    природним.</p>
-                <p>Але така краса, забирає не тільки грошові вкладення, але й багато часу, сил і терпіння.
-                    Тривалі укладання, дорогий догляд, ерез це, в сучасному світі, де кожна хвилина
-                    на рахунку, іноді просто немає можливості цим займатись. Якщо ви зважилися щось
-                    змінити, змінити образ, надати йому родзинку і відчути небувалу легкість, то пропонуємо вам
-                    продати волосся. Якщо ви думаєте про продаж волосся але ніяк не зважитеся, то уявіть, скільки
-                    вільного часу у вас з'явиться. Ви зможете присвятити цінні години улюбленій справі, приділити
-                    увагу близьким, а не витрачати час на укладання. Свіжий образ надихне вас на нові справи,
-                    подарує впевненість, а компліменти на вашу адресу будуть сипатися звідусіль. Змінюючи себе, свій
-                    образ і стиль, ви можете заробити хороші гроші в свій сімейний бюджет! Ще ніколи зміна образу не
-                    була такою прибутковою. Пам'ятайте, що ваші локони можуть принести радість іншим людям, які в
-                    силу різних причин не мають можливості відростити красиву довжину.</p>
+            <div class="relative">
+                <div class="absolute inset-0 z-0 bg-center bg-no-repeat bg-contain bg-barber opacity-15"></div>
+                <div class="relative z-10">
+                    <p>Гарна густа шевелюра – це справжнє багатство будь-якої жінки.
+                        Стильна зачіска завжди прикрашає образ, робить його більш ніжним, акуратним, жіночним і
+                        природним.</p>
+                    <p>Але така краса, забирає не тільки грошові вкладення, але й багато часу, сил і терпіння.
+                        Тривалі укладання, дорогий догляд, ерез це, в сучасному світі, де кожна хвилина
+                        на рахунку, іноді просто немає можливості цим займатись. Якщо ви зважилися щось
+                        змінити, змінити образ, надати йому родзинку і відчути небувалу <x-badge>легкість</x-badge>, то
+                        пропонуємо вам
+                        продати волосся. Якщо ви думаєте про продаж волосся але ніяк не зважитеся, то уявіть, скільки
+                        <x-badge>вільного часу</x-badge> у вас з'явиться. Ви зможете присвятити цінні години улюбленій
+                        справі, приділити
+                        увагу близьким, а не витрачати час на укладання. <x-badge>Свіжий образ</x-badge> надихне вас на нові
+                        справи,
+                        подарує впевненість, а компліменти на вашу адресу будуть сипатися звідусіль. Змінюючи себе, свій
+                        образ і стиль, ви можете заробити хороші гроші в свій сімейний бюджет! Ще ніколи зміна образу не
+                        була такою <x-badge>прибутковою</x-badge>. Пам'ятайте, що ваші локони можуть принести радість іншим
+                        людям, які в
+                        силу різних причин не мають можливості відростити красиву довжину.
+                    </p>
+                </div>
             </div>
             <div class="grid grid-cols-3 gap-x-8">
-                <div
-                    class="relative overflow-hidden transition duration-500 shadow-lg rounded-3xl shadow-max-dark/40 hover:shadow-xl">
+                <div class="relative overflow-hidden shadow-lg rounded-3xl shadow-max-dark/40">
                     <div class="absolute inset-0 z-30 flex items-center justify-center">
                         <div
-                            class="text-3xl tracking-widest drop-shadow-md font-light text-white [writing-mode:vertical-lr] uppercase">
+                            class="text-3xl lg:text-5xl tracking-widest drop-shadow-md font-light text-white [writing-mode:vertical-lr] uppercase">
                             Стильно
                         </div>
                     </div>
                     <img src="https://newbreed.com.ua/wp-content/uploads/2020/10/kare-dlja-hudogo-lica2.jpg"
                         class="object-cover w-full animate-scale-in h-80 lg:h-full lazyload" alt="">
                 </div>
-                <div
-                    class="relative overflow-hidden transition duration-500 scale-110 shadow-lg rounded-3xl shadow-max-dark/40 hover:shadow-xl">
+                <div class="relative overflow-hidden shadow-lg rounded-3xl shadow-max-dark/40 w-auto h-[110%] -top-[5%]">
                     <div class="absolute inset-0 z-30 flex items-center justify-center">
                         <div
-                            class="text-3xl tracking-widest drop-shadow-lg font-light text-white [writing-mode:vertical-lr] uppercase">
+                            class="text-3xl lg:text-5xl tracking-widest drop-shadow-lg font-light text-white [writing-mode:vertical-lr] uppercase">
                             Модно
                         </div>
                     </div>
                     <img src="https://newbreed.com.ua/wp-content/uploads/2020/10/bob-dlja-hudogo-lica1.jpg"
                         class="object-cover animate-scale-out size-full lazyload" alt="">
                 </div>
-                <div
-                    class="relative overflow-hidden transition duration-500 shadow-lg rounded-3xl shadow-max-dark/40 hover:shadow-xl">
+                <div class="relative overflow-hidden shadow-lg rounded-3xl shadow-max-dark/40">
                     <div class="absolute inset-0 z-30 flex items-center justify-center">
                         <div
-                            class="text-3xl tracking-widest drop-shadow-lg font-light text-white [writing-mode:vertical-lr] uppercase">
+                            class="text-3xl lg:text-5xl tracking-widest drop-shadow-lg font-light text-white [writing-mode:vertical-lr] uppercase">
                             Молодіжно
                         </div>
                     </div>

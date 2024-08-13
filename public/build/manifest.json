@@ -1,6 +1,10 @@
 {
+  "public/images/barber.png": {
+    "file": "assets/barber-CJ4SNP6M.png",
+    "src": "public/images/barber.png"
+  },
   "resources/css/app.css": {
-    "file": "assets/app-Dwhir_D6.css",
+    "file": "assets/app-B1WzNT8z.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
