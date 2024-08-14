@@ -92,16 +92,16 @@ class PostResource extends Resource
                             Toggle::make('is_published')
                                 ->onIcon('heroicon-m-eye')
                                 ->offIcon('heroicon-m-eye-slash')
-                                ->label(fn (Get $get): string => $get('is_published') ? 'Опубліковано' : 'Приховано')
-                                ->afterStateUpdated(fn (Set $set, bool $state) => $set('is_published', $state))
+                                ->label(fn(Get $get): string => $get('is_published') ? 'Опубліковано' : 'Приховано')
+                                ->afterStateUpdated(fn(Set $set, bool $state) => $set('is_published', $state))
                                 ->hint('Публікація')
                                 ->live(),
 
                             Toggle::make('is_indexing')
                                 ->onIcon('heroicon-m-document-magnifying-glass')
                                 ->offIcon('heroicon-m-document-minus')
-                                ->label(fn (Get $get): string => $get('is_indexing') ? 'Індексується' : 'Не індексується')
-                                ->afterStateUpdated(fn (Set $set, bool $state) => $set('is_indexing ', $state))
+                                ->label(fn(Get $get): string => $get('is_indexing') ? 'Індексується' : 'Не індексується')
+                                ->afterStateUpdated(fn(Set $set, bool $state) => $set('is_indexing ', $state))
                                 ->hint('Індексація')
                                 ->live(),
                         ])->collapsible(),
@@ -147,12 +147,12 @@ class PostResource extends Resource
                                 ->label('Категорія')
                                 ->prefixIcon('heroicon-o-rectangle-stack')
                                 ->prefixIconColor('primary')
-                                ->afterStateUpdated(fn (Set $set, $state) => $set('category', $state))
+                                ->afterStateUpdated(fn(Set $set, $state) => $set('category', $state))
                                 ->native(false)->live(),
                         ])->from('lg'),
 
                         SpatieTagsInput::make('tags')->label('Теги')->rules(['max:8'])
-                            ->hidden(fn (Get $get) => $get('category') === Post::CATEGORY_CITIES)
+                            ->hidden(fn(Get $get) => $get('category') === Post::CATEGORY_CITIES)
                             ->required()->validationMessages([
                                 'required' => 'Необхідно вказати декілька тегів',
                             ]),
@@ -191,7 +191,7 @@ class PostResource extends Resource
 
                 TextColumn::make('name')
                     ->label('Назва статті')
-                    ->description(fn (Post $record): string => Str::limit($record->slug, 30))
+                    ->description(fn(Post $record): string => Str::limit($record->slug, 30))
                     ->searchable(),
 
                 TextColumn::make('category')

@@ -329,7 +329,7 @@
                             Стильно
                         </div>
                     </div>
-                    <img src="https://newbreed.com.ua/wp-content/uploads/2020/10/kare-dlja-hudogo-lica2.jpg"
+                    <img data-src="{{ Vite::asset('resources/images/stilno.jpg') }}"
                         class="object-cover w-full animate-scale-in h-80 lg:h-full lazyload" alt="">
                 </div>
                 <div class="relative overflow-hidden shadow-lg rounded-3xl shadow-max-dark/40 w-auto h-[110%] -top-[5%]">
@@ -339,7 +339,7 @@
                             Модно
                         </div>
                     </div>
-                    <img src="https://newbreed.com.ua/wp-content/uploads/2020/10/bob-dlja-hudogo-lica1.jpg"
+                    <img data-src="{{ Vite::asset('resources/images/modno.jpg') }}"
                         class="object-cover animate-scale-out size-full lazyload" alt="">
                 </div>
                 <div class="relative overflow-hidden shadow-lg rounded-3xl shadow-max-dark/40">
@@ -349,7 +349,7 @@
                             Молодіжно
                         </div>
                     </div>
-                    <img src="https://newbreed.com.ua/wp-content/uploads/2020/10/piksi-dlja-hudogo-lica3.jpg"
+                    <img data-src="{{ Vite::asset('resources/images/molodezhno.jpg') }}"
                         class="object-cover animate-scale-in size-full lazyload" alt="">
                 </div>
             </div>

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -109,7 +111,7 @@
     .mapBackground {
         fill: #a38a79;
         stroke: #796249;
-        stroke-width: 0.8;
+        stroke-width: .6;
         transition: 0.5s;
         cursor: pointer;
     }

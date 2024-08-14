@@ -3,16 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link rel="preload" as="style" onload="this.rel='stylesheet'"
-        href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, shrink-to-fit=no">
-
     <meta name="google-site-verification" content="P_5zyoITcuRC83ELC_TcPLOmRi_NKcdcH4Sct9jORGg" />
 
     {{-- // TODO: Додати favicon для всіх можливих варіантів --}}
@@ -28,14 +19,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="brown">
     <!-- Disable automatic phone number detection. -->
     <meta name="format-detection" content="telephone=no">
-
-    <title>@yield('title')</title>
-
-    @hasSection('description')
-        <meta name="description" content="@yield('description')">
-    @endif
-
-    <meta name="robots" content="@yield('robots')">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -64,10 +47,9 @@
         @section('header')
             <nav x-data="navbar" x-init="scrolled"
                 class="container fixed z-50 w-full duration-500 lg:-translate-x-1/2 lg:left-1/2 lg:rounded-xl lg:top-3"
-                x-cloak
                 x-bind:class="(isScrolled || navIsOpen || searchIsOpen) &&
                 'bg-max-black/90 backdrop-blur-sm shadow-lg shadow-max-black/40'"
-                @scroll.window="scrolled">
+                @scroll.window="scrolled" x-cloak>
                 <div class="relative flex items-center justify-between h-16">
 
                     {{-- Logo --}}

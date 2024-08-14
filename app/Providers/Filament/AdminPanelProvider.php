@@ -32,7 +32,6 @@ class AdminPanelProvider extends PanelProvider
                 'primary' => Color::hex('#9F8772'),
             ])
             ->font('Nunito', provider: GoogleFontProvider::class)
-            ->brandLogo(fn () => view('filament.admin.logo'))
             ->favicon(asset('favicon.png'))
             ->breadcrumbs(false)
             ->navigationGroups(['Main', 'Settings'])->collapsibleNavigationGroups()
@@ -41,7 +40,6 @@ class AdminPanelProvider extends PanelProvider
             ->pages([
                 Pages\Dashboard::class,
             ])
-            ->viteTheme('resources/css/filament/admin/theme.css')
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
