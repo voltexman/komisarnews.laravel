@@ -24,14 +24,10 @@
         <form wire:submit='save'>
             <div class="flex">
                 <div class="text-sm uppercase text-max-text">Передзвоніть мені</div>
-                <div class="inline-block ms-2 hs-tooltip">
-                    <x-lucide-circle-help class="transition cursor-pointer size-4 text-max-light/80 hover:text-max-light" />
-                    <div class="absolute z-10 invisible inline-block p-2 overflow-hidden transition-opacity rounded shadow-sm opacity-0 max-w-64 bg-max-dark/70 hs-tooltip-content hs-tooltip-shown:opacity-100 backdrop-blur hs-tooltip-shown:visible"
-                        role="tooltip">
-                        <p class="text-xs font-medium text-max-light">
-                            Якщо у Вас не ви стачає грошей на рахунку,
-                            наш майстер або менеджер зателефонує Вам в зручний для Вас час.</p>
-                    </div>
+                <div class="inline-block ms-2">
+                    <x-tooltip color='white'>
+                        Якщо у Вас не ви стачає грошей на рахунку, менеджер зателефонує Вам в зручний для Вас час.
+                    </x-tooltip>
                 </div>
             </div>
             <x-form.input label="Номер телефону" name="form.phone" icon="phone" color="dark"
