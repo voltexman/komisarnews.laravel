@@ -121,10 +121,9 @@
     <x-section class="relative lg:py-20 bg-max-black">
         <div class="grid lg:grid-cols-2">
             <div class="justify-center hidden space-x-10 lg:flex">
-                <img data-src="{{ asset('images/postman.jpg') }}" alt="Відправка Новою поштою"
+                <img data-src="{{ Vite::asset('resources/images/postman.jpg') }}" alt="Відправка Новою поштою"
                     class="rounded-3xl shadow-lg w-[220px] object-cover relative -top-8 lazyload">
-                <img data-src="https://delo.ua/static/content/thumbs/1600x900/4/3e/uhemh3---c16x9x50px50p-c16x9x50px50p--edf68aa7bffac560c0d35a9513d3c3e4.jpg"
-                    alt="Відправка Новою поштою"
+                <img data-src="{{ Vite::asset('resources/images/postman-2.jpg') }}" alt="Відправка Новою поштою"
                     class="rounded-3xl shadow-lg w-[220px] top-8 relative object-cover lazyload">
             </div>
             <div class="flex flex-col self-center">

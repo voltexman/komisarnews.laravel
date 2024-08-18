@@ -4,7 +4,7 @@
     "src": "public/images/barber.png"
   },
   "resources/css/app.css": {
-    "file": "assets/app--SzBZEPm.css",
+    "file": "assets/app-Bq9ps5Mv.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -39,6 +39,10 @@
   "resources/images/parting.jpg": {
     "file": "assets/parting-DxyQxVqG.jpg",
     "src": "resources/images/parting.jpg"
+  },
+  "resources/images/postman-2.jpg": {
+    "file": "assets/postman-2-CN4LJRhN.jpg",
+    "src": "resources/images/postman-2.jpg"
   },
   "resources/images/postman.jpg": {
     "file": "assets/postman-CUnoQylF.jpg",

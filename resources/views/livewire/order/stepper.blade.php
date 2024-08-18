@@ -71,7 +71,6 @@
 
                     {{-- Parameters Content --}}
                     <x-stepper.content x-show="step == 2">
-
                         <x-form.select label="Вкажіть колір волосся" id="colors">
                             @foreach (App\Enums\Order\Colors::cases() as $color)
                                 <option value="{{ $color->value }}">
@@ -376,7 +375,7 @@
 
                 <!-- Button Group -->
                 <div class="flex justify-between gap-x-2">
-                    <x-button @click="prev" color="dark">
+                    <x-button @click="preview" color="dark">
                         <x-lucide-arrow-left class="inline-block size-4 me-1" />Назад
                     </x-button>
 
@@ -452,17 +451,3 @@
     @endsession
 </x-stepper>
 <!-- End Stepper -->
-
-@script
-    <script>
-        Alpine.data('stepper', () => ({
-            step: 3,
-            next() {
-                this.step > 5 ? null : this.step = this.step + 1;
-            },
-            prev() {
-                this.step < 2 ? null : this.step = this.step - 1;
-            }
-        }));
-    </script>
-@endscript
