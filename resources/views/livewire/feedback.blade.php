@@ -38,14 +38,14 @@
 
             <div wire:loading wire:target="save"
                 class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 start-1/2">
-                <div class="animate-spin inline-block w-14 h-14 border-[3px] border-current border-t-transparent text-max-soft rounded-full"
+                <div class="animate-spin inline-block size-14 border-[3px] border-current border-t-transparent text-max-soft rounded-full"
                     role="status" aria-label="loading">
                     <span class="sr-only">Loading...</span>
                 </div>
             </div>
 
             <div class="flex justify-center">
-                <x-button type="submit" color='soft' class="mt-8">Надіслати
+                <x-button type="submit" color='orange' class="mt-8">Надіслати
                     <x-lucide-send class="size-4 inline-block ms-1.5" />
                 </x-button>
             </div>

@@ -89,7 +89,7 @@
                     <div class="inset-y-0 right-0 flex items-center mx-2 sm:static sm:inset-auto">
                         <div class="flex items-center order-1 ms-auto lg:ms-0">
                             <a href="#map" aria-label="Обрати місто">
-                                <x-button class="flex items-center uppercase bg-max-orange">
+                                <x-button class="flex items-center uppercase" color='orange'>
                                     <x-lucide-map-pin class="flex-none size-4 me-1" />
                                     <span class="hidden lg:block">Обрати місто</span>
                                     <span class="block lg:hidden">Міста</span>
