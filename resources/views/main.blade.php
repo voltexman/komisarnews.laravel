@@ -47,13 +47,13 @@
                 <p>Жителі багатьох міст можуть <x-badge>продати волосся</x-badge> особисто <x-badge>нам в руки!</x-badge>
                     Подаруєте собі настрій, не бійтеся мінятися і удосконалюватися, продаючи свої коси, ви робите благу
                     справу і заробляєте додаткові гроші на потрібні покупки.</p>
-                <img src="{{ Vite::asset('resources/images/about.jpg') }}"
-                    class="object-cover w-full mt-8 mb-8 shadow-lg rounded-3xl h-36 lg:animate-none animate-slide-top-to-bottom shadow-max-black/30 lg:mb-0 lg:h-72"
+                <img data-src="{{ Vite::asset('resources/images/about.jpg') }}"
+                    class="object-cover w-full mt-8 mb-8 shadow-lg rounded-3xl h-36 lg:animate-none animate-slide-top-to-bottom shadow-max-black/30 lg:mb-0 lg:h-72 lazyload"
                     alt="">
             </div>
             <div class="col-span-3 leading-5">
-                <img src="{{ Vite::asset('resources/images/about-2.jpg') }}"
-                    class="hidden object-cover w-full mb-8 shadow-lg rounded-3xl animate-slide-bottom-to-top h-72 lg:block shadow-max-black/30"
+                <img data-src="{{ Vite::asset('resources/images/about-2.jpg') }}"
+                    class="hidden object-cover w-full mb-8 shadow-lg rounded-3xl animate-slide-bottom-to-top h-72 lg:block shadow-max-black/30 lazyload"
                     alt="">
                 <p>Звертайтеся за консультацією прямо зараз за нашими контактами. Ми завжди готові відповісти на будь-які
                     питання і запропонувати вам європейські ціни. Наша компанія завжди готова запропонувати
