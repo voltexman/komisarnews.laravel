@@ -60,7 +60,7 @@
 
     @error($name)
         <div>
-            <span class="text-xs text-red-500">{{ $message }}</span>
+            <span class="text-xs text-red">{{ $message }}</span>
         </div>
     @enderror
 </div>
