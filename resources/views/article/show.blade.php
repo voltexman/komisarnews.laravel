@@ -1,13 +1,5 @@
 @extends('layouts.base')
 
-@section('title', $post->title)
-
-@if ($post->description)
-    @section('description', $post->description)
-@endif
-
-@section('robots', $post->is_indexing ? 'all' : 'noindex, nofollow')
-
 @section('header')
     @parent
     <div class="relative h-[280px] w-full overflow-hidden">
@@ -19,14 +11,14 @@
 
             <div class="flex mt-3 space-x-3">
                 @if ($post->comments->count() > 0)
-                    <div class="flex space-x-1 text-sm font-semibold text-gray-100/80">
+                    <div class="flex space-x-1 text-sm font-semibold text-max-white/80">
                         <span><x-lucide-message-square-text class="inline-block size-4" /></span>
                         <span class="mt-0.5">{{ $post->comments->count() }}</span>
                     </div>
                 @endif
 
                 @if ($post->likes->count() > 0)
-                    <div class="flex space-x-1 text-sm font-semibold text-gray-100/80">
+                    <div class="flex space-x-1 text-sm font-semibold text-max-light/80">
                         <span><x-lucide-thumbs-up class="inline-block size-4" /></span>
                         <span class="mt-0.5">{{ $post->likes->count() }}</span>
                     </div>
