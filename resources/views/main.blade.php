@@ -13,11 +13,12 @@
             class="absolute inset-0 object-cover object-right w-full h-full -z-10 md:object-center lazyload animate-ricochet lg:animate-none">
         <div class="px-6 mx-auto max-w-7xl lg:px-8">
             <div class="absolute w-full top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 mx-auto lg:mx-0">
-                <h1 class="text-2xl font-light text-center text-white uppercase lg:text-6xl"
+                <h1 class="text-2xl font-light text-center uppercase text-max-light lg:text-6xl"
                     x-intersect="$el.classList.add('slide-down')">
                     Продаж та покупка<br>волосся <span class="text-max-orange">у Києві.</span>
                 </h1>
-                <h2 class="mt-5 font-semibold text-center text-white uppercase" x-intersect="$el.classList.add('slide-up')">
+                <h2 class="mt-5 font-semibold text-center uppercase text-max-light"
+                    x-intersect="$el.classList.add('slide-up')">
                     <x-typing-effect text="'Швидко реагуємо', 'Купуємо дорого', 'Працюємо надійно'" />
                 </h2>
             </div>
@@ -277,7 +278,7 @@
             <div class="relative p-6 lg:p-10 bg-[#6a7265] rounded-xl">
                 <span
                     class="bg-max-orange size-16 rounded-full absolute flex items-center justify-center -right-3 p-2 border-4 border-[#f2e9e1] -top-3">
-                    <x-lucide-info class="text-white size-8" />
+                    <x-lucide-info class="text-max-light size-8" />
                 </span>
 
                 <div class="font-semibold text-max-light">
@@ -324,7 +325,7 @@
                 <div class="relative overflow-hidden shadow-lg rounded-3xl shadow-max-dark/40">
                     <div class="absolute inset-0 z-30 flex items-center justify-center">
                         <div
-                            class="text-3xl lg:text-5xl tracking-widest drop-shadow-md font-light text-white [writing-mode:vertical-lr] uppercase">
+                            class="text-3xl lg:text-5xl tracking-widest drop-shadow-md font-light text-max-light [writing-mode:vertical-lr] uppercase">
                             Стильно
                         </div>
                     </div>
@@ -334,7 +335,7 @@
                 <div class="relative overflow-hidden shadow-lg rounded-3xl shadow-max-dark/40 w-auto h-[110%] -top-[5%]">
                     <div class="absolute inset-0 z-30 flex items-center justify-center">
                         <div
-                            class="text-3xl lg:text-5xl tracking-widest drop-shadow-lg font-light text-white [writing-mode:vertical-lr] uppercase">
+                            class="text-3xl lg:text-5xl tracking-widest drop-shadow-lg font-light text-max-light [writing-mode:vertical-lr] uppercase">
                             Модно
                         </div>
                     </div>
@@ -344,7 +345,7 @@
                 <div class="relative overflow-hidden shadow-lg rounded-3xl shadow-max-dark/40">
                     <div class="absolute inset-0 z-30 flex items-center justify-center">
                         <div
-                            class="text-3xl lg:text-5xl tracking-widest drop-shadow-lg font-light text-white [writing-mode:vertical-lr] uppercase">
+                            class="text-3xl lg:text-5xl tracking-widest drop-shadow-lg font-light text-max-light [writing-mode:vertical-lr] uppercase">
                             Молодіжно
                         </div>
                     </div>
@@ -388,7 +389,7 @@
             <div class="relative p-6 lg:p-10 bg-max-orange rounded-xl">
                 <span
                     class="bg-[#6a7265] size-16 rounded-full absolute flex items-center justify-center -right-3 p-2 border-4 border-[#f2e9e1] -top-3">
-                    <x-lucide-info class="text-white size-8" />
+                    <x-lucide-info class="text-max-light size-8" />
                 </span>
                 <div class="font-[Oswald] text-max-light text-lg mb-5">
                     Ми гарантуємо чесну оцінку, без заниження ціни.
@@ -421,7 +422,7 @@
                         <span class="self-center text-xs font-bold text-max-text">20%</span>
                     </div>
                 </div>
-                <p class="text-sm italic text-white">Ми купуємо зрізи від 40 сантиметрів. Якщо ваші локони коротші, то
+                <p class="text-sm italic text-max-light">Ми купуємо зрізи від 40 сантиметрів. Якщо ваші локони коротші, то
                     рекомендуємо ненадовго відкласти продаж, кожен сантиметр здатний сильно відбитися на вартості.</p>
             </div>
             <div>
@@ -434,7 +435,7 @@
                         <span class="self-center text-xs font-bold text-max-text">20%</span>
                     </div>
                 </div>
-                <p class="text-sm italic text-white">Вища вартість пропонується за якісні, здорові та рівномірні
+                <p class="text-sm italic text-max-light">Вища вартість пропонується за якісні, здорові та рівномірні
                     локони. М'які і природньо гладкі на дотик пасма, завжди мають значно вищу ціну.</p>
             </div>
             <div>
@@ -447,7 +448,7 @@
                         <span class="self-center text-xs font-bold text-max-text">20%</span>
                     </div>
                 </div>
-                <p class="text-sm italic text-white">Зріз має бути зроблений за правилами та закріплений зверху
+                <p class="text-sm italic text-max-light">Зріз має бути зроблений за правилами та закріплений зверху
                     гумкою і не мати колунів. Краще продавати свіжозрізані коси, їх ціна вища. Пролежані
                     прядки втрачають свій природний блиск та натуральні масла, які містяться в них.
                 </p>
@@ -462,7 +463,7 @@
                         <span class="self-center text-xs font-bold text-max-text">20%</span>
                     </div>
                 </div>
-                <p class="text-sm italic text-white">Ми не приймаємо пошкодженні, ламкі та сухі локони, або локони
+                <p class="text-sm italic text-max-light">Ми не приймаємо пошкодженні, ламкі та сухі локони, або локони
                     з неоднорідною структурою. А також волосся із завивкою, забруднене або оброблене будь якими
                     хімічними речовинами.</p>
             </div>
@@ -476,7 +477,7 @@
                         <span class="self-center text-xs font-bold text-max-text">20%</span>
                     </div>
                 </div>
-                <p class="text-sm italic text-white">Пофарбовані пасма будуть коштувати набагато дешевше натуральних.
+                <p class="text-sm italic text-max-light">Пофарбовані пасма будуть коштувати набагато дешевше натуральних.
                     Скупка волосся здійснюється будь-якому кольорі, але більш висока ціна встановлюється на світлі
                     натуральні тони.
                 </p>
@@ -491,7 +492,7 @@
                         <span class="self-center text-xs font-bold text-max-text">20%</span>
                     </div>
                 </div>
-                <p class="text-sm italic text-white">Зрізи з сивиною теж підлягають купівлі, але багато залежить
+                <p class="text-sm italic text-max-light">Зрізи з сивиною теж підлягають купівлі, але багато залежить
                     від доглянутості волосся та як довго росло з сивиною. Забарвлене і сиве волосся приймається від
                     50 сантиметрів.</p>
             </div>

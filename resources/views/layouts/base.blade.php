@@ -54,7 +54,7 @@
 
                     {{-- Logo --}}
                     <div class="flex items-center flex-shrink-0">
-                        <a href="{{ route('main') }}" class="text-lg font-normal text-white uppercase">
+                        <a href="{{ route('main') }}" class="text-lg font-normal uppercase text-max-light">
                             Kom!sar<span class="px-1 text-white rounded bg-max-orange">news</span>
                         </a>
                     </div>

@@ -3,21 +3,25 @@ export default {
     content: ["./resources/**/*.blade.php", "./resources/**/*.js"],
     darkMode: "class",
     theme: {
+        colors: {
+            transparent: "transparent",
+            white: "#ffffff",
+            black: "#000000",
+            red: "#ff0000",
+            max: {
+                orange: "#c28566",
+                white: "#f9eee1",
+                black: "#272121",
+                dark: "#6d574a",
+                light: "#fef1e9",
+                medium: "#49403b",
+                text: "#B19A81",
+                soft: "#9e8c80",
+            },
+        },
         extend: {
             backgroundImage: {
                 barber: "url('/public/images/barber.png')",
-            },
-            colors: {
-                max: {
-                    orange: "#c28566",
-                    white: "#f9eee1",
-                    black: "#272121",
-                    dark: "#6d574a",
-                    light: "#fef1e9",
-                    medium: "#49403b",
-                    text: "#B19A81",
-                    soft: "#9e8c80",
-                },
             },
             keyframes: {
                 "slide-top-to-bottom": {

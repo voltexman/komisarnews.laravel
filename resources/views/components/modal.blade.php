@@ -8,7 +8,7 @@
 
     <div x-cloak x-show="modalIsOpen" x-transition.opacity.duration.200ms x-trap.inert.noscroll="modalIsOpen"
         @keydown.esc.window="modalIsOpen = false" @click.self="modalIsOpen = false"
-        class="fixed inset-0 z-50 flex items-end justify-center p-4 pb-8 bg-black/20 backdrop-blur-md sm:items-center lg:p-8"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 pb-8 bg-black/30 backdrop-blur-md sm:items-center lg:p-8"
         role="dialog" aria-modal="true">
 
         <!-- Modal -->
@@ -20,7 +20,7 @@
             <!--  Header -->
             <div {{ $header->attributes->class('modal-header') }}>
                 {{ $header }}
-                <button @click="modalIsOpen = false" aria-label="Закрити вікно">
+                <button type="button" @click="modalIsOpen = false" aria-label="Закрити вікно">
                     <x-lucide-x class="size-5 text-max-light" />
                 </button>
             </div>

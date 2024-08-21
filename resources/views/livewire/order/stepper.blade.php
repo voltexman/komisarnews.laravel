@@ -395,7 +395,7 @@
                             </x-slot>
 
                             <x-slot:body>
-                                <x-scrollbar>
+                                <x-scrollbar class="h-52">
                                     <p class="text-sm font-medium"><x-lucide-file-text class="size-14 float-start me-2" />
                                         Заповніть всі необхіні поля та надішліть нам замовлення. Бажано вказати
                                         колір, вагу і довжину Вашого волосся. Електронна пошта та номер телефону нам
@@ -407,14 +407,14 @@
                                         вартість та іншими деталями. Зазвичай це займає не більше декількох годин після
                                         відправлення замовлення.
                                     </p>
-                                    <p class="text-sm font-medium">В полі "Ваше повідомлення" Ви можете вказати будь-яку
+                                    <p class="m-0 text-sm font-medium">В полі "Ваше повідомлення" Ви можете вказати будь-яку
                                         іншу, на Вашу думку, важливу інформацію стосовно волосся. Наприклад, структуру
                                         волосся, стан зрізу: свіжа рівна стрижка або просто укладене волосся або шиньйон.
                                         Вкажіть якомога більше інформації, важливі всі деталі.</p>
                                 </x-scrollbar>
                             </x-slot>
 
-                            <x-slot:footer class="bg-red-500">
+                            <x-slot:footer class="bg-red/80">
                                 <div class="text-xs font-normal leading-4 text-white">
                                     МИ НЕ НАДАЄМО ВАШІ КОНТАКТНІ ДАНІ ІНШИМ ОСОБАМ ТА НЕ РОЗСИЛАЄМО СПАМ!
                                     НЕ НАМАГАЙТЕСЯ ОБДУРИТИ ОЦІНЮВАЧА, ВИКОРИСТОВУЮЧИ ПРИЙОМИ, ЩОБ ПОЛІПШИТИ
@@ -451,3 +451,17 @@
     @endsession
 </x-stepper>
 <!-- End Stepper -->
+
+@script
+    <script>
+        Alpine.data('stepper', () => ({
+            step: 1,
+            next() {
+                this.step > 5 ? null : this.step = this.step + 1;
+            },
+            prev() {
+                this.step < 2 ? null : this.step = this.step - 1;
+            }
+        }));
+    </script>
+@endscript

@@ -84,7 +84,7 @@
     }
 
     .modal {
-        @apply flex flex-col max-w-lg gap-4 overflow-hidden rounded-xl bg-max-light text-neutral-500;
+        @apply relative flex flex-col max-w-lg gap-4 overflow-hidden rounded-xl bg-max-light;
     }
 
     .modal-header {
@@ -92,7 +92,7 @@
     }
 
     .modal-body {
-        @apply p-3;
+        @apply px-3;
     }
 
     .modal-footer {
@@ -111,7 +111,7 @@
     .mapBackground {
         fill: #a38a79;
         stroke: #796249;
-        stroke-width: .6;
+        stroke-width: 0.6;
         transition: 0.5s;
         cursor: pointer;
     }
