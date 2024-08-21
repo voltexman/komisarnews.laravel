@@ -7,11 +7,11 @@
                     <x-lucide-phone-call class="mb-2 size-8 text-max-text" wire:loading.remove />
                 </div>
                 <div class="flex flex-col">
-                    <span class="text-sm leading-4 text-max-text">
-                        <p class="m-0">Очікуйте на дзвінок менеджера</p>
-                        <p class="m-0">за номером: <span class="font-bold">{{ session('callback-phone') }}</span></p>
-                        <p>Ми невдовзі зателефонуємо Вам.</p>
-                    </span>
+                    <div class="leading-4 text-max-text">
+                        <p class="m-0 text-sm">Очікуйте на дзвінок менеджера</p>
+                        <p class="m-0 text-sm">за номером: <span class="font-bold">{{ session('callback-phone') }}</span></p>
+                        <p class="m-0 text-sm">Ми невдовзі зателефонуємо Вам.</p>
+                    </div>
                     <button type="button" class="text-sm font-bold text-left text-max-light/80 disabled:opacity-50"
                         wire:target.except='save' aria-label="Замовити дзвінок на інший номер" wire:click='$refresh'
                         wire:loading.attr='disabled'>

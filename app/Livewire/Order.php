@@ -10,21 +10,6 @@ class Order extends Component
 {
     public OrderForm $order;
 
-    public $current = 'step-one';
-
-    protected $steps = [
-        'step-one',
-        'step-two',
-        'step-three',
-    ];
-
-    public function next()
-    {
-        $currentIndex = array_search($this->current, $this->steps);
-
-        $this->current = $this->steps[$currentIndex + 1];
-    }
-
     public function save()
     {
         //        foreach ($this->order->photos as $photo) {
