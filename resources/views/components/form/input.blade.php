@@ -4,8 +4,7 @@
     <div class="@isset($button) flex @endisset">
         <div class="relative grow">
             @isset($icon)
-                <div
-                    class="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-4 {{ $color === 'dark' ? 'text-max-text' : 'text-max-dark/80' }}">
+                <div class="input-icon {{ $color === 'dark' ? 'text-max-text' : 'text-max-dark/80' }}">
                     @svg('lucide-' . $icon, 'flex-shrink-0 size-5')
                 </div>
             @endisset
@@ -27,7 +26,7 @@
                     $color === 'light',
                 'text-max-text peer-[:not(:placeholder-shown)]:text-max-text peer-focus:text-max-text' =>
                     $color === 'dark',
-                'w-full absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5',
+                'input-label',
             ])>
                 {{ $label }}
             </label>
@@ -42,7 +41,7 @@
                 <div x-show="counter" x-transition.opacity.duration.300ms>
                     <span
                         x-bind:class="$wire.{{ $name }}.length !== {{ $attributes['maxlength'] }} ? 'bg-max-soft' :
-                            'bg-red-500'"
+                            'bg-red'"
                         class="absolute px-1 text-xs rounded -bottom-2 right-2 text-max-light">
                         <span x-text="$wire.{{ $name }}.length + '/' + {{ $attributes['maxlength'] }}"></span>
                     </span>
@@ -59,8 +58,6 @@
     </div>
 
     @error($name)
-        <div>
-            <span class="text-xs text-red">{{ $message }}</span>
-        </div>
+        <x-error>{{ $message }}</x-error>
     @enderror
 </div>

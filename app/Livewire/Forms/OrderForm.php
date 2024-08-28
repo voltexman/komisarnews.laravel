@@ -2,7 +2,6 @@
 
 namespace App\Livewire\Forms;
 
-use App\Enums\Order\Colors;
 use App\Enums\Order\Goals;
 use App\Models\Order;
 use Illuminate\Validation\Rule;
@@ -12,25 +11,38 @@ class OrderForm extends Form
 {
     public $goal = '';
 
+    #[Rule('min:2', message: 'Введено замало символів')]
+    #[Rule('max:40')]
     public $name = '';
 
+    #[Rule('required', message: 'Вкажіть ваше місто')]
+    #[Rule('min:2', message: 'Введено замало символів')]
+    #[Rule('max:255')]
     public $city = '';
 
+    #[Rule()]
     public $email = '';
 
+    #[Rule('required', message: 'Вкажіть номер телефону')]
+    #[Rule('required|min:5|max:20')]
     public $phone = '';
 
+    #[Rule()]
     public $photos = [];
 
+    #[Rule('required', message: 'Вкажіть колір волосся')]
     public $color = null;
 
+    #[Rule('numeric|min:2|max:10')]
     public $hair_weight = null;
 
+    #[Rule('numeric|required|min:2|max:4')]
     public $hair_length = null;
 
+    #[Rule('numeric|min:2|max:2')]
     public $age = null;
 
-    // public $hair_options = [];
+    public $hair_options = [];
 
     public $description = '';
 
@@ -44,27 +56,11 @@ class OrderForm extends Form
     public function rules(): array
     {
         return [
-            'goal' => ['required', Rule::in([Goals::EVALUATE, Goals::SELL])],
-            // 'name' => 'string|max:255',
-            // 'city' => 'string|required|min:2|max:255',
+            // 'goal' => ['required', Rule::in([Goals::EVALUATE, Goals::SELL])],
             // 'email' => 'email|min:5',
-            // 'phone' => 'string|required|min:5|max:20',
             // 'photos.*' => 'image',
-            'color' => ['required', Rule::in([Colors::BLOND, Colors::FAIR, Colors::LIGHT_FAIR, Colors::LIGHT_BROWN, Colors::DARK_BROWN, Colors::BLACK])],
-            // 'hair_weight' => 'integer|max:4',
-            // 'hair_length' => 'integer|required|max:4',
-            // 'age' => 'integer|max:2',
             // 'hair_options' => 'json',
             // 'description' => 'string|max:1500',
-        ];
-    }
-
-    public function messages(): array
-    {
-        return [
-            'city.required' => 'Необхідно вказати місто',
-            'hair_length.required' => 'Вкажіть довжину',
-            'phone.required' => 'Вкажіть номер телефону',
         ];
     }
 }

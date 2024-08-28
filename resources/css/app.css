@@ -99,6 +99,14 @@
         @apply p-3;
     }
 
+    .input-icon {
+        @apply absolute inset-y-0 flex items-center pointer-events-none start-0 ps-4;
+    }
+
+    .input-label {
+        @apply w-full absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5;
+    }
+
     body {
         color: #3f3b37;
         outline: none !important;
