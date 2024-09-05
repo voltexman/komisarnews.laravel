@@ -17,7 +17,7 @@
                     </div>
                     <div class="text-center text-max-medium">
                         <div class="font-semibold">Бажаєте видалити це фото?</div>
-                        <div class="text-sm">Редагування фото видалиться також</div>
+                        <div class="text-sm font-light text-max-dark/80">Редагування фото видалиться також</div>
                     </div>
                 </div>
             </div>
