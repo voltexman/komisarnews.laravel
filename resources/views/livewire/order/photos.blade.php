@@ -17,7 +17,7 @@
         <div :class="isDropping ? 'bg-max-text/60' : 'bg-max-text/20'"
             class="relative w-full h-40 overflow-hidden duration-300 border border-dashed rounded-lg border-max-text/90">
             <input type="file" multiple @change="handleFileDrop($event)" @drop="isDropping=false"
-                class="absolute inset-0 z-50 w-full h-full p-0 m-0 outline-none opacity-0 cursor-pointer"
+                class="absolute inset-0 z-50 p-0 m-0 outline-none opacity-0 cursor-pointer size-full"
                 :class="'{{ $this->isMaxPhotos() ? 'hidden' : 'block' }}'" @dragover="isDropping=true"
                 @dragleave="isDropping=false">
             <x-lucide-camera class="absolute text-indigo-600 opacity-5 -top-3 left-3 size-20 -rotate-[25deg]" />
@@ -27,14 +27,14 @@
             <x-lucide-file-image class="absolute text-cyan-600 opacity-5 top-4 left-36 size-16 rotate-[10deg]" />
             <div class="flex flex-row h-full">
                 <div class="content-center w-1/3">
-                    <span class="relative flex mx-auto size-16">
+                    <div class="relative flex mx-auto size-16">
                         <span
-                            class="absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping bg-max-soft/50"></span>
+                            class="absolute inline-flex rounded-full opacity-75 size-full animate-ping bg-max-soft/50"></span>
                         <span
                             class="relative inline-flex border-2 rounded-full size-16 border-max-soft/70 bg-max-light">
-                            <x-lucide-cloud-upload class="self-center mx-auto size-9 text-max-soft opacity-90" />
+                            <x-lucide-cloud-upload class="self-center mx-auto size-7 text-max-soft opacity-90" />
                         </span>
-                    </span>
+                    </div>
                 </div>
                 <div class="flex items-stretch w-2/3">
                     <div class="flex flex-col self-center">
@@ -47,11 +47,11 @@
                 </div>
             </div>
             <div class="absolute bottom-0 left-0 flex justify-between w-full">
-                <span class="text-xs text-gray-500 ms-2">
+                <span class="text-xs text-max-black/60 ms-2">
                     <x-lucide-file-image class="inline-flex -mt-1 size-3" />
                     JPG, PNG
                 </span>
-                <span class="text-xs text-gray-500 me-2">
+                <span class="text-xs text-max-black/60 me-2">
                     <x-lucide-scaling class="inline-flex -mt-1 size-3" />
                     1980x1024
                 </span>
@@ -60,7 +60,6 @@
     @endif
 
     <div x-show="isUploading" class="mt-3">
-
         <div class="w-full overflow-hidden rounded-lg bg-max-soft/30">
             <span class="block size-16 bg-max-soft/50"></span>
         </div>
@@ -72,7 +71,6 @@
                     <div class="h-16"></div>
                     <div class="flex justify-between h-8">
                         <span class="flex w-full bg-max-dark/30"></span>
-                        <span class="flex w-full bg-red-500/20"></span>
                     </div>
                 </div>
             @endforeach
@@ -82,10 +80,8 @@
     <div x-show='!isUploading'>
         @if ($order->photos)
             <x-alert class="mt-4">
-                <p class="m-0 line-clamp-3">На мініатюрах, фотограції можуть виглядати інакше. Але майстер бачитиме
-                    повноцінне фото. Для редагування натисніть
-                    <x-lucide-edit class="inline-flex size-3 -mt-0.5" />
-                </p>
+                На мініатюрах фотограції можуть виглядати інакше.
+                Але майстер бачитиме повноцінне фото. Модете додати ще 2 фото.
             </x-alert>
 
             <div class="grid grid-cols-4 mt-4 gap-x-4">
@@ -95,12 +91,12 @@
             </div>
         @else
             <x-alert class="mt-5">
-                <div class="m-0">Намагайтесь обирати максимально вигідні фото та ракурс, який найкраще
-                    відображає волосся та їх стан. Максимум до <b>4</b> фото.</div>
+                Намагайтесь обирати максимально вигідні фото та ракурс, який найкраще
+                відображає волосся та їх стан. Максимум до <b>4</b> фото.
             </x-alert>
             <x-alert type='warning' class="mt-5">
-                <div class="m-0">Не застосовуйте фільтрів, які змінюють кольори та якість фото. Не робіть
-                    фото занадто малим, щоб майстер міг детальніше роздивитись волосся.</div>
+                Не застосовуйте фільтрів, які змінюють кольори та якість фото. Не робіть
+                фото занадто малим, щоб майстер міг детальніше роздивитись волосся.
             </x-alert>
         @endif
     </div>
@@ -134,6 +130,10 @@
                     })
                 }
             },
+
+            remove(photo) {
+                $wire.removeUpload('order.photos', uploadedFilename, successCallback)
+            }
         }));
     </script>
 @endscript

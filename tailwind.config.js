@@ -7,6 +7,7 @@ export default {
             transparent: "transparent",
             white: "#ffffff",
             black: "#000000",
+            warning: "#ffcc00",
             red: "#ff0000",
             max: {
                 orange: "#c28566",

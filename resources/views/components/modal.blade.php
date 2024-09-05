@@ -18,12 +18,14 @@
             {{ $attributes->class('modal') }}>
 
             <!--  Header -->
-            <div {{ $header->attributes->class('modal-header') }}>
-                {{ $header }}
-                <button type="button" @click="modalIsOpen = false" aria-label="Закрити вікно">
-                    <x-lucide-x class="size-5 text-max-light" />
-                </button>
-            </div>
+            @isset($header)
+                <div {{ $header->attributes->class('modal-header') }}>
+                    {{ $header }}
+                    <button type="button" @click="modalIsOpen = false" aria-label="Закрити вікно">
+                        <x-lucide-x class="size-5 text-max-light" />
+                    </button>
+                </div>
+            @endisset
 
             <!-- Body -->
             <div {{ $body->attributes->class('modal-body') }}>
@@ -31,9 +33,11 @@
             </div>
 
             <!-- Footer -->
-            <div {{ $footer->attributes->class('modal-footer') }}>
-                {{ $footer }}
-            </div>
+            @isset($footer)
+                <div {{ $footer->attributes->class('modal-footer') }}>
+                    {{ $footer }}
+                </div>
+            @endisset
         </div>
     </div>
 </div>

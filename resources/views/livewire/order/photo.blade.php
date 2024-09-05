@@ -1,56 +1,57 @@
-<div>
-    <div class="overflow-hidden rounded-lg">
-        <div class="h-16">
-            <img src="{{ $photo->temporaryUrl() }}" alt="">
-        </div>
-        <div class="flex justify-between h-8">
-            <button type="button"
-                class="flex items-center justify-center w-full transition bg-max-soft hover:bg-max-dark">
-                <x-lucide-edit class="size-4 text-max-light" />
-            </button>
-            <button type="button" :data-hs-overlay="'#confirm-dialog-' + $wire.$id"
-                class="flex items-center justify-center w-full transition bg-red-500 hover:bg-red-600">
-                <x-lucide-trash-2 class="size-4 text-max-light" />
-            </button>
-        </div>
-    </div>
+<div class="relative overflow-hidden rounded-lg shadow-md aspect-square">
+    <img src="{{ $photo->temporaryUrl() }}" class="object-cover object-center size-full" alt="">
 
-    <div :id="'confirm-dialog-' + $wire.$id"
-        class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto">
-        <div
-            class="m-3 mt-0 transition-all ease-out opacity-0 hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 sm:max-w-lg sm:w-full sm:mx-auto">
-            <div class="relative flex flex-col shadow-lg bg-max-light rounded-xl">
-                <div class="p-4 overflow-y-auto text-center sm:p-14">
-                    <div class="mx-auto overflow-hidden rounded-lg size-36">
-                        <img src="{{ $photo->temporaryUrl() }}" alt="" class="object-cover">
-                    </div>
-                    <div class="flex flex-col">
-                        <span class="mb-2 text-xl font-bold text-gray-800">Підтвердження</span>
-                        <span class="text-gray-500">Дійсно бажаєте видалити фото?</span>
-                    </div>
-                </div>
+    <div class="absolute space-y-2 right-2 top-2">
+        {{-- Підтвердження видалення фото --}}
+        <x-dialog caption='Підтвердження'>
+            <x-slot:open>
+                <button type="button" class="flex items-center justify-center rounded-full bg-red size-6">
+                    <x-lucide-trash-2 class="text-white size-3" />
+                </button>
+            </x-slot>
 
-                <div class="flex items-center">
-                    <button type="button"
-                        class="inline-flex items-center justify-center w-full px-4 py-3 text-sm font-semibold text-gray-800 transition border border-transparent gap-x-2 rounded-es-xl bg-max-soft/10 hover:bg-max-soft/30 disabled:opacity-50 disabled:pointer-events-none"
-                        data-hs-overlay="">
-                        <x-lucide-circle-x class="size-4" />
-                        Відмінити
-                    </button>
-                    <button type="button"
-                        class="inline-flex items-center justify-center w-full px-4 py-3 text-sm font-semibold transition bg-red-500 border border-transparent gap-x-2 rounded-ee-xl text-max-light hover:bg-red-600 disabled:opacity-50 disabled:pointer-events-none"
-                        data-hs-overlay="#confirm-dialog-$wire.$id">
-                        <x-lucide-trash-2 class="size-4" />
-                        Видалити
-                    </button>
+            <div class="flex justify-center gap-y-4">
+                <div class="flex flex-col space-y-3 font-semibold">
+                    <div class="flex items-center justify-center mx-auto rounded-full bg-red/40 size-16">
+                        <x-lucide-circle-help class="inline-flex text-max-light size-10" />
+                    </div>
+                    <div class="text-center text-max-medium">
+                        <div class="font-semibold">Бажаєте видалити це фото?</div>
+                        <div class="text-sm">Редагування фото видалиться також</div>
+                    </div>
                 </div>
             </div>
-        </div>
+
+            <x-slot:actions class="space-x-2">
+                <x-button variant="danger" class="flex">
+                    <x-lucide-trash-2 class="inline-block size-4 me-2" />
+                    Видалити
+                </x-button>
+            </x-slot>
+        </x-dialog>
+        {{-- Редагування фото --}}
+        <x-modal>
+            <x-slot:open>
+                <button type="button" class="flex items-center justify-center rounded-full bg-max-dark size-6">
+                    <x-lucide-pencil class="text-white size-3" />
+                </button>
+            </x-slot>
+
+            <x-slot:body>
+                <img src="{{ $photo->temporaryUrl() }}"
+                    class="object-cover object-center shadow-md size-full rounded-xl" alt="">
+            </x-slot>
+
+            <x-slot:footer class="space-x-2">
+                <x-button variant="danger">
+                    <x-lucide-ban class="inline-block size-4 me-3" />
+                    Відмінити
+                </x-button>
+                <x-button variant="danger">
+                    <x-lucide-trash-2 class="inline-block size-4 me-3" />
+                    Видалити
+                </x-button>
+            </x-slot>
+            </x-dialog>
     </div>
 </div>
-
-@script
-    <script>
-        HSOverlay.autoInit();
-    </script>
-@endscript

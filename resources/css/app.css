@@ -96,7 +96,19 @@
     }
 
     .modal-footer {
-        @apply p-3;
+        @apply p-3 bg-max-soft/15;
+    }
+
+    .dialog {
+        @apply relative flex flex-col w-full max-w-md overflow-hidden rounded-xl bg-max-white;
+    }
+
+    .dialog-body {
+        @apply p-8;
+    }
+
+    .dialog-actions {
+        @apply flex flex-row justify-end p-4 bg-max-soft/20;
     }
 
     .input-icon {
