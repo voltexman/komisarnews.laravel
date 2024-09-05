@@ -226,9 +226,9 @@
                             <span class="text-xs text-max-light/80">Перевірка...</span>
                             <x-lucide-loader-2 class="inline-block size-4 ms-1 animate-spin" />
                         </div>
-                        <div wire:loading.remove wire:target='preview'>
+                        <div wire:loading.remove wire:target='preview' class="flex">
+                            <x-lucide-arrow-left class="inline-block size-5 me-2" />
                             <span class="text-sm text-max-light">Назад</span>
-                            <x-lucide-arrow-left class="inline-block size-4 ms-1" />
                         </div>
                     </x-button>
 
@@ -284,9 +284,9 @@
                             <span class="text-xs text-max-light/80">Перевірка...</span>
                             <x-lucide-loader-2 class="inline-block size-4 ms-1 animate-spin" />
                         </div>
-                        <div wire:loading.remove wire:target='next'>
+                        <div wire:loading.remove wire:target='next' class="flex">
                             <span class="text-sm text-max-light">Далі</span>
-                            <x-lucide-arrow-right class="inline-block size-4 ms-1" />
+                            <x-lucide-arrow-right class="inline-block size-5 ms-2" />
                         </div>
                     </x-button>
                     <x-button type="submit" x-show="$wire.step === 'order.check'"
