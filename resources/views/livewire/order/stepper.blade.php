@@ -242,9 +242,7 @@
                             </x-slot>
 
                             <x-slot:header>
-                                <h3 class="font-semibold tracking-wide text-max-light drop-shadow-md">
-                                    Правила заявки
-                                </h3>
+                                Правила заявки
                             </x-slot>
 
                             <x-slot:body>

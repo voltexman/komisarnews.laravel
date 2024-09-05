@@ -1,4 +1,4 @@
-@props(['variant' => 'dark'])
+@props(['variant' => 'dark', 'size' => 'default'])
 
 <button
     {{ $attributes->class([

@@ -88,7 +88,7 @@
     }
 
     .modal-header {
-        @apply flex items-center justify-between p-4 bg-max-soft;
+        @apply flex items-center justify-between p-4 font-semibold tracking-wide bg-max-soft text-max-light drop-shadow-md;
     }
 
     .modal-body {
@@ -96,7 +96,7 @@
     }
 
     .modal-footer {
-        @apply p-3 bg-max-soft/15;
+        @apply p-4 bg-max-soft/15;
     }
 
     .dialog {

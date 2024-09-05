@@ -29,6 +29,7 @@
                 </x-button>
             </x-slot>
         </x-dialog>
+
         {{-- Редагування фото --}}
         <x-modal>
             <x-slot:open>
@@ -37,18 +38,51 @@
                 </button>
             </x-slot>
 
-            <x-slot:body>
-                <img src="{{ $photo->temporaryUrl() }}"
-                    class="object-cover object-center shadow-md size-full rounded-xl" alt="">
+            <x-slot:header>
+                Редагування
             </x-slot>
 
-            <x-slot:footer class="space-x-2">
-                <x-button variant="danger">
+            <x-slot:body>
+                <img src="{{ $photo->temporaryUrl() }}"
+                    class="object-cover object-center w-full shadow-md rounded-xl max-h-80" alt="">
+
+                <div class="flex flex-row mt-4 space-x-3">
+                    <div>
+                        <x-button size="icon">
+                            <x-lucide-rotate-ccw class="size-5" />
+                        </x-button>
+                        <x-button size="icon">
+                            <x-lucide-rotate-cw class="size-5" />
+                        </x-button>
+                    </div>
+
+                    <div>
+                        <x-button size="icon">
+                            <x-lucide-zoom-in class="size-5" />
+                        </x-button>
+                        <x-button size="icon">
+                            <x-lucide-zoom-out class="size-5" />
+                        </x-button>
+                    </div>
+
+                    <div>
+                        <x-button size="icon">
+                            <x-lucide-flip-horizontal class="size-5" />
+                        </x-button>
+                        <x-button size="icon">
+                            <x-lucide-flip-vertical class="size-5" />
+                        </x-button>
+                    </div>
+                </div>
+            </x-slot>
+
+            <x-slot:footer class="flex justify-end space-x-2">
+                <x-button>
                     <x-lucide-ban class="inline-block size-4 me-3" />
                     Відмінити
                 </x-button>
                 <x-button variant="danger">
-                    <x-lucide-trash-2 class="inline-block size-4 me-3" />
+                    <x-lucide-save class="inline-block size-4 me-3" />
                     Видалити
                 </x-button>
             </x-slot>
