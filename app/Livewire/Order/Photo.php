@@ -6,11 +6,11 @@ use Livewire\Component;
 
 class Photo extends Component
 {
-    public $photo;
+    public $order;
 
-    public function mount($photo)
+    public function mount($order)
     {
-        $this->photo = $photo;
+        $this->order = $order;
     }
 
     public function placeholder()

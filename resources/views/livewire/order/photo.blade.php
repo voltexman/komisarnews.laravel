@@ -23,7 +23,7 @@
             </div>
 
             <x-slot:actions class="space-x-2">
-                <x-button variant="danger" class="flex">
+                <x-button variant="danger" class="flex" wire:click="$parent.remove({{ $photo }})">
                     <x-lucide-trash-2 class="inline-block size-4 me-2" />
                     Видалити
                 </x-button>

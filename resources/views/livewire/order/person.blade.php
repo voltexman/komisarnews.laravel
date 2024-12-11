@@ -1,7 +1,7 @@
 <div class="flex flex-col w-full gap-y-5">
     <x-form.select :label="$order->goal ? $order->goal : 'Вкажіть ціль заявки'">
         @foreach (App\Enums\Order\Goals::cases() as $goal)
-            <x-form.select.item wire:click="$set('order.goal', '{{ $goal->getLabel() }}')" icon="{{ $goal->getIcon() }}">
+            <x-form.select.item wire:click="$set('order.goal', '{{ $goal->getLabel() }}')" :icon="$goal->getIcon()">
                 <x-slot:label>
                     {{ $goal->getLabel() }}
                 </x-slot>

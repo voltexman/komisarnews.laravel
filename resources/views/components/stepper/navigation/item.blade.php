@@ -1,8 +1,8 @@
 @props(['step', 'active', 'icon', 'label'])
 
 <li>
-    <div class="relative min-w-[28px] min-h-[28px] flex flex-col items-center md:w-full md:inline-flex md:flex-wrap md:flex-row text-xs align-middl"
-        :class="$active === $step ? 'animate-bounce' : ''">
+    <div
+        class="relative min-w-[28px] min-h-[28px] flex flex-col items-center md:w-full md:inline-flex md:flex-wrap md:flex-row text-xs align-middl">
         <span class="flex items-center justify-center flex-shrink-0 mx-auto font-medium rounded-full size-8">
             @svg('lucide-' . $icon, 'size-6 text-max-dark')
             <x-lucide-check class="hidden size-6 text-max-soft" />

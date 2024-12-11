@@ -2,13 +2,16 @@
 
 namespace App\Livewire\Forms;
 
-use App\Enums\Order\Goals;
-use App\Models\Order;
-use Illuminate\Validation\Rule;
 use Livewire\Form;
+use App\Models\Order;
+use App\Enums\Order\Goals;
+use Livewire\WithFileUploads;
+use Illuminate\Validation\Rule;
 
 class OrderForm extends Form
 {
+    use WithFileUploads;
+
     public $goal = '';
 
     #[Rule('min:2', message: 'Введено замало символів')]
