@@ -26,10 +26,10 @@ class PostList extends Component
     #[Computed()]
     public function paginator()
     {
-        return Post::where([
-            'is_published' => Post::PUBLISHED,
-            'category' => Categories::ARTICLES,
-        ])->latest()->paginate(8, ['*'], 'page', $this->page);
+        return Post::where(['category' => Categories::ARTICLES])
+            ->active()
+            ->latest()
+            ->paginate(8, ['*'], 'page', $this->page);
     }
 
     public function loadMore()

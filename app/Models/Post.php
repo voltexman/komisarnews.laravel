@@ -45,10 +45,6 @@ class Post extends Model implements HasMedia
 
     const NO_INDEXING = 0;
 
-    const CATEGORY_CITIES = 'Міста';
-
-    const CATEGORY_ARTICLES = 'Статті';
-
     public function likes()
     {
         return $this->morphMany(Like::class, 'likeable');
@@ -73,5 +69,10 @@ class Post extends Model implements HasMedia
         $this->addMediaConversion('header')
             ->crop(1920, 280, CropPosition::Center)
             ->format('webp');
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('is_published', self::PUBLISHED);
     }
 }

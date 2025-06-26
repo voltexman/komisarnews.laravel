@@ -14,7 +14,7 @@
         </h3>
     @endisset
 
-    <div class="container">
+    <div class="max-w-6xl mx-auto px-5 lg:px-0">
         {{ $slot }}
     </div>
 

@@ -7,7 +7,7 @@
             <x-lucide-search class="opacity-60 size-5 text-max-light" />
         </div>
 
-        <span class="absolute text-xs font-light text-max-light/50">
+        <span class="absolute text-xs font-light text-max-light/50 mt-0.5">
             <x-lucide-info class="inline-block size-3 me-0.5" />
             почніть вводити запит для пошуку
         </span>
@@ -29,7 +29,7 @@
     </div>
 
     @if ($posts !== null && count($posts) > 0)
-        <div class="w-full pt-4 font-medium text-center text-sm text-max-text/80">Знайдені статті...</div>
+        <div class="w-full pt-4 font-medium text-center text-sm text-max-light/60">Знайдені статті...</div>
         <x-scrollbar class="max-h-[50vh] mx-4">
             @foreach ($posts as $post)
                 <div class="flex flex-row" :key='{{ $post->id }}'>

@@ -2,7 +2,7 @@
 
 @section('header')
     @parent
-    <div class="relative h-[280px] w-full overflow-hidden">
+    <div class="relative h-[320px] w-full overflow-hidden">
         <img src="{{ $post->getFirstMediaUrl('posts', 'header') ?: asset('images/article-header.webp') }}" width="auto"
             height="280" alt="{{ env('APP_NAME') }} - {{ $post->title }}" class="object-cover object-center w-full h-full">
         <div
@@ -29,8 +29,8 @@
 @endsection
 
 @section('content')
-    <article class="overflow-hidden bg-max-light py-14 lg:py-20">
-        <div class="container">
+    <article class="overflow-hidden bg-max-light">
+        <div class="max-w-5xl mx-auto px-5 lg:px-10 my-10">
             <p class="w-full">
                 @if ($post->getFirstMediaUrl('posts', 'preview'))
                     <img src="{{ $post->getFirstMediaUrl('posts', 'preview') }}" width="300" height="280"

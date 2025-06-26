@@ -6,16 +6,8 @@ use App\Enums\Post\Categories;
 use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
- */
 class PostFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
@@ -23,7 +15,7 @@ class PostFactory extends Factory
             'title' => fake()->sentence(),
             'slug' => fake()->slug(),
             'body' => fake()->paragraph(80),
-            'category' => fake()->randomElement(Categories::cases()),
+            'category' => Categories::ARTICLES,
             'is_published' => fake()->boolean(),
             'is_indexing' => fake()->boolean(),
             'description' => fake()->text(100),

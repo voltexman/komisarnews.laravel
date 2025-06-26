@@ -7,7 +7,7 @@
             </span>
         </div>
     @else
-        <div class="grid gap-12 sm:grid-cols-2 sm:gap-20">
+        <div class="max-w-6xl mx-auto grid gap-10 sm:grid-cols-2 sm:gap-20">
             @foreach ($posts as $post)
                 <article class="relative flex flex-col lg:flex-row">
                     {{-- Зображення статті Preview --}}
@@ -24,7 +24,7 @@
 
                         {{-- Заголовок статті --}}
                         <div :class="maximize && 'mb-5'">
-                            <h2 class="uppercase line-clamp-1 text-max-black">
+                            <h2 class="uppercase mb-2.5 font-semibold line-clamp-1 text-max-black">
                                 <a href="{{ route('article.show', ['slug' => $post->slug]) }}"
                                     class="transition hover:text-max-soft">
                                     {{ $post->name }}
@@ -34,7 +34,9 @@
 
                         {{-- Scrollbar розгорнутого тексту --}}
                         <x-scrollbar>
-                            <p :class="!maximize && 'line-clamp-4'">{{ strip_tags($post->body) }}</p>
+                            <div :class="!maximize && 'line-clamp-4 text-sm font-medium text-gray-200'">
+                                {{ strip_tags($post->body) }}
+                            </div>
                         </x-scrollbar>
 
                         <div class="flex items-center justify-between mt-5">

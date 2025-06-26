@@ -55,7 +55,7 @@
                     {{-- Logo --}}
                     <div class="flex items-center flex-shrink-0">
                         <a href="{{ route('main') }}" class="text-lg font-normal uppercase text-max-light">
-                            Kom!sar<span class="px-1 text-white rounded bg-max-orange">news</span>
+                            7777<span class="px-1 text-white rounded bg-max-orange">.hair</span>
                         </a>
                     </div>
 
@@ -132,7 +132,6 @@
     </header>
 
     <main>
-
         @yield('content')
 
         <x-section class="py-10 bg-max-dark scroll-mt-16" id="map">

@@ -66,7 +66,7 @@
     </x-section>
 
     <x-section class="bg-max-light">
-        <div class="grid lg:py-10 lg:grid-cols-3 md:grid-cols-1 gap-y-10 lg:gap-x-10">
+        <div class="grid lg:py-10 lg:grid-cols-2 md:grid-cols-1 gap-y-10 lg:gap-x-10">
             <div>
                 <h2 class="lg:text-4xl text-2xl mb-8 font-semibold text-center uppercase font-[Oswald] drop-shadow-lg">
                     Чому Варто Звернутися <br class="lg:hidden">Саме В Нашу Компанію?
@@ -80,7 +80,7 @@
                 <p class="font-semibold">Після покупки, всі зрізи проходять обробку і надходять в подальший
                     продаж, а також використовуються у виробництві перук.</p>
             </div>
-            <div class="lg:col-span-2">
+            <div class="lg:col-span2">
                 <h3 class="mb-8 font-semibold text-center uppercase drop-shadow-lg text-lg font-[Oswald]">
                     Звертаючись в нашу компанію<br>з бажанням продати волосся,<br class="lg:hidden">
                     <span class="text-max-orange">ви гарантовано отримуєте</span>
@@ -115,13 +115,11 @@
                 </x-about>
             </div>
         </div>
-
-
     </x-section>
 
     <x-section class="relative lg:py-20 bg-max-black">
         <div class="grid lg:grid-cols-2">
-            <div class="justify-center hidden space-x-10 lg:flex">
+            <div class="hidden lg:flex gap-x-10">
                 <img data-src="{{ Vite::asset('resources/images/postman.jpg') }}" alt="Відправка Новою поштою"
                     class="rounded-3xl shadow-lg w-[220px] object-cover relative -top-8 lazyload">
                 <img data-src="{{ Vite::asset('resources/images/postman-2.jpg') }}" alt="Відправка Новою поштою"
@@ -411,92 +409,59 @@
             Які чинники <span class="text-max-orange">впливають на вартість</span>
         </x-slot>
 
-        <div class="grid lg:grid-cols-2 gap-y-10 lg:gap-x-10">
-            <div>
-                <div class="flex">
-                    <div class="flex-none text-lg text-max-text me-3">Довжина зрізу</div>
-                    <div class="relative w-full mx-auto">
-                        <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
-                    </div>
-                    <div class="flex justify-center flex-none border-2 rounded-full border-max-soft h-11 w-11 ms-3">
-                        <span class="self-center text-xs font-bold text-max-text">20%</span>
-                    </div>
-                </div>
-                <p class="text-sm italic text-max-light">Ми купуємо зрізи від 40 сантиметрів. Якщо ваші локони коротші, то
-                    рекомендуємо ненадовго відкласти продаж, кожен сантиметр здатний сильно відбитися на вартості.</p>
-            </div>
-            <div>
-                <div class="flex">
-                    <div class="flex-none text-lg text-max-text me-3">Структура локонів</div>
-                    <div class="relative w-full mx-auto">
-                        <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
-                    </div>
-                    <div class="flex justify-center flex-none border-2 rounded-full border-max-soft h-11 w-11 ms-3">
-                        <span class="self-center text-xs font-bold text-max-text">20%</span>
-                    </div>
-                </div>
-                <p class="text-sm italic text-max-light">Вища вартість пропонується за якісні, здорові та рівномірні
-                    локони. М'які і природньо гладкі на дотик пасма, завжди мають значно вищу ціну.</p>
-            </div>
-            <div>
-                <div class="flex">
-                    <div class="flex-none text-lg text-max-text me-3">Стан пучка</div>
-                    <div class="relative w-full mx-auto">
-                        <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
-                    </div>
-                    <div class="flex justify-center flex-none border-2 rounded-full border-max-soft h-11 w-11 ms-3">
-                        <span class="self-center text-xs font-bold text-max-text">20%</span>
-                    </div>
-                </div>
-                <p class="text-sm italic text-max-light">Зріз має бути зроблений за правилами та закріплений зверху
+        <x-factors>
+            <x-factors.item percent="22">
+                <x-slot:caption>Довжина зрізу</x-slot>
+                <x-slot:description>
+                    Ми купуємо зрізи від 40 сантиметрів. Якщо ваші локони коротші, то рекомендуємо ненадовго відкласти
+                    продаж, кожен сантиметр здатний сильно відбитися на вартості.
+                </x-slot>
+            </x-factors.item>
+
+            <x-factors.item percent="19">
+                <x-slot:caption>Структура локонів</x-slot>
+                <x-slot:description>
+                    Вища вартість пропонується за якісні, здорові та рівномірні
+                    локони. М'які і природньо гладкі на дотик пасма, завжди мають значно вищу ціну.
+                </x-slot>
+            </x-factors.item>
+
+            <x-factors.item percent="24">
+                <x-slot:caption>Стан пучка</x-slot>
+                <x-slot:description>
+                    Зріз має бути зроблений за правилами та закріплений зверху
                     гумкою і не мати колунів. Краще продавати свіжозрізані коси, їх ціна вища. Пролежані
                     прядки втрачають свій природний блиск та натуральні масла, які містяться в них.
-                </p>
-            </div>
-            <div>
-                <div class="flex">
-                    <div class="flex-none text-lg text-max-text me-3">Хімічний вплив</div>
-                    <div class="relative w-full mx-auto">
-                        <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
-                    </div>
-                    <div class="flex justify-center flex-none border-2 rounded-full border-max-soft h-11 w-11 ms-3">
-                        <span class="self-center text-xs font-bold text-max-text">20%</span>
-                    </div>
-                </div>
-                <p class="text-sm italic text-max-light">Ми не приймаємо пошкодженні, ламкі та сухі локони, або локони
+                </x-slot>
+            </x-factors.item>
+
+            <x-factors.item percent="16">
+                <x-slot:caption>Хімічний вплив</x-slot>
+                <x-slot:description>
+                    Ми не приймаємо пошкодженні, ламкі та сухі локони, або локони
                     з неоднорідною структурою. А також волосся із завивкою, забруднене або оброблене будь якими
-                    хімічними речовинами.</p>
-            </div>
-            <div>
-                <div class="flex">
-                    <div class="flex-none text-lg text-max-text me-3">Колір волосся</div>
-                    <div class="relative w-full mx-auto">
-                        <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
-                    </div>
-                    <div class="flex justify-center flex-none border-2 rounded-full border-max-soft h-11 w-11 ms-3">
-                        <span class="self-center text-xs font-bold text-max-text">20%</span>
-                    </div>
-                </div>
-                <p class="text-sm italic text-max-light">Пофарбовані пасма будуть коштувати набагато дешевше натуральних.
+                    хімічними речовинами.
+                </x-slot>
+            </x-factors.item>
+
+            <x-factors.item percent="32">
+                <x-slot:caption>Колір волосся</x-slot>
+                <x-slot:description>
+                    Пофарбовані пасма будуть коштувати набагато дешевше натуральних.
                     Скупка волосся здійснюється будь-якому кольорі, але більш висока ціна встановлюється на світлі
                     натуральні тони.
-                </p>
-            </div>
-            <div>
-                <div class="flex">
-                    <div class="flex-none text-lg text-max-text me-3">Наявність сивини</div>
-                    <div class="relative w-full mx-auto">
-                        <span class="border-b-2 absolute top-[50%] left-0 border-max-soft/60 border-dotted w-full"></span>
-                    </div>
-                    <div class="flex justify-center flex-none border-2 rounded-full border-max-soft h-11 w-11 ms-3">
-                        <span class="self-center text-xs font-bold text-max-text">20%</span>
-                    </div>
-                </div>
-                <p class="text-sm italic text-max-light">Зрізи з сивиною теж підлягають купівлі, але багато залежить
+                </x-slot>
+            </x-factors.item>
+
+            <x-factors.item percent="28">
+                <x-slot:caption>Наявність сивини</x-slot>
+                <x-slot:description>
+                    Зрізи з сивиною теж підлягають купівлі, але багато залежить
                     від доглянутості волосся та як довго росло з сивиною. Забарвлене і сиве волосся приймається від
-                    50 сантиметрів.</p>
-            </div>
-        </div>
+                    50 сантиметрів.
+                </x-slot>
+            </x-factors.item>
+        </x-factors>
 
         <x-alert type="info" class="mt-10 lg:w-1/3">
             <div class="font-thin text-max-white/80">Відсоткове відношення впливу на ціну є відносним та орієнтовним.
