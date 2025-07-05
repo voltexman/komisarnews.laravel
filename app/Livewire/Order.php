@@ -3,6 +3,8 @@
 namespace App\Livewire;
 
 use App\Livewire\Forms\OrderForm;
+use App\Notifications\OrderSent;
+use Illuminate\Support\Facades\Notification;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -16,7 +18,7 @@ class Order extends Component
 
     public bool $rulesConfirm = false;
 
-    public string $current = 'order.options';
+    public string $current = 'order.person';
 
     protected array $steps = [
         'order.person',
@@ -35,10 +37,6 @@ class Order extends Component
 
     public function next()
     {
-        // $this->order->validate([
-        //     'city' => 'required',
-        // ]);
-
         $currentIndex = array_search($this->current, $this->steps);
 
         $this->current = $this->steps[$currentIndex + 1];
@@ -52,9 +50,13 @@ class Order extends Component
 
         $created = $this->order->store();
 
-        dd($created);
+        Notification::route('mail', env('ADMIN_EMAIL'))
+            ->route('telegram', env('TELEGRAM_CHAT_ID'))
+            ->notify(new OrderSent((object) $created));
 
         session()->flash('number', $created->id);
+
+        $this->order->reset();
     }
 
     public function placeholder()

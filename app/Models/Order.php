@@ -16,6 +16,7 @@ class Order extends Model
         'purpose' => OrderPurpose::class,
         'color' => HairColors::class,
         'status' => OrderStatus::class,
+        'hair_options' => 'array',
     ];
 
     protected $fillable = [
@@ -24,10 +25,10 @@ class Order extends Model
         'city',
         'email',
         'phone',
+        'color',
         'hair_weight',
         'hair_length',
         'age',
-        'color',
         'hair_options',
         'description',
         'status',

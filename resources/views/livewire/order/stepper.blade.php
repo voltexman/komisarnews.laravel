@@ -1,9 +1,9 @@
 <x-stepper id="stepper" caption="Оцінка та продаж волосся" x-cloak>
-    <form wire:submit="save">
-        @session('number')
-            <x-stepper.done title="Заявка успішно відправлена" description="Очікуйте відповіді майстра" :icon="asset('images/icons/order-check.svg')"
-                :number="session('number')" />
-        @else
+    @session('number')
+        <x-stepper.done title="Заявка успішно відправлена" description="Очікуйте відповіді майстра" :icon="asset('images/icons/order-check.svg')"
+            :number="session('number')" />
+    @else
+        <form wire:submit="save" class="h-full">
             <x-slot:header>
                 <x-stepper.navigation icon='file-text' label='Заявка' step='order.person' />
                 <x-stepper.navigation icon='swatch-book' label='Опції' step='order.options' />
@@ -15,7 +15,8 @@
             <livewire:is :component="$current" :key="$current" />
 
             <x-slot:footer>
-                <x-button wire:click="preview" wire:show="current !== 'order.person'" class="me-2.5">
+                <x-button wire:click="preview" wire:show="current !== 'order.person'" wire:loading.attr="disabled"
+                    wire:target='preview' class="me-2.5">
                     <x-lucide-loader-2 wire:loading wire:target='preview' class="me-1.5 inline-block size-5 animate-spin" />
                     <x-lucide-arrow-left wire:loading.remove wire:target='preview' class="me-1.5 inline-block size-5" />
                     <span>Назад</span>
@@ -25,7 +26,8 @@
                     <x-lucide-info class="size-5" />
                 </x-button>
 
-                <x-button wire:click="next" wire:show="current !== 'order.check'">
+                <x-button wire:show="current !== 'order.check'" wire:click="next" wire:loading.attr="disabled"
+                    wire:target='next'>
                     <div wire:loading wire:target='next'>
                         <span>Перевірка...</span>
                         <x-lucide-loader-2 class="ms-1 inline-block size-4 animate-spin" />
@@ -35,8 +37,8 @@
                         <x-lucide-arrow-right class="ms-2 inline-block size-5" />
                     </div>
                 </x-button>
-                <x-button type="submit" wire:show="current === 'order.check'" wire:click="save"
-                    >
+
+                <x-button type="submit" wire:show="current === 'order.check'" wire:click="save">
                     <span>Відправити</span>
                     <x-lucide-send class="ms-1.5 inline-block size-5" />
                 </x-button>
@@ -147,8 +149,8 @@
                     </div>
                 </div>
             </div>
-        @endsession
-    </form>
+        </form>
+    @endsession
 </x-stepper>
 
 

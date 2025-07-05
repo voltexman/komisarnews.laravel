@@ -21,10 +21,10 @@ return new class extends Migration
             $table->string('city');
             $table->string('email')->nullable();
             $table->string('phone');
+            $table->enum('color', HairColors::all());
             $table->integer('hair_weight')->nullable();
             $table->integer('hair_length');
             $table->integer('age')->nullable();
-            $table->enum('color', HairColors::all());
             $table->json('hair_options')->nullable();
             $table->text('description')->nullable();
             $table->enum('status', OrderStatus::all())->default(OrderStatus::NEW);

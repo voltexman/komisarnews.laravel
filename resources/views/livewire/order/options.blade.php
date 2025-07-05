@@ -15,7 +15,7 @@
                     <div class="relative grow p-2.5">
                         <div class="line-clamp-1 text-xs font-semibold text-max-dark">Вага (гр)</div>
                         <input type="number" wire:model='$parent.order.hair_weight' placeholder="0"
-                            class="input-no-spinner weight-input w-full border-0 bg-transparent p-0 text-max-dark placeholder:text-sm placeholder:text-max-soft/50 focus:ring-0"
+                            class="input-no-spinner w-full border-0 bg-transparent p-0 text-max-dark placeholder:text-sm placeholder:text-max-soft/50 focus:ring-0"
                             aria-label="Вага">
                     </div>
                 </div>
@@ -24,13 +24,13 @@
             <div class="rounded-lg border border-max-dark/10 bg-max-soft/15">
                 <div class="flex w-full items-center justify-between gap-x-1">
                     <div class="relative grow p-2.5">
-                        <div class="line-clamp-1 text-xs font-semibold text-max-dark">Довжина (мм)</div>
+                        <div class="line-clamp-1 text-xs font-semibold text-max-dark">Довжина (см)</div>
                         <div class="absolute right-2 top-2 text-lg">
                             <span class="block h-1.5 w-1.5 rounded-full bg-red"></span>
                         </div>
                         <input type="number" wire:model.blur='$parent.order.hair_length' placeholder="0"
-                            class="input-no-spinner length-input w-full border-0 bg-transparent p-0 text-max-dark placeholder:text-sm placeholder:text-max-soft/50 focus:ring-0"
-                            aria-label="Довжина" data-hs-input-number-input>
+                            class="input-no-spinner w-full border-0 bg-transparent p-0 text-max-dark placeholder:text-sm placeholder:text-max-soft/50 focus:ring-0"
+                            aria-label="Довжина">
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                     <div class="grow p-2.5">
                         <div class="text-xs font-semibold text-max-dark">Вік</div>
                         <input type="number" wire:model='$parent.order.age' placeholder="25"
-                            class="input-no-spinner age-input w-full border-0 bg-transparent p-0 text-max-dark placeholder:text-sm placeholder:text-max-soft/50 focus:ring-0"
+                            class="input-no-spinner w-full border-0 bg-transparent p-0 text-max-dark placeholder:text-sm placeholder:text-max-soft/50 focus:ring-0"
                             aria-label="Вік">
                     </div>
                 </div>
