@@ -66,21 +66,25 @@
     }
 }
 
+@layer components {
+    .input-no-spinner {
+        @apply w-full border-0 bg-transparent p-0 text-max-dark placeholder:text-sm placeholder:text-max-soft/50 focus:ring-0;
+    }
+
+    .input-no-spinner::-webkit-inner-spin-button,
+    .input-no-spinner::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .input-no-spinner {
+        -moz-appearance: textfield;
+    }
+}
+
 @layer base {
     [x-cloak] {
         display: none !important;
-    }
-
-    .section {
-        @apply py-14;
-    }
-
-    .section-title {
-        @apply text-2xl drop-shadow-lg text-center font-semibold uppercase font-[Oswald] text-max-black;
-    }
-
-    .section-caption {
-        @apply mt-2 mb-8 text-sm font-semibold text-center uppercase drop-shadow-lg font-[Oswald] tracking-wide;
     }
 
     .modal {

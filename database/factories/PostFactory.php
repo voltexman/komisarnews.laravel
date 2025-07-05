@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Enums\Post\Categories;
+use App\Enums\PostCategories;
 use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -15,7 +15,7 @@ class PostFactory extends Factory
             'title' => fake()->sentence(),
             'slug' => fake()->slug(),
             'body' => fake()->paragraph(80),
-            'category' => Categories::ARTICLES,
+            'category' => PostCategories::ARTICLES,
             'is_published' => fake()->boolean(),
             'is_indexing' => fake()->boolean(),
             'description' => fake()->text(100),

@@ -26,19 +26,19 @@
 <body x-data="{ loading: true }">
 
     <div x-show="loading" @load.window="loading=false" x-transition.opacity.duration.500ms
-        class="fixed w-screen h-screen top-0 left-0 bg-black z-[100] flex justify-center">
-        <div class="animate-spin inline-block w-20 h-20 border-[6px] border-current border-t-transparent text-max-soft rounded-full self-center"
+        class="fixed left-0 top-0 z-[100] flex h-screen w-screen justify-center bg-black">
+        <div class="border-current inline-block h-20 w-20 animate-spin self-center rounded-full border-[6px] border-t-transparent text-max-soft"
             role="status" aria-label="loading">
             <span class="sr-only">Loading...</span>
         </div>
     </div>
 
     <div x-data="scrollProgress" x-show="isVisible" x-transition.opacity.duration.500ms x-cloak
-        class="fixed z-40 grid items-center w-12 h-12 rounded-full shadow-md bottom-4 right-4 bg-max-soft/50 shadow-max-dark/20"
+        class="fixed bottom-4 right-4 z-40 grid h-12 w-12 items-center rounded-full bg-max-soft/50 shadow-md shadow-max-dark/20"
         :style="{ background: `conic-gradient(rgb(92, 75, 56, .7) ${percent}% , rgb(145, 118, 90, .4) ${percent}%)` }">
         <a href="#" rel="nofollow">
-            <span class="z-50 flex items-center justify-center w-10 h-10 mx-auto rounded-full bg-max-soft">
-                <x-lucide-arrow-up class="w-4 h-4 text-center text-max-light" />
+            <span class="z-50 mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-max-soft">
+                <x-lucide-arrow-up class="h-4 w-4 text-center text-max-light" />
             </span>
         </a>
     </div>
@@ -46,21 +46,21 @@
     <header>
         @section('header')
             <nav x-data="navbar" x-init="scrolled"
-                class="container fixed z-50 w-full duration-500 lg:-translate-x-1/2 lg:left-1/2 lg:rounded-xl lg:top-3"
+                class="container fixed z-50 w-full duration-500 lg:left-1/2 lg:top-3 lg:-translate-x-1/2 lg:rounded-xl"
                 x-bind:class="(isScrolled || navIsOpen || searchIsOpen) &&
                 'bg-max-black/90 backdrop-blur-sm shadow-lg shadow-max-black/40'"
                 @scroll.window="scrolled" x-cloak>
-                <div class="relative flex items-center justify-between h-16">
+                <div class="relative flex h-16 items-center justify-between">
 
                     {{-- Logo --}}
-                    <div class="flex items-center flex-shrink-0">
+                    <div class="flex flex-shrink-0 items-center">
                         <a href="{{ route('main') }}" class="text-lg font-normal uppercase text-max-light">
-                            7777<span class="px-1 text-white rounded bg-max-orange">.hair</span>
+                            7777<span class="rounded bg-max-orange px-1 text-white">.hair</span>
                         </a>
                     </div>
 
                     {{-- Desktop Menu --}}
-                    <div class="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start">
+                    <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                         <div class="hidden w-full sm:ml-6 lg:block">
                             <div class="flex space-x-4">
                                 <x-menu>
@@ -70,7 +70,7 @@
                                     <x-menu.item :link="route('articles.list')" :active="request()->routeIs('articles.list')">
                                         Статті
                                     </x-menu.item>
-                                    <x-menu.item :link="route('contacts.show')" :active="request()->routeIs('contacts.show')">
+                                    <x-menu.item :link="route('contacts')" :active="request()->routeIs('contacts')">
                                         Контакти
                                     </x-menu.item>
                                 </x-menu>
@@ -79,18 +79,18 @@
                     </div>
 
                     <div class="flex items-center p-2">
-                        <button type="button" class="text-white h-9" @click="searchToggle" aria-label="Пошук статей">
+                        <button type="button" class="h-9 text-white" aria-label="Пошук статей" @click="searchToggle">
                             <x-lucide-search class="size-5" x-show="!searchIsOpen" />
                             <x-lucide-x class="size-5" x-show="searchIsOpen" />
                         </button>
                     </div>
 
                     {{-- Scroll to Map Button --}}
-                    <div class="inset-y-0 right-0 flex items-center mx-2 sm:static sm:inset-auto">
-                        <div class="flex items-center order-1 ms-auto lg:ms-0">
+                    <div class="inset-y-0 right-0 mx-2 flex items-center sm:static sm:inset-auto">
+                        <div class="order-1 ms-auto flex items-center lg:ms-0">
                             <a href="#map" aria-label="Обрати місто">
                                 <x-button class="flex items-center uppercase" variant='orange'>
-                                    <x-lucide-map-pin class="flex-none size-4 me-1" />
+                                    <x-lucide-map-pin class="me-1 size-4 flex-none" />
                                     <span class="hidden lg:block">Обрати місто</span>
                                     <span class="block lg:hidden">Міста</span>
                                 </x-button>
@@ -101,9 +101,9 @@
                     {{-- Mobile Show Menu Button --}}
                     <div class="inset-y-0 right-0 flex items-center lg:hidden">
                         <!-- Mobile menu button-->
-                        <button type="button" @click="navToggle"
-                            class="relative inline-flex items-center justify-center p-2 rounded-md -me-2 text-max-light"
-                            aria-controls="mobile-menu" aria-expanded="false">
+                        <button type="button"
+                            class="relative -me-2 inline-flex items-center justify-center rounded-md p-2 text-max-light"
+                            aria-controls="mobile-menu" aria-expanded="false" @click="navToggle">
                             <span class="absolute -inset-0.5"></span>
                             <span class="sr-only">Open main menu</span>
                             <x-lucide-menu class="size-6" x-show="!navIsOpen" />
@@ -113,17 +113,17 @@
                 </div>
 
                 <!-- Mobile menu, show/hide based on menu state. -->
-                <div x-show="navIsOpen" x-collapse class="lg:hidden" id="mobile-menu">
-                    <div class="px-2 pt-2 pb-3 space-y-1">
+                <div id="mobile-menu" x-show="navIsOpen" x-collapse class="lg:hidden">
+                    <div class="space-y-1 px-2 pb-3 pt-2">
                         <x-menu>
                             <x-menu.item :link="route('main')" :active="request()->routeIs('main')">Головна</x-menu.item>
                             <x-menu.item :link="route('articles.list')" :active="request()->routeIs('articles.list')">Статті</x-menu.item>
-                            <x-menu.item :link="route('contacts.show')" :active="request()->routeIs('contacts.show')">Контакти</x-menu.item>
+                            <x-menu.item :link="route('contacts')" :active="request()->routeIs('contacts')">Контакти</x-menu.item>
                         </x-menu>
                     </div>
                 </div>
                 <div x-show="searchIsOpen" x-collapse>
-                    <div class="px-2 pt-2 pb-3 space-y-1">
+                    <div class="space-y-1 px-2 pb-3 pt-2">
                         <livewire:search-posts />
                     </div>
                 </div>
@@ -134,7 +134,7 @@
     <main>
         @yield('content')
 
-        <x-section class="py-10 bg-max-dark scroll-mt-16" id="map">
+        <x-section id="map" class="scroll-mt-16 !bg-max-dark py-10">
             <x-slot:title class="text-max-light">
                 Купівля і продаж<br class="lg:hidden"> волосся в містах
             </x-slot>
@@ -143,11 +143,11 @@
             </x-slot>
 
             <div class="flex flex-col lg:flex-row">
-                <div class="self-center w-full lg:w-3/4 lg:me-10">
+                <div class="w-full self-center lg:me-10 lg:w-3/4">
                     @include('layouts.partials.map')
                 </div>
 
-                <div class="lg:w-1/4 lg:min-w-[480px] mt-14 lg:mt-0 mb-4 lg:mb-0 sm:px-28 lg:px-0">
+                <div class="mb-4 mt-14 sm:px-28 lg:mb-0 lg:mt-0 lg:w-1/4 lg:min-w-[480px] lg:px-0">
                     <livewire:order />
                 </div>
             </div>
@@ -155,8 +155,8 @@
 
     </main>
 
-    <x-section class="px-0 border-b-8 py-14 bg-max-black border-max-light/10 sm:px-28 lg:px-0">
-        <div class="flex flex-col lg:flex-row lg:gap-y-0 gap-y-10 lg:gap-8 lg:justify-between">
+    <x-section class="border-b-8 border-max-light/10 !bg-max-black px-0 py-14 sm:px-28 lg:px-0">
+        <div class="flex flex-col gap-y-10 lg:flex-row lg:justify-between lg:gap-8 lg:gap-y-0">
             <div class="order-2 w-full lg:order-1 lg:w-2/3">
                 <livewire:subscribe />
             </div>
@@ -169,21 +169,21 @@
     <footer class="bg-max-black">
         <div class="container py-20">
             <div class="flex flex-col lg:flex-row lg:justify-between">
-                <div class="font-semibold lg:w-1/3 text-max-light/60">
+                <div class="font-semibold text-max-light/60 lg:w-1/3">
                     <div class="flex flex-row justify-center lg:justify-start">
-                        <x-lucide-map-pin class="size-4 me-1 mt-0.5" />
+                        <x-lucide-map-pin class="me-1 mt-0.5 size-4" />
                         <span>Україна, Київ</span>
                     </div>
                     <div class="flex flex-row justify-center lg:justify-start">
-                        <x-lucide-user class="size-4 me-1 mt-0.5" />
+                        <x-lucide-user-2 class="me-1 mt-0.5 size-4" />
                         <span>Максим Комісар</span>
                     </div>
                 </div>
-                <div class="mt-5 text-center lg:w-1/3 lg:mt-0">
+                <div class="mt-5 text-center lg:mt-0 lg:w-1/3">
                     <div class="text-2xl font-extrabold text-max-text">+380 (73) 785-77-77</div>
                     <div class="font-semibold text-max-light/60">123komisar@gmail.com</div>
                 </div>
-                <div class="flex self-center justify-end gap-3 mt-10 lg:w-1/3 text-max-soft lg:mt-0">
+                <div class="mt-10 flex justify-end gap-3 self-center text-max-soft lg:mt-0 lg:w-1/3">
                     <a href="https://www.facebook.com/profile.php?id=100081276925197" aria-label="Ми в Facebook"
                         target="_blank">
                         <x-lucide-facebook class="size-6" />
@@ -195,7 +195,7 @@
                 </div>
             </div>
         </div>
-        <div class="text-center text-xs text-max-light/50 py-5 border-t border-max-light/[.07]">
+        <div class="border-t border-max-light/[.07] py-5 text-center text-xs text-max-light/50">
             {{ date('Y') }} © KomisarNews. Всі права застережено.
         </div>
     </footer>

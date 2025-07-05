@@ -4,7 +4,7 @@
     "src": "public/images/barber.png"
   },
   "resources/css/app.css": {
-    "file": "assets/app-DQPftY-Z.css",
+    "file": "assets/app-CCEAK7cD.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -27,6 +27,18 @@
   "resources/images/drying.jpg": {
     "file": "assets/drying-DowR56Ff.jpg",
     "src": "resources/images/drying.jpg"
+  },
+  "resources/images/icons/brush-tool.svg": {
+    "file": "assets/brush-tool-aFcUTy-l.svg",
+    "src": "resources/images/icons/brush-tool.svg"
+  },
+  "resources/images/icons/female-hairs.svg": {
+    "file": "assets/female-hairs-qsM1SiVU.svg",
+    "src": "resources/images/icons/female-hairs.svg"
+  },
+  "resources/images/icons/woman-hair-cut.svg": {
+    "file": "assets/woman-hair-cut-CKkeLIV0.svg",
+    "src": "resources/images/icons/woman-hair-cut.svg"
   },
   "resources/images/modno.jpg": {
     "file": "assets/modno-BmjCWdHg.jpg",
@@ -57,7 +69,7 @@
     "src": "resources/images/washing.jpg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-Cma79yXY.js",
+    "file": "assets/app-DIA6Q0hx.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true

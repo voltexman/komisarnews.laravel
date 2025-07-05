@@ -1,116 +1,137 @@
 <div class="space-y-2">
-    <div class="text-sm font-semibold text-center uppercase text-max-soft">
+    <div class="text-center font-[Oswald] text-xs font-extrabold uppercase">
         Перевірка заповнених даних
     </div>
 
-    <div class="w-full">
-        <span class="block text-sm font-bold text-center text-max-dark" x-text="$wire.order.goal"></span>
+    <div x-data="{
+        hairColorEnum: @js(collect(App\Enums\Order\OrderPurpose::cases())->mapWithKeys(fn($c) => [$c->value => $c->title()])->toArray()),
+        get label() {
+            return this.hairColorEnum[$wire.$parent.order?.purpose] || 'не вказано';
+        }
+    }" class="text-center text-sm font-bold text-max-dark"
+        x-bind:class="{ 'italic text-gray-500': !$wire.$parent.order?.purpose }" x-text="label">
     </div>
 
-    <div class="grid grid-cols-2 gap-2">
-        <div class="flex flex-col text-sm">
-            <span class="font-bold">Ваше ім'я:</span>
-            <span class="font-normal line-clamp-1" x-bind:class="{ 'italic text-gray-500': !$wire.order.name }"
-                x-text="$wire.order.name ? $wire.order.name : 'не вказано'"></span>
-        </div>
-
-        <div class="flex flex-col text-sm">
-            <span class="font-bold" x-bind:class="!$wire.order.city ? 'text-red' : 'text-max-dark'">
-                Місто:
-            </span>
-            <span class="font-normal line-clamp-1"
-                x-bind:class="!$wire.order.city ? 'text-red italic' : 'text-gray-600'"
-                x-text="$wire.order.city ? $wire.order.city : 'не вказано'"></span>
-        </div>
-
-        <div class="flex flex-col text-sm">
-            <span class="font-bold">Електронна пошта:</span>
-            <span class="font-normal line-clamp-1" x-bind:class="{ 'italic text-gray-500': !$wire.order.email }"
-                x-text="$wire.order.email ? $wire.order.email : 'не вказано'"></span>
-        </div>
-
-        <div class="flex flex-col text-sm">
-            <span class="font-bold" x-bind:class="!$wire.order.phone ? 'text-red' : 'text-max-dark'">
-                Номер телефону:
-            </span>
-            <span class="font-normal line-clamp-1"
-                x-bind:class="!$wire.order.phone ? 'text-red italic' : 'text-gray-600'"
-                x-text="$wire.order.phone ? $wire.order.phone : 'не вказано'"></span>
-        </div>
-    </div>
-
-    <div class="grid grid-cols-3 gap-2">
-        <div class="flex flex-col text-sm">
-            <span class="font-bold">Вага:</span>
-            <span class="font-normal" x-bind:class="{ 'italic text-gray-500': !$wire.order.hair_weight }"
-                x-text="$wire.order.hair_weight ? $wire.order.hair_weight + 'гр.' : 'не вказано'"></span>
-        </div>
-
-        <div class="flex flex-col text-sm">
-            <span class="font-bold" x-bind:class="!$wire.order.hair_length ? 'text-red' : 'text-max-dark'">
-                Довжина:
-            </span>
-            <span class="font-normal" x-bind:class="!$wire.order.hair_length ? 'text-red italic' : 'text-gray-600'"
-                x-text="$wire.order.hair_length ? $wire.order.hair_length + 'мм.' : 'не вказано'"></span>
-        </div>
-
-        <div class="flex flex-col text-sm">
-            <span class="font-bold">Вік:</span>
-            <span class="font-normal" x-bind:class="{ 'italic text-gray-500': !$wire.order.age }"
-                x-text="$wire.order.age ? $wire.order.age + 'р.' : 'не вказано'"></span>
-        </div>
-    </div>
-
-    <div class="grid grid-cols-1 gap-2">
-        <div class="flex flex-col text-sm">
-            <span class="font-bold">Колір:</span>
-            <span class="font-normal" x-bind:class="{ 'italic text-gray-500': !$wire.order.color }"
-                x-text="$wire.order.color ? $wire.order.color : 'не вказано'"></>
-        </div>
-
-        <div class="flex flex-col text-sm">
-            <span class="font-bold">Опції:</span>
-            {{-- <span class="font-normal"
-                                    x-text="$wire.order.hair_options.length ? $wire.order.hair_options : 'Не зрізані, не фарбовані, без сивини'"></span> --}}
-        </div>
-
-        <div class="flex flex-col text-sm">
-            <div class="flex justify-between">
-                <span class="font-bold">Додатковий опис:</span>
-                <x-lucide-maximize x-show="$wire.order.description" @click="descriptionFull=!descriptionFull"
-                    class="w-4 h-4 cursor-pointer" />
+    <div class="flex flex-col gap-y-1.5">
+        <div class="grid grid-cols-2 gap-x-0.5">
+            <div class="flex flex-col">
+                <div class="text-sm font-bold">Ваше ім'я:</div>
+                <div class="line-clamp-1 text-sm" x-bind:class="{ 'italic text-gray-500': !$wire.$parent.order.name }"
+                    x-text="$wire.$parent.order?.name || 'не вказано'"></div>
             </div>
-            <span class="font-normal line-clamp-1" x-bind:class="{ 'italic text-gray-500': !$wire.order.description }"
-                x-text="$wire.order.description ? $wire.order.description : 'не вказано'"></span>
-            <div x-show="descriptionFull" x-transition.duration.500ms
-                class="absolute top-0 z-20 w-full h-full rounded-lg start-0 bg-max-light">
+
+            <div class="flex flex-col text-sm">
+                <div class="font-bold" x-bind:class="!$wire.$parent.order?.city ? 'text-red' : 'text-max-dark'">
+                    Місто:
+                </div>
+                <div class="line-clamp-1 font-normal"
+                    x-bind:class="!$wire.$parent.order?.city ? 'text-red italic' : 'text-gray-600'"
+                    x-text="$wire.$parent.order?.city || 'не вказано'"></div>
             </div>
-            <div x-show="descriptionFull" x-transition.duration.500ms
-                class="absolute top-0 left-0 z-20 w-full h-full p-5">
-                <div class="flex flex-col h-full">
-                    <span class="mb-5 font-semibold text-center text-gray-700 uppercase">
-                        Додатковий опис
-                    </span>
-                    <div class="h-full mb-10">
-                        <p x-text="$wire.order.description" class="text-gray-600"></p>
-                    </div>
-                    <x-lucide-minimize x-on:click="descriptionFull=!descriptionFull"
-                        class="absolute w-5 h-5 cursor-pointer right-5 bottom-5" />
+        </div>
+
+        <div class="grid grid-cols-2 gap-x-0.5">
+            <div class="flex flex-col">
+                <div class="text-sm font-bold">Електронна пошта:</div>
+                <div class="line-clamp-1 text-sm" x-bind:class="{ 'italic text-gray-500': !$wire.$parent.order?.email }"
+                    x-text="$wire.$parent.order?.email || 'не вказано'"></div>
+            </div>
+
+            <div class="flex flex-col">
+                <div class="text-sm font-bold"
+                    x-bind:class="!$wire.$parent.order?.phone ? 'text-red' : 'text-max-dark'">
+                    Номер телефону:
+                </div>
+                <div class="line-clamp-1 text-sm"
+                    x-bind:class="!$wire.$parent.order?.phone ? 'text-red italic' : 'text-gray-600'"
+                    x-text="$wire.$parent.order?.phone || 'не вказано'"></div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-x-0.5">
+            <div class="flex flex-col">
+                <div class="text-sm font-bold">Вага:</div>
+                <div class="text-sm" x-bind:class="{ 'italic text-gray-500': !$wire.$parent.order.hair_weight }"
+                    x-text="$wire.$parent.order?.hair_weight ? $wire.$parent.order?.hair_weight + 'гр.' : 'не вказано'">
                 </div>
             </div>
+
+            <div class="flex flex-col text-sm">
+                <div class="font-bold" x-bind:class="!$wire.$parent.order?.hair_length ? 'text-red' : 'text-max-dark'">
+                    Довжина:
+                </div>
+                <div class="font-normal"
+                    x-bind:class="!$wire.$parent.order?.hair_length ? 'text-red italic' : 'text-gray-600'"
+                    x-text="$wire.$parent.order?.hair_length ? $wire.$parent.order?.hair_length + 'мм.' : 'не вказано'">
+                </div>
+            </div>
+
+            <div class="flex flex-col text-sm">
+                <div class="font-bold">Вік:</div>
+                <div class="font-normal" x-bind:class="{ 'italic text-gray-500': !$wire.$parent.order?.age }"
+                    x-text="$wire.$parent.order?.age ? $wire.$parent.order?.age + 'р.' : 'не вказано'"></div>
+            </div>
+        </div>
+
+        <div class="grid grid-rows-3 gap-y-2.5">
+            <div class="flex flex-col">
+                <div class="text-sm font-bold">Колір:</div>
+                <div x-data="{
+                    hairColorEnum: @js(collect(App\Enums\Order\HairColors::cases())->mapWithKeys(fn($c) => [$c->value => $c->getLabel()])->toArray()),
+                    get label() {
+                        return this.hairColorEnum[$wire.$parent.order?.color] || 'не вказано';
+                    }
+                }" class="text-sm"
+                    x-bind:class="{ 'italic text-gray-500': !$wire.$parent.order?.color }" x-text="label">
+                </div>
+            </div>
+            <div class="flex flex-col">
+                <div class="text-sm font-bold">Опції:</div>
+                <div class="text-sm"
+                    x-text="$wire.$parent.order?.hair_options.length ? $wire.$parent.order?.hair_options : 'Не зрізані, не фарбовані, без сивини'">
+                </div>
+            </div>
+            <div class="flex flex-col">
+                <div class="flex justify-between">
+                    <div class="text-sm font-bold">Додатковий опис:</div>
+                    <x-lucide-maximize wire:show="$parent.order.description" class="size-4 cursor-pointer"
+                        x-on:click="$wire.descriptionFull=!$wire.descriptionFull" />
+                </div>
+                <div class="line-clamp-1 text-sm"
+                    x-bind:class="{ 'italic text-gray-500': !$wire.$parent.order.description }"
+                    x-text="$wire.$parent.order?.description || 'не вказано'"></div>
+            </div>
         </div>
     </div>
 
-    <div class="mt-4">
-        <label for="hs-checkbox-in-form"
-            class="flex w-full p-2 text-sm border rounded-lg bg-max-soft/10 border-max-soft/10 focus:border-max-dark focus:ring-max-dark">
-            <input type="checkbox" @change="rulesConfirm = ! rulesConfirm"
-                class="shrink-0 mt-0.5 border-max-soft rounded text-max-dark focus:ring-max-dark disabled:opacity-50 disabled:pointer-events-none"
-                id="hs-checkbox-in-form">
-            <div class="text-sm ms-3">
+    <div wire:show="descriptionFull" class="absolute start-0 top-0 z-20 size-full rounded-lg bg-max-light p-5"
+        x-transition.duration.500ms>
+        <div class="flex h-full flex-col justify-between">
+            <div class="mb-5 text-center font-[Oswald] font-semibold uppercase">
+                Додатковий опис
+            </div>
+            <x-lucide-minimize x-on:click="$wire.descriptionFull=!$wire.descriptionFull"
+                class="absolute right-5 top-5 size-5 cursor-pointer" />
+            <div class="relative h-full overflow-hidden">
+                <x-lucide-message-circle-more
+                    class="absolute left-1/2 top-1/2 z-0 size-[85%] -translate-x-1/2 -translate-y-1/2 opacity-5"
+                    stroke-width="1.5" />
+                <x-scrollbar class="relative z-10 h-full rounded-lg bg-max-dark/10 p-5">
+                    <p x-text="$wire.$parent.order.description" class="font-medium"></p>
+                </x-scrollbar>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5">
+        <label for="rules-confirm"
+            class="flex w-full rounded-lg border border-max-soft/10 bg-max-soft/10 p-2.5 text-sm focus:border-max-dark focus:ring-max-dark">
+            <input id="rules-confirm" type="checkbox" wire:model="$parent.rulesConfirm"
+                class="mt-0.5 shrink-0 rounded border-max-soft text-max-dark focus:ring-max-dark disabled:pointer-events-none disabled:opacity-50">
+            <div class="ms-2.5 text-sm">
                 <span class="hidden lg:inline-block">Ознайомлений(а) та погоджуюсь з</span>
                 <span class="lg:hidden">Погоджуюсь з</span>
-                <span class="font-bold cursor-pointer text-max-soft" data-hs-overlay="#rules-check-document">
+                <span wire:click="descriptionFull = true" class="cursor-pointer font-extrabold text-max-dark">
                     правилами
                 </span>
             </div>

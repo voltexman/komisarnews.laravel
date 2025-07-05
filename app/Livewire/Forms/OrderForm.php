@@ -2,68 +2,86 @@
 
 namespace App\Livewire\Forms;
 
-use Livewire\Form;
+use App\Enums\Order\OrderPurpose;
 use App\Models\Order;
-use App\Enums\Order\Goals;
+use Livewire\Attributes\Session;
+use Livewire\Form;
 use Livewire\WithFileUploads;
-use Illuminate\Validation\Rule;
 
 class OrderForm extends Form
 {
     use WithFileUploads;
 
-    public $goal = '';
+    #[Session]
+    public string $purpose = OrderPurpose::SELL->value;
 
-    #[Rule('min:2', message: 'Введено замало символів')]
-    #[Rule('max:40')]
-    public $name = '';
+    #[Session]
+    public ?string $name = '';
 
-    #[Rule('required', message: 'Вкажіть ваше місто')]
-    #[Rule('min:2', message: 'Введено замало символів')]
-    #[Rule('max:255')]
-    public $city = '';
+    #[Session]
+    public string $city = '';
 
-    #[Rule()]
-    public $email = '';
+    #[Session]
+    public ?string $email = '';
 
-    #[Rule('required', message: 'Вкажіть номер телефону')]
-    #[Rule('required|min:5|max:20')]
-    public $phone = '';
+    #[Session]
+    public string $phone = '';
 
-    #[Rule()]
     public $photos = [];
 
-    #[Rule('required', message: 'Вкажіть колір волосся')]
+    #[Session]
     public $color = null;
 
-    #[Rule('numeric|min:2|max:10')]
-    public $hair_weight = null;
+    #[Session]
+    public ?int $hair_weight = null;
 
-    #[Rule('numeric|required|min:2|max:4')]
-    public $hair_length = null;
+    #[Session]
+    public ?int $hair_length = null;
 
-    #[Rule('numeric|min:2|max:2')]
-    public $age = null;
+    #[Session]
+    public ?int $age = null;
 
+    #[Session]
     public $hair_options = [];
 
-    public $description = '';
+    #[Session]
+    public string $description = '';
 
     public function store(): Order
     {
-        $this->validate();
+        dd($validated = $this->validate());
 
-        return Order::create($this->all());
+        // $this->reset();
+
+        return Order::create($validated);
     }
 
-    public function rules(): array
+    protected function rules(): array
     {
         return [
-            // 'goal' => ['required', Rule::in([Goals::EVALUATE, Goals::SELL])],
-            // 'email' => 'email|min:5',
-            // 'photos.*' => 'image',
-            // 'hair_options' => 'json',
-            // 'description' => 'string|max:1500',
+            'purpose' => 'required',
+            'name' => 'nullable|min:2|max:40',
+            'city' => 'required|min:2|max:255',
+            'email' => 'nullable|email',
+            'phone' => 'required|min:5|max:20',
+            'photos' => 'nullable|array',
+            'color' => 'required|string',
+            // 'hair_weight' => 'nullable|numeric|min:2|max:10',
+            // 'hair_length' => 'required|numeric|min:2|max:4',
+            // 'age' => 'nullable|numeric|min:2|max:2',
+            // 'hair_options' => 'nullable|array',
+            // 'description' => 'nullable|string',
+        ];
+    }
+
+    protected function messages(): array
+    {
+        return [
+            'name.min' => 'Введено замало символів',
+            'city.required' => 'Вкажіть ваше місто',
+            'city.min' => 'Введено замало символів',
+            'phone.required' => 'Вкажіть номер телефону',
+            'color.required' => 'Вкажіть колір волосся',
         ];
     }
 }

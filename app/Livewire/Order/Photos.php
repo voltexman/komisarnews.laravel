@@ -10,16 +10,13 @@ class Photos extends Component
 {
     use WithFileUploads;
 
-    public $order;
+    public OrderForm $order;
 
-    public function mount(OrderForm $order)
-    {
-        $this->order = $order;
-    }
+    public bool $editShow = false;
 
     public function isMaxPhotos(): bool
     {
-        return count($this->order->photos) == env('MAX_ORDER_PHOTOS');
+        return count($this->order->photos) === 4;
     }
 
     public function render()

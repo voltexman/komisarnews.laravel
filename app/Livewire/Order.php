@@ -3,16 +3,22 @@
 namespace App\Livewire;
 
 use App\Livewire\Forms\OrderForm;
-use DefStudio\Telegraph\Facades\Telegraph;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Order extends Component
 {
+    use WithFileUploads;
+
     public OrderForm $order;
 
-    public $step = 'order.person';
+    public bool $rulesShow = false;
 
-    protected $steps = [
+    public bool $rulesConfirm = false;
+
+    public string $current = 'order.options';
+
+    protected array $steps = [
         'order.person',
         'order.options',
         'order.photos',
@@ -20,21 +26,22 @@ class Order extends Component
         'order.check',
     ];
 
-    public function preview()
+    public function preview(): void
     {
-        $currentIndex = array_search($this->step, $this->steps);
+        $currentIndex = array_search($this->current, $this->steps);
 
-        $this->step = $this->steps[$currentIndex - 1];
+        $this->current = $this->steps[$currentIndex - 1];
     }
 
     public function next()
     {
-        if ($this->step == 'order.person') {
-        }
+        // $this->order->validate([
+        //     'city' => 'required',
+        // ]);
 
-        $currentIndex = array_search($this->step, $this->steps);
+        $currentIndex = array_search($this->current, $this->steps);
 
-        $this->step = $this->steps[$currentIndex + 1];
+        $this->current = $this->steps[$currentIndex + 1];
     }
 
     public function save()
@@ -43,37 +50,16 @@ class Order extends Component
         //            $photo->store(path: 'photos');
         //        }
 
-        // $created = $this->order->store();
-        // $this->sendToTelegram($created);
+        $created = $this->order->store();
 
-        session()->flash('number');
+        dd($created);
 
-        $this->order->reset();
-    }
-
-    public function sendToTelegram($created): void
-    {
-        Telegraph::chat(env('TELEGRAM_CHAT_ID'))
-            ->html(
-                '<b>' . $this->order->goal . "</b>\n" .
-                    '<b>Заявка: </b>' . $created->id . "\n" .
-                    '<b>Ім`я: </b>' . $this->order->name . "\n" .
-                    '<b>Місто: </b>' . $this->order->city . "\n" .
-                    '<b>Пошта: </b>' . $this->order->email . "\n" .
-                    '<b>Телефон: </b>' . $this->order->phone . "\n" .
-                    "<b>Колір волосся: </b>\n" . $this->order->color . "\n" .
-
-                    '<b>Вага: </b>' . $this->order->hair_weight . ', ' .
-                    '<b>Довжина: </b>' . $this->order->hair_length . ', ' .
-                    '<b>Вік: </b>' . $this->order->age . "\n" .
-
-                    "<b>Додатковий опис: </b>\n " . $this->order->description . "\n"
-            )->send();
+        session()->flash('number', $created->id);
     }
 
     public function placeholder()
     {
-        return view('livewire.order.stepper-placeholder');
+        return view('livewire.order.placeholder');
     }
 
     public function render()

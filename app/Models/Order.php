@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use App\Enums\Order\Colors;
-use App\Enums\Order\Goals;
-use App\Enums\Order\Status;
+use App\Enums\Order\HairColors;
+use App\Enums\Order\OrderPurpose;
+use App\Enums\OrderStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,13 +13,13 @@ class Order extends Model
     use HasFactory;
 
     protected $casts = [
-        'goal' => Goals::class,
-        'color' => Colors::class,
-        'status' => Status::class,
+        'purpose' => OrderPurpose::class,
+        'color' => HairColors::class,
+        'status' => OrderStatus::class,
     ];
 
     protected $fillable = [
-        'goal',
+        'purpose',
         'name',
         'city',
         'email',

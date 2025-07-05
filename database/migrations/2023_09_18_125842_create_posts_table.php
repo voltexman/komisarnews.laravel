@@ -1,6 +1,6 @@
 <?php
 
-use App\Enums\Post\Categories;
+use App\Enums\PostCategories;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('title');
             $table->string('slug');
-            $table->enum('category', Categories::all());
+            $table->enum('category', PostCategories::all());
             $table->longText('body')->nullable();
             $table->text('description')->nullable();
             $table->boolean('is_published')->default(true);

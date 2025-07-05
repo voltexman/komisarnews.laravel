@@ -1,9 +1,5 @@
 <?php
 
-use App\Http\Controllers\Api\FeedbackController;
-use App\Http\Controllers\Api\OrderController;
-use App\Http\Controllers\Api\PostController;
-use App\Http\Controllers\Api\SeoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,17 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['auth:sanctum'])->group(function () {
-
-    Route::apiResource('posts', PostController::class);
-
-    Route::apiResource('orders', OrderController::class)
-        ->only(['index', 'status']);
-
-    Route::apiResource('feedbacks', FeedbackController::class)
-        ->only(['index']);
-
-    Route::put('/orders/status/{id}', [OrderController::class, 'status']);
-
-    Route::get('/seo/{page}', [SeoController::class, 'show']);
-});
+Route::middleware(['auth:sanctum'])->group(function () {});

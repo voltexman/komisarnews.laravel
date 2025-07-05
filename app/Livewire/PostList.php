@@ -2,7 +2,7 @@
 
 namespace App\Livewire;
 
-use App\Enums\Post\Categories;
+use App\Enums\PostCategories;
 use App\Models\Post;
 use Illuminate\Support\Collection;
 use Livewire\Attributes\Computed;
@@ -26,7 +26,7 @@ class PostList extends Component
     #[Computed()]
     public function paginator()
     {
-        return Post::where(['category' => Categories::ARTICLES])
+        return Post::where(['category' => PostCategories::ARTICLES])
             ->active()
             ->latest()
             ->paginate(8, ['*'], 'page', $this->page);

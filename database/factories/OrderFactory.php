@@ -2,36 +2,28 @@
 
 namespace Database\Factories;
 
-use App\Enums\Order\Colors;
-use App\Enums\Order\Goals;
-use App\Enums\Order\Status;
+use App\Enums\Order\HairColors;
+use App\Enums\Order\OrderPurpose;
+use App\Enums\OrderStatus;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Order>
- */
 class OrderFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
-            'goal' => fake()->randomElement(Goals::all()),
-            'name' => fake()->name(),
+            'purpose' => fake()->randomElement(OrderPurpose::all()),
+            'name' => fake()->optional()->name(),
             'city' => fake()->city(),
-            'email' => fake()->unique()->email(),
+            'email' => fake()->unique()->safeEmail(),
             'phone' => fake()->unique()->phoneNumber(),
-            'hair_weight' => fake()->numberBetween(80, 400),
+            'hair_weight' => fake()->optional()->numberBetween(80, 400),
             'hair_length' => fake()->numberBetween(50, 500),
-            'age' => fake()->numberBetween(18, 60),
-            'color' => fake()->randomElement(Colors::all()),
+            'age' => fake()->optional()->numberBetween(18, 60),
+            'color' => fake()->randomElement(HairColors::all()),
             // 'hair_options' => fake()->array,
-            'description' => fake()->text(),
-            'status' => fake()->randomElement(Status::all()),
+            'description' => fake()->optional()->text(),
+            'status' => fake()->randomElement(OrderStatus::all()),
         ];
     }
 }

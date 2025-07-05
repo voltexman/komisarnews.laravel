@@ -25,13 +25,12 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
+            ->spa()
             ->id('admin')
             ->path('admin')
             ->login()
-            ->colors([
-                'primary' => Color::hex('#9F8772'),
-            ])
-            ->font('Nunito', provider: GoogleFontProvider::class)
+            ->colors(['primary' => Color::hex('#9F8772')])
+            ->font('Roboto', provider: GoogleFontProvider::class)
             ->favicon(asset('favicon.png'))
             ->breadcrumbs(false)
             ->navigationGroups(['Main', 'Settings'])->collapsibleNavigationGroups()

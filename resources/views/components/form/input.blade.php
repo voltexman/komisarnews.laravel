@@ -9,17 +9,16 @@
                 </div>
             @endisset
 
-            <input wire:model='{{ $name }}'
+            <input id="input-{{ Str::slug($label) }}" wire:model='{{ $name }}'
                 {{ $attributes->class([
                         'pl-12' => isset($icon),
                         'border-e-0 rounded-e-none' => isset($button),
-                        'bg-max-soft/20 border-max-soft/20 text-max-dark' => $color === 'light',
+                        'bg-max-soft/15 border-max-soft/20 text-max-dark' => $color === 'light',
                         'bg-max-light/90 border-max-soft/80 focus:bg-max-light/85' => $color === 'soft',
                         'bg-max-dark/40 border-max-dark text-max-text focus:bg-max-light/10 focus:text-max-text' => $color === 'dark',
                         'peer border p-4 block w-full rounded-lg text-sm placeholder:text-transparent focus:border-max-soft focus:ring-max-soft disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2 outline-none',
                     ])->merge(['type' => 'text']) }}
-                id="input-{{ Str::slug($label) }}" placeholder="{{ $label }}" x-on:focus="counter = true"
-                x-on:blur="counter = false">
+                placeholder="{{ $label }}" x-on:focus="counter = true" x-on:blur="counter = false">
             <label for="input-{{ Str::slug($label) }}" @class([
                 'pl-12' => isset($icon),
                 'text-max-dark peer-[:not(:placeholder-shown)]:text-max-dark peer-focus:text-max-dark' =>
@@ -31,18 +30,18 @@
                 {{ $label }}
             </label>
 
-            <template x-if="'{{ $required }}'">
-                <div class="absolute text-lg top-2 right-2">
-                    <span class="block bg-red size-1.5 rounded-full"></span>
+            <template x-if="{{ $required }}">
+                <div class="absolute right-2 top-2 text-lg">
+                    <span class="block size-1.5 rounded-full bg-red"></span>
                 </div>
             </template>
 
-            <template x-if="'{{ $attributes->has('maxlength') }}'">
+            <template x-if="{{ $attributes->has('maxlength') }}">
                 <div x-show="counter" x-transition.opacity.duration.300ms>
                     <span
                         x-bind:class="$wire.{{ $name }}.length !== {{ $attributes['maxlength'] }} ? 'bg-max-soft' :
                             'bg-red'"
-                        class="absolute px-1 text-xs rounded -bottom-2 right-2 text-max-light">
+                        class="absolute -bottom-2 right-2 rounded px-1 text-xs text-max-light">
                         <span x-text="$wire.{{ $name }}.length + '/' + {{ $attributes['maxlength'] }}"></span>
                     </span>
                 </div>

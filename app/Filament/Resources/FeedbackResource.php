@@ -5,93 +5,72 @@ namespace App\Filament\Resources;
 use App\Enums\FeedbackStatus;
 use App\Filament\Resources\FeedbackResource\Pages;
 use App\Models\Feedback;
-use Filament\Forms\Components\DatePicker;
-use Filament\Infolists;
+use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Actions\ViewAction;
-use Filament\Tables\Enums\FiltersLayout;
-use Filament\Tables\Filters\Filter;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Rupadana\FilamentCustomForms\Components\InputGroup;
 
 class FeedbackResource extends Resource
 {
     protected static ?string $model = Feedback::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-chat-bubble-bottom-center-text';
-
-    protected static ?int $navigationSort = 3;
-
-    protected static ?string $pluralLabel = 'Зворотній зв`язок';
-
-    protected static ?string $label = 'Зворотній зв`язок';
-
     protected static ?string $navigationLabel = 'Зворотній зв`язок';
 
-    public static function getNavigationBadge(): ?string
-    {
-        return Feedback::query()->where('status', FeedbackStatus::NEW)->count();
-    }
+    protected static ?string $label = 'Повідомлення';
 
-    public static function getNavigationBadgeColor(): string|array|null
-    {
-        return 'danger';
-    }
+    protected static ?string $pluralLabel = 'Повідомлення';
+
+    protected static ?int $navigationSort = 4;
+
+    protected static ?string $navigationIcon = 'heroicon-o-chat-bubble-bottom-center-text';
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
-                    ->label('Відправник')
+                TextColumn::make('name')
                     ->icon('heroicon-o-user')
-                    ->iconColor('primary'),
+                    ->default('Не вказано')
+                    ->searchable()
+                    ->label('Ім`я'),
 
-                Tables\Columns\TextColumn::make('contact')
-                    ->label('Контакт')
+                TextColumn::make('contact')
                     ->icon('heroicon-o-identification')
-                    ->iconColor('primary'),
+                    ->default('Не вказано')
+                    ->searchable()
+                    ->label('Контакт'),
 
-                Tables\Columns\TextColumn::make('created_at')
-                    ->label('Дата')
-                    ->icon('heroicon-o-clock')
-                    ->iconColor('primary')
-                    ->sortable()
+                TextColumn::make('created_at')
+                    ->icon('heroicon-o-calendar-days')
                     ->dateTime()
-                    ->since(),
+                    ->searchable()
+                    ->sortable()
+                    ->alignEnd()
+                    ->label('Отримано'),
 
-                Tables\Columns\TextColumn::make('status')->badge()->label(false),
+                TextColumn::make('status')
+                    ->badge(FeedbackStatus::class)
+                    ->sortable()
+                    ->label('Статус'),
             ])
+            ->defaultSort(function (Builder $query): Builder {
+                return $query
+                    ->orderBy('status', 'asc')
+                    ->orderBy('created_at', 'desc');
+            })
             ->filters([
-                Filter::make('created_at')
-                    ->form([
-                        InputGroup::make(2)
-                            ->schema([
-                                DatePicker::make('created_from')->native(false)->label(false)->prefix('Від')->placeholder('Оберіть дату'),
-                                DatePicker::make('created_until')->native(false)->label(false)->prefix('До')->default(now()),
-                            ]),
-                    ])
-                    ->query(function (Builder $query, array $data): Builder {
-                        return $query
-                            ->when(
-                                $data['created_from'],
-                                fn (Builder $query, $date): Builder => $query->whereDate('created_at', '>=', $date),
-                            )
-                            ->when(
-                                $data['created_until'],
-                                fn (Builder $query, $date): Builder => $query->whereDate('created_at', '<=', $date),
-                            );
-                    })->columnSpanFull(),
-            ], layout: FiltersLayout::AboveContent)->filtersFormColumns(2)
-            ->striped()
+                //
+            ])
             ->actions([
-                ViewAction::make()->label(false)
-                    ->after(function (Feedback $record) {
-                        $record->update(['status' => FeedbackStatus::VIEWED]);
-                    }),
+                Tables\Actions\ViewAction::make()->modalWidth('md'),
+            ])
+            ->bulkActions([
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
+                ]),
             ]);
     }
 
@@ -99,18 +78,32 @@ class FeedbackResource extends Resource
     {
         return $infolist
             ->schema([
-                Infolists\Components\TextEntry::make('name')->label('Відправник'),
+                TextEntry::make('name')
+                    ->default('не вказано')
+                    ->label('Ім`я'),
 
-                Infolists\Components\TextEntry::make('contact')->label('Контакт'),
+                TextEntry::make('contact')
+                    ->default('не вказано')
+                    ->label('Контакт'),
 
-                Infolists\Components\TextEntry::make('text')->label('Повідомлення')->columnSpanFull(),
+                TextEntry::make('created_at')
+                    ->label('Дата'),
+
+                TextEntry::make('status')
+                    ->badge(FeedbackStatus::class)
+                    ->label(false),
+
+                TextEntry::make('text')
+                    ->columnSpanFull()
+                    ->default('не вказано')
+                    ->label('Повідомлення'),
             ]);
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListFeedback::route('/'),
+            'index' => Pages\ManageFeedback::route('/'),
         ];
     }
 }

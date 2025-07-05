@@ -1,13 +1,14 @@
 <div x-data="dropzone">
     @if ($this->isMaxPhotos())
-        <div class="w-full h-40 overflow-hidden border border-dashed rounded-lg border-max-text/30 bg-max-text/10">
-            <div class="flex content-center justify-center h-full">
+        <div class="h-40 w-full overflow-hidden rounded-lg border border-dashed border-max-text/30 bg-max-text/10">
+            <div class="flex h-full content-center justify-center">
                 <div class="flex flex-col self-center px-8 lg:px-20">
-                    <x-lucide-octagon-alert class="mx-auto mb-4 opacity-50 size-10 text-gray-500/90" />
-                    <span class="self-center text-xs text-gray-500/90">Ви додали максимальну кількість фото.</span>
-                    <span class="self-center text-xs text-center text-gray-500/90">
+                    <x-lucide-octagon-alert class="text-gray-500/90 mx-auto mb-4 size-10 opacity-50" />
+                    <span class="text-gray-500/90 self-center text-xs">Ви додали максимальну кількість
+                        фото.</span>
+                    <span class="text-gray-500/90 self-center text-center text-xs">
                         Щоб додати або змінити фото, можете видалити
-                        <x-lucide-trash-2 class="inline-flex size-3 -mt-0.5" />
+                        <x-lucide-trash-2 class="-mt-0.5 inline-flex size-3" />
                         будь-яке і відкрити інше.
                     </span>
                 </div>
@@ -15,44 +16,44 @@
         </div>
     @else
         <div :class="isDropping ? 'bg-max-text/60' : 'bg-max-text/20'"
-            class="relative w-full h-40 overflow-hidden duration-300 border border-dashed rounded-lg border-max-text/90">
-            <input type="file" multiple @change="handleFileDrop($event)" @drop="isDropping=false"
-                class="absolute inset-0 z-50 p-0 m-0 outline-none opacity-0 cursor-pointer size-full"
+            class="relative h-40 w-full overflow-hidden rounded-lg border border-dashed border-max-text/90 duration-300">
+            <input wire:model="order.photos" type="file" multiple @drop="isDropping=false"
+                class="absolute inset-0 z-50 m-0 size-full cursor-pointer p-0 opacity-0 outline-none"
                 :class="'{{ $this->isMaxPhotos() ? 'hidden' : 'block' }}'" @dragover="isDropping=true"
                 @dragleave="isDropping=false">
-            <x-lucide-camera class="absolute text-indigo-600 opacity-5 -top-3 left-3 size-20 -rotate-[25deg]" />
-            <x-lucide-image class="absolute text-red-600 opacity-5 top-1 -right-2 rotate-[35deg] size-16" />
-            <x-lucide-image-up class="absolute text-purple-600 opacity-5 bottom-1 left-16 size-16 -rotate-[55deg]" />
-            <x-lucide-image-plus class="absolute text-cyan-600 opacity-5 bottom-4 right-32 size-14 rotate-[20deg]" />
-            <x-lucide-file-image class="absolute text-cyan-600 opacity-5 top-4 left-36 size-16 rotate-[10deg]" />
-            <div class="flex flex-row h-full">
-                <div class="content-center w-1/3">
-                    <div class="relative flex mx-auto size-16">
+            <x-lucide-camera class="text-indigo-600 absolute -top-3 left-3 size-20 -rotate-[25deg] opacity-5" />
+            <x-lucide-image class="text-red-600 absolute -right-2 top-1 size-16 rotate-[35deg] opacity-5" />
+            <x-lucide-image-up class="text-purple-600 absolute bottom-1 left-16 size-16 -rotate-[55deg] opacity-5" />
+            <x-lucide-image-plus class="text-cyan-600 absolute bottom-4 right-32 size-14 rotate-[20deg] opacity-5" />
+            <x-lucide-file-image class="text-cyan-600 absolute left-36 top-4 size-16 rotate-[10deg] opacity-5" />
+            <div class="flex h-full flex-row">
+                <div class="w-1/3 content-center">
+                    <div class="relative mx-auto flex size-16">
                         <span
-                            class="absolute inline-flex rounded-full opacity-75 size-full animate-ping bg-max-soft/50"></span>
+                            class="absolute inline-flex size-full animate-ping rounded-full bg-max-soft/50 opacity-75"></span>
                         <span
-                            class="relative inline-flex border-2 rounded-full size-16 border-max-soft/70 bg-max-light">
-                            <x-lucide-cloud-upload class="self-center mx-auto size-7 text-max-soft opacity-90" />
+                            class="relative inline-flex size-16 rounded-full border-2 border-max-soft/70 bg-max-light">
+                            <x-lucide-cloud-upload class="mx-auto size-7 self-center text-max-soft opacity-90" />
                         </span>
                     </div>
                 </div>
-                <div class="flex items-stretch w-2/3">
+                <div class="flex w-2/3 items-stretch">
                     <div class="flex flex-col self-center">
                         <x-button class="flex items-center justify-center">
-                            <x-lucide-camera class="inline-flex size-5 me-1" />
+                            <x-lucide-camera class="me-1 inline-flex size-5" />
                             Відкрити<span class="hidden md:block">&nbsp;зображення</span>
                         </x-button>
                         <span class="text-sm text-max-dark/70">або перетягнути сюди...</span>
                     </div>
                 </div>
             </div>
-            <div class="absolute bottom-0 left-0 flex justify-between w-full">
-                <span class="text-xs text-max-black/60 ms-2">
-                    <x-lucide-file-image class="inline-flex -mt-1 size-3" />
+            <div class="absolute bottom-0 left-0 flex w-full justify-between">
+                <span class="ms-2 text-xs text-max-black/60">
+                    <x-lucide-file-image class="-mt-1 inline-flex size-3" />
                     JPG, PNG
                 </span>
-                <span class="text-xs text-max-black/60 me-2">
-                    <x-lucide-scaling class="inline-flex -mt-1 size-3" />
+                <span class="me-2 text-xs text-max-black/60">
+                    <x-lucide-scaling class="-mt-1 inline-flex size-3" />
                     1980x1024
                 </span>
             </div>
@@ -65,11 +66,11 @@
         </div>
 
         @php $items = ['','','','']; @endphp
-        <div class="grid grid-cols-4 mt-4 gap-x-4">
+        <div class="mt-4 grid grid-cols-4 gap-x-4">
             @foreach ($items as $item)
                 <div class="overflow-hidden rounded-lg bg-max-soft/30">
                     <div class="h-16"></div>
-                    <div class="flex justify-between h-8">
+                    <div class="flex h-8 justify-between">
                         <span class="flex w-full bg-max-dark/30"></span>
                     </div>
                 </div>
@@ -84,108 +85,9 @@
                 Але майстер бачитиме повноцінне фото. Модете додати ще 2 фото.
             </x-alert>
 
-            <div class="grid grid-cols-4 mt-4 gap-x-4">
+            <div class="mt-5 grid grid-cols-4 gap-x-5">
                 @foreach ($order->photos as $photo)
-                    <div class="relative overflow-hidden rounded-lg shadow-md aspect-square">
-                        <img src="{{ $photo->temporaryUrl() }}" class="object-cover object-center size-full"
-                            alt="">
-
-                        <div class="absolute space-y-2 right-2 top-2">
-                            {{-- Підтвердження видалення фото --}}
-                            <x-dialog caption='Підтвердження'>
-                                <x-slot:open>
-                                    <button type="button"
-                                        class="flex items-center justify-center rounded-full bg-red size-6">
-                                        <x-lucide-trash-2 class="text-white size-3" />
-                                    </button>
-                                </x-slot>
-
-                                <div class="flex justify-center gap-y-4">
-                                    <div class="flex flex-col space-y-3 font-semibold">
-                                        <div
-                                            class="flex items-center justify-center mx-auto rounded-full bg-red/40 size-16">
-                                            <x-lucide-circle-help class="inline-flex text-max-light size-10" />
-                                        </div>
-                                        <div class="text-center text-max-medium">
-                                            <div class="font-semibold">Бажаєте видалити це фото?</div>
-                                            <div class="text-sm font-light text-max-dark/80">Редагування фото видалиться
-                                                також</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <x-slot:actions class="space-x-2" cancel>
-                                    <x-button variant="danger" class="flex" @click="remove({{ $loop->index }})">
-                                        <x-lucide-trash-2 class="inline-block size-4 me-2" />
-                                        Видалити
-                                    </x-button>
-                                </x-slot>
-                            </x-dialog>
-
-                            {{-- Редагування фото --}}
-                            <x-modal>
-                                <x-slot:open>
-                                    <button type="button"
-                                        class="flex items-center justify-center rounded-full bg-max-dark size-6">
-                                        <x-lucide-pencil class="text-white size-3" />
-                                    </button>
-                                </x-slot>
-
-                                <x-slot:header>
-                                    Редагування
-                                </x-slot>
-
-                                <x-slot:body>
-                                    <img src="{{ $photo->temporaryUrl() }}"
-                                        class="object-cover object-center w-full shadow-md rounded-xl max-h-80"
-                                        alt="">
-
-                                    <div class="flex flex-row mt-4 space-x-3">
-                                        <div>
-                                            <x-button size="icon">
-                                                <x-lucide-rotate-ccw class="size-5" />
-                                            </x-button>
-                                            <x-button size="icon">
-                                                <x-lucide-rotate-cw class="size-5" />
-                                            </x-button>
-                                        </div>
-
-                                        <div>
-                                            <x-button size="icon">
-                                                <x-lucide-zoom-in class="size-5" />
-                                            </x-button>
-                                            <x-button size="icon">
-                                                <x-lucide-zoom-out class="size-5" />
-                                            </x-button>
-                                        </div>
-
-                                        <div>
-                                            <x-button size="icon">
-                                                <x-lucide-flip-horizontal class="size-5" />
-                                            </x-button>
-                                            <x-button size="icon">
-                                                <x-lucide-flip-vertical class="size-5" />
-                                            </x-button>
-                                        </div>
-                                    </div>
-                                </x-slot>
-
-                                <x-slot:footer class="flex justify-end space-x-2" cancel>
-                                    <x-button variant="danger">
-                                        <span wire:loading.remove>
-                                            <x-lucide-save class="inline-block size-4 me-3" />
-                                            Видалити
-                                        </span>
-                                        <span wire:loading>
-                                            <x-lucide-loader-circle class="inline-block size-4 me-3 animate-spin" />
-                                            Видалення...
-                                        </span>
-                                    </x-button>
-                                </x-slot>
-                                </x-dialog>
-                        </div>
-                    </div>
-                    {{-- <livewire:order.photo :$order :key="$loop->index" /> --}}
+                    <livewire:order.photo :$photo :key="$photo->getRealPath()" :index="$loop->index" />
                 @endforeach
             </div>
         @else
@@ -206,32 +108,11 @@
         Alpine.data('dropzone', () => ({
             isDropping: false,
             isUploading: false,
-            handleFileDrop(event) {
-                this.isDropping = false;
-                this.isUploading = true;
 
-                let photos = $wire.el.querySelector('input[type="file"]').files;
-
-                if (photos.length < 5) {
-                    $wire.uploadMultiple('order.photos', photos, (uploadedFilename) => {
-                        // Success callback...
-                        this.isUploading = false;
-                    }, () => {
-                        // Error callback...
-                        this.isUploading = false;
-                    }, (event) => {
-                        // Progress callback...
-                        this.progress = event.detail.progress
-                    }, () => {
-                        // Cancelled callback...
-                        this.isUploading = false;
-                    })
-                }
-            },
-            remove(uploadedFilename) {
-                $wire.removeUpload('order.photos', uploadedFilename);
-                $wire.$parent.$refresh()
-            }
+            // remove(uploadedFilename) {
+            //     $wire.removeUpload('order.photos', uploadedFilename);
+            //     $wire.$parent.$refresh()
+            // }
         }));
     </script>
 @endscript

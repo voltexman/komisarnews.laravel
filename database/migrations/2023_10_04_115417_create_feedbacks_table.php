@@ -14,9 +14,9 @@ return new class extends Migration
     {
         Schema::create('feedbacks', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('contact');
-            $table->longText('text');
+            $table->string('name')->nullable();
+            $table->string('contact')->nullable();
+            $table->text('text');
             $table->enum('status', FeedbackStatus::all())->default(FeedbackStatus::NEW);
             $table->timestamps();
         });

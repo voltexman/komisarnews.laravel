@@ -2,31 +2,22 @@
 
 namespace App\Filament\Resources;
 
-use App\Enums\Order\Goals;
-use App\Enums\Order\Status;
+use App\Enums\Order\OrderPurpose;
+use App\Enums\OrderStatus;
 use App\Filament\Resources\OrderResource\Pages;
 use App\Models\Order;
-use Filament\Forms\Form;
-use Filament\Infolists\Components\Fieldset;
-use Filament\Infolists\Components\Split;
+use Filament\Infolists\Components\Grid;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
-use Filament\Support\Enums\FontWeight;
 use Filament\Tables;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class OrderResource extends Resource
 {
     protected static ?string $model = Order::class;
-
-    protected static ?string $navigationIcon = 'heroicon-o-shopping-bag';
-
-    protected static ?int $navigationSort = 2;
 
     protected static ?string $navigationLabel = 'Замовлення';
 
@@ -34,121 +25,112 @@ class OrderResource extends Resource
 
     protected static ?string $pluralLabel = 'Замовлення';
 
-    public static function getNavigationBadge(): ?string
-    {
-        return Order::query()->where('status', Status::NEW)->count();
-    }
+    protected static ?int $navigationSort = 3;
 
-    public static function getNavigationBadgeColor(): string|array|null
-    {
-        return 'danger';
-    }
-
-    public static function getGloballySearchableAttributes(): array
-    {
-        return ['number', 'city', 'name'];
-    }
-
-    public static function form(Form $form): Form
-    {
-        return $form
-            ->schema([
-                //
-            ]);
-    }
+    protected static ?string $navigationIcon = 'heroicon-o-shopping-bag';
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('number')
-                    ->weight(FontWeight::Bold)
-                    ->prefix('#')
-                    ->numeric()
-                    ->copyable()
-                    ->copyMessage('Color code copied')
-                    ->copyMessageDuration(500)
-                    ->label(false),
+                TextColumn::make('id')->searchable()->label('ID'),
 
-                TextColumn::make('goal')
-                    ->label('Замовлення')
-                    ->searchable(),
+                TextColumn::make('purpose')->badge(OrderPurpose::class)->sortable()->label('Мета'),
 
-                TextColumn::make('city')
-                    ->icon('heroicon-o-map-pin')
-                    ->searchable()
-                    ->label('Місто'),
+                TextColumn::make('city')->default('Не вказано')->searchable()->label('Місто'),
 
                 TextColumn::make('phone')
-                    ->icon('heroicon-o-phone')
+                    ->default('Не вказано')
+                    ->copyable()
+                    ->copyMessage('Телефон скопійований')
                     ->searchable()
                     ->label('Телефон'),
 
-                TextColumn::make('hair_length')
-                    ->numeric()
-                    ->sortable()
-                    ->suffix('мм')
-                    ->label('Довжина'),
+                TextColumn::make('email')
+                    ->default('Не вказано')
+                    ->copyable()
+                    ->copyMessage('Пошта скопійована')
+                    ->searchable()
+                    ->label('Пошта'),
 
-                TextColumn::make('created_at')
-                    ->label(false)
-                    ->dateTime()
-                    ->since(),
+                TextColumn::make('status')->badge(OrderStatus::class)->sortable()->label('Статус'),
 
-                TextColumn::make('status')->badge()->label(false),
+                TextColumn::make('created_at')->date()->alignEnd()->label('Дата'),
             ])
+            ->defaultSort(function (Builder $query): Builder {
+                return $query
+                    // ->orderBy('status', 'asc')
+                    ->orderBy('created_at', 'desc');
+            })
             ->filters([
-                SelectFilter::make('goal')->options(Goals::class)->native(false)->label('Замовлення'),
-                SelectFilter::make('status')->options(Status::class)->native(false)->label('Статус'),
+                //
             ])
             ->actions([
-                ViewAction::make()->label(false),
-                DeleteAction::make()->label(false),
+                Tables\Actions\ViewAction::make()->modalWidth('2xl'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ])->recordClasses(fn (Order $record) => match ($record->status) {
-                Status::NEW => 'bg-red300/10 font-semibold dark:bg-red-300/15',
-                Status::CANCELED => 'opacity-75',
-                default => null,
-            })->striped();
+            ]);
     }
 
     public static function infolist(Infolist $infolist): Infolist
     {
         return $infolist
             ->schema([
-                Fieldset::make('Дані замовника')
-                    ->schema([
-                        TextEntry::make('name')->label('Замовник'),
-                        TextEntry::make('city')->label('Місто'),
-                        TextEntry::make('email')->label('Пошта'),
-                        TextEntry::make('phone')->label('Телефон'),
-                    ])->columns(2),
-                Fieldset::make('Характеристики волосся')
-                    ->schema([
-                        Split::make([
-                            TextEntry::make('color')->label('Колір')->columnSpanFull(),
-                            TextEntry::make('hair_options')->label('Опції')->columnSpanFull(),
-                        ])->columnSpanFull(),
+                Grid::make(4)->schema([
+                    TextEntry::make('purpose')
+                        ->badge(OrderPurpose::class)
+                        ->label('Мета заявки'),
 
-                        Split::make([
-                            TextEntry::make('hair_weight')->label('Вага')->suffix('гр.'),
-                            TextEntry::make('hair_length')->label('Довжина')->suffix('мм.'),
-                            TextEntry::make('age')->label('Вік')->suffix('р.'),
-                        ])->columns(3)->columnSpanFull(),
+                    TextEntry::make('id')
+                        ->copyable()
+                        ->copyMessage('ID номер замовлення скопійовано')
+                        ->label('ID номер'),
 
-                        TextEntry::make('description')->label('Додатковий опис')->columnSpanFull(),
-                    ]),
+                    TextEntry::make('created_at')
+                        ->label('Дата/Час'),
+
+                    TextEntry::make('status')
+                        ->badge(OrderStatus::class)
+                        ->label('Статус'),
+                ]),
+
+                Grid::make(2)->schema([
+                    TextEntry::make('name')
+                        ->default('не вказано')
+                        ->label('Ім`я'),
+
+                    TextEntry::make('city')
+                        ->label('Місто'),
+                ]),
+
+                Grid::make(2)->schema([
+                    TextEntry::make('phone')
+                        ->copyable()
+                        ->copyMessage('Номер телефону скопійовано')
+                        ->label('Телефон'),
+
+                    TextEntry::make('email')
+                        ->default('не вказано')
+                        ->copyable()
+                        ->copyMessage('E-Mail скопійовано')
+                        ->label('Пошта'),
+                ]),
+
+                TextEntry::make('description')
+                    ->columnSpanFull()
+                    ->default('не вказано')
+                    ->columnSpanFull()
+                    ->label('Повідомлення'),
             ]);
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageOrders::route('/'),
+            'index' => Pages\ListOrders::route('/'),
         ];
     }
 }
